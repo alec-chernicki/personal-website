@@ -18,7 +18,9 @@ $weight-regular: 400;
 $weight-semibold: 600;
 $weight-bold: 700;
 
-$line-height: 28px;
+$line-height: 30px;
+
+$paragraph-text: 1.1em;
 
 $dark-blue: #25292D;
 
@@ -40,11 +42,33 @@ ul,li {
   padding: 0;
 }
 
+.button {
+  display: block;
+  text-decoration: none;
+  font-weight: $weight-semibold;
+  padding: 20px 0;
+  border: solid 2px #fff;
+  letter-spacing: 1.5px;
+  border-radius: 8px;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    transition: 0.25s;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+
+// Defines styling for all section header text and decorative lines
 .section-header-container {
   text-align: center;
   margin-bottom: 80px;
 
-  h2 {
+  >h2 {
     font-weight: $weight-bold;
     color: $text-dark;
     font-size: 50px;
@@ -70,8 +94,8 @@ ul,li {
       right: 50px;
     }
 
-    .underline {
-      font-family: 'Permanent Marker';
+    >.underline {
+      font-family: 'Permanent Marker', sans-serif;
       position: relative;
 
       &:after {
@@ -86,7 +110,7 @@ ul,li {
     }
   }
 
-  p {
+  >p {
     font-weight: $weight-light;
     color: $text-light;
     font-size: 15px;
@@ -94,10 +118,11 @@ ul,li {
   }
 }
 
+// Defines styling for all section paragraph text
 .section-text-container {
   text-align: center;
 
-  h3 {
+  >h3 {
     color: $text-dark;
     font-weight: $weight-semibold;
     font-size: 20px;
@@ -106,31 +131,39 @@ ul,li {
 
   }
 
-  p {
+  >p, >ul {
     color: $text-light;
     font-weight: $weight-light;
-    letter-spacing: 1px;
-    line-height: 28px;
+    font-size: $paragraph-text;
+    line-height: $line-height;
+    letter-spacing: 0.5px;
   }
 }
 
 // Hero Section
 #hero.jumbotron {
   height: 100%;
+  padding-top: 50px;
+
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/images/desk.jpg");
   background-size: cover;
   color: #fff;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 
+  #logo {
+    height: 50px;
+  }
+
   h1 {
     font-size: 50px/70px;
     font-weight: $weight-bold;
-    margin-bottom: 30px;
+    margin: 30px 0;
   }
 
   p {
-    font-size: 17px/30px;
+    font-size: 20px;
     font-weight: $weight-light;
+
   }
 }
 
@@ -142,10 +175,11 @@ ul,li {
   box-shadow: 0 5px 7px -5px rgba(0,0,0,0.2);
 }
 
+//TODO: Need to change hacky nature of using a jumbotron here
 #about.jumbotron {
   background-color: #F5F5F5;
   margin: 50px 0 0 0;
-  padding: 50px;
+  padding: 50px 15px;
 
   h3, li {
     color: $text-light;
@@ -156,7 +190,7 @@ ul,li {
   }
 
   li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 
     &:last-child {
       margin: 0;
@@ -164,26 +198,82 @@ ul,li {
   }
 }
 
+//TODO:major refactoring needs to be done to DRY this all up
 #developer {
-  height: 100%;
   background-color: $dark-blue;
+  padding-bottom: 0;
+  margin-bottom: 0;
 
-  h2, p {
+  h2, h3, p, a {
     color: #FFF;
 
     &:before, &:after {
       display: none;
     }
   }
+
+  li>p {
+    font-weight: $weight-semibold;
+    letter-spacing: 1.5px;
+    font-size: $paragraph-text;
+  }
+
+  a {
+    &:hover {
+      background-color: #FFF;
+      color: $dark-blue;
+    }
+  }
 }
+
+#designer {
+  padding-bottom: 0;
+
+  h2, h3, p {
+    &:before, &:after {
+      display: none;
+    }
+  }
+}
+.browser-container{
+
+  &.browser{
+    bottom:0;
+  }
+}
+
+#work {
+  ul {
+    text-align: center;
+  }
+
+  ul>li {
+    display: inline;
+    font-weight: $weight-light;
+    color: $text-light;
+    font-size: 15px;
+    letter-spacing: 3px;
+    padding: 0 30px;
+  }
+}
+
+#portfolio {
+  width: 100%;
+
+  #isotope {
+    .item {
+      width: 25%;
+      height: 100px;
+      background-color: $dark-blue;
+      border: 1px solid #0000FF;
+    }
+  }
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
     max-width: 1300px;
-  }
-
-  #hero.jumbotron {
-    padding: 75px;
   }
 
   .section-header-container {
@@ -203,5 +293,34 @@ ul,li {
   .section-text-container {
     text-align: left;
   }
+
+  #hero.jumbotron {
+    padding: 75px;
+
+    #logo {
+      height: 75px;
+    }
+
+    h1 {
+      margin-top: 100px;
+    }
+  }
+
+  #about.jumbotron {
+    padding: 50px;
+  }
+
+  #developer {
+    .developer-concise {
+      text-align: right;
+    }
+  }
+
+  #designer {
+    .designer-showtell {
+      text-align: right;
+    }
+  }
+
 }
 

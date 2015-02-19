@@ -9,6 +9,7 @@ html.no-js
     // Place favicon.ico and apple-touch-icon.png in the root directory
     // build:css(.) styles/vendor.css
     // bower:css
+    link(rel='stylesheet', href='bower_components/normalize.css/normalize.css')
     // endbower
     // endbuild
     // build:css(.tmp) styles/main.css
@@ -29,13 +30,23 @@ html.no-js
         |  browser. Please
         a(href='http://browsehappy.com/') upgrade your browser
         |  to improve your experience.
+
+
+
+
+
+
+
+
+
     #hero.jumbotron
       .container.col-sm-12.col-md-8.pull-left
-        a#logo
+        a
+          img#logo(src='images/logo.svg')
         h1 Design for empathy.<br>Develop for ease.
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a lorem nec mauris feugiat ornare non sed orci. Nunc ultrices quis eros a varius. Mauris lobortis ornare tristique.
 
-    .about.container
+    .container
       .section-header-container
         h2 HEY THERE
         p IT'S NICE TO MEET YOU
@@ -44,7 +55,7 @@ html.no-js
         h3 MY PASSION IS CREATING EXPERIENCES
         p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
 
-    // Use of jumbotron seems hack-y will fix later
+    // TODO: Use of jumbotron seems hack-y will fix later
     #about.jumbotron
       .container
         .section-text-container.col-sm-5
@@ -64,6 +75,80 @@ html.no-js
           h2 I AM A:#{' '}
             span.underline DEVELOPER
 
+      .container-fluid
+        .col-sm-3
+          .frameworks
+          .developer-concise.section-text-container
+            h3 CLEAN. CONCISE.
+            p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+        .col-sm-3.pull-right
+          .developer-laguages.section-text-container
+            h3 LANGUAGES
+            p Most of my academic background is Python and I code in Ruby professionally. I am continually looking for resources to further my knowledge on any language.
+
+            // TODO: Will animate these using javascript later
+            ul
+              li.progress-bar-one
+                p HTML, CSS, SASS
+              li.progress-bar-two
+                p JAVASCRIPT
+              li.progress-bar-three
+                p PYTHON
+              li.progress-bar-four
+                p RUBY
+            a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
+
+
+
+        .browser-container.col-sm-6
+          img.browser(src="images/browser.svg")
+
+    #designer.jumbotron
+      .container
+        .section-header-container
+          h2 I AM A:#{' '}
+            span.underline DESIGNER
+
+      .container-fluid
+        .col-sm-3
+          .designer-showtell.section-text-container
+            h3 DON'T JUST TELL, SHOW.
+            P I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+        .col-sm-3.pull-right
+        .browser-container.col-sm-6
+          img.browser(src="images/browser.svg")
+
+    #work.container
+      .section-header-container
+        h2 MY WORK
+      ul
+        li MOBILE
+        li WEB
+        li BRANDING
+        li ALL
+
+    #portfolio
+      #isotope
+        .item
+        .item
+        .item
+        .item
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // build:js(.) scripts/vendor.js
     // bower:js
     script(src='bower_components/jquery/dist/jquery.js')
@@ -79,6 +164,7 @@ html.no-js
     script(src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js')
     script(src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js')
     script(src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js')
+    script(src='bower_components/isotope/dist/isotope.pkgd.min.js')
     // endbower
     // endbuild
     script.
