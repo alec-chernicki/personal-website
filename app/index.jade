@@ -13,9 +13,11 @@ html.no-js
     // endbuild
     // build:css(.tmp) styles/main.css
     link(rel='stylesheet', href='styles/main.css')
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700',
-     type='text/css')
     // endbuild
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700',
+    type='text/css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Permanent+Marker',
+    type='text/css')
     // build:js scripts/vendor/modernizr.js
     script(src='bower_components/modernizr/modernizr.js')
     // endbuild
@@ -33,26 +35,35 @@ html.no-js
         h1 Design for empathy.<br>Develop for ease.
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a lorem nec mauris feugiat ornare non sed orci. Nunc ultrices quis eros a varius. Mauris lobortis ornare tristique.
 
+    .about.container
+      .section-header-container
+        h2 HEY THERE
+        p IT'S NICE TO MEET YOU
+      .about-video.col-sm-5
+      .section-text-container.col-sm-5.pull-right
+        h3 MY PASSION IS CREATING EXPERIENCES
+        p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
 
-    .container
-      .row.marketing
-        .col-lg-6
-          h4 HTML5 Boilerplate
-          p
-            | HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-          h4 Sass
-          p
-            | Sass is a mature, stable, and powerful professional grade CSS extension language.
-          h4 Bootstrap
-          p
-            | Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
-          h4 Modernizr
-          p
-            | Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
-      .footer
-        p
-          span.glyphicon.glyphicon-heart
-          |  from the Yeoman team
+    // Use of jumbotron seems hack-y will fix later
+    #about.jumbotron
+      .container
+        .section-text-container.col-sm-5
+          h3 CURRENTLY LISTENING TO:
+          p A widget calling the last.fm API will be here
+        .section-text-container.col-sm-5.pull-right
+          h3 INTERESTS:
+          ul
+            li • Endlessly scrolling through Dribbble
+            li • Interjecting with songs from Frozen
+            li • Consuming copious amounts of coffee
+            li • Corgis
+
+    #developer.jumbotron
+      .container
+        .section-header-container
+          h2 I AM A:#{' '}
+            span.underline DEVELOPER
+
     // build:js(.) scripts/vendor.js
     // bower:js
     script(src='bower_components/jquery/dist/jquery.js')

@@ -213,7 +213,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         ignorePath: /^\/|\.\.\//,
-        src: ['<%= config.app %>/index.html'],
+        src: ['<%= config.app %>/index.jade'],
         exclude: ['bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js']
       },
       sass: {
