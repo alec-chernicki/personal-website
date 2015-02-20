@@ -3,26 +3,24 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
 $open-sans: "Open Sans", "Arial", san-serif;
-$text-dark: #373737;
-$text-light: #7B7B7B;
+
 $weight-light: 300;
 $weight-regular: 400;
 $weight-semibold: 600;
 $weight-bold: 700;
 
 $line-height: 30px;
-
 $paragraph-text: 1.1em;
 
-$dark-blue: #25292D;
+$text-dark: #373737;
+$text-light: #7B7B7B;
+$background-dark-blue: #25292D;
+$background-light-grey: #F5F5F5;
+
+$border: 1px solid #ddd;
+$padding: 10px;
+$label-font-size: 13px;
 
 // Define General Styling
 html {
@@ -37,6 +35,7 @@ html {
 }
 
 ul,li {
+  display: block;
   margin: 0;
   list-style: none;
   padding: 0;
@@ -63,7 +62,8 @@ ul,li {
 }
 
 
-// Defines styling for all section header text and decorative lines
+// Defines styles for all text in header containers
+// ----------------------------------------------
 .section-header-container {
   text-align: center;
   margin-bottom: 80px;
@@ -118,7 +118,8 @@ ul,li {
   }
 }
 
-// Defines styling for all section paragraph text
+// Defines styles for all text in text containers
+// ----------------------------------------------
 .section-text-container {
   text-align: center;
 
@@ -140,7 +141,13 @@ ul,li {
   }
 }
 
+.section-container {
+  width: 100%;
+  padding: 50px;
+}
+
 // Hero Section
+// ----------------------------------------------
 #hero.jumbotron {
   height: 100%;
   padding-top: 50px;
@@ -168,6 +175,7 @@ ul,li {
 }
 
 // About Section
+// ----------------------------------------------
 .about-video {
   height: 400px;
   border-bottom: solid $text-light 1px;
@@ -175,9 +183,11 @@ ul,li {
   box-shadow: 0 5px 7px -5px rgba(0,0,0,0.2);
 }
 
+// About Interests
+// ----------------------------------------------
 //TODO: Need to change hacky nature of using a jumbotron here
-#about.jumbotron {
-  background-color: #F5F5F5;
+#about {
+  background-color: $background-light-grey;
   margin: 50px 0 0 0;
   padding: 50px 15px;
 
@@ -198,9 +208,11 @@ ul,li {
   }
 }
 
+// Developer
+// ----------------------------------------------
 //TODO:major refactoring needs to be done to DRY this all up
 #developer {
-  background-color: $dark-blue;
+  background-color: $background-dark-blue;
   padding-bottom: 0;
   margin-bottom: 0;
 
@@ -221,28 +233,37 @@ ul,li {
   a {
     &:hover {
       background-color: #FFF;
-      color: $dark-blue;
+      color: $background-dark-blue;
     }
   }
 }
 
-#designer {
+// Designer
+// ----------------------------------------------
+&.designer {
   padding-bottom: 0;
+  background-color: $background-light-grey;
 
-  h2, h3, p {
-    &:before, &:after {
+  > h2:before, h2:after {
       display: none;
-    }
+  }
+
+  .underline:after {
+    background-color: $text-dark;
   }
 }
-.browser-container{
 
+.browser-container {
   &.browser{
     bottom:0;
   }
 }
 
+// My Work
+// ----------------------------------------------
 #work {
+  padding-bottom: 25px;
+
   ul {
     text-align: center;
   }
@@ -257,15 +278,86 @@ ul,li {
   }
 }
 
+
+// Portfolio
+// ----------------------------------------------
 #portfolio {
-  width: 100%;
+  width: 25%;
 
   #isotope {
     .item {
-      width: 25%;
+      width: 49%;
       height: 100px;
-      background-color: $dark-blue;
+      background-color: $background-dark-blue;
       border: 1px solid #0000FF;
+      transition-duration: 0.8s;
+      transition-property: transform, opacity;
+    }
+  }
+}
+
+// Portfolio
+// ----------------------------------------------
+.contact-form-container {
+  // This creates the form animation
+  .float-label {
+    .control {
+      float: left;
+      position: relative;
+      width: 100%;
+      border-bottom: $border;
+      padding-top: $padding + $label-font-size;
+      padding-bottom: $padding;
+    }
+
+    form {
+      width: 600px;
+      margin: 2em auto;
+
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 300;
+      font-size: 22px;
+    }
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      resize: none;
+
+      & + label {
+        position: absolute;
+        top: 10px;
+        transition: top 0.7s ease, opacity 0.7s ease;
+        opacity: 0;
+
+        font-size: $label-font-size;
+        font-weight: 600;
+        color: #ccc;
+      }
+
+      &:valid + label {
+        opacity: 1;
+        top: 3px;
+      }
+
+      &:focus + label {
+        color: #2c8efe;
+      }
+    }
+  }
+
+  a {
+    &.button {
+      display: block;
+      text-decoration: none;
+      font-weight: $weight-semibold;
+      padding: 20px 0;
+      border: solid 2px #2c8efe;
+      letter-spacing: 1.5px;
+      border-radius: 8px;
+      text-align: left;
     }
   }
 }
@@ -306,21 +398,16 @@ ul,li {
     }
   }
 
-  #about.jumbotron {
-    padding: 50px;
-  }
-
   #developer {
     .developer-concise {
       text-align: right;
     }
   }
 
-  #designer {
+  .designer {
     .designer-showtell {
       text-align: right;
     }
   }
-
 }
 

@@ -1,7 +1,7 @@
-// Generated on 2015-02-17 using
-// generator-webapp 0.5.1
 'use strict';
 
+// Generated on 2015-02-17 using
+// generator-webapp 0.5.1
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'

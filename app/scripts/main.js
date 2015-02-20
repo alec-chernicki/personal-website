@@ -1,7 +1,8 @@
+'use strict';
+
 var $container = $('#isotope');
-// init
+// initialize Isotope
 $container.isotope({
-  // options
+  // options...
   itemSelector: '.item',
-  layoutMode: 'fitRows'
 });

@@ -5,11 +5,12 @@ html.no-js
     title Alec Ortega | Front-End Developer
     meta(name='description', content='')
     meta(name='viewport', content='width=device-width')
+    meta(name="description", content="My name is Alec Ortega, I'm a Front-End Developer and User " +
+    "Interface Designer, its great to finally meet you.")
     link(rel='shortcut icon', href='/favicon.ico')
     // Place favicon.ico and apple-touch-icon.png in the root directory
     // build:css(.) styles/vendor.css
     // bower:css
-    link(rel='stylesheet', href='bower_components/normalize.css/normalize.css')
     // endbower
     // endbuild
     // build:css(.tmp) styles/main.css
@@ -22,23 +23,8 @@ html.no-js
     // build:js scripts/vendor/modernizr.js
     script(src='bower_components/modernizr/modernizr.js')
     // endbuild
+
   body
-    //if lt IE 10
-      p.browsehappy
-        | You are using an
-        strong outdated
-        |  browser. Please
-        a(href='http://browsehappy.com/') upgrade your browser
-        |  to improve your experience.
-
-
-
-
-
-
-
-
-
     #hero.jumbotron
       .container.col-sm-12.col-md-8.pull-left
         a
@@ -56,7 +42,7 @@ html.no-js
         p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
 
     // TODO: Use of jumbotron seems hack-y will fix later
-    #about.jumbotron
+    #about.section-container
       .container
         .section-text-container.col-sm-5
           h3 CURRENTLY LISTENING TO:
@@ -69,7 +55,7 @@ html.no-js
             li • Consuming copious amounts of coffee
             li • Corgis
 
-    #developer.jumbotron
+    #developer.section-container
       .container
         .section-header-container
           h2 I AM A:#{' '}
@@ -98,12 +84,10 @@ html.no-js
                 p RUBY
             a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
 
-
-
         .browser-container.col-sm-6
           img.browser(src="images/browser.svg")
 
-    #designer.jumbotron
+    .designer.section-container
       .container
         .section-header-container
           h2 I AM A:#{' '}
@@ -133,15 +117,45 @@ html.no-js
         .item
         .item
         .item
+        .item
+        .item
+        .item
+        .item
+        .item
+        .item
+        .item
+        .item
 
+    #contact.section-container
+      .container
+        .col-sm-5
+          .contact-form-container.section-text-container
+            h3 GET IN TOUCH
+            p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
+            form.float-label.clearfix
+              .control
+                input(type="text" name="fullname" placeholder='Full Name' required)
+                label(for="fullname") Full Name
+              .control
+                input(type="text" name="email" placeholder="Your Email" required)
+                label(for="email") Your Email
+              .control
+                input(type="text" name="message" placeholder="Your Message" required)
+                label(for="message") Message
+          a.button SEND MESSAGE
 
-
-
-
-
-
-
-
+        .col-sm-5.pull-right
+          .contact-links-container.section-text-container
+            h3 FIND ME ELSEWHERE
+            ul
+              li
+                a Twitter
+              li
+                a Dribbble
+              li
+                a LinkedIn
+              li
+                a Medium
 
 
 
@@ -164,7 +178,6 @@ html.no-js
     script(src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js')
     script(src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js')
     script(src='bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js')
-    script(src='bower_components/isotope/dist/isotope.pkgd.min.js')
     // endbower
     // endbuild
     script.
@@ -182,5 +195,6 @@ html.no-js
       }(window, document, 'script', 'ga'));
       ga('create', 'UA-59799566-1');ga('send', 'pageview');
     // build:js({app,.tmp}) scripts/main.js
+    script(src='bower_components/isotope/dist/isotope.pkgd.min.js')
     script(src='scripts/main.js')
     // endbuild
