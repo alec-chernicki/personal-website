@@ -20,6 +20,8 @@ html.no-js
     type='text/css')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Permanent+Marker',
     type='text/css')
+    link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min" +
+    ".css")
     // build:js scripts/vendor/modernizr.js
     script(src='bower_components/modernizr/modernizr.js')
     // endbuild
@@ -42,7 +44,7 @@ html.no-js
         p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
 
     // TODO: Use of jumbotron seems hack-y will fix later
-    #about.section-container
+    .about.section-container
       .container
         .section-text-container.col-sm-5
           h3 CURRENTLY LISTENING TO:
@@ -55,42 +57,43 @@ html.no-js
             li • Consuming copious amounts of coffee
             li • Corgis
 
-    #developer.section-container
-      .container
+    #developer.clearfix
+      #developer-particles
+      .section-container.clearfix
         .section-header-container
-          h2 I AM A:#{' '}
+          h2 I'M A:#{' '}
             span.underline DEVELOPER
+        .container-fluid
+          .col-sm-3
+            .frameworks
+            .developer-concise.section-text-container
+              h3 CLEAN. CONCISE.
+              p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+          .col-sm-3.pull-right
+            .developer-laguages.section-text-container
+              h3 LANGUAGES
+              p Most of my academic background is Python and I code in Ruby professionally. I am continually looking for resources to further my knowledge on any language.
 
-      .container-fluid
-        .col-sm-3
-          .frameworks
-          .developer-concise.section-text-container
-            h3 CLEAN. CONCISE.
-            p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
-        .col-sm-3.pull-right
-          .developer-laguages.section-text-container
-            h3 LANGUAGES
-            p Most of my academic background is Python and I code in Ruby professionally. I am continually looking for resources to further my knowledge on any language.
+              // TODO: Will animate these using javascript later
+              ul
+                li.progress-bar-one
+                  p HTML, CSS, SASS
+                li.progress-bar-two
+                  p JAVASCRIPT
+                li.progress-bar-three
+                  p PYTHON
+                li.progress-bar-four
+                  p RUBY
+              a.button(href='https://github.com/alecortega' target='_blank')
+                i(class="fa fa-github") VIEW GITHUB
 
-            // TODO: Will animate these using javascript later
-            ul
-              li.progress-bar-one
-                p HTML, CSS, SASS
-              li.progress-bar-two
-                p JAVASCRIPT
-              li.progress-bar-three
-                p PYTHON
-              li.progress-bar-four
-                p RUBY
-            a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
-
-        .browser-container.col-sm-6
-          img.browser(src="images/browser.svg")
+          .browser-container.col-sm-6
+            img.browser(src="images/browser.svg")
 
     .designer.section-container
       .container
         .section-header-container
-          h2 I AM A:#{' '}
+          h2 I'M A:#{' '}
             span.underline DESIGNER
 
       .container-fluid
@@ -106,13 +109,18 @@ html.no-js
       .section-header-container
         h2 MY WORK
       ul
-        li MOBILE
-        li WEB
-        li BRANDING
-        li ALL
+        li
+          a MOBILE
+        li
+          a WEB
+        li
+          a BRANDING
+        li
+          a ALL
 
     #portfolio
       #isotope
+        .grid-sizer
         .item
         .item
         .item
@@ -126,38 +134,42 @@ html.no-js
         .item
         .item
 
-    #contact.section-container
+    .contact.section-container
       .container
-        .col-sm-5
-          .contact-form-container.section-text-container
-            h3 GET IN TOUCH
-            p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
-            form.float-label.clearfix
-              .control
-                input(type="text" name="fullname" placeholder='Full Name' required)
-                label(for="fullname") Full Name
-              .control
-                input(type="text" name="email" placeholder="Your Email" required)
-                label(for="email") Your Email
-              .control
-                input(type="text" name="message" placeholder="Your Message" required)
-                label(for="message") Message
-          a.button SEND MESSAGE
 
-        .col-sm-5.pull-right
-          .contact-links-container.section-text-container
+        .contact-form-container.section-text-container.col-sm-6
+          h3 GET IN TOUCH
+          p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
+          form.float-label.clearfix
+            .control
+              input(type="text" name="fullname" placeholder='Full Name' required)
+              label(for="fullname") Full Name
+            .control
+              input(type="text" name="email" placeholder="Your Email" required)
+              label(for="email") Your Email
+            .control
+              textarea.message(name="message" placeholder="Your Message" required)
+          a.button(href="#" type="submit" target="_blank") SEND MESSAGE
+
+        .contact-links-container
+          .section-text-container.col-sm-5.pull-right
             h3 FIND ME ELSEWHERE
-            ul
-              li
-                a Twitter
-              li
-                a Dribbble
-              li
-                a LinkedIn
-              li
-                a Medium
+            ul.fa-ul
+              li.fa-li.fa.fa-twitter
+                a.twitter(href="https://twitter.com/WhyNotDoStuff") Twitter
+                p 2500 followers
+              li.fa-li.fa.fa-dribbble
+                a.dribbble(href="https://dribbble.com/alecortega") Dribbble
+                p 0 followers
+              li.fa-li.fa.fa-linkedin
+                a.linkedin(href="https://linkedin.com/in/alecortega/") LinkedIn
+                p 250 connections
+              li.fa-li.fa.fa-medium
+                a.medium(href="https://medium.com/@whynotdostuff") Medium
+                p 600 reads
 
 
+    #footer-particles.footer.section-container
 
 
 
@@ -195,6 +207,8 @@ html.no-js
       }(window, document, 'script', 'ga'));
       ga('create', 'UA-59799566-1');ga('send', 'pageview');
     // build:js({app,.tmp}) scripts/main.js
+    script(src='bower_components/particles.js/particles.js')
     script(src='bower_components/isotope/dist/isotope.pkgd.min.js')
+    script(src='bower_components/jquery-autosize/jquery.autosize.min.js')
     script(src='scripts/main.js')
     // endbuild

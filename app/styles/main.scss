@@ -22,6 +22,9 @@ $border: 1px solid #ddd;
 $padding: 10px;
 $label-font-size: 13px;
 
+$transition-time: 0.2s;
+$short-transition: 0.1s;
+
 // Define General Styling
 html {
   box-sizing: border-box;
@@ -34,16 +37,23 @@ html {
   }
 }
 
-ul,li {
+img, ul, li {
   display: block;
   margin: 0;
   list-style: none;
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+
+  &:hover, &:visited, &:focus {
+    text-decoration: none;
+  }
+}
+
 .button {
   display: block;
-  text-decoration: none;
   font-weight: $weight-semibold;
   padding: 20px 0;
   border: solid 2px #fff;
@@ -52,15 +62,13 @@ ul,li {
   text-align: center;
 
   &:hover {
-    text-decoration: none;
-    transition: 0.25s;
-  }
-
-  &:visited {
-    text-decoration: none;
+    transition: $transition-time;
   }
 }
 
+canvas{
+  vertical-align:bottom;
+}
 
 // Defines styles for all text in header containers
 // ----------------------------------------------
@@ -143,7 +151,7 @@ ul,li {
 
 .section-container {
   width: 100%;
-  padding: 50px;
+  padding: 50px 15px;
 }
 
 // Hero Section
@@ -179,27 +187,25 @@ ul,li {
 .about-video {
   height: 400px;
   border-bottom: solid $text-light 1px;
-  margin-bottom: 25px;
+  margin: 0 auto 25px;
   box-shadow: 0 5px 7px -5px rgba(0,0,0,0.2);
+  max-width: 400px;
 }
 
 // About Interests
 // ----------------------------------------------
 //TODO: Need to change hacky nature of using a jumbotron here
-#about {
+.about {
   background-color: $background-light-grey;
   margin: 50px 0 0 0;
   padding: 50px 15px;
-
-  h3, li {
-    color: $text-light;
-  }
 
   ul, li {
     list-style-type: none;
   }
 
   li {
+    color: $text-light;
     margin-bottom: 5px;
 
     &:last-child {
@@ -211,10 +217,16 @@ ul,li {
 // Developer
 // ----------------------------------------------
 //TODO:major refactoring needs to be done to DRY this all up
+
+
+// TODO: Remove static height,  fix elements breaking container
 #developer {
+  position: relative;
   background-color: $background-dark-blue;
   padding-bottom: 0;
   margin-bottom: 0;
+  overflow: hidden;
+  height: 700px;
 
   h2, h3, p, a {
     color: #FFF;
@@ -236,6 +248,22 @@ ul,li {
       color: $background-dark-blue;
     }
   }
+
+  .section-container {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+  }
+
+  .developer-particles {
+    position: absolute;
+    z-index: -1000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 // Designer
@@ -250,12 +278,6 @@ ul,li {
 
   .underline:after {
     background-color: $text-dark;
-  }
-}
-
-.browser-container {
-  &.browser{
-    bottom:0;
   }
 }
 
@@ -282,41 +304,63 @@ ul,li {
 // Portfolio
 // ----------------------------------------------
 #portfolio {
-  width: 25%;
-
   #isotope {
+    margin: 0 auto;
+
     .item {
-      width: 49%;
-      height: 100px;
       background-color: $background-dark-blue;
-      border: 1px solid #0000FF;
-      transition-duration: 0.8s;
+      transition-duration: 0.4s;
       transition-property: transform, opacity;
+
+      float: left;
+      height: 200px;
+      width: 100%;
+
+      border: 1px solid #2390b9;
     }
+  }
+
+  & .item {
+    transition-duration: 0.4s;
+    transition-property: transform, opacity;
   }
 }
 
-// Portfolio
+// Contact Me
 // ----------------------------------------------
+.contact {
+  .container {
+    padding: 0;
+  }
+}
+
 .contact-form-container {
+
+  h3 {
+    font-weight: $weight-bold;
+    font-size: 30px;
+    letter-spacing: 3px;
+  }
+
   // This creates the form animation
+  // TODO: Make container expand when label is displayed
   .float-label {
     .control {
       float: left;
       position: relative;
       width: 100%;
       border-bottom: $border;
-      padding-top: $padding + $label-font-size;
-      padding-bottom: $padding;
+      padding-top: 15px + $label-font-size;
+      padding-bottom: 10px;
     }
 
     form {
-      width: 600px;
-      margin: 2em auto;
+      margin: 3em auto;
 
-      font-family: 'Source Sans Pro', sans-serif;
-      font-weight: 300;
-      font-size: 22px;
+      font-weight: $weight-light;
+      color: $text-light;
+      font-size: 15px;
+      letter-spacing: 3px;
     }
 
     input, textarea {
@@ -328,7 +372,9 @@ ul,li {
 
       & + label {
         position: absolute;
+        display: block;
         top: 10px;
+        left: 0;
         transition: top 0.7s ease, opacity 0.7s ease;
         opacity: 0;
 
@@ -341,31 +387,107 @@ ul,li {
         opacity: 1;
         top: 3px;
       }
-
+      // TODO: Refactor out light blue color variable
       &:focus + label {
-        color: #2c8efe;
+        transition: $transition-time;
+        color: #2C8EFE;
       }
     }
   }
 
-  a {
-    &.button {
-      display: block;
-      text-decoration: none;
-      font-weight: $weight-semibold;
-      padding: 20px 0;
-      border: solid 2px #2c8efe;
-      letter-spacing: 1.5px;
-      border-radius: 8px;
-      text-align: left;
+  .message {
+    padding: 1px;
+    overflow: hidden;
+    word-wrap: break-word;
+    transition: $transition-time;
+    height: 22px;
+  }
+
+  .responsetime {
+    font-size: 14px;
+    color: $text-light;
+
+    span {
+      color: $text-dark;
+    }
+  }
+
+  .button {
+    color: #2C8EFE;
+    font-weight: $weight-semibold;
+    padding: 20px 0;
+    border: solid 2px #2C8EFE;
+    letter-spacing: 1.5px;
+    border-radius: 8px;
+    max-width: 325px;
+    margin: $line-height auto 0;
+
+    &:hover, &:focus {
+      color: #FFF;
+      background-color: #2C8EFE;
+    }
+
+    &:active {
+      color: #FFF;
+      transition: $short-transition;
+      background-color: #2876DC;
     }
   }
 }
 
+
+.contact-links-container {
+  li {
+    margin-bottom: 10px;
+
+    a:last-child {
+      margin-bottom: 0;
+    }
+
+    a:hover {
+      transition: $transition-time;
+      font-weight: $weight-semibold;
+    }
+  }
+
+  .twitter {
+    color: #289BE5;
+  }
+
+  .dribbble {
+    color: #DE6097;
+  }
+
+  .linkedin {
+    color: #0077B5;
+  }
+
+  .medium {
+    color: #333332;
+  }
+}
+
+// Footer
+// ----------------------------------------------
+.footer {
+  background-color: $background-dark-blue;
+  height: 150px;
+}
+
+
+
+
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 1300px;
+    max-width: 1200px;
+  }
+
+  .section-container {
+    width: 100%;
+    padding: 50px 50px;
   }
 
   .section-header-container {
@@ -409,5 +531,27 @@ ul,li {
       text-align: right;
     }
   }
+
+  .contact-form-container {
+    .button {
+      max-width: 225px;
+      margin: $line-height 0 auto 0;
+    }
+  }
+
+  .contact-links-container {
+    .button {
+      margin: $line-height 0 0 0;
+    }
+  }
+
+  #portfolio {
+    #isotope {
+      .item {
+        width: 25%
+      }
+    }
+  }
+
 }
 

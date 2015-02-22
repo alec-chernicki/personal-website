@@ -132,6 +132,7 @@ module.exports = function (grunt) {
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
+        camelCase: false,
         jshintrc: '.jshintrc',
         reporter: require('jshint-stylish')
       },

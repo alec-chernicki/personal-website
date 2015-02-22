@@ -13,3 +13,4 @@ build
 .*
 !.gitignore
 !.editorconfig
+.DS_store
