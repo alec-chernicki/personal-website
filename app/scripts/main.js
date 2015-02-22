@@ -1,3 +1,5 @@
+'use strict';
+
 // Define number of columns
 
 //var columnWidth = function () {
@@ -24,6 +26,19 @@ $container.isotope({
   // options
   itemSelector: '.item',
   layoutMode: 'fitRows'
+});
+
+// Implements auto-resize of textarea element
+$('.message').autosize();
+
+// Implements nicescroll
+
+$(document).ready(function() {
+  $('html').niceScroll({
+    cursorcolor: '#373737',
+    cursoropacitymin: 0.5,
+    cursoropacitymax: 0.7
+  });
 });
 
 
@@ -90,9 +105,3 @@ particlesJS('developer-particles', {
   /* Retina Display Support */
   retina_detect: true
 });
-
-'use strict';
-
-// Auto-resize textarea element
-$('.message').autosize();
-
