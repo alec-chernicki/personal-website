@@ -32,12 +32,12 @@ $container.isotope({
 $('.message').autosize();
 
 // Implements nicescroll
-
 $(document).ready(function() {
   $('html').niceScroll({
     cursorcolor: '#373737',
     cursoropacitymin: 0.5,
-    cursoropacitymax: 0.7
+    cursoropacitymax: 0.7,
+    scrollspeed: 0
   });
 });
 

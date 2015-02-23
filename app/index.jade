@@ -57,13 +57,12 @@ html.no-js
             li • Consuming copious amounts of coffee
             li • Corgis
 
-    #developer.clearfix
-      #developer-particles
-      .section-container.clearfix
+    #developer-particles.developer
+      .developer-content.section-container
         .section-header-container
           h2 I'M A:#{' '}
             span.underline DEVELOPER
-        .container-fluid
+        .container
           .col-sm-3
             .frameworks
             .developer-concise.section-text-container
@@ -75,15 +74,23 @@ html.no-js
               p Most of my academic background is Python and I code in Ruby professionally. I am continually looking for resources to further my knowledge on any language.
 
               // TODO: Will animate these using javascript later
-              ul
-                li.progress-bar-one
+              ul.progress-bar-container
+                li
                   p HTML, CSS, SASS
-                li.progress-bar-two
+                  .progress-bar
+                    .percentage.percentage-html
+                li
                   p JAVASCRIPT
-                li.progress-bar-three
-                  p PYTHON
-                li.progress-bar-four
+                  .progress-bar
+                    .percentage.percentage-js
+                li
                   p RUBY
+                  .progress-bar
+                    .percentage.percentage-ruby
+                li
+                  p PYTHON
+                  .progress-bar
+                    .percentage.percentage-python
               a.button(href='https://github.com/alecortega' target='_blank')
                 i(class="fa fa-github") VIEW GITHUB
 
@@ -96,7 +103,7 @@ html.no-js
           h2 I'M A:#{' '}
             span.underline DESIGNER
 
-      .container-fluid
+      .container
         .col-sm-3
           .designer-showtell.section-text-container
             h3 DON'T JUST TELL, SHOW.
@@ -134,6 +141,8 @@ html.no-js
         .item
         .item
 
+    #recommendations.section-container
+
     .contact.section-container
       .container
 
@@ -167,7 +176,6 @@ html.no-js
               li.fa-li.fa.fa-medium
                 a.medium(href="https://medium.com/@whynotdostuff") Medium
                 p 600 reads
-
 
     #footer-particles.footer.section-container
 

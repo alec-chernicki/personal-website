@@ -46,6 +46,7 @@ img, ul, li {
 
 a {
   text-decoration: none;
+  transition: $short-transition;
 
   &:hover, &:visited, &:focus {
     text-decoration: none;
@@ -66,9 +67,20 @@ a {
   }
 }
 
+.browser {
+  max-width: 750px;
+}
+
+
 canvas{
   vertical-align:bottom;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
+
 
 // Defines styles for all text in header containers
 // ----------------------------------------------
@@ -136,7 +148,7 @@ canvas{
     font-weight: $weight-semibold;
     font-size: 20px;
     letter-spacing: 1.5px;
-    margin: 0 0 28px 0;
+    margin: 0 0 20px 0;
 
   }
 
@@ -158,6 +170,7 @@ canvas{
 // ----------------------------------------------
 #hero.jumbotron {
   height: 100%;
+  min-height: 550px;
   padding-top: 50px;
 
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/images/desk.jpg");
@@ -218,15 +231,9 @@ canvas{
 // ----------------------------------------------
 //TODO:major refactoring needs to be done to DRY this all up
 
-
-// TODO: Remove static height,  fix elements breaking container
-#developer {
+.developer {
   position: relative;
   background-color: $background-dark-blue;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  overflow: hidden;
-  height: 700px;
 
   h2, h3, p, a {
     color: #FFF;
@@ -243,26 +250,64 @@ canvas{
   }
 
   a {
+    margin: 30px 0;
+
     &:hover {
       background-color: #FFF;
       color: $background-dark-blue;
     }
   }
 
-  .section-container {
-    position: absolute;
-    z-index: 1000;
-    top: 0;
-    left: 0;
+  .developer-content {
+    position: relative;
+    z-index: 20;
+    margin: 0 auto;
+    padding-bottom: 0;
   }
 
-  .developer-particles {
-    position: absolute;
-    z-index: -1000;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  // TODO: Too much nesting, refactor
+  .progress-bar-container {
+    margin: 20px 0;
+
+    li {
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 15px;
+      border-radius: 8px;
+      background-color: #35393C;
+      float: none;
+
+      .percentage {
+        background-color: #289D54;
+        height: 15px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+
+      .percentage-html {
+        width: 90%;
+      }
+
+      .percentage-js {
+        width: 80%;
+      }
+
+      .percentage-ruby {
+        width: 65%;
+      }
+
+      .percentage-python {
+        width: 50%;
+      }
+    }
+
   }
 }
 
@@ -283,20 +328,28 @@ canvas{
 
 // My Work
 // ----------------------------------------------
+// TODO: Excessive nesting fix later
 #work {
   padding-bottom: 25px;
 
   ul {
     text-align: center;
-  }
 
-  ul>li {
-    display: inline;
-    font-weight: $weight-light;
-    color: $text-light;
-    font-size: 15px;
-    letter-spacing: 3px;
-    padding: 0 30px;
+    li {
+      display: inline-block;
+    }
+
+    a {
+      font-weight: $weight-light;
+      color: $text-light;
+      font-size: 15px;
+      letter-spacing: 3px;
+      padding: 0 30px;
+
+      &:hover {
+        font-weight: $weight-semibold;
+      }
+    }
   }
 }
 
@@ -313,7 +366,7 @@ canvas{
       transition-property: transform, opacity;
 
       float: left;
-      height: 200px;
+      height: 250px;
       width: 100%;
 
       border: 1px solid #2390b9;
@@ -325,6 +378,19 @@ canvas{
     transition-property: transform, opacity;
   }
 }
+
+// Recommendations
+// ----------------------------------------------
+
+#recommendations {
+  height: 100%;
+  min-height: 750px;
+
+  background-color: $background-light-grey;
+}
+
+
+
 
 // Contact Me
 // ----------------------------------------------
@@ -475,9 +541,17 @@ canvas{
 }
 
 
-
-
-
+// Media Queries - Responsiveness
+// ----------------------------------------------
+@media screen and (min-width: 320px) {
+  #portfolio {
+    #isotope {
+      .item {
+        width: 100%;
+      }
+    }
+  }
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -520,7 +594,7 @@ canvas{
     }
   }
 
-  #developer {
+  .developer {
     .developer-concise {
       text-align: right;
     }
@@ -548,10 +622,30 @@ canvas{
   #portfolio {
     #isotope {
       .item {
-        width: 25%
+        width: 50%
       }
     }
   }
-
 }
+
+@media screen and (min-width: 1024px) {
+  #portfolio {
+    #isotope {
+      .item {
+        width: 33.3333%;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #portfolio {
+    #isotope {
+      .item {
+        width: 25%;
+      }
+    }
+  }
+}
+
 
