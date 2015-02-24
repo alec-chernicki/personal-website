@@ -70,11 +70,6 @@ a {
 }
 
 
-.browser {
-  max-width: 750px;
-}
-
-
 canvas{
   vertical-align:bottom;
   position: absolute;
@@ -93,8 +88,21 @@ canvas{
   margin: 0 auto;
 }
 
+.link-underline {
+  &:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background-color: $background-dark-blue;
+    width: 100%;
+    bottom: 5px;
+    left: 0;
+  }
+}
+
 // Defines styles for all text in header containers
 // ----------------------------------------------
+// TODO: clean up all the & and >
 .section-header-container {
   text-align: center;
   margin-bottom: 80px;
@@ -215,6 +223,7 @@ canvas{
   border-bottom: 1px solid $background-light-grey;
   padding: 10px 0;
   z-index: 10000;
+  border-radius: 0;
 
   .navbar-brand {
     color: $text-dark;
@@ -228,6 +237,33 @@ canvas{
     font-size: $paragraph-text;
     color: $text-light;
     letter-spacing: 3px;
+
+    &:hover {
+      background-color: inherit;
+      color: $background-dark-blue;
+    }
+
+    &:active, &:focus {
+      background-color: inherit;
+    }
+  }
+
+  #full-navigation {
+    .highlight {
+      color: $background-dark-blue
+    }
+  }
+
+  .icon-bar {
+    background-color: $text-light;
+  }
+
+  .navbar-brand {
+    margin-left: 15px;
+  }
+
+  .navbar-toggle {
+    margin-right: 15px;
   }
 }
 
@@ -244,7 +280,7 @@ canvas{
 // About Interests
 // ----------------------------------------------
 //TODO: Need to change hacky nature of using a jumbotron here
-.about {
+.about-interests {
   background-color: $background-light-grey;
   margin: 50px 0 0 0;
   padding: 50px 15px;
@@ -271,6 +307,21 @@ canvas{
   background-color: $background-dark-blue;
   overflow: hidden;
   position: relative;
+  z-index: 100;
+
+  #developer-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  .section-container {
+    position: relative;
+    z-index: 100;
+  }
 
   h2, h3, p, a {
     color: #FFF;
@@ -350,10 +401,10 @@ canvas{
 // Designer
 // ----------------------------------------------
 .designer {
-  position: relative;
   padding-bottom: 0;
   background-color: $background-light-grey;
   overflow: hidden;
+  position: relative;
 
   > h2:before, h2:after {
       display: none;
@@ -361,6 +412,10 @@ canvas{
 
   .underline:after {
     background-color: $text-dark;
+  }
+
+  #browser-designer-element {
+
   }
 }
 
@@ -420,7 +475,7 @@ canvas{
 // Recommendations
 // ----------------------------------------------
 
-#recommendations {
+.recommendations {
   height: 100%;
   min-height: 750px;
 
@@ -432,7 +487,7 @@ canvas{
 
 // Contact Me
 // ----------------------------------------------
-.contact {
+#contact {
   .container {
     padding: 0;
   }
@@ -595,6 +650,12 @@ canvas{
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
+  #nav-element {
+    .collapse {
+      background-color: #FFF;
+    }
+  }
+
   .section-container {
     width: 100%;
     padding: 50px 50px;

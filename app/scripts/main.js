@@ -12,27 +12,50 @@ $container.isotope({
 $('.message').autosize();
 
 // Initialize NiceScoll
-//$(document).ready(function() {
-//  $('html').niceScroll({
-//    cursorcolor: '#373737',
-//    cursoropacitymin: 0.5,
-//    cursoropacitymax: 0.7,
-//    scrollspeed: 0
-//  });
-//});
+$(document).ready(function() {
+  $('html').niceScroll({
+    cursorcolor: '#373737',
+    cursoropacitymin: 0.5,
+    cursoropacitymax: 0.7,
+    scrollspeed: -50
+  });
+});
 
 // Initialize ScrollMagic
 var controller = new ScrollMagic();
-// assign handler "scene" and add it to controller
-var scene = new ScrollScene({
-                triggerElement: '#nav-trigger',
-                triggerHook: 0,
-                reverse: true
-                })
-.setPin('#nav-element')
-.addTo(controller);
 
-scene.addIndicators();
+var navigationScene = new ScrollScene({ triggerElement: '#nav-trigger', triggerHook: 0, reverse: true})
+  .setPin('#nav-element');
+
+var navigationAboutScene = new ScrollScene({ triggerElement: '.about', offset: -$('#nav-trigger').innerHeight(), triggerHook: 0, duration: $('.about').innerHeight()+$('.developer').innerHeight()+$('.designer').innerHeight(), reverse: true})
+  .setClassToggle('.about-link', 'highlight');
+
+var navigationWorkScene = new ScrollScene({ triggerElement: '#work', offset: -$('#nav-trigger').innerHeight(), triggerHook: 0, duration: $('#work').innerHeight()+$('#portfolio').innerHeight()+$('#nav-trigger').innerHeight(), reverse: true})
+  .setClassToggle('.work-link', 'highlight');
+
+var navigationContactScene = new ScrollScene({ triggerElement: '.recommendations', offset: -$('#nav-trigger').innerHeight(), triggerHook: 0, duration: $('.recommendations').innerHeight()+$('.contact').innerHeight(), reverse: true})
+  .setClassToggle('.contact-link', 'highlight');
+
+var developerScene = new ScrollScene({ triggerElement: '#browser-developer-trigger', triggerHook: 0.15, reverse: true})
+  .setPin('#browser-developer-element');
+
+var designerScene = new ScrollScene({ triggerElement: '#browser-designer-trigger', triggerHook: 0.15, reverse: true})
+  .setPin('#browser-designer-element');
+
+controller.addScene([
+  navigationScene,
+  developerScene,
+  designerScene,
+
+  navigationAboutScene,
+  navigationWorkScene,
+  navigationContactScene
+]);
+
+
+
+
+
 
 // TODO: Need to figure out a way to DRY this plugin up
 // Initialize Particle.js for "Developer" section
@@ -55,7 +78,7 @@ particlesJS('developer-particles', {
     nb: 100,
     line_linked: {
       enable_auto: true,
-      distance: 300,
+      distance: 350,
       //color: '#43474B',
       color: '#384552',
       opacity: 0.6,
@@ -67,7 +90,7 @@ particlesJS('developer-particles', {
       }
     },
     anim: {
-      enable: true,
+      enable: false,
       speed: 0.5
     }
   },
@@ -100,4 +123,4 @@ particlesJS('developer-particles', {
 });
 
 
-
+$('a').smoothScroll({offset: -$('#nav-trigger').innerHeight()});

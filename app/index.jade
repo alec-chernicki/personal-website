@@ -4,7 +4,8 @@ html.no-js
     meta(charset='utf-8')
     title Alec Ortega | Front-End Developer
     meta(name='description', content='')
-    meta(name='viewport', content='width=device-width')
+    meta(name='viewport', content='width=device-width', initial-scale=1, maximum-scale=1,
+    user-scalable=0)
     meta(name="description", content="My name is Alec Ortega, I'm a Front-End Developer and User " +
     "Interface Designer, its great to finally meet you.")
     link(rel='shortcut icon', href='/favicon.ico')
@@ -48,40 +49,41 @@ html.no-js
             #full-navigation.collapse.navbar-collapse
               ul.nav.navbar-nav.navbar-right
                 li
-                  a ABOUT
+                  a.about-link(href='#about') ABOUT
                 li
-                  a WORK
+                  a.work-link(href='#work') WORK
                 li
-                  a CONTACT
+                  a.contact-link(href='#contact') CONTACT
 
     // TODO: Yikes, in need of refactor
-    .container
-      .section-header-container
-        h2 HEY THERE
-        p IT'S NICE TO MEET YOU
-      .about-video.col-sm-5
-      .section-text-container.col-sm-5.pull-right
-        h3 MY PASSION IS CREATING EXPERIENCES
-        p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
-
-
-    .about.section-container
+    #about
       .container
-        .section-text-container.col-sm-5
-          h3 CURRENTLY LISTENING TO:
-          p A widget calling the last.fm API will be here
+        .section-header-container
+          h2 HEY THERE
+          p IT'S NICE TO MEET YOU
+        .about-video.col-sm-5
         .section-text-container.col-sm-5.pull-right
-          h3 INTERESTS:
-          ul
-            li • Endlessly scrolling through Dribbble
-            li • Interjecting with songs from Frozen
-            li • Consuming copious amounts of coffee
-            li • Corgis
+          h3 MY PASSION IS CREATING EXPERIENCES
+          p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
+
+
+      .about-interests.section-container
+        .container
+          .section-text-container.col-sm-5
+            h3 CURRENTLY LISTENING TO:
+            p A widget calling the last.fm API will be here
+          .section-text-container.col-sm-5.pull-right
+            h3 INTERESTS:
+            ul
+              li • Endlessly scrolling through Dribbble
+              li • Interjecting with songs from Frozen
+              li • Consuming copious amounts of coffee
+              li • Corgis
 
     // This code nesting is ugly and needs to be refactored
-    #developer-particles.developer
+    .developer
+      #developer-particles
       .section-container
-
         .section-header-container
           h2 I'M A:#{' '}
             span.underline DEVELOPER
@@ -117,7 +119,8 @@ html.no-js
               a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
 
           .browser-container.col-sm-6
-            img.browser.developer-browser(src="images/browser.svg")
+            #browser-developer-trigger
+              img.browser#browser-developer-element(src="images/browser.svg")
 
     .designer
       .section-container
@@ -134,7 +137,8 @@ html.no-js
           .col-sm-3.pull-right
 
           .browser-container.col-sm-6
-            img.browser.browser-designer(src="images/browser.svg")
+            #browser-designer-trigger
+              img.browser#browser-designer-element(src="images/browser.svg")
 
     #work.container
       .section-header-container
@@ -165,9 +169,9 @@ html.no-js
         .item
         .item
 
-    #recommendations.section-container
+    .recommendations.section-container
 
-    .contact.section-container
+    #contact.section-container
       .container
         .contact-form-container.section-text-container.col-sm-6
           h3 GET IN TOUCH
@@ -240,5 +244,7 @@ html.no-js
     script(src='bower_components/jquery-autosize/jquery.autosize.min.js')
     script(src='bower_components/ScrollMagic/js/jquery.scrollmagic.min.js')
     script(src='bower_components/ScrollMagic/js/jquery.scrollmagic.min.debug.js')
+    script(src='bower_components/nicescroll/jquery.nicescroll.min.js')
+    script(src='bower_components/jquery-smooth-scroll/jquery.smooth-scroll.min.js')
     script(src='scripts/main.js')
     // endbuild
