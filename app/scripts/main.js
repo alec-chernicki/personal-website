@@ -1,59 +1,51 @@
 'use strict';
 
-// Define number of columns
-
-//var columnWidth = function () {
-//  var w = $container.width();
-//  var columnNum = 1;
-//
-//  if (w > 1200) {
-//    columnNum = 100;
-//  } else if (w > 900) {
-//    columnNum = 300;
-//  } else if (w > 600) {
-//    columnNum = 200;
-//  } else if (w > 300) {
-//    columnNum = 100;
-//  }
-//
-//  return columnNum;
-//};
-
+// Initialize Isotope
 var $container = $('#isotope');
-
-// init
 $container.isotope({
   // options
   itemSelector: '.item',
   layoutMode: 'fitRows'
 });
 
-// Implements auto-resize of textarea element
+// Initialize auto-resize of textarea element
 $('.message').autosize();
 
-// Implements nicescroll
-$(document).ready(function() {
-  $('html').niceScroll({
-    cursorcolor: '#373737',
-    cursoropacitymin: 0.5,
-    cursoropacitymax: 0.7,
-    scrollspeed: 0
-  });
-});
+// Initialize NiceScoll
+//$(document).ready(function() {
+//  $('html').niceScroll({
+//    cursorcolor: '#373737',
+//    cursoropacitymin: 0.5,
+//    cursoropacitymax: 0.7,
+//    scrollspeed: 0
+//  });
+//});
 
+// Initialize ScrollMagic
+var controller = new ScrollMagic();
+// assign handler "scene" and add it to controller
+var scene = new ScrollScene({
+                triggerElement: '#nav-trigger',
+                triggerHook: 0,
+                reverse: true
+                })
+.setPin('#nav-element')
+.addTo(controller);
 
-// Particle.js implementation
+scene.addIndicators();
 
+// TODO: Need to figure out a way to DRY this plugin up
+// Initialize Particle.js for "Developer" section
 particlesJS('developer-particles', {
   particles: {
-    color: '#606467',
+    color: '#384552',
     color_random: false,
     shape: 'circle', // "circle", "edge" or "triangle"
     opacity: {
       opacity: 3,
       anim: {
         enable: false,
-        speed: 1.5,
+        speed: 1,
         opacity_min: 0,
         sync: false
       }
@@ -64,7 +56,8 @@ particlesJS('developer-particles', {
     line_linked: {
       enable_auto: true,
       distance: 300,
-      color: '#43474B',
+      //color: '#43474B',
+      color: '#384552',
       opacity: 0.6,
       width: 1,
       condensed_mode: {
@@ -105,3 +98,6 @@ particlesJS('developer-particles', {
   /* Retina Display Support */
   retina_detect: true
 });
+
+
+

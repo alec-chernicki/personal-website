@@ -34,6 +34,27 @@ html.no-js
         h1 Design for empathy.<br>Develop for ease.
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a lorem nec mauris feugiat ornare non sed orci. Nunc ultrices quis eros a varius. Mauris lobortis ornare tristique.
 
+    nav
+      #nav-trigger
+        #nav-element.navbar
+          .container
+            .navbar-header
+              button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#full-navigation")
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand.navbar-left ALEC ORTEGA
+
+            #full-navigation.collapse.navbar-collapse
+              ul.nav.navbar-nav.navbar-right
+                li
+                  a ABOUT
+                li
+                  a WORK
+                li
+                  a CONTACT
+
+    // TODO: Yikes, in need of refactor
     .container
       .section-header-container
         h2 HEY THERE
@@ -43,7 +64,7 @@ html.no-js
         h3 MY PASSION IS CREATING EXPERIENCES
         p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
 
-    // TODO: Use of jumbotron seems hack-y will fix later
+
     .about.section-container
       .container
         .section-text-container.col-sm-5
@@ -57,23 +78,25 @@ html.no-js
             li • Consuming copious amounts of coffee
             li • Corgis
 
+    // This code nesting is ugly and needs to be refactored
     #developer-particles.developer
-      .developer-content.section-container
+      .section-container
+
         .section-header-container
           h2 I'M A:#{' '}
             span.underline DEVELOPER
-        .container
+
+        .large-container
           .col-sm-3
-            .frameworks
+            .developer-frameworks
             .developer-concise.section-text-container
               h3 CLEAN. CONCISE.
               p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+
           .col-sm-3.pull-right
             .developer-laguages.section-text-container
               h3 LANGUAGES
               p Most of my academic background is Python and I code in Ruby professionally. I am continually looking for resources to further my knowledge on any language.
-
-              // TODO: Will animate these using javascript later
               ul.progress-bar-container
                 li
                   p HTML, CSS, SASS
@@ -91,26 +114,27 @@ html.no-js
                   p PYTHON
                   .progress-bar
                     .percentage.percentage-python
-              a.button(href='https://github.com/alecortega' target='_blank')
-                i(class="fa fa-github") VIEW GITHUB
+              a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
 
           .browser-container.col-sm-6
-            img.browser(src="images/browser.svg")
+            img.browser.developer-browser(src="images/browser.svg")
 
-    .designer.section-container
-      .container
+    .designer
+      .section-container
         .section-header-container
           h2 I'M A:#{' '}
             span.underline DESIGNER
 
-      .container
-        .col-sm-3
-          .designer-showtell.section-text-container
-            h3 DON'T JUST TELL, SHOW.
-            P I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
-        .col-sm-3.pull-right
-        .browser-container.col-sm-6
-          img.browser(src="images/browser.svg")
+        .large-container
+          .col-sm-3
+            .designer-showtell.section-text-container
+              h3 DON'T JUST TELL, SHOW.
+              P I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+
+          .col-sm-3.pull-right
+
+          .browser-container.col-sm-6
+            img.browser.browser-designer(src="images/browser.svg")
 
     #work.container
       .section-header-container
@@ -145,7 +169,6 @@ html.no-js
 
     .contact.section-container
       .container
-
         .contact-form-container.section-text-container.col-sm-6
           h3 GET IN TOUCH
           p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
@@ -178,9 +201,6 @@ html.no-js
                 p 600 reads
 
     #footer-particles.footer.section-container
-
-
-
 
 
     // build:js(.) scripts/vendor.js
@@ -218,6 +238,7 @@ html.no-js
     script(src='bower_components/particles.js/particles.js')
     script(src='bower_components/isotope/dist/isotope.pkgd.min.js')
     script(src='bower_components/jquery-autosize/jquery.autosize.min.js')
-    script(src='bower_components/nicescroll/jquery.nicescroll.min.js')
+    script(src='bower_components/ScrollMagic/js/jquery.scrollmagic.min.js')
+    script(src='bower_components/ScrollMagic/js/jquery.scrollmagic.min.debug.js')
     script(src='scripts/main.js')
     // endbuild

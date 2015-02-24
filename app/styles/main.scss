@@ -17,6 +17,8 @@ $text-dark: #373737;
 $text-light: #7B7B7B;
 $background-dark-blue: #25292D;
 $background-light-grey: #F5F5F5;
+$background-light-green: #43BA63;
+$background-light-blue: #2C8EFE;
 
 $border: 1px solid #ddd;
 $padding: 10px;
@@ -63,9 +65,10 @@ a {
   text-align: center;
 
   &:hover {
-    transition: $transition-time;
+    transition: $short-transition;
   }
 }
+
 
 .browser {
   max-width: 750px;
@@ -81,6 +84,14 @@ canvas{
   right: 0;
 }
 
+.container {
+  max-width: 1200px;
+}
+
+.large-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
 
 // Defines styles for all text in header containers
 // ----------------------------------------------
@@ -172,6 +183,7 @@ canvas{
   height: 100%;
   min-height: 550px;
   padding-top: 50px;
+  margin: 0;
 
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/images/desk.jpg");
   background-size: cover;
@@ -192,6 +204,30 @@ canvas{
     font-size: 20px;
     font-weight: $weight-light;
 
+  }
+}
+
+// Navigation Bar
+// ----------------------------------------------
+#nav-element {
+  background-color: #FFF;
+  font-family: $open-sans;
+  border-bottom: 1px solid $background-light-grey;
+  padding: 10px 0;
+  z-index: 10000;
+
+  .navbar-brand {
+    color: $text-dark;
+    font-weight: $weight-bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  //TODO: make sure text styles are consistent
+  li > a {
+    font-size: $paragraph-text;
+    color: $text-light;
+    letter-spacing: 3px;
   }
 }
 
@@ -232,13 +268,14 @@ canvas{
 //TODO:major refactoring needs to be done to DRY this all up
 
 .developer {
-  position: relative;
   background-color: $background-dark-blue;
+  overflow: hidden;
+  position: relative;
 
   h2, h3, p, a {
     color: #FFF;
 
-    &:before, &:after {
+    :before, &:after {
       display: none;
     }
   }
@@ -258,8 +295,7 @@ canvas{
     }
   }
 
-  .developer-content {
-    position: relative;
+  .section-container {
     z-index: 20;
     margin: 0 auto;
     padding-bottom: 0;
@@ -279,16 +315,16 @@ canvas{
 
     .progress-bar {
       width: 100%;
-      height: 15px;
-      border-radius: 8px;
+      height: 17px;
+      border-radius: 4px;
       background-color: #35393C;
       float: none;
 
       .percentage {
-        background-color: #289D54;
-        height: 15px;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
+        background-color: $background-light-green;
+        height: 17px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
       }
 
       .percentage-html {
@@ -313,9 +349,11 @@ canvas{
 
 // Designer
 // ----------------------------------------------
-&.designer {
+.designer {
+  position: relative;
   padding-bottom: 0;
   background-color: $background-light-grey;
+  overflow: hidden;
 
   > h2:before, h2:after {
       display: none;
@@ -453,10 +491,10 @@ canvas{
         opacity: 1;
         top: 3px;
       }
-      // TODO: Refactor out light blue color variable
+
       &:focus + label {
         transition: $transition-time;
-        color: #2C8EFE;
+        color: $background-light-blue;
       }
     }
   }
@@ -479,10 +517,10 @@ canvas{
   }
 
   .button {
-    color: #2C8EFE;
+    color: $background-light-blue;
     font-weight: $weight-semibold;
     padding: 20px 0;
-    border: solid 2px #2C8EFE;
+    border: solid 2px $background-light-blue;
     letter-spacing: 1.5px;
     border-radius: 8px;
     max-width: 325px;
@@ -496,7 +534,7 @@ canvas{
     &:active {
       color: #FFF;
       transition: $short-transition;
-      background-color: #2876DC;
+      background-color: $background-dark-blue;
     }
   }
 }
@@ -536,8 +574,10 @@ canvas{
 // Footer
 // ----------------------------------------------
 .footer {
+  position: relative;
   background-color: $background-dark-blue;
   height: 150px;
+  overflow: hidden;
 }
 
 
@@ -555,10 +595,6 @@ canvas{
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 1200px;
-  }
-
   .section-container {
     width: 100%;
     padding: 50px 50px;
@@ -624,6 +660,12 @@ canvas{
       .item {
         width: 50%
       }
+    }
+  }
+
+  nav {
+    .navbar-brand {
+      font-size: 40px;
     }
   }
 }
