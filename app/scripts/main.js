@@ -17,23 +17,26 @@ $(document).ready(function() {
     cursorcolor: '#373737',
     cursoropacitymin: 0.5,
     cursoropacitymax: 0.7,
-    scrollspeed: -50
+    scrollspeed: 10
   });
 });
 
 // Initialize ScrollMagic
+//TODO: Refactor height variables out
 var controller = new ScrollMagic();
+
+var navHeight = $('#nav-trigger').innerHeight()-1;
 
 var navigationScene = new ScrollScene({ triggerElement: '#nav-trigger', triggerHook: 0, reverse: true})
   .setPin('#nav-element');
 
-var navigationAboutScene = new ScrollScene({ triggerElement: '.about', offset: -$('#nav-trigger').innerHeight(), triggerHook: 0, duration: $('.about').innerHeight()+$('.developer').innerHeight()+$('.designer').innerHeight(), reverse: true})
+var navigationAboutScene = new ScrollScene({ triggerElement: '#about', offset: -navHeight, triggerHook: 0, duration: $('#about').innerHeight()+$('.developer').innerHeight()+$('.designer').innerHeight(), reverse: true})
   .setClassToggle('.about-link', 'highlight');
 
-var navigationWorkScene = new ScrollScene({ triggerElement: '#work', offset: -$('#nav-trigger').innerHeight(), triggerHook: 0, duration: $('#work').innerHeight()+$('#portfolio').innerHeight()+$('#nav-trigger').innerHeight(), reverse: true})
+var navigationWorkScene = new ScrollScene({ triggerElement: '#work', offset: -navHeight, triggerHook: 0, duration: $('#work').innerHeight()+$('#portfolio').innerHeight()+navHeight, reverse: true})
   .setClassToggle('.work-link', 'highlight');
 
-var navigationContactScene = new ScrollScene({ triggerElement: '.recommendations', offset: -$('#nav-trigger').innerHeight(), triggerHook: 0, duration: $('.recommendations').innerHeight()+$('.contact').innerHeight(), reverse: true})
+var navigationContactScene = new ScrollScene({ triggerElement: '.recommendations', offset: -navHeight, triggerHook: 0, duration: $('.recommendations').innerHeight()+$('.contact').innerHeight+$('footer').innerHeight(), reverse: true})
   .setClassToggle('.contact-link', 'highlight');
 
 var developerScene = new ScrollScene({ triggerElement: '#browser-developer-trigger', triggerHook: 0.15, reverse: true})

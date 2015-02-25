@@ -220,7 +220,7 @@ canvas{
 #nav-element {
   background-color: #FFF;
   font-family: $open-sans;
-  border-bottom: 1px solid $background-light-grey;
+  border-bottom: 1px solid #EEE;
   padding: 10px 0;
   z-index: 10000;
   border-radius: 0;
@@ -250,7 +250,25 @@ canvas{
 
   #full-navigation {
     .highlight {
-      color: $background-dark-blue
+      color: $background-dark-blue;
+    }
+
+    a:after {
+      content: '';
+      position: absolute;
+      display: block;
+      transition: $short-transition;
+      opacity: 0;
+      bottom: 0;
+      left: 5px;
+      right: 5px;
+      height: 1px;
+      background-color: $background-dark-blue;
+    }
+
+    .highlight:after {
+      opacity: 1;
+      bottom: 10px;
     }
   }
 
