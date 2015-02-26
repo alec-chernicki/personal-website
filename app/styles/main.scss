@@ -185,6 +185,14 @@ canvas{
   padding: 50px 15px;
 }
 
+.browser-container {
+  overflow: hidden;
+
+  .browser {
+    display: none;
+  }
+}
+
 // Hero Section
 // ----------------------------------------------
 #hero.jumbotron {
@@ -327,15 +335,6 @@ canvas{
   position: relative;
   z-index: 100;
 
-  #developer-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 10;
-  }
-
   .section-container {
     position: relative;
     z-index: 100;
@@ -430,10 +429,6 @@ canvas{
 
   .underline:after {
     background-color: $text-dark;
-  }
-
-  #browser-designer-element {
-
   }
 }
 
@@ -668,6 +663,13 @@ canvas{
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
+
+  .browser-container {
+    .browser {
+      display: block;
+    }
+  }
+
   #nav-element {
     .collapse {
       background-color: #FFF;
