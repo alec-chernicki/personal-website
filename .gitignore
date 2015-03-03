@@ -2,7 +2,6 @@ node_modules
 dist
 .tmp
 .sass-cache
-bower_components
 .bower-cache
 .bower-registry
 .bower-tmp
@@ -11,6 +10,6 @@ bower_components
 build
 *iml
 .*
+.DS_store
 !.gitignore
 !.editorconfig
-.DS_store

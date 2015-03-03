@@ -1,0 +1,176 @@
+extends layout
+
+block content
+  #hero.jumbotron
+    .container.col-sm-12.col-md-8.pull-left
+      a
+        img#logo(src='images/logo.svg')
+      h1 Design for empathy.<br>Develop for ease.
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a lorem nec mauris feugiat ornare non sed orci. Nunc ultrices quis eros a varius. Mauris lobortis ornare tristique.
+
+  nav
+    #nav-trigger
+      #nav-element.navbar
+        .container
+          .navbar-header
+            button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#full-navigation")
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand.navbar-left ALEC ORTEGA
+
+          #full-navigation.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a.about-link(href='#about') ABOUT
+              li
+                a.work-link(href='#work') WORK
+              li
+                a.contact-link(href='#contact') CONTACT
+
+  #about
+    .container
+      .section-header-container
+        h2 HEY THERE
+        p IT'S NICE TO MEET YOU
+      .about-video.col-sm-5
+      .section-text-container.col-sm-5.pull-right
+        h3 MY PASSION IS CREATING EXPERIENCES
+        p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
+
+
+    .about-interests.section-container
+      .container
+        .section-text-container.col-sm-5
+          h3 CURRENTLY LISTENING TO:
+          p A widget calling the last.fm API will be here
+        .section-text-container.col-sm-5.pull-right
+          h3 INTERESTS:
+          ul
+            li • Endlessly scrolling through Dribbble
+            li • Interjecting with songs from Frozen
+            li • Consuming copious amounts of coffee
+            li • Corgis
+
+  // TODO: This code nesting is ugly and needs to be refactored
+  .developer
+    .section-container
+      .section-header-container
+        h2 I'M A:#{' '}
+          span.underline DEVELOPER
+
+      .large-container
+        .col-sm-3
+          .developer-frameworks
+          .developer-concise.section-text-container
+            h3 CLEAN. CONCISE.
+            p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+
+        .col-sm-3.pull-right
+          .developer-laguages.section-text-container
+            h3 LANGUAGES
+            p Most of my academic background is Python and I code in Ruby professionally. I am continually looking for resources to further my knowledge on any language.
+            ul.progress-bar-container
+              li
+                p HTML, CSS, SASS
+                .progress-bar
+                  .percentage.percentage-html
+              li
+                p JAVASCRIPT
+                .progress-bar
+                  .percentage.percentage-js
+              li
+                p RUBY
+                .progress-bar
+                  .percentage.percentage-ruby
+              li
+                p PYTHON
+                .progress-bar
+                  .percentage.percentage-python
+            a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
+
+        .browser-container.col-sm-6
+          #browser-developer-trigger
+            img.browser#browser-developer-element(src="images/browser.svg")
+
+  .designer
+    .section-container
+      .section-header-container
+        h2 I'M A:#{' '}
+          span.underline DESIGNER
+
+      .large-container
+        .col-sm-3
+          .designer-showtell.section-text-container
+            h3 DON'T JUST TELL, SHOW.
+            P I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+
+        .col-sm-3.pull-right
+
+        .browser-container.col-sm-6
+          #browser-designer-trigger
+            img.browser#browser-designer-element(src="images/browser.svg")
+
+  #work.container
+    .section-header-container
+      h2 MY WORK
+    ul
+      li
+        a MOBILE
+      li
+        a WEB
+      li
+        a BRANDING
+      li
+        a ALL
+
+  #portfolio
+    #isotope
+      .grid-sizer
+      .item
+      .item
+      .item
+      .item
+      .item
+      .item
+      .item
+      .item
+      .item
+      .item
+      .item
+      .item
+
+  .recommendations.section-container
+
+  #contact.section-container
+    .container
+      .contact-form-container.section-text-container.col-sm-6
+        h3 GET IN TOUCH
+        p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
+        form.float-label.clearfix
+          .control
+            input(type="text" name="fullname" placeholder='Full Name' required)
+            label(for="fullname") Full Name
+          .control
+            input(type="text" name="email" placeholder="Your Email" required)
+            label(for="email") Your Email
+          .control
+            textarea.message(name="message" placeholder="Your Message" required)
+        a.button(href="#" type="submit" target="_blank") SEND MESSAGE
+
+      .contact-links-container
+        .section-text-container.col-sm-5.pull-right
+          h3 FIND ME ELSEWHERE
+          ul.fa-ul
+            li.fa-li.fa.fa-twitter
+              a.twitter(href="https://twitter.com/WhyNotDoStuff") Twitter
+              p 2500 followers
+            li.fa-li.fa.fa-dribbble
+              a.dribbble(href="https://dribbble.com/alecortega") Dribbble
+              p 0 followers
+            li.fa-li.fa.fa-linkedin
+              a.linkedin(href="https://linkedin.com/in/alecortega/") LinkedIn
+              p 250 connections
+            li.fa-li.fa.fa-medium
+              a.medium(href="https://medium.com/@whynotdostuff") Medium
+              p 600 reads
