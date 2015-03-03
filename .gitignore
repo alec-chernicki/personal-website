@@ -14,3 +14,4 @@ build
 .DS_store
 !.gitignore
 !.editorconfig
+!.travis.yml
