@@ -10,8 +10,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var connectAssets = require('connect-assets');
-
 var routes = require('./routes/index');
+
+/**
+ * Controllers (route handlers)
+ */
+var homeController = require('./controllers/home');
 
 /**
  * Create Express server
@@ -47,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Primary routes
  */
-app.use('/', routes);
+app.use('/', homeController.index);
 
 
 /**

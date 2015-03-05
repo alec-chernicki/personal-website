@@ -17,7 +17,7 @@ block content
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand.navbar-left ALEC ORTEGA
+            a.navbar-brand.navbar-left(href='#hero') ALEC ORTEGA
 
           #full-navigation.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
@@ -36,14 +36,15 @@ block content
       .about-video.col-sm-5
       .section-text-container.col-sm-5.pull-right
         h3 MY PASSION IS CREATING EXPERIENCES
-        p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s the feeling that it envokes as well. It's with this perspective that I approach both my personal and professional projects.
+        p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s what it envokes in a user as well. It's with this perspective that I approach both my personal and professional projects.
 
 
     .about-interests.section-container
       .container
         .section-text-container.col-sm-5
           h3 CURRENTLY LISTENING TO:
-          p A widget calling the last.fm API will be here
+          p= trackName
+          p= artistName
         .section-text-container.col-sm-5.pull-right
           h3 INTERESTS:
           ul
