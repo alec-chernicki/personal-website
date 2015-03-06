@@ -90,8 +90,8 @@ block content
                   .percentage.percentage-python
             a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
 
-        .browser-container.col-sm-6
-          #browser-developer-trigger
+        #browser-developer-trigger.browser-container.col-sm-6
+
             img.browser#browser-developer-element(src="images/browser.svg")
 
   .designer
@@ -148,16 +148,17 @@ block content
       .contact-form-container.section-text-container.col-sm-6
         h3 GET IN TOUCH
         p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
-        form.float-label.clearfix
+        form.float-label.clearfix(role='form', method='POST')
           .control
-            input(type="text" name="fullname" placeholder='Full Name' required)
+            input(type="text", name="fullname", id='fullname', placeholder='Full Name', required)
             label(for="fullname") Full Name
           .control
-            input(type="text" name="email" placeholder="Your Email" required)
+            input(type="text", name="email", placeholder="Your Email", required)
             label(for="email") Your Email
           .control
-            textarea.message(name="message" placeholder="Your Message" required)
-        a.button(href="#" type="submit" target="_blank") SEND MESSAGE
+            textarea.message(type='text', name="message", placeholder='Your Message', rows='1',
+            required)
+          button.button(type="submit") SEND MESSAGE
 
       .contact-links-container
         .section-text-container.col-sm-5.pull-right

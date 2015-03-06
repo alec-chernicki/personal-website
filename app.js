@@ -3,14 +3,15 @@
  * Module dependencies.
  */
 var express = require('express');
+var errorHandler = require('errorhandler');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
-var routes = require('./routes/index');
 
 /**
  * Controllers (route handlers)
@@ -33,12 +34,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(expressValidator());
 app.use(require("connect-assets")());
 app.use(sassMiddleware({
     src: __dirname + '/sass/',
     dest: __dirname + '/public',
-    debug: true,
-    outputStyle: 'expanded'
+    debug: true
   })
 );
 app.use(connectAssets({
@@ -51,7 +52,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Primary routes
  */
-app.use('/', homeController.index);
+app.get('/', homeController.index);
+app.post('/', homeController.postIndex);
+
 
 
 /**
@@ -66,23 +69,13 @@ app.use(function(req, res, next) {
 /**
  * Error Handlers
  */
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
+app.use(errorHandler());
 
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
+/**
+ * Start Express server.
+ */
+app.listen(app.get('port'), function() {
+  console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
 });
-
 
 module.exports = app;

@@ -18,6 +18,10 @@ $(document).ready(function() {
 // Initializes smooth scrolling to all a tags
   $('a').smoothScroll({offset: -navHeight});
 
+
+// Set up elements dynamically for ScrollMagic
+
+
 // Initialize ScrollMagic
   var controller = new ScrollMagic.Controller();
 
@@ -58,7 +62,8 @@ $(document).ready(function() {
 
   var developerScene = new ScrollMagic.Scene({
     triggerElement: '#browser-developer-trigger',
-    triggerHook: 0,
+    duration: $('.designer').height(),
+    triggerHook: 0.15,
     reverse: true
   })
     .setPin('#browser-developer-element');
@@ -68,7 +73,7 @@ $(document).ready(function() {
     triggerHook: 0,
     reverse: true
   })
-    .setPin('#browser-designer-element');
+    .setPin('.browser-designer-element');
 
   controller.addScene([
     navigationScene,

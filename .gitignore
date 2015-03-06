@@ -14,3 +14,4 @@ build
 !.gitignore
 !.editorconfig
 !.travis.yml
+secrets.js
