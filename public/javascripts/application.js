@@ -14,7 +14,6 @@
 //= require bower_components/jquery-smooth-scroll/jquery.smooth-scroll.min
 //= require bower_components/modernizer/modernizr
 //= require bower_components/ScrollMagic/scrollmagic/minified/ScrollMagic.min
-//= require bower_components/gsap/src/minified/TimelineLite.min
 
 // Load Public Assets
 //= require main

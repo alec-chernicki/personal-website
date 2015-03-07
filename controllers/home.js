@@ -19,26 +19,32 @@ var transporter = nodemailer.createTransport({
  * Home page
  */
 
-exports.index = function(req, res) {
-  res.render('home');
-};
+exports.index = function(req, res, next) {
+  var lastfm = new LastFmNode({
+    'api_key': secrets.lastfm.api_key,
+    'secret': secrets.lastfm.secret
+  });
+  var trackStream = lastfm.stream('whynotdostuff');
 
-//
-//// TODO: Organize this code and remove get call to a controller.js to better modularize
-//var lastfm = new LastFmNode({
-//  'api_key': '6f5612126bc766d04a8de77bcdc4403e',
-//  'secret': '6932b57b07162618ac5c8d5eedbcf6ea'
-//});
-//var trackStream = lastfm.stream('whynotdostuff');
-//
-//trackStream.on('lastPlayed', function (track) {
-//  console.log('Last played: ' + track.name);
-//});
-//
-//trackStream.on('nowPlaying', function (track) {
-//  console.log('Now playing: ' + track.name + ' by ' + track.artist);
-//});
-//
+
+  trackStream.on('nowPlaying', function(track) {
+
+    console.log(track);
+    console.log('Now playing: ' + track.name);
+
+    var track = {
+      name: track.name,
+      artist: track.artist['#text'],
+      image: track.image[2]['#text']
+    };
+
+    res.render('home', {
+      track: track
+    });
+  });
+
+  trackStream.start();
+};
 exports.postIndex = function(req, res) {
 
   req.checkBody('fullname', 'Name cannot be blank').notEmpty();
@@ -70,6 +76,5 @@ exports.postIndex = function(req, res) {
       console.log(err);
     }
     console.log('All clear!');
-    res('Success');
   });
 };

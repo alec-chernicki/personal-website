@@ -43,8 +43,9 @@ block content
       .container
         .section-text-container.col-sm-5
           h3 CURRENTLY LISTENING TO:
-          p= trackName
-          p= artistName
+          img(src=track.image)
+          p= track.name
+          p= track.artist
         .section-text-container.col-sm-5.pull-right
           h3 INTERESTS:
           ul
