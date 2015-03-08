@@ -43,9 +43,7 @@ block content
       .container
         .section-text-container.col-sm-5
           h3 CURRENTLY LISTENING TO:
-          img(src=track.image)
-          p= track.name
-          p= track.artist
+
         .section-text-container.col-sm-5.pull-right
           h3 INTERESTS:
           ul
@@ -129,20 +127,25 @@ block content
   #portfolio
     #isotope
       .grid-sizer
-      .item
-      .item
-      .item
-      .item
-      .item
-      .item
-      .item
-      .item
-      .item
-      .item
-      .item
-      .item
+      - var i = 0
+      while i < 12
+        .item
+          img(src='images/desk.jpg')
+          p.project-title Project Title
+          a.project-details(data-toggle='collapse' data-target='#project-info' aria-expanded='false' aria-controls='#project-info') Details
+        = i++
+    #project-info.collapse.clearfix
+      .col-sm-5
+        img(src='images/browser.svg')
+      .col-sm-5.pull-right
+        h3 OFFICE AND AREA GUIDE
+        span MassChallenge
 
-  .recommendations.section-container
+        p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.
+
+        span Tools Used:
+        p InDesign, Illustrator
+        .color-palette
 
   #contact.section-container
     .container

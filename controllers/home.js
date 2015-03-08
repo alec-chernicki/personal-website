@@ -1,4 +1,5 @@
 var secrets = require('../config/secrets');
+var async = require('async');
 
 var LastFmNode = require('lastfm').LastFmNode;
 var nodemailer = require('nodemailer');
@@ -25,25 +26,9 @@ exports.index = function(req, res, next) {
     'secret': secrets.lastfm.secret
   });
   var trackStream = lastfm.stream('whynotdostuff');
+  res.render('home', {
 
-
-  trackStream.on('nowPlaying', function(track) {
-
-    console.log(track);
-    console.log('Now playing: ' + track.name);
-
-    var track = {
-      name: track.name,
-      artist: track.artist['#text'],
-      image: track.image[2]['#text']
-    };
-
-    res.render('home', {
-      track: track
-    });
   });
-
-  trackStream.start();
 };
 exports.postIndex = function(req, res) {
 

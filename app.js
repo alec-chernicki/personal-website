@@ -35,15 +35,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(expressValidator());
-app.use(require("connect-assets")());
 app.use(sassMiddleware({
-    src: __dirname + '/sass/',
-    dest: __dirname + '/public',
-    debug: true
+    src: path.join(__dirname, '/sass/stylesheets'),
+    dest: path.join(__dirname, '/public/stylesheets'),
+    debug: true,
+    prefix: '/assets'
   })
 );
 app.use(connectAssets({
-  paths: [path.join(__dirname, 'public/stylesheets'), path.join(__dirname, 'public/javascripts')]
+  paths: [path.join(__dirname, '/public/stylesheets'), path.join(__dirname, '/public/javascripts')]
 }));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(express.static(path.join(__dirname, 'public')));

@@ -4594,6 +4594,9 @@ img, ul, li {
   list-style: none;
   padding: 0; }
 
+img {
+  height: 100%; }
+
 a {
   text-decoration: none;
   transition: 0.1s; }
