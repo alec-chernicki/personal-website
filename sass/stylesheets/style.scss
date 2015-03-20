@@ -1,4 +1,4 @@
-@import './vendor/bootstrap';
+@import 'vendor/bootstrap';
 
 $open-sans: "Open Sans", "Arial", san-serif;
 
@@ -38,6 +38,32 @@ html {
   }
 }
 
+@-webkit-keyframes rotation-right {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotation-right {
+  0%   { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes rotation-right {
+  0%   { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rotation-left {
+  0%   { -webkit-transform: rotate(360deg); }
+  100% { -webkit-transform: rotate(0deg); }
+}
+@-moz-keyframes rotation-left {
+  0%   { -moz-transform: rotate(360deg); }
+  100% { -moz-transform: rotate(0deg); }
+}
+@-ms-keyframes rotation-left {
+  0%   { -ms-transform: rotate(360deg); }
+  100% { -ms-transform: rotate(0deg); }
+}
+
 img, ul, li {
   display: block;
   margin: 0;
@@ -45,20 +71,17 @@ img, ul, li {
   padding: 0;
 }
 
-img {
-  height: 100%;
-}
-
 a {
   text-decoration: none;
   transition: $short-transition;
+  cursor: pointer;
 
   &:hover, &:visited, &:focus {
     text-decoration: none;
   }
 }
 
-.button {
+.button  {
   display: block;
   font-weight: $weight-semibold;
   padding: 20px 0;
@@ -66,6 +89,7 @@ a {
   letter-spacing: 1.5px;
   border-radius: 8px;
   text-align: center;
+  width: 100%;
 
   &:hover {
     transition: $short-transition;
@@ -233,7 +257,7 @@ canvas{
   font-family: $open-sans;
   border-bottom: 1px solid #EEE;
   padding: 10px 0;
-  z-index: 10000;
+  z-index: 20000;
   border-radius: 0;
 
   .navbar-brand {
@@ -332,23 +356,22 @@ canvas{
 // ----------------------------------------------
 //TODO:major refactoring needs to be done to DRY this all up
 
+.developer .section-header-container,
+.designer .section-header-container {
+  h2:before,
+  h2:after {
+    display: none;
+  }
+}
+
 .developer {
   background-color: $background-dark-blue;
   overflow: hidden;
   position: relative;
   z-index: 100;
 
-  .section-container {
-    position: relative;
-    z-index: 100;
-  }
-
   h2, h3, p, a {
     color: #FFF;
-
-    :before, &:after {
-      display: none;
-    }
   }
 
   li>p {
@@ -384,6 +407,11 @@ canvas{
       margin-bottom: 5px;
     }
 
+    #browser-developer-trigger {
+      position: absolute;
+      top:0;
+    }
+
     .progress-bar {
       width: 100%;
       height: 17px;
@@ -416,6 +444,44 @@ canvas{
     }
 
   }
+
+  .rotation-left {
+    -webkit-animation: rotation-left 12s linear infinite;
+    -moz-animation: rotation-left 12s linear infinite;
+    -ms-animation: rotation-left 12s linear infinite;
+  }
+
+  .rotation-right {
+    -webkit-animation: rotation-right 12s linear infinite;
+    -moz-animation: rotation-right 12s linear infinite;
+    -ms-animation: rotation-right 12s linear infinite;
+  }
+
+  .gear {
+    background: url('/images/gear_icon.svg');
+    position: absolute;
+  }
+
+  #gear-one {
+    bottom: -200px;
+    height: 500px;
+    left: -150px;
+    width: 500px;
+  }
+
+  #gear-two {
+    bottom: 300px;
+    height: 250px;
+    left: -100px;
+    width: 250px;
+  }
+
+  #gear-three {
+    bottom: -150px;
+    height: 600px;
+    right: -300px;
+    width: 600px;
+  }
 }
 
 // Designer
@@ -426,11 +492,7 @@ canvas{
   overflow: hidden;
   position: relative;
 
-  > h2:before, h2:after {
-    display: none;
-  }
-
-  .underline:after {
+  .section-header-container .underline:after {
     background-color: $text-dark;
   }
 }
@@ -466,19 +528,85 @@ canvas{
 // Portfolio
 // ----------------------------------------------
 #portfolio {
+  // TODO: Complex nesting, fix
   #isotope {
     margin: 0 auto;
 
     .item {
       background-color: $background-dark-blue;
-      transition-duration: 0.4s;
       transition-property: transform, opacity;
 
       float: left;
       height: 250px;
       width: 100%;
+      position: relative;
+      overflow: hidden;
 
-      border: 1px solid #2390b9;
+      img {
+        position: absolute;
+        z-index: 5000;
+        width: 100%;
+        min-height: 250px;
+      }
+
+      .project-button-background {
+        background-color: rgba(0,0,0,0.6);
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10000;
+        padding: 15% 0;
+      }
+
+      &:hover .project-button-background {
+        display: block;
+        transition-duration: $transition-time;
+      }
+
+      .project-button-wrapper {
+        padding: 10% 0;
+        color: #FFF;
+        text-align: center;
+        margin: 0 auto;
+
+        p {
+          font-weight: $weight-semibold;
+          font-size: 20px;
+        }
+
+        // TODO: Repetitive code from button, DRY it up
+        a {
+          display: block;
+          font-weight: $weight-semibold;
+          padding: 10px 0;
+          border: solid 2px #fff;
+          letter-spacing: 1.5px;
+          border-radius: 6px;
+          text-align: center;
+          width: 30%;
+          margin: 0 auto;
+          color: #FFF;
+
+          &:hover {
+            background-color: #FFF;
+            transition: $short-transition;
+            color: $background-dark-blue;
+          }
+        }
+      }
+    }
+
+    .item-project-info {
+      background-color: $background-dark-blue;
+      transition-property: transform, opacity;
+
+      float: left;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
     }
   }
 
@@ -486,6 +614,14 @@ canvas{
     transition-duration: 0.4s;
     transition-property: transform, opacity;
   }
+}
+
+// Project Info
+// ----------------------------------------------
+.project-info {
+  background-color: $background-light-grey;
+
+  padding: 75px 0 0 0;
 }
 
 // Recommendations
@@ -507,6 +643,10 @@ canvas{
   .container {
     padding: 0;
   }
+
+  .section-container {
+    padding: 60px;
+  }
 }
 
 .contact-form-container {
@@ -521,8 +661,8 @@ canvas{
   // TODO: Make container expand when label is displayed
   .float-label {
     .control {
-      float: left;
       position: relative;
+      overflow: hidden;
       width: 100%;
       border-bottom: $border;
       padding-top: 15px + $label-font-size;
@@ -570,31 +710,22 @@ canvas{
     }
   }
 
-  .message {
+  textarea {
     padding: 1px;
     overflow: hidden;
     word-wrap: break-word;
-    transition: $transition-time;
     height: 22px;
   }
 
-  .responsetime {
-    font-size: 14px;
-    color: $text-light;
-
-    span {
-      color: $text-dark;
-    }
-  }
-
   .button {
+    display: block;
     color: $background-light-blue;
+    background-color: inherit;
     font-weight: $weight-semibold;
     padding: 20px 0;
     border: solid 2px $background-light-blue;
     letter-spacing: 1.5px;
     border-radius: 8px;
-    max-width: 325px;
     margin: $line-height auto 0;
 
     &:hover, &:focus {
@@ -728,7 +859,7 @@ canvas{
 
   .contact-form-container {
     .button {
-      max-width: 225px;
+      width: 200px;
       margin: $line-height 0 auto 0;
     }
   }

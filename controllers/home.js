@@ -57,9 +57,9 @@ exports.postIndex = function(req, res) {
 
   transporter.sendMail(mailOptions, function(err) {
     if (err) {
-      console.log('Danger Will Robinson');
+      console.log('mail not sent! Danger Will Robinson!');
       console.log(err);
     }
-    console.log('All clear!');
+    console.log('Email sent! All clear!');
   });
 };

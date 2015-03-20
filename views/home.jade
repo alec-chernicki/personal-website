@@ -54,6 +54,9 @@ block content
 
   // TODO: This code nesting is ugly and needs to be refactored
   .developer
+    #gear-one.gear.rotation-right
+    #gear-two.gear.rotation-left
+    #gear-three.gear.rotation-left
     .section-container
       .section-header-container
         h2 I'M A:#{' '}
@@ -114,48 +117,18 @@ block content
   #work.container
     .section-header-container
       h2 MY WORK
-    ul
-      li
-        a MOBILE
-      li
-        a WEB
-      li
-        a BRANDING
-      li
-        a ALL
 
-  #portfolio
-    #isotope
-      .grid-sizer
-      - var i = 0
-      while i < 12
-        .item
-          img(src='images/desk.jpg')
-          p.project-title Project Title
-          a.project-details(data-toggle='collapse' data-target='#project-info' aria-expanded='false' aria-controls='#project-info') Details
-        = i++
-    #project-info.collapse.clearfix
-      .col-sm-5
-        img(src='images/browser.svg')
-      .col-sm-5.pull-right
-        h3 OFFICE AND AREA GUIDE
-        span MassChallenge
+  include sections/portfolio
 
-        p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.
-
-        span Tools Used:
-        p InDesign, Illustrator
-        .color-palette
-
-  #contact.section-container
-    .container
+  #contact.container
+    .section-container.clearfix
       .contact-form-container.section-text-container.col-sm-6
         h3 GET IN TOUCH
         p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
-        form.float-label.clearfix(role='form', method='POST')
-          .control
+        form.float-label(role='form', method='POST')
+          .control.clearfix
             input(type="text", name="fullname", id='fullname', placeholder='Full Name', required)
-            label(for="fullname") Full Name
+            label.clearfix(for="fullname") Full Name
           .control
             input(type="text", name="email", placeholder="Your Email", required)
             label(for="email") Your Email
@@ -165,7 +138,7 @@ block content
           button.button(type="submit") SEND MESSAGE
 
       .contact-links-container
-        .section-text-container.col-sm-5.pull-right
+        .section-text-container.col-sm-4.pull-right
           h3 FIND ME ELSEWHERE
           ul.fa-ul
             li.fa-li.fa.fa-twitter

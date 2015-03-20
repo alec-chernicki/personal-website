@@ -1,68 +1,84 @@
 $(document).ready(function() {
+
   var navHeight = $('#nav-trigger').innerHeight();
 
-// Initialize Isotope
-  var $isotopeContainer = $('#isotope');
-  $isotopeContainer.isotope({
-    // options
-    itemSelector: '.item',
-    layoutMode: 'fitRows'
+// Initialize Masonry Containers
+  var $container = $('#isotope');
+  var masonry = new Masonry( $container, {
+    columnWidth: '.grid-sizer',
+    itemSelector: '.item'
   });
 
 // Initialize auto-resize of textarea element
   window.jQuery.fn.autosize = function() {
     return autosize(this);
   };
-  $('.message').autosize();
+  $('textarea').autosize();
 
 // Initializes smooth scrolling to all a tags
   $('a').smoothScroll({offset: -navHeight});
 
 
-// Set up elements dynamically for ScrollMagic
-
-
-// Initialize ScrollMagic
+//// Initialize ScrollMagic
   var controller = new ScrollMagic.Controller();
 
-  var navigationScene = new ScrollMagic.Scene({
+  new ScrollMagic.Scene({
     triggerElement: '#nav-trigger',
     triggerHook: 0,
+    offset: 0,
     reverse: true
   })
-    .setPin('#nav-element');
+    .setPin('#nav-element')
+    .addTo(controller);
 
-  var navigationAboutScene = new ScrollMagic.Scene({
+  new ScrollMagic.Scene({
     triggerElement: '#about',
     offset: -navHeight,
     triggerHook: 0,
-    duration: $('#about').innerHeight() +
-    $('.developer').innerHeight() +
-    $('.designer').innerHeight(), reverse: true
+    duration: $('#about').height() +
+    $('.developer').height() +
+    $('.designer').height(), reverse: true
   })
-    .setClassToggle('.about-link', 'highlight');
+    .setClassToggle('.about-link', 'highlight')
+    .addTo(controller);
 
-  var navigationWorkScene = new ScrollMagic.Scene({
+  new ScrollMagic.Scene({
     triggerElement: '#work',
     offset: -navHeight,
     triggerHook: 0,
-    duration: $('#work').innerHeight() + $('#portfolio').innerHeight() + navHeight,
+    duration: $('#work').innerHeight() + $('#portfolio').innerHeight() - $('#contact').height() + navHeight,
     reverse: true
   })
-    .setClassToggle('.work-link', 'highlight');
+    .setClassToggle('.work-link', 'highlight')
+    .addTo(controller);
 
-  var navigationContactScene = new ScrollMagic.Scene({
-    triggerElement: '.recommendations',
+  new ScrollMagic.Scene({
+    triggerElement: '#contact',
     offset: -navHeight,
-    triggerHook: 0,
-    duration: $('.recommendations').innerHeight() + $('.contact').innerHeight + $('footer').innerHeight(),
+    triggerHook: 1,
+    duration: $('#contact').height() + $('.footer').height(),
     reverse: true
   })
-    .setClassToggle('.contact-link', 'highlight');
+    .setClassToggle('.contact-link', 'highlight')
+    .addTo(controller);
+
+
+  var tween = new TimelineLite({
+    triggerHook: 'onLeave'
+  })
+    .to('.designer', 1, {transform: 'translateY(0)'});
+
+  new ScrollMagic.Scene({
+    triggerElement: '.developer'
+  })
+    .setTween(tween)
+    .setPin('.developer')
+    .addTo(controller);
+
 
   var developerScene = new ScrollMagic.Scene({
     triggerElement: '#browser-developer-trigger',
-    duration: $('.designer').height(),
+    duration: 1000,
     triggerHook: 0.15,
     reverse: true
   })
@@ -75,22 +91,8 @@ $(document).ready(function() {
   })
     .setPin('.browser-designer-element');
 
-  controller.addScene([
-    navigationScene,
-
-    navigationAboutScene,
-    navigationWorkScene,
-    navigationContactScene,
-
-    developerScene,
-    designerScene
-  ]);
 
   console.log('FINISHED');
-
-
-  // Fancy portfolio collapse
-
 
 
 });
