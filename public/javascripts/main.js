@@ -1,27 +1,25 @@
 $(document).ready(function() {
-
+  // Created variable so that offsetting based on navigation height will be more DRY
   var navHeight = $('#nav-trigger').innerHeight();
 
-// Initialize Masonry Containers
-  var $container = $('#isotope');
-  var masonry = new Masonry( $container, {
-    columnWidth: '.grid-sizer',
-    itemSelector: '.item'
-  });
+//// Initialize Masonry Containers
+//  var $container = $('#isotope');
+//  var masonry = new Masonry( $container, {
+//    columnWidth: '.grid-sizer',
+//    itemSelector: '.item'
+//  });
 
-// Initialize auto-resize of textarea element
+  // Initialize auto-resize of textarea element
   window.jQuery.fn.autosize = function() {
     return autosize(this);
   };
   $('textarea').autosize();
 
-// Initializes smooth scrolling to all a tags
+  // Initializes smooth scrolling to all a tags
   $('a').smoothScroll({offset: -navHeight});
 
-
-//// Initialize ScrollMagic
+  //ScrollMagic for Navigation
   var controller = new ScrollMagic.Controller();
-
   new ScrollMagic.Scene({
     triggerElement: '#nav-trigger',
     triggerHook: 0,
@@ -62,37 +60,27 @@ $(document).ready(function() {
     .setClassToggle('.contact-link', 'highlight')
     .addTo(controller);
 
+  // Set up height so that it plays nice with nav bar
+  //$('#developer').height($(window).height()-navHeight);
 
-  var tween = new TimelineLite({
-    triggerHook: 'onLeave'
-  })
-    .to('.designer', 1, {transform: 'translateY(0)'});
+
+  // ScrollMagic for awesome browser effect
+  var browserController = new ScrollMagic.Controller({
+    globalSceneOptions: {
+      triggerHook: 'onLeave'
+    }
+  });
+
+  var wipeEffect = new TimelineMax()
+    .add(TweenMax.to('#designer', 1, {transform: 'translateY(0)'}));
 
   new ScrollMagic.Scene({
-    triggerElement: '.developer'
+    triggerElement: '#trigger-element',
+    offset: navHeight,
+    duration: $(window).height()
   })
-    .setTween(tween)
-    .setPin('.developer')
-    .addTo(controller);
-
-
-  var developerScene = new ScrollMagic.Scene({
-    triggerElement: '#browser-developer-trigger',
-    duration: 1000,
-    triggerHook: 0.15,
-    reverse: true
-  })
-    .setPin('#browser-developer-element');
-
-  var designerScene = new ScrollMagic.Scene({
-    triggerElement: '#browser-designer-trigger',
-    triggerHook: 0,
-    reverse: true
-  })
-    .setPin('.browser-designer-element');
-
-
-  console.log('FINISHED');
-
-
+    .setTween(wipeEffect)
+    .setPin('section#developer')
+    .addTo(browserController);
 });
+

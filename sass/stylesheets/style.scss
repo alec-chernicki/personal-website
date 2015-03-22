@@ -356,18 +356,19 @@ canvas{
 // ----------------------------------------------
 //TODO:major refactoring needs to be done to DRY this all up
 
-.developer .section-header-container,
-.designer .section-header-container {
+#developer .section-header-container,
+#designer .section-header-container {
   h2:before,
   h2:after {
     display: none;
   }
 }
 
-.developer {
+#developer {
   background-color: $background-dark-blue;
   overflow: hidden;
   position: relative;
+  width: 100%;
   z-index: 100;
 
   h2, h3, p, a {
@@ -405,11 +406,6 @@ canvas{
 
     p {
       margin-bottom: 5px;
-    }
-
-    #browser-developer-trigger {
-      position: absolute;
-      top:0;
     }
 
     .progress-bar {
@@ -482,15 +478,25 @@ canvas{
     right: -300px;
     width: 600px;
   }
+
+  #trigger-element {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 // Designer
 // ----------------------------------------------
-.designer {
+#designer {
   padding-bottom: 0;
   background-color: $background-light-grey;
   overflow: hidden;
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(100%);
+  width: 100%;
+  height: 100%;
 
   .section-header-container .underline:after {
     background-color: $text-dark;

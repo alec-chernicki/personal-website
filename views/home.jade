@@ -52,8 +52,7 @@ block content
             li • Consuming copious amounts of coffee
             li • Corgis
 
-  // TODO: This code nesting is ugly and needs to be refactored
-  .developer
+  section#developer
     #gear-one.gear.rotation-right
     #gear-two.gear.rotation-left
     #gear-three.gear.rotation-left
@@ -96,24 +95,25 @@ block content
 
             img.browser#browser-developer-element(src="images/browser.svg")
 
-  .designer
-    .section-container
-      .section-header-container
-        h2 I'M A:#{' '}
-          span.underline DESIGNER
+        #trigger-element
 
-      .large-container
-        .col-sm-3
-          .designer-showtell.section-text-container
-            h3 DON'T JUST TELL, SHOW.
-            P I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
+    #designer
+      .section-container
+        .section-header-container
+          h2 I'M A:#{' '}
+            span.underline DESIGNER
 
-        .col-sm-3.pull-right
+        .large-container
+          .col-sm-3
+            .designer-showtell.section-text-container
+              h3 DON'T JUST TELL, SHOW.
+              P I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
 
-        .browser-container.col-sm-6
-          #browser-designer-trigger
-            img.browser#browser-designer-element(src="images/browser.svg")
+          .col-sm-3.pull-right
 
+          .browser-container.col-sm-6
+            #browser-designer-trigger
+              img.browser#browser-designer-element(src="images/browser.svg")
   #work.container
     .section-header-container
       h2 MY WORK

@@ -4824,90 +4824,96 @@ canvas {
     .about-interests li:last-child {
       margin: 0; }
 
-.developer .section-header-container h2:before, .developer .section-header-container h2:after, .designer .section-header-container h2:before, .designer .section-header-container h2:after {
+#developer .section-header-container h2:before, #developer .section-header-container h2:after, #designer .section-header-container h2:before, #designer .section-header-container h2:after {
   display: none; }
 
-.developer {
+#developer {
   background-color: #25292D;
   overflow: hidden;
   position: relative;
+  width: 100%;
   z-index: 100; }
-  .developer h2, .developer h3, .developer p, .developer a {
+  #developer h2, #developer h3, #developer p, #developer a {
     color: #FFF; }
-  .developer li > p {
+  #developer li > p {
     font-weight: 600;
     letter-spacing: 1.5px;
     font-size: 1.1em; }
-  .developer a {
+  #developer a {
     margin: 30px 0; }
-    .developer a:hover {
+    #developer a:hover {
       background-color: #FFF;
       color: #25292D; }
-  .developer .section-container {
+  #developer .section-container {
     z-index: 20;
     margin: 0 auto;
     padding-bottom: 0; }
-  .developer .progress-bar-container {
+  #developer .progress-bar-container {
     margin: 20px 0; }
-    .developer .progress-bar-container li {
+    #developer .progress-bar-container li {
       margin-bottom: 15px; }
-    .developer .progress-bar-container p {
+    #developer .progress-bar-container p {
       margin-bottom: 5px; }
-    .developer .progress-bar-container #browser-developer-trigger {
-      position: absolute;
-      top: 0; }
-    .developer .progress-bar-container .progress-bar {
+    #developer .progress-bar-container .progress-bar {
       width: 100%;
       height: 17px;
       border-radius: 4px;
       background-color: #35393C;
       float: none; }
-      .developer .progress-bar-container .progress-bar .percentage {
+      #developer .progress-bar-container .progress-bar .percentage {
         background-color: #43BA63;
         height: 17px;
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px; }
-      .developer .progress-bar-container .progress-bar .percentage-html {
+      #developer .progress-bar-container .progress-bar .percentage-html {
         width: 90%; }
-      .developer .progress-bar-container .progress-bar .percentage-js {
+      #developer .progress-bar-container .progress-bar .percentage-js {
         width: 80%; }
-      .developer .progress-bar-container .progress-bar .percentage-ruby {
+      #developer .progress-bar-container .progress-bar .percentage-ruby {
         width: 65%; }
-      .developer .progress-bar-container .progress-bar .percentage-python {
+      #developer .progress-bar-container .progress-bar .percentage-python {
         width: 50%; }
-  .developer .rotation-left {
+  #developer .rotation-left {
     -webkit-animation: rotation-left 12s linear infinite;
     -moz-animation: rotation-left 12s linear infinite;
     -ms-animation: rotation-left 12s linear infinite; }
-  .developer .rotation-right {
+  #developer .rotation-right {
     -webkit-animation: rotation-right 12s linear infinite;
     -moz-animation: rotation-right 12s linear infinite;
     -ms-animation: rotation-right 12s linear infinite; }
-  .developer .gear {
+  #developer .gear {
     background: url('/images/gear_icon.svg');
     position: absolute; }
-  .developer #gear-one {
+  #developer #gear-one {
     bottom: -200px;
     height: 500px;
     left: -150px;
     width: 500px; }
-  .developer #gear-two {
+  #developer #gear-two {
     bottom: 300px;
     height: 250px;
     left: -100px;
     width: 250px; }
-  .developer #gear-three {
+  #developer #gear-three {
     bottom: -150px;
     height: 600px;
     right: -300px;
     width: 600px; }
+  #developer #trigger-element {
+    position: absolute;
+    bottom: 0; }
 
-.designer {
+#designer {
   padding-bottom: 0;
   background-color: #F5F5F5;
   overflow: hidden;
-  position: relative; }
-  .designer .section-header-container .underline:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(100%);
+  width: 100%;
+  height: 100%; }
+  #designer .section-header-container .underline:after {
     background-color: #373737; }
 
 #work {
