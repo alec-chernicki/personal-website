@@ -96,16 +96,6 @@ a {
   }
 }
 
-
-canvas{
-  vertical-align:bottom;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
 .container {
   max-width: 1200px;
 }
@@ -233,20 +223,15 @@ canvas{
   color: #fff;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 
-  #logo {
-    height: 50px;
-  }
+  text-align: center;
 
   h1 {
     font-size: 50px/70px;
     font-weight: $weight-bold;
-    margin: 30px 0;
   }
 
   p {
     font-size: 20px;
-    font-weight: $weight-light;
-
   }
 }
 

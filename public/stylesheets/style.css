@@ -4655,14 +4655,6 @@ a {
   .button:hover {
     transition: 0.1s; }
 
-canvas {
-  vertical-align: bottom;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0; }
-
 .container {
   max-width: 1200px; }
 
@@ -4750,16 +4742,13 @@ canvas {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/desk.jpg");
   background-size: cover;
   color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); }
-  #hero.jumbotron #logo {
-    height: 50px; }
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  text-align: center; }
   #hero.jumbotron h1 {
     font-size: 50px/70px;
-    font-weight: 700;
-    margin: 30px 0; }
+    font-weight: 700; }
   #hero.jumbotron p {
-    font-size: 20px;
-    font-weight: 300; }
+    font-size: 20px; }
 
 #nav-element {
   background-color: #FFF;
