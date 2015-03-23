@@ -9,18 +9,21 @@ $(document).ready(function() {
 //    itemSelector: '.item'
 //  });
 
-  // Initialize auto-resize of textarea element
+  // Dynamic resize of textarea based on content
+  // ----------------------------------------------
   window.jQuery.fn.autosize = function() {
     return autosize(this);
   };
   $('textarea').autosize();
 
-  // Initializes smooth scrolling to all a tags
+  // Smooth Scrolling to all 'a' tags
+  // ----------------------------------------------
   $('a').smoothScroll({offset: -navHeight});
 
-  //ScrollMagic for Navigation
+  // ScrollMagic - Navigation
+  // ----------------------------------------------
   var controller = new ScrollMagic.Controller();
-  new ScrollMagic.Scene({
+  var navigationScene = new ScrollMagic.Scene({
     triggerElement: '#nav-trigger',
     triggerHook: 0,
     offset: 0,
@@ -60,11 +63,9 @@ $(document).ready(function() {
     .setClassToggle('.contact-link', 'highlight')
     .addTo(controller);
 
-  // Set up height so that it plays nice with nav bar
-  //$('#developer').height($(window).height()-navHeight);
 
-
-  // ScrollMagic for awesome browser effect
+  // ScrollMagic - Skillset wipe effect
+  // ----------------------------------------------
   var browserController = new ScrollMagic.Controller({
     globalSceneOptions: {
       triggerHook: 'onLeave'
@@ -74,13 +75,53 @@ $(document).ready(function() {
   var wipeEffect = new TimelineMax()
     .add(TweenMax.to('#designer', 1, {transform: 'translateY(0)'}));
 
-  new ScrollMagic.Scene({
-    triggerElement: '#trigger-element',
-    offset: navHeight,
+  var wipeEffectScene = new ScrollMagic.Scene({
+    triggerElement: '#developer',
+    // Offsets the trigger to fire at end of element
+    offset: ($('#developer').height() - $(window).height()),
+    // Sets speed of wipe dynamically based on browser height
     duration: $(window).height()
   })
     .setTween(wipeEffect)
     .setPin('section#developer')
     .addTo(browserController);
+
+  // ScrollMagic - Writing Effect - Developer
+  // ----------------------------------------------
+
+  function pathPrepare ($el) {
+    var lineLength = $el[0].getTotalLength();
+    $el.css("stroke-dasharray", lineLength);
+    $el.css("stroke-dashoffset", lineLength);
+  }
+
+  var $developerWriting = $('path#developer-writing');
+  var $developerDot = $('path#developer-dot');
+  var $designerWriting = $('path#designer-writing');
+
+  // prepare SVG
+  pathPrepare($developerWriting);
+  pathPrepare($developerDot);
+  pathPrepare($designerWriting);
+
+  // init controller
+  var writingController = new ScrollMagic.Controller();
+
+  // build tween
+  var writingTween = new TimelineMax()
+    .add(TweenMax.to($developerWriting, 1, {strokeDashoffset: 0, ease:Linear.easeNone}));
+
+  // build scene
+  var writingEffectScene = new ScrollMagic.Scene({
+    triggerElement: "#developer",
+    duration: 200,
+    tweenChanges: true
+  })
+    .setTween(writingTween)
+    .addTo(writingController);
+
+  $(window).resize(function() {
+    navigationScene.update();
+  });
 });
 
