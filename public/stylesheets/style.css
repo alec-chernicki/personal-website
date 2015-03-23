@@ -4962,13 +4962,12 @@ canvas {
       z-index: 10000;
       padding: 15% 0; }
     #portfolio #masonry .item:hover .project-button-background {
-      display: block;
+      display: inline-flex;
       transition-duration: 0.2s; }
     #portfolio #masonry .item .project-button-wrapper {
-      padding: 10% 0;
       color: #FFF;
       text-align: center;
-      margin: 0 auto; }
+      margin: auto auto; }
       #portfolio #masonry .item .project-button-wrapper p {
         font-weight: 600;
         font-size: 20px; }
@@ -4980,7 +4979,7 @@ canvas {
         letter-spacing: 1.5px;
         border-radius: 6px;
         text-align: center;
-        width: 30%;
+        width: 130px;
         margin: 0 auto;
         color: #FFF; }
         #portfolio #masonry .item .project-button-wrapper a:hover {

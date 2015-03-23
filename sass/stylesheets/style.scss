@@ -576,15 +576,14 @@ canvas{
       }
 
       &:hover .project-button-background {
-        display: block;
+        display: inline-flex;
         transition-duration: $transition-time;
       }
 
       .project-button-wrapper {
-        padding: 10% 0;
         color: #FFF;
         text-align: center;
-        margin: 0 auto;
+        margin: auto auto;
 
         p {
           font-weight: $weight-semibold;
@@ -600,7 +599,7 @@ canvas{
           letter-spacing: 1.5px;
           border-radius: 6px;
           text-align: center;
-          width: 30%;
+          width: 130px;
           margin: 0 auto;
           color: #FFF;
 

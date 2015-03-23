@@ -20,15 +20,14 @@ var transporter = nodemailer.createTransport({
  * Home page
  */
 
-exports.index = function(req, res, next) {
-  var lastfm = new LastFmNode({
-    'api_key': secrets.lastfm.api_key,
-    'secret': secrets.lastfm.secret
-  });
-  var trackStream = lastfm.stream('whynotdostuff');
-  res.render('home', {
+var lastfm = new LastFmNode({
+  'api_key': secrets.lastfm.api_key,
+  'secret': secrets.lastfm.secret
+});
+var trackStream = lastfm.stream('whynotdostuff');
 
-  });
+exports.index = function(req, res, next) {
+  res.render('home');
 };
 exports.postIndex = function(req, res) {
 

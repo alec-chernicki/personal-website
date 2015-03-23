@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
+var http = require('http');
 
 /**
  * Controllers (route handlers)
@@ -22,6 +23,9 @@ var homeController = require('./controllers/home');
  * Create Express server
  */
 var app = express();
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+
 
 /**
  * Express configuration
@@ -57,12 +61,11 @@ app.post('/', homeController.postIndex);
 
 
 
-
 /**
  * 404 Error catch and forward to error handler
  */
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    var err = new Error(req + 'Not Found');
     err.status = 404;
     next(err);
 });
