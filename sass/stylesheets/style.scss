@@ -64,6 +64,18 @@ html {
   100% { -ms-transform: rotate(0deg); }
 }
 
+.rotation-left {
+  -webkit-animation: rotation-left 12s linear infinite;
+  -moz-animation: rotation-left 12s linear infinite;
+  -ms-animation: rotation-left 12s linear infinite;
+}
+
+.rotation-right {
+  -webkit-animation: rotation-right 12s linear infinite;
+  -moz-animation: rotation-right 12s linear infinite;
+  -ms-animation: rotation-right 12s linear infinite;
+}
+
 img, ul, li {
   display: block;
   margin: 0;
@@ -117,6 +129,28 @@ a {
   }
 }
 
+.underline {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 120px;
+
+  img {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background-color: #FFF;
+    width: 100%;
+    bottom: 8px;
+    left: 0;
+  }
+}
+
 // Defines styles for all text in header containers
 // ----------------------------------------------
 // TODO: clean up all the & and >
@@ -128,7 +162,6 @@ a {
     font-weight: $weight-bold;
     color: $text-dark;
     font-size: 50px;
-    margin-bottom: 5px;
     letter-spacing: 2px;
     position: relative;
 
@@ -148,21 +181,6 @@ a {
 
     &:after {
       right: 50px;
-    }
-
-    >.underline {
-      font-family: 'Permanent Marker', sans-serif;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        height: 1px;
-        background-color: #FFF;
-        width: 100%;
-        bottom: 5px;
-        left: 0;
-      }
     }
   }
 
@@ -202,13 +220,54 @@ a {
   padding: 50px 15px;
 }
 
-.browser-container {
+.browser-developer-container,
+.browser-designer-container {
   overflow: hidden;
 
   .browser {
     display: none;
   }
 }
+
+// Pre-Load Animation
+// ----------------------------------------------
+
+#pre-load {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background: $background-dark-blue;
+}
+
+.gear-outline {
+  background: url('/images/gear_outline_icon.svg');
+  position: absolute;
+}
+
+.pre-load-gear-wrapper {
+  margin: 0 auto;
+  height: 110px;
+  width: 120px;
+  position: relative;
+}
+
+.gear-outline-one {
+  height: 75px;
+  width: 75px;
+  bottom: 0;
+}
+
+.gear-outline-two {
+  height: 50px;
+  width: 50px;
+  bottom: 52px;
+  left: 66px;
+}
+
 
 // Hero Section
 // ----------------------------------------------
@@ -217,6 +276,8 @@ a {
   min-height: 550px;
   padding-top: 50px;
   margin: 0;
+  width: 100%;
+  display: inline-flex;
 
   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/images/desk.jpg");
   background-size: cover;
@@ -233,6 +294,10 @@ a {
   p {
     font-size: 20px;
   }
+
+  .hero-container {
+    margin: auto auto;
+  }
 }
 
 // Navigation Bar
@@ -242,7 +307,7 @@ a {
   font-family: $open-sans;
   border-bottom: 1px solid #EEE;
   padding: 10px 0;
-  z-index: 20000;
+  z-index: 9999;
   border-radius: 0;
   top: 0;
 
@@ -308,6 +373,10 @@ a {
 
 // About Section
 // ----------------------------------------------
+
+#about {
+  padding: 50px 0 100px 0;
+}
 .about-video {
   height: 400px;
   border-bottom: solid $text-light 1px;
@@ -320,6 +389,7 @@ a {
 // ----------------------------------------------
 //TODO: Need to change hacky nature of using a jumbotron here
 .about-interests {
+  display: none;
   background-color: $background-light-grey;
   margin: 50px 0 0 0;
   padding: 50px 15px;
@@ -355,7 +425,11 @@ a {
   overflow: hidden;
   position: relative;
   width: 100%;
-  z-index: 100;
+
+  h2 {
+    line-height: 90px;
+    margin: 0;
+  }
 
   h2, h3, p, a {
     color: #FFF;
@@ -426,18 +500,6 @@ a {
     }
   }
 
-  .rotation-left {
-    -webkit-animation: rotation-left 12s linear infinite;
-    -moz-animation: rotation-left 12s linear infinite;
-    -ms-animation: rotation-left 12s linear infinite;
-  }
-
-  .rotation-right {
-    -webkit-animation: rotation-right 12s linear infinite;
-    -moz-animation: rotation-right 12s linear infinite;
-    -ms-animation: rotation-right 12s linear infinite;
-  }
-
   .gear {
     background: url('/images/gear_icon.svg');
     position: absolute;
@@ -463,25 +525,66 @@ a {
     right: -300px;
     width: 600px;
   }
-
-  #trigger-element {
-    position: absolute;
-    bottom: 0;
-  }
 }
 
-// Designer
-// ----------------------------------------------
-#designer {
-  padding-bottom: 0;
-  background-color: $background-light-grey;
+#developer-writing {
+  margin-left: -10px;
+}
+
+#browser-developer-trigger,
+#browser-designer-trigger{
+  height: 650px;
+  width: 45%;
+  position: relative;
+  margin: 0 auto;
+}
+
+#browser-designer-trigger {
+
+}
+
+#browser-developer-element,
+#browser-designer-element{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+#browser-designer-element {
+  top: 0;
+}
+
+.browser-developer-container,
+.browser-designer-container{
+  height: 650px;
+  bottom: 0;
   overflow: hidden;
   position: absolute;
-  top: 0;
   right: 0;
-  transform: translateY(100%);
-  width: 100%;
+  left: 0;
+}
+
+.browser-designer-container {
+  top: 0;
+  height: 0;
+}
+
+#browser-designer-wrapper {
   height: 100%;
+}
+// Designer
+// ----------------------------------------------
+
+#designer {
+  background-color: $background-light-grey;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+
+  h2 {
+    margin: 0;
+  }
 
   p {
     color: $text-light;
@@ -493,6 +596,10 @@ a {
 
   .section-header-container .underline:after {
     background-color: $text-dark;
+  }
+
+  #designer-writing {
+    margin-left: -10px;
   }
 }
 
@@ -635,7 +742,7 @@ a {
   .tools-used {
     font-size: $paragraph-text;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 10px;
   }
 
   .tools {
@@ -768,10 +875,11 @@ a {
       margin-bottom: 0;
     }
 
-    a:hover {
-      transition: $transition-time;
-      font-weight: $weight-semibold;
-    }
+  }
+
+  .fa-ul li p {
+    display: inline-block;
+    margin-left: 10px;
   }
 
   .twitter {
@@ -805,7 +913,7 @@ a {
 // ----------------------------------------------
 @media screen and (min-width: 320px) {
   #portfolio {
-    masonry {
+    #masonry {
       .item {
         width: 100%;
       }
@@ -816,7 +924,8 @@ a {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
-  .browser-container {
+  .browser-designer-container,
+  .browser-developer-container{
     .browser {
       display: block;
     }
@@ -868,7 +977,7 @@ a {
       text-align: right;
   }
 
-  .designer {
+  #designer {
     .designer-showtell {
       text-align: right;
     }

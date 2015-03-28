@@ -12,7 +12,6 @@ var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
-var http = require('http');
 
 /**
  * Controllers (route handlers)
@@ -23,9 +22,6 @@ var homeController = require('./controllers/home');
  * Create Express server
  */
 var app = express();
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
-
 
 /**
  * Express configuration

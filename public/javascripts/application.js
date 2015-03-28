@@ -8,7 +8,6 @@
 
 
 // Load Bower Components
-//= require bower_components/jquery/dist/jquery.min
 //= require bower_components/masonry/dist/masonry.pkgd.min
 //= require bower_components/jquery-autosize/dest/autosize.min
 //= require bower_components/jquery-smooth-scroll/jquery.smooth-scroll.min

@@ -15,15 +15,23 @@ var transporter = nodemailer.createTransport({
     ciphers: 'SSLv3'
   }
 });
+
+
 /**
  * GET /
  * Home page
  */
 
 
-exports.index = function(req, res, next) {
+exports.index = function(req, res) {
   res.render('home');
 };
+
+/**
+ * POST /
+ * Home page
+ */
+
 exports.postIndex = function(req, res) {
 
   req.checkBody('fullname', 'Name cannot be blank').notEmpty();
