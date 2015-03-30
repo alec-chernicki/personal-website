@@ -560,7 +560,6 @@ a {
 }
 
 #browser-designer-trigger {
-
 }
 
 #browser-developer-element,
@@ -795,10 +794,6 @@ a {
   .container {
     padding: 0;
   }
-
-  .section-container {
-    padding: 60px;
-  }
 }
 
 .contact-form-container {
@@ -895,18 +890,27 @@ a {
 
 
 .contact-links-container {
+  margin-top: 30px;
+
   li {
-    margin-bottom: 10px;
+     display: inline-block;
+     margin: 0 0 10px 15px;
 
-    a:last-child {
-      margin-bottom: 0;
-    }
+     a:last-child {
+       margin: 0;
+     }
 
-  }
+     &:first-child {
+       margin-left: 0;
+     }
+
+     &:last-child {
+       margin-right: 0;
+     }
+   }
 
   .fa-ul li p {
-    display: inline-block;
-    margin-left: 10px;
+    display: none;
   }
 
   .twitter {
@@ -1032,11 +1036,47 @@ a {
       font-size: 40px;
     }
   }
+
+  #contact .section-container {
+    padding: 50px 15px;
+  }
+
+  .contact-links-container {
+    float: right;
+    width: 30%;
+    margin: 0;
+
+    li {
+      display: block;
+      margin: 0 0 10px 0;
+    }
+
+    .fa-ul li p {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 0 10px 15px;
+
+    a:last-child {
+      margin: 0;
+    }
+
+  }
 }
 
 @media screen and (min-width: 1024px) {
   #portfolio #masonry .item {
         width: 33.3333%;
+  }
+
+
+
+  #contact .section-container {
+    padding: 60px;
   }
 }
 

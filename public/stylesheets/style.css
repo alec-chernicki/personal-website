@@ -5105,8 +5105,6 @@ a {
 
 #contact .container {
   padding: 0; }
-#contact .section-container {
-  padding: 60px; }
 
 .contact-form-container h3 {
   font-weight: 700;
@@ -5170,21 +5168,27 @@ a {
     transition: 0.1s;
     background-color: #25292D; }
 
-.contact-links-container li {
-  margin-bottom: 10px; }
-  .contact-links-container li a:last-child {
-    margin-bottom: 0; }
-.contact-links-container .fa-ul li p {
-  display: inline-block;
-  margin-left: 10px; }
-.contact-links-container .twitter {
-  color: #289BE5; }
-.contact-links-container .dribbble {
-  color: #DE6097; }
-.contact-links-container .linkedin {
-  color: #0077B5; }
-.contact-links-container .medium {
-  color: #333332; }
+.contact-links-container {
+  margin-top: 30px; }
+  .contact-links-container li {
+    display: inline-block;
+    margin: 0 0 10px 15px; }
+    .contact-links-container li a:last-child {
+      margin: 0; }
+    .contact-links-container li:first-child {
+      margin-left: 0; }
+    .contact-links-container li:last-child {
+      margin-right: 0; }
+  .contact-links-container .fa-ul li p {
+    display: none; }
+  .contact-links-container .twitter {
+    color: #289BE5; }
+  .contact-links-container .dribbble {
+    color: #DE6097; }
+  .contact-links-container .linkedin {
+    color: #0077B5; }
+  .contact-links-container .medium {
+    color: #333332; }
 
 .footer {
   position: relative;
@@ -5231,11 +5235,30 @@ a {
   #portfolio #masonry .item {
     width: 50%; }
   nav .navbar-brand {
-    font-size: 40px; } }
+    font-size: 40px; }
+  #contact .section-container {
+    padding: 50px 15px; }
+  .contact-links-container {
+    float: right;
+    width: 30%;
+    margin: 0; }
+    .contact-links-container li {
+      display: block;
+      margin: 0 0 10px 0; }
+    .contact-links-container .fa-ul li p {
+      display: inline-block;
+      margin-left: 10px; }
+  li {
+    display: inline-block;
+    margin: 0 0 10px 15px; }
+    li a:last-child {
+      margin: 0; } }
 
 @media screen and (min-width: 1024px) {
   #portfolio #masonry .item {
-    width: 33.3333%; } }
+    width: 33.3333%; }
+  #contact .section-container {
+    padding: 60px; } }
 
 @media screen and (min-width: 1280px) {
   #portfolio #masonry .item {
