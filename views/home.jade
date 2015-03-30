@@ -9,14 +9,16 @@ block content
   #hero.jumbotron
     // Refactor navigation to partial to DRY
     #hero-nav-wrapper.navbar
-      a.navbar-brand ALEC ORTEGA
-      ul.hero-nav-links
-        li
-          a.about-link(href='#about') ABOUT
-        li
-          a.work-link(href='#work') WORK
-        li
-          a.contact-link(href='#contact') CONTACT
+      .container
+        .navbar-header
+          a.navbar-brand.navbar-left ALEC ORTEGA
+        ul.nav.navbar-nav.navbar-right
+          li
+            a.about-link(href='#about') ABOUT
+          li
+            a.work-link(href='#work') WORK
+          li
+            a.contact-link(href='#contact') CONTACT
     .hero-container
       h1 Design for empathy.<br>Develop for ease.
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a lorem nec mauris feugiat ornare non sed orci. Nunc ultrices quis eros a varius. Mauris lobortis ornare tristique.

@@ -187,7 +187,7 @@ a {
   >p {
     font-weight: $weight-light;
     color: $text-light;
-    font-size: 15px;
+    font-size: 1.1em;
     letter-spacing: 3px;
   }
 }
@@ -302,15 +302,38 @@ a {
   }
 }
 
-.hero-nav-wrapper {
-  top: 0;
+#hero-nav-wrapper {
+  position: absolute;
+  top: 30px;
   left: 0;
   right: 0;
-  position: absolute;
   border: none;
+  display: none;
 
   .hero-nav-links li {
     display: inline-block;
+  }
+
+  // TODO: Repeat of main navbar DRY it up
+  li a {
+    font-size: $paragraph-text;
+    color: #FFF;
+    letter-spacing: 3px;
+
+    &:hover {
+    }
+
+    &:active, &:focus {
+      background-color: inherit;
+    }
+  }
+
+  // TODO: Again this is a repeat
+  .navbar-brand {
+    color: #FFF;
+    font-weight: $weight-bold;
+    font-size: 20px;
+    letter-spacing: 1px;
   }
 }
 
@@ -329,7 +352,7 @@ a {
 
 #nav-element {
   background-color: #FFF;
-  display: none;
+
 
   .navbar-brand {
     color: $text-dark;
@@ -391,12 +414,15 @@ a {
   }
 }
 
+
+
 // About Section
 // ----------------------------------------------
 
 #about {
   padding: 50px 0 100px 0;
 }
+
 .about-video {
   height: 400px;
   border-bottom: solid $text-light 1px;
@@ -1057,14 +1083,8 @@ a {
     }
   }
 
-  li {
-    display: inline-block;
-    margin: 0 0 10px 15px;
-
-    a:last-child {
-      margin: 0;
-    }
-
+  #hero-nav-wrapper {
+    display: block;
   }
 }
 
