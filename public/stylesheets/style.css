@@ -5005,20 +5005,20 @@ a {
   #designer #designer-writing {
     margin-left: -10px; }
 
-#work {
-  padding-bottom: 25px; }
-  #work ul {
-    text-align: center; }
-    #work ul li {
-      display: inline-block; }
-    #work ul a {
-      font-weight: 300;
-      color: #7B7B7B;
-      font-size: 15px;
-      letter-spacing: 3px;
-      padding: 0 30px; }
-      #work ul a:hover {
-        font-weight: 600; }
+#work ul {
+  text-align: center; }
+  #work ul li {
+    display: inline-block; }
+  #work ul a {
+    font-weight: 300;
+    color: #7B7B7B;
+    font-size: 15px;
+    letter-spacing: 3px;
+    padding: 0 30px; }
+    #work ul a:hover {
+      font-weight: 600; }
+#work .section-header-container {
+  margin: 80px 0; }
 
 #portfolio #masonry {
   margin: 0 auto; }

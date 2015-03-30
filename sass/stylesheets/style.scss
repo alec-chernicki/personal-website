@@ -631,7 +631,6 @@ a {
 // ----------------------------------------------
 // TODO: Excessive nesting fix later
 #work {
-  padding-bottom: 25px;
 
   ul {
     text-align: center;
@@ -651,6 +650,10 @@ a {
         font-weight: $weight-semibold;
       }
     }
+  }
+
+  .section-header-container {
+    margin: 80px 0;
   }
 }
 
