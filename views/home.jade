@@ -7,6 +7,16 @@ block content
       .gear-outline.gear-outline-two.rotation-left
 
   #hero.jumbotron
+    // Refactor navigation to partial to DRY
+    #hero-nav-wrapper.navbar
+      a.navbar-brand ALEC ORTEGA
+      ul.hero-nav-links
+        li
+          a.about-link(href='#about') ABOUT
+        li
+          a.work-link(href='#work') WORK
+        li
+          a.contact-link(href='#contact') CONTACT
     .hero-container
       h1 Design for empathy.<br>Develop for ease.
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque a lorem nec mauris feugiat ornare non sed orci. Nunc ultrices quis eros a varius. Mauris lobortis ornare tristique.
@@ -66,13 +76,13 @@ block content
 
 
       .large-container
-        .col-sm-3
+        .col-md-3
           .developer-frameworks
           .developer-concise.section-text-container
             h3 CLEAN. CONCISE.
             p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
 
-        .col-sm-3.pull-right
+        .col-md-3.pull-right
           .developer-laguages.section-text-container
             h3 LANGUAGES
             p Most of my academic background is Python and I code in Ruby professionally. I am continually looking for resources to further my knowledge on any language.
@@ -95,10 +105,9 @@ block content
                   .percentage.percentage-python
             a.button(href='https://github.com/alecortega' target='_blank') VIEW GITHUB
 
-
       #browser-developer-trigger
         .browser-developer-container
-          img.browser#browser-developer-element(src="images/browser.svg")
+          img.browser#browser-developer-element(src="images/BrowserLoFi.png")
 
   #designer
     .section-container
@@ -115,10 +124,10 @@ block content
             P I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable code means easier maintainability and fewer bugs, which is just as important as meeting a deadline.
 
         .col-md-3.pull-right
-    #browser-designer-wrapper
-      #browser-designer-trigger
-        .browser-designer-container
-            img.browser#browser-designer-element(src="images/browser.svg")
+      #browser-designer-wrapper
+        #browser-designer-trigger
+          .browser-designer-container
+              img.browser#browser-designer-element(src="images/BrowserHiFi.png")
   #work.container.clearfix
     .section-header-container
       h2 MY WORK

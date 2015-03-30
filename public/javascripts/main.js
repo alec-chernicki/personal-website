@@ -71,38 +71,40 @@ $(document).ready(function() {
 
   // ScrollMagic - Skillset wipe effect
   // ----------------------------------------------
-  var browserController = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      triggerHook: 'onLeave'
-    }
-  });
 
   // Scene that controls the developer browser effect
+  var browserDeveloperController = new ScrollMagic.Controller();
+
   var developerTweenTimeline = new TimelineMax()
-    .add(TweenMax.to('.browser-developer-container', 1, {height: '0'}));
+    .add(TweenMax.to('.browser-developer-container', 1, {height: '0', ease:Linear.easeNone}));
 
   new ScrollMagic.Scene({
     triggerElement: '#browser-developer-trigger',
     // Sets speed of wipe dynamically based on browser height
-    duration: $('.browser-developer-container').height(),
-    offset: -(navHeight * 2)
+    duration: $('#browser-developer-trigger').height(),
+    offset: -(navHeight * 2),
+    triggerHook: 'onLeave'
   })
     .setTween(developerTweenTimeline)
     .addIndicators()
-    .addTo(browserController);
+    .addTo(browserDeveloperController);
 
   // Scene that controls the designer browser effect
+  var browserDesignerController = new ScrollMagic.Controller();
+
   var designerTweenTimeline = new TimelineMax()
-    .add(TweenMax.to('.browser-designer-container', 1, {height: '650px'}));
+    .add(TweenMax.to('.browser-designer-container', 1, {height: '690px', ease:Linear.easeNone}));
 
   new ScrollMagic.Scene({
-    triggerElement: '#browser-developer-trigger',
+    triggerElement: '#designer',
     // Sets speed of wipe dynamically based on browser height
     duration: $('.browser-developer-container').height(),
+    offset: 420,
+    triggerHook: 'onEnter'
   })
     .setTween(designerTweenTimeline)
     .addIndicators()
-    .addTo(browserController);
+    .addTo(browserDesignerController);
 
 
   // ScrollMagic - Writing Effect - Developer

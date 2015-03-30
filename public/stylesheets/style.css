@@ -4787,6 +4787,7 @@ a {
   margin: 0;
   width: 100%;
   display: inline-flex;
+  position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/desk.jpg");
   background-size: cover;
   color: #fff;
@@ -4798,16 +4799,30 @@ a {
   #hero.jumbotron p {
     font-size: 20px; }
   #hero.jumbotron .hero-container {
-    margin: auto auto; }
+    margin: auto auto;
+    width: 80%; }
 
-#nav-element {
-  background-color: #FFF;
+.hero-nav-wrapper {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  border: none; }
+  .hero-nav-wrapper .hero-nav-links li {
+    display: inline-block; }
+
+.navbar {
+  transition: 0.1s;
   font-family: "Open Sans", "Arial", san-serif;
   border-bottom: 1px solid #EEE;
   padding: 10px 0;
-  z-index: 9999;
+  z-index: 20000;
   border-radius: 0;
   top: 0; }
+
+#nav-element {
+  background-color: #FFF;
+  display: none; }
   #nav-element .navbar-brand {
     color: #373737;
     font-weight: 700;
@@ -4954,15 +4969,18 @@ a {
   width: 100%; }
 
 #browser-designer-element {
-  top: 0; }
+  bottom: 0;
+  position: absolute; }
 
 .browser-developer-container, .browser-designer-container {
   height: 650px;
-  bottom: 0;
   overflow: hidden;
   position: absolute;
   right: 0;
   left: 0; }
+
+.browser-developer-container {
+  bottom: 0; }
 
 .browser-designer-container {
   top: 0;
