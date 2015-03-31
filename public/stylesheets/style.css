@@ -4682,13 +4682,7 @@ a {
   left: 0; }
 
 .underline {
-  position: relative;
-  display: inline-block;
-  width: 300px;
-  height: 120px; }
-  .underline img {
-    width: 100%;
-    margin-top: 30px; }
+  position: relative; }
   .underline:after {
     content: '';
     position: absolute;
@@ -4781,7 +4775,7 @@ a {
   left: 66px; }
 
 #hero.jumbotron {
-  height: 100%;
+  height: 90%;
   min-height: 550px;
   padding-top: 50px;
   margin: 0;
@@ -4815,6 +4809,8 @@ a {
     font-size: 1.1em;
     color: #FFF;
     letter-spacing: 3px; }
+    #hero-nav-wrapper li a:hover {
+      background: inherit; }
     #hero-nav-wrapper li a:active, #hero-nav-wrapper li a:focus {
       background-color: inherit; }
   #hero-nav-wrapper .navbar-brand {
@@ -4828,9 +4824,23 @@ a {
   font-family: "Open Sans", "Arial", san-serif;
   border-bottom: 1px solid #EEE;
   padding: 10px 0;
-  z-index: 20000;
   border-radius: 0;
-  top: 0; }
+  top: 0;
+  transition: 0.1s;
+  margin: 0; }
+
+.nav-trigger {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20000;
+  transition: 0.1s; }
+
+.visible {
+  display: block;
+  transition: 0.1s; }
 
 #nav-element {
   background-color: #FFF; }
@@ -4897,6 +4907,11 @@ a {
 #developer .section-header-container h2:before, #developer .section-header-container h2:after, #designer .section-header-container h2:before, #designer .section-header-container h2:after {
   display: none; }
 
+#developer .section-container, #designer .section-container {
+  z-index: 20;
+  margin: 0 auto;
+  padding-bottom: 0; }
+
 #developer {
   background-color: #25292D;
   overflow: hidden;
@@ -4916,10 +4931,6 @@ a {
     #developer a:hover {
       background-color: #FFF;
       color: #25292D; }
-  #developer .section-container {
-    z-index: 20;
-    margin: 0 auto;
-    padding-bottom: 0; }
   #developer .progress-bar-container {
     margin: 20px 0; }
     #developer .progress-bar-container li {
@@ -5226,18 +5237,12 @@ a {
       display: block; }
   .section-header-container p {
     font-size: 20px; }
-  .section-text-container {
-    text-align: left; }
   #hero.jumbotron {
     padding: 75px; }
     #hero.jumbotron #logo {
       height: 75px; }
     #hero.jumbotron h1 {
       margin-top: 100px; }
-  #developer .developer-concise, #designer .designer-showtell {
-    text-align: right; }
-  #designer .designer-showtell {
-    text-align: right; }
   .contact-form-container .button {
     width: 200px;
     margin: 30px 0 auto 0; }
@@ -5265,6 +5270,12 @@ a {
 @media screen and (min-width: 1024px) {
   #portfolio #masonry .item {
     width: 33.3333%; }
+  #developer .developer-concise, #designer .designer-showtell {
+    text-align: right; }
+  #designer .designer-showtell {
+    text-align: right; }
+  .section-text-container {
+    text-align: left; }
   #contact .section-container {
     padding: 60px; } }
 
