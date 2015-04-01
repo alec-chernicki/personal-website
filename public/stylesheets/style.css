@@ -4715,9 +4715,9 @@ a {
   text-align: center; }
   .section-text-container > h3 {
     color: #25292D;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 1.5px;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 1px;
     margin: 0 0 20px 0; }
   .section-text-container > p, .section-text-container > ul {
     color: #7b858b;
@@ -4903,6 +4903,8 @@ a {
   z-index: 20;
   margin: 0 auto;
   padding-bottom: 0; }
+#developer .section-header-container h2, #designer .section-header-container h2 {
+  font-weight: 300; }
 
 #developer {
   background-color: #25292D;
@@ -5124,9 +5126,9 @@ a {
   padding: 0; }
 
 .contact-form-container h3 {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 30px;
-  letter-spacing: 3px; }
+  letter-spacing: 1px; }
 .contact-form-container .float-label .control {
   position: relative;
   overflow: hidden;

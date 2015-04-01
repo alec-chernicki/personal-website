@@ -182,9 +182,9 @@ a {
 
   >h3 {
     color: $text-dark;
-    font-weight: $secondary-title-weight;
-    font-size: 20px;
-    letter-spacing: 1.5px;
+    font-weight: $weight-regular;
+    font-size: 24px;
+    letter-spacing: 1px;
     margin: 0 0 20px 0;
 
   }
@@ -466,12 +466,19 @@ a {
 }
 
 
+
+
 #developer,
 #designer {
+
   .section-container {
     z-index: 20;
     margin: 0 auto;
     padding-bottom: 0;
+  }
+
+  .section-header-container h2 {
+    font-weight: $weight-light;
   }
 }
 #developer {
@@ -830,9 +837,9 @@ a {
 .contact-form-container {
 
   h3 {
-    font-weight: $primary-title-weight;
+    font-weight: $weight-regular;
     font-size: 30px;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
   }
 
   // This creates the form animation
