@@ -4659,7 +4659,7 @@ a {
   padding: 20px 0;
   border: solid 2px #fff;
   letter-spacing: 1.5px;
-  border-radius: 8px;
+  border-radius: 30px;
   text-align: center;
   width: 100%; }
   .button:hover {
@@ -4681,23 +4681,15 @@ a {
   bottom: 5px;
   left: 0; }
 
-.underline {
-  position: relative; }
-  .underline:after {
-    content: '';
-    position: absolute;
-    height: 1px;
-    background-color: #FFF;
-    width: 100%;
-    bottom: 8px;
-    left: 0; }
+.skillset-bold {
+  font-weight: 600; }
 
 .section-header-container {
   text-align: center;
   margin-bottom: 80px; }
   .section-header-container > h2 {
-    font-weight: 700;
-    color: #373737;
+    font-weight: 600;
+    color: #25292D;
     font-size: 50px;
     letter-spacing: 2px;
     position: relative; }
@@ -4706,7 +4698,7 @@ a {
       display: none;
       height: 1px;
       width: 100px;
-      background-color: #373737;
+      background-color: #25292D;
       position: absolute;
       top: 35px; }
     .section-header-container > h2:before {
@@ -4715,20 +4707,20 @@ a {
       right: 50px; }
   .section-header-container > p {
     font-weight: 300;
-    color: #7B7B7B;
+    color: #7b858b;
     font-size: 1.1em;
     letter-spacing: 3px; }
 
 .section-text-container {
   text-align: center; }
   .section-text-container > h3 {
-    color: #373737;
+    color: #25292D;
     font-weight: 600;
     font-size: 20px;
     letter-spacing: 1.5px;
     margin: 0 0 20px 0; }
   .section-text-container > p, .section-text-container > ul {
-    color: #7B7B7B;
+    color: #7b858b;
     font-weight: 300;
     font-size: 1.1em;
     line-height: 30px;
@@ -4775,7 +4767,7 @@ a {
   left: 66px; }
 
 #hero.jumbotron {
-  height: 90%;
+  height: 100%;
   min-height: 550px;
   padding-top: 50px;
   margin: 0;
@@ -4789,7 +4781,7 @@ a {
   text-align: center; }
   #hero.jumbotron h1 {
     font-size: 50px/70px;
-    font-weight: 700; }
+    font-weight: 600; }
   #hero.jumbotron p {
     font-size: 20px; }
   #hero.jumbotron .hero-container {
@@ -4845,13 +4837,13 @@ a {
 #nav-element {
   background-color: #FFF; }
   #nav-element .navbar-brand {
-    color: #373737;
+    color: #25292D;
     font-weight: 700;
     font-size: 20px;
     letter-spacing: 1px; }
   #nav-element li > a {
     font-size: 1.1em;
-    color: #7B7B7B;
+    color: #7b858b;
     letter-spacing: 3px; }
     #nav-element li > a:hover {
       background-color: inherit;
@@ -4875,7 +4867,7 @@ a {
     opacity: 1;
     bottom: 10px; }
   #nav-element .icon-bar {
-    background-color: #7B7B7B; }
+    background-color: #7b858b; }
   #nav-element .navbar-brand {
     margin-left: 15px; }
   #nav-element .navbar-toggle {
@@ -4886,7 +4878,7 @@ a {
 
 .about-video {
   height: 400px;
-  border-bottom: solid #7B7B7B 1px;
+  border-bottom: solid #7b858b 1px;
   margin: 0 auto 25px;
   box-shadow: 0 5px 7px -5px rgba(0, 0, 0, 0.2);
   max-width: 400px; }
@@ -4899,7 +4891,7 @@ a {
   .about-interests ul, .about-interests li {
     list-style-type: none; }
   .about-interests li {
-    color: #7B7B7B;
+    color: #7b858b;
     margin-bottom: 5px; }
     .about-interests li:last-child {
       margin: 0; }
@@ -5019,11 +5011,11 @@ a {
   #designer h2 {
     margin: 0; }
   #designer p {
-    color: #7B7B7B; }
+    color: #7b858b; }
   #designer h2, #designer h3 {
-    color: #373737; }
+    color: #25292D; }
   #designer .section-header-container .underline:after {
-    background-color: #373737; }
+    background-color: #25292D; }
   #designer #designer-writing {
     margin-left: -10px; }
 
@@ -5033,7 +5025,7 @@ a {
     display: inline-block; }
   #work ul a {
     font-weight: 300;
-    color: #7B7B7B;
+    color: #7b858b;
     font-size: 15px;
     letter-spacing: 3px;
     padding: 0 30px; }
@@ -5076,14 +5068,15 @@ a {
       margin: auto auto; }
       #portfolio #masonry .item .project-button-wrapper p {
         font-weight: 600;
-        font-size: 20px; }
+        font-size: 20px;
+        margin-bottom: 15px; }
       #portfolio #masonry .item .project-button-wrapper a {
         display: block;
         font-weight: 600;
         padding: 10px 0;
-        border: solid 2px #fff;
+        border: solid 1px #FFF;
         letter-spacing: 1.5px;
-        border-radius: 6px;
+        border-radius: 30px;
         text-align: center;
         width: 130px;
         margin: 0 auto;
@@ -5104,14 +5097,16 @@ a {
   transition-property: transform, opacity; }
 
 .project-info {
+  float: left;
   background-color: #F5F5F5;
-  padding: 75px 0 0 0; }
+  padding: 50px 0;
+  width: 100%; }
   .project-info .company-name {
     display: block;
     margin-bottom: 15px; }
   .project-info .company-name, .project-info .tools-used {
     font-size: 1.1em;
-    color: #7B7B7B;
+    color: #7b858b;
     font-weight: 600; }
   .project-info .tools-used {
     font-size: 1.1em;
@@ -5129,7 +5124,7 @@ a {
   padding: 0; }
 
 .contact-form-container h3 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 30px;
   letter-spacing: 3px; }
 .contact-form-container .float-label .control {
@@ -5142,7 +5137,7 @@ a {
 .contact-form-container .float-label form {
   margin: 3em auto;
   font-weight: 300;
-  color: #7B7B7B;
+  color: #7b858b;
   font-size: 15px;
   letter-spacing: 3px; }
 .contact-form-container .float-label input, .contact-form-container .float-label textarea {
@@ -5150,7 +5145,8 @@ a {
   width: 100%;
   border: 0;
   outline: 0;
-  resize: none; }
+  resize: none;
+  transition: 0.1s; }
   .contact-form-container .float-label input + label, .contact-form-container .float-label textarea + label {
     position: absolute;
     display: block;
@@ -5166,7 +5162,7 @@ a {
     top: 3px; }
   .contact-form-container .float-label input:focus + label, .contact-form-container .float-label textarea:focus + label {
     transition: 0.2s;
-    color: #2C8EFE; }
+    color: #21A3CA; }
 .contact-form-container textarea {
   padding: 1px;
   overflow: hidden;
@@ -5174,17 +5170,18 @@ a {
   height: 22px; }
 .contact-form-container .button {
   display: block;
-  color: #2C8EFE;
+  color: #21A3CA;
   background-color: inherit;
   font-weight: 600;
-  padding: 20px 0;
-  border: solid 2px #2C8EFE;
+  padding: 15px 0;
+  border: solid 1px #DDD;
   letter-spacing: 1.5px;
-  border-radius: 8px;
+  border-radius: 50px;
   margin: 30px auto 0; }
   .contact-form-container .button:hover, .contact-form-container .button:focus {
     color: #FFF;
-    background-color: #2C8EFE; }
+    background-color: #21A3CA;
+    border: solid 1px #21A3CA; }
   .contact-form-container .button:active {
     color: #FFF;
     transition: 0.1s;
@@ -5192,25 +5189,27 @@ a {
 
 .contact-links-container {
   margin-top: 30px; }
+  .contact-links-container .fa-twitter:before, .contact-links-container .fa-dribbble:before, .contact-links-container .fa-linkedin:before, .contact-links-container .fa-medium:before {
+    color: #21A3CA;
+    margin-right: 10px; }
   .contact-links-container li {
     display: inline-block;
-    margin: 0 0 10px 15px; }
+    margin: 0;
+    text-align: left;
+    width: 100%; }
     .contact-links-container li a:last-child {
       margin: 0; }
     .contact-links-container li:first-child {
       margin-left: 0; }
     .contact-links-container li:last-child {
       margin-right: 0; }
+    .contact-links-container li a {
+      color: #7b858b;
+      font-weight: 200; }
+      .contact-links-container li a:before {
+        color: #21A3CA; }
   .contact-links-container .fa-ul li p {
     display: none; }
-  .contact-links-container .twitter {
-    color: #289BE5; }
-  .contact-links-container .dribbble {
-    color: #DE6097; }
-  .contact-links-container .linkedin {
-    color: #0077B5; }
-  .contact-links-container .medium {
-    color: #333332; }
 
 .footer {
   position: relative;
@@ -5245,7 +5244,7 @@ a {
       margin-top: 100px; }
   .contact-form-container .button {
     width: 200px;
-    margin: 30px 0 auto 0; }
+    margin: 40px 0 auto 0; }
   .contact-links-container .button {
     margin: 30px 0 0 0; }
   #portfolio #masonry .item {
@@ -5259,8 +5258,7 @@ a {
     width: 30%;
     margin: 0; }
     .contact-links-container li {
-      display: block;
-      margin: 0 0 10px 0; }
+      margin: 0 0 20px 0; }
     .contact-links-container .fa-ul li p {
       display: inline-block;
       margin-left: 10px; }
@@ -5268,6 +5266,8 @@ a {
     display: block; } }
 
 @media screen and (min-width: 1024px) {
+  #hero.jumbotron .hero-container {
+    width: 60%; }
   #portfolio #masonry .item {
     width: 33.3333%; }
   #developer .developer-concise, #designer .designer-showtell {
@@ -5281,4 +5281,6 @@ a {
 
 @media screen and (min-width: 1280px) {
   #portfolio #masonry .item {
-    width: 25%; } }
+    width: 25%; }
+  #hero.jumbotron .hero-container {
+    width: 50%; } }

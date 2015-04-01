@@ -7,19 +7,46 @@ $(document).ready(function() {
   // Created variable so that offsetting based on navigation height will be more DRY
   var navHeight = $('.nav-trigger').innerHeight();
 
-//// Initialize Masonry Containers
-//  var $container = $('#isotope');
-//  var masonry = new Masonry( $container, {
-//    columnWidth: '.grid-sizer',
-//    itemSelector: '.item'
-//  });
-
   // Dynamic resize of textarea based on content
   // ----------------------------------------------
   window.jQuery.fn.autosize = function() {
     return autosize(this);
   };
   $('textarea').autosize();
+
+  // Fancy responsive portfolio panel thingamabob
+  // ----------------------------------------------
+
+  // Returns an array of items in the portfolio section
+  var $itemArray = $('.panel-group').children('.item');
+
+  function calculateAppendPosition(item) {
+    if ($(window).width() > 1280) {
+      return 12 % ($(item).index() + 1) + 3
+    }
+    else if ($(window).width() > 1024) {
+      return 12 % ($(item).index() + 1) + 2
+    }
+    else if ($(window).width() > 768) {
+      return 12 % ($(item).index() + 1) + 1
+    }
+    else if ($(window).width() > 320) {
+      return 12 % ($(item).index() + 1)
+    }
+  }
+
+  $('.item a').click(function() {
+    // Get data attribute of current button
+    var $panelId = $(this).attr('data-target');
+    var $projectInfo = $('.panel-group').children($panelId);
+
+    // Only append if there isn't a panel currently open or toggling
+    if (!$('.panel-group').children().hasClass('in') && !$('.panel-group').children().hasClass('collapsing')) {
+      console.log(calculateAppendPosition($(this).closest('.item')));
+      $($itemArray[calculateAppendPosition($(this).closest('.item'))]).append().after($projectInfo);
+    }
+  });
+
 
   // Smooth Scrolling to all 'a' tags
   // ----------------------------------------------

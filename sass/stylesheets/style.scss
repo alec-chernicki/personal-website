@@ -4,19 +4,20 @@ $open-sans: "Open Sans", "Arial", san-serif;
 
 $weight-light: 300;
 $weight-regular: 400;
-$weight-semibold: 600;
-$weight-bold: 700;
+$primary-title-weight: 600;
+$secondary-title-weight: 600;
+$tertiary-title-weight: 700;
 
 $line-height: 30px;
 $paragraph-text: 1.1em;
 
-$text-dark: #373737;
-$text-light: #7B7B7B;
+$text-dark: #25292D;
+$text-light: #7b858b;
 $background-dark-blue: #25292D;
 $background-light-grey: #F5F5F5;
 $background-light-green: #43BA63;
 
-$background-light-blue: #2C8EFE;
+$background-light-blue: #21A3CA;
 
 $border: 1px solid #ddd;
 $padding: 10px;
@@ -95,11 +96,11 @@ a {
 
 .button  {
   display: block;
-  font-weight: $weight-semibold;
+  font-weight: $secondary-title-weight;
   padding: 20px 0;
   border: solid 2px #fff;
   letter-spacing: 1.5px;
-  border-radius: 8px;
+  border-radius: 30px;
   text-align: center;
   width: 100%;
 
@@ -129,18 +130,8 @@ a {
   }
 }
 
-.underline {
-  position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    height: 1px;
-    background-color: #FFF;
-    width: 100%;
-    bottom: 8px;
-    left: 0;
-  }
+.skillset-bold {
+  font-weight: 600;
 }
 
 // Defines styles for all text in header containers
@@ -151,7 +142,7 @@ a {
   margin-bottom: 80px;
 
   >h2 {
-    font-weight: $weight-bold;
+    font-weight: $primary-title-weight;
     color: $text-dark;
     font-size: 50px;
     letter-spacing: 2px;
@@ -191,7 +182,7 @@ a {
 
   >h3 {
     color: $text-dark;
-    font-weight: $weight-semibold;
+    font-weight: $secondary-title-weight;
     font-size: 20px;
     letter-spacing: 1.5px;
     margin: 0 0 20px 0;
@@ -264,7 +255,7 @@ a {
 // Hero Section
 // ----------------------------------------------
 #hero.jumbotron {
-  height: 90%;
+  height: 100%;
   min-height: 550px;
   padding-top: 50px;
   margin: 0;
@@ -281,7 +272,7 @@ a {
 
   h1 {
     font-size: 50px/70px;
-    font-weight: $weight-bold;
+    font-weight: $primary-title-weight;
   }
 
   p {
@@ -324,7 +315,7 @@ a {
   // TODO: Again this is a repeat
   .navbar-brand {
     color: #FFF;
-    font-weight: $weight-bold;
+    font-weight: $tertiary-title-weight;
     font-size: 20px;
     letter-spacing: 1px;
   }
@@ -364,7 +355,7 @@ a {
 
   .navbar-brand {
     color: $text-dark;
-    font-weight: $weight-bold;
+    font-weight: $tertiary-title-weight;
     font-size: 20px;
     letter-spacing: 1px;
   }
@@ -499,7 +490,7 @@ a {
   }
 
   li>p {
-    font-weight: $weight-semibold;
+    font-weight: $secondary-title-weight;
     letter-spacing: 1.5px;
     font-size: $paragraph-text;
   }
@@ -683,7 +674,7 @@ a {
       padding: 0 30px;
 
       &:hover {
-        font-weight: $weight-semibold;
+        font-weight: $secondary-title-weight;
       }
     }
   }
@@ -741,18 +732,19 @@ a {
         margin: auto auto;
 
         p {
-          font-weight: $weight-semibold;
+          font-weight: $secondary-title-weight;
           font-size: 20px;
+          margin-bottom: 15px;
         }
 
         // TODO: Repetitive code from button, DRY it up
         a {
           display: block;
-          font-weight: $weight-semibold;
+          font-weight: $secondary-title-weight;
           padding: 10px 0;
-          border: solid 2px #fff;
+          border: solid 1px #FFF;
           letter-spacing: 1.5px;
-          border-radius: 6px;
+          border-radius: 30px;
           text-align: center;
           width: 130px;
           margin: 0 auto;
@@ -787,8 +779,10 @@ a {
 // Project Info
 // ----------------------------------------------
 .project-info {
+  float: left;
   background-color: $background-light-grey;
-  padding: 75px 0 0 0;
+  padding: 50px 0;
+  width: 100%;
 
   .company-name {
     display: block;
@@ -799,7 +793,7 @@ a {
   .tools-used {
     font-size: $paragraph-text;
     color: $text-light;
-    font-weight: $weight-semibold;
+    font-weight: $secondary-title-weight;
   }
 
   .tools-used {
@@ -836,7 +830,7 @@ a {
 .contact-form-container {
 
   h3 {
-    font-weight: $weight-bold;
+    font-weight: $primary-title-weight;
     font-size: 30px;
     letter-spacing: 3px;
   }
@@ -862,12 +856,17 @@ a {
       letter-spacing: 3px;
     }
 
+    input[type='text'] {
+
+    }
+
     input, textarea {
       display: block;
       width: 100%;
       border: 0;
       outline: 0;
       resize: none;
+      transition: $short-transition;
 
       & + label {
         position: absolute;
@@ -905,16 +904,17 @@ a {
     display: block;
     color: $background-light-blue;
     background-color: inherit;
-    font-weight: $weight-semibold;
-    padding: 20px 0;
-    border: solid 2px $background-light-blue;
+    font-weight: $secondary-title-weight;
+    padding: 15px 0;
+    border: solid 1px #DDD;
     letter-spacing: 1.5px;
-    border-radius: 8px;
+    border-radius: 50px;
     margin: $line-height auto 0;
 
     &:hover, &:focus {
       color: #FFF;
-      background-color: #2C8EFE;
+      background-color: $background-light-blue;
+      border: solid 1px $background-light-blue;
     }
 
     &:active {
@@ -929,41 +929,46 @@ a {
 .contact-links-container {
   margin-top: 30px;
 
+  .fa-twitter,
+  .fa-dribbble,
+  .fa-linkedin,
+  .fa-medium {
+    &:before {
+      color: $background-light-blue;
+      margin-right: 10px;
+    }
+  }
+
   li {
-     display: inline-block;
-     margin: 0 0 10px 15px;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    width: 100%;
 
-     a:last-child {
-       margin: 0;
-     }
+    a:last-child {
+      margin: 0;
+    }
 
-     &:first-child {
-       margin-left: 0;
-     }
+    &:first-child {
+      margin-left: 0;
+    }
 
-     &:last-child {
-       margin-right: 0;
-     }
-   }
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      color: $text-light;
+      font-weight: 200;
+
+      &:before {
+        color: $background-light-blue;
+      }
+    }
+  }
 
   .fa-ul li p {
     display: none;
-  }
-
-  .twitter {
-    color: #289BE5;
-  }
-
-  .dribbble {
-    color: #DE6097;
-  }
-
-  .linkedin {
-    color: #0077B5;
-  }
-
-  .medium {
-    color: #333332;
   }
 }
 
@@ -1039,7 +1044,7 @@ a {
   .contact-form-container {
     .button {
       width: 200px;
-      margin: $line-height 0 auto 0;
+      margin: 40px 0 auto 0;
     }
   }
 
@@ -1069,8 +1074,7 @@ a {
     margin: 0;
 
     li {
-      display: block;
-      margin: 0 0 10px 0;
+      margin: 0 0 20px 0;
     }
 
     .fa-ul li p {
@@ -1085,6 +1089,10 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
+  #hero.jumbotron .hero-container {
+    width: 60%;
+  }
+
   #portfolio #masonry .item {
         width: 33.3333%;
   }
@@ -1112,6 +1120,10 @@ a {
 @media screen and (min-width: 1280px) {
   #portfolio #masonry .item {
     width: 25%;
+  }
+
+  #hero.jumbotron .hero-container {
+    width: 50%;
   }
 }
 
