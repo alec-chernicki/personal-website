@@ -4655,15 +4655,19 @@ a {
 
 .button {
   display: block;
-  font-weight: 600;
+  font-weight: 400;
   padding: 20px 0;
-  border: solid 2px #fff;
+  border: solid 1px #fff;
   letter-spacing: 1.5px;
   border-radius: 30px;
   text-align: center;
   width: 100%; }
   .button:hover {
     transition: 0.1s; }
+
+i {
+  font-weight: 400;
+  letter-spacing: 1.5px; }
 
 .container {
   max-width: 1200px; }
@@ -4676,10 +4680,16 @@ a {
   content: '';
   position: absolute;
   height: 1px;
-  background-color: #25292D;
+  background-color: #1E252C;
   width: 100%;
   bottom: 5px;
   left: 0; }
+
+.fa-lg {
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  font-size: inherit;
+  vertical-align: middle; }
 
 .skillset-bold {
   font-weight: 600; }
@@ -4690,14 +4700,14 @@ a {
   .section-header-container > h2 {
     font-weight: 600;
     color: #25292D;
-    font-size: 50px;
-    letter-spacing: 2px;
+    font-size: 60px;
+    letter-spacing: 4px;
     position: relative; }
     .section-header-container > h2:before, .section-header-container > h2:after {
       content: '';
       display: none;
       height: 1px;
-      width: 100px;
+      width: 70px;
       background-color: #25292D;
       position: absolute;
       top: 35px; }
@@ -4707,7 +4717,7 @@ a {
       right: 50px; }
   .section-header-container > p {
     font-weight: 300;
-    color: #7b858b;
+    color: #7B858B;
     font-size: 1.1em;
     letter-spacing: 3px; }
 
@@ -4715,12 +4725,12 @@ a {
   text-align: center; }
   .section-text-container > h3 {
     color: #25292D;
-    font-weight: 400;
-    font-size: 24px;
-    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 1.25em;
+    letter-spacing: 2px;
     margin: 0 0 20px 0; }
   .section-text-container > p, .section-text-container > ul {
-    color: #7b858b;
+    color: #7B858B;
     font-weight: 300;
     font-size: 1.1em;
     line-height: 30px;
@@ -4743,7 +4753,7 @@ a {
   width: 100%;
   height: 100%;
   z-index: 10000;
-  background: #25292D; }
+  background: #1E252C; }
 
 .gear-outline {
   background: url('/images/gear_outline_icon.svg');
@@ -4780,8 +4790,8 @@ a {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   text-align: center; }
   #hero.jumbotron h1 {
-    font-size: 50px/70px;
-    font-weight: 600; }
+    font-size: 50px;
+    font-weight: 400; }
   #hero.jumbotron p {
     font-size: 20px; }
   #hero.jumbotron .hero-container {
@@ -4800,7 +4810,8 @@ a {
   #hero-nav-wrapper li a {
     font-size: 1.1em;
     color: #FFF;
-    letter-spacing: 3px; }
+    letter-spacing: 2px;
+    font-weight: 700; }
     #hero-nav-wrapper li a:hover {
       background: inherit; }
     #hero-nav-wrapper li a:active, #hero-nav-wrapper li a:focus {
@@ -4809,12 +4820,12 @@ a {
     color: #FFF;
     font-weight: 700;
     font-size: 20px;
-    letter-spacing: 1px; }
+    letter-spacing: 2px; }
 
 .navbar {
   transition: 0.1s;
   font-family: "Open Sans", "Arial", san-serif;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid #E3E3E3;
   padding: 10px 0;
   border-radius: 0;
   top: 0;
@@ -4843,15 +4854,16 @@ a {
     letter-spacing: 1px; }
   #nav-element li > a {
     font-size: 1.1em;
-    color: #7b858b;
-    letter-spacing: 3px; }
+    font-weight: 600;
+    color: #7B858B;
+    letter-spacing: 2px; }
     #nav-element li > a:hover {
       background-color: inherit;
-      color: #25292D; }
+      color: #1E252C; }
     #nav-element li > a:active, #nav-element li > a:focus {
       background-color: inherit; }
   #nav-element #full-navigation .highlight {
-    color: #25292D; }
+    color: #1E252C; }
   #nav-element #full-navigation a:after {
     content: '';
     position: absolute;
@@ -4862,12 +4874,12 @@ a {
     left: 5px;
     right: 5px;
     height: 1px;
-    background-color: #25292D; }
+    background-color: #1E252C; }
   #nav-element #full-navigation .highlight:after {
     opacity: 1;
     bottom: 10px; }
   #nav-element .icon-bar {
-    background-color: #7b858b; }
+    background-color: #7B858B; }
   #nav-element .navbar-brand {
     margin-left: 15px; }
   #nav-element .navbar-toggle {
@@ -4878,7 +4890,7 @@ a {
 
 .about-video {
   height: 400px;
-  border-bottom: solid #7b858b 1px;
+  border-bottom: solid #7B858B 1px;
   margin: 0 auto 25px;
   box-shadow: 0 5px 7px -5px rgba(0, 0, 0, 0.2);
   max-width: 400px; }
@@ -4891,7 +4903,7 @@ a {
   .about-interests ul, .about-interests li {
     list-style-type: none; }
   .about-interests li {
-    color: #7b858b;
+    color: #7B858B;
     margin-bottom: 5px; }
     .about-interests li:last-child {
       margin: 0; }
@@ -4905,9 +4917,11 @@ a {
   padding-bottom: 0; }
 #developer .section-header-container h2, #designer .section-header-container h2 {
   font-weight: 300; }
+#developer .spacer, #designer .spacer {
+  margin-top: 75px; }
 
 #developer {
-  background-color: #25292D;
+  background-color: #1E252C;
   overflow: hidden;
   position: relative;
   width: 100%; }
@@ -4917,39 +4931,20 @@ a {
   #developer h2, #developer h3, #developer p, #developer a {
     color: #FFF; }
   #developer li > p {
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 1.5px;
     font-size: 1.1em; }
   #developer a {
-    margin: 30px 0; }
+    margin: 50px 0; }
     #developer a:hover {
       background-color: #FFF;
-      color: #25292D; }
+      color: #21A3CA; }
   #developer .progress-bar-container {
     margin: 20px 0; }
     #developer .progress-bar-container li {
       margin-bottom: 15px; }
     #developer .progress-bar-container p {
       margin-bottom: 5px; }
-    #developer .progress-bar-container .progress-bar {
-      width: 100%;
-      height: 17px;
-      border-radius: 4px;
-      background-color: #35393C;
-      float: none; }
-      #developer .progress-bar-container .progress-bar .percentage {
-        background-color: #43BA63;
-        height: 17px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px; }
-      #developer .progress-bar-container .progress-bar .percentage-html {
-        width: 90%; }
-      #developer .progress-bar-container .progress-bar .percentage-js {
-        width: 80%; }
-      #developer .progress-bar-container .progress-bar .percentage-ruby {
-        width: 65%; }
-      #developer .progress-bar-container .progress-bar .percentage-python {
-        width: 50%; }
   #developer .gear {
     background: url('/images/gear_icon.svg');
     position: absolute; }
@@ -4973,8 +4968,7 @@ a {
   margin-left: -10px; }
 
 #browser-developer-trigger, #browser-designer-trigger {
-  height: 650px;
-  width: 45%;
+  height: 700px;
   position: relative;
   margin: 0 auto; }
 
@@ -4989,7 +4983,7 @@ a {
   position: absolute; }
 
 .browser-developer-container, .browser-designer-container {
-  height: 650px;
+  height: 700px;
   overflow: hidden;
   position: absolute;
   right: 0;
@@ -5002,9 +4996,6 @@ a {
   top: 0;
   height: 0; }
 
-#browser-designer-wrapper {
-  height: 100%; }
-
 #designer {
   background-color: #F5F5F5;
   overflow: hidden;
@@ -5013,13 +5004,22 @@ a {
   #designer h2 {
     margin: 0; }
   #designer p {
-    color: #7b858b; }
+    color: #7B858B; }
   #designer h2, #designer h3 {
     color: #25292D; }
   #designer .section-header-container .underline:after {
     background-color: #25292D; }
   #designer #designer-writing {
     margin-left: -10px; }
+  #designer a {
+    border: 1px solid #DDD;
+    color: #7B858B;
+    margin: 50px 0; }
+    #designer a:hover {
+      background: #FFF;
+      color: #21A3CA; }
+    #designer a:active {
+      background: #F0F0F0; }
 
 #work ul {
   text-align: center; }
@@ -5027,19 +5027,19 @@ a {
     display: inline-block; }
   #work ul a {
     font-weight: 300;
-    color: #7b858b;
+    color: #7B858B;
     font-size: 15px;
     letter-spacing: 3px;
     padding: 0 30px; }
     #work ul a:hover {
-      font-weight: 600; }
+      font-weight: 400; }
 #work .section-header-container {
-  margin: 80px 0; }
+  margin: 50px 0; }
 
 #portfolio #masonry {
   margin: 0 auto; }
   #portfolio #masonry .item {
-    background-color: #25292D;
+    background-color: #1E252C;
     transition-property: transform, opacity;
     float: left;
     height: 250px;
@@ -5086,9 +5086,9 @@ a {
         #portfolio #masonry .item .project-button-wrapper a:hover {
           background-color: #FFF;
           transition: 0.1s;
-          color: #25292D; }
+          color: #1E252C; }
   #portfolio #masonry .item-project-info {
-    background-color: #25292D;
+    background-color: #1E252C;
     transition-property: transform, opacity;
     float: left;
     width: 100%;
@@ -5105,11 +5105,12 @@ a {
   width: 100%; }
   .project-info .company-name {
     display: block;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    color: #21A3CA; }
   .project-info .company-name, .project-info .tools-used {
     font-size: 1.1em;
-    color: #7b858b;
-    font-weight: 600; }
+    color: #7B858B;
+    font-weight: 400; }
   .project-info .tools-used {
     font-size: 1.1em;
     display: inline-block;
@@ -5139,7 +5140,7 @@ a {
 .contact-form-container .float-label form {
   margin: 3em auto;
   font-weight: 300;
-  color: #7b858b;
+  color: #7B858B;
   font-size: 15px;
   letter-spacing: 3px; }
 .contact-form-container .float-label input, .contact-form-container .float-label textarea {
@@ -5187,7 +5188,9 @@ a {
   .contact-form-container .button:active {
     color: #FFF;
     transition: 0.1s;
-    background-color: #25292D; }
+    background-color: #1A7390;
+    border: 1px solid #1A7390;
+    outline: 0; }
 
 .contact-links-container {
   margin-top: 30px; }
@@ -5206,7 +5209,7 @@ a {
     .contact-links-container li:last-child {
       margin-right: 0; }
     .contact-links-container li a {
-      color: #7b858b;
+      color: #7B858B;
       font-weight: 200; }
       .contact-links-container li a:before {
         color: #21A3CA; }
@@ -5215,7 +5218,7 @@ a {
 
 .footer {
   position: relative;
-  background-color: #25292D;
+  background-color: #1E252C;
   height: 150px;
   overflow: hidden; }
 
@@ -5238,6 +5241,9 @@ a {
       display: block; }
   .section-header-container p {
     font-size: 20px; }
+  #work .section-header-container h2, #about .section-header-container h2 {
+    width: 675px;
+    margin: 0 auto; }
   #hero.jumbotron {
     padding: 75px; }
     #hero.jumbotron #logo {

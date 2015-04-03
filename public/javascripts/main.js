@@ -14,39 +14,103 @@ $(document).ready(function() {
   };
   $('textarea').autosize();
 
-  // Fancy responsive portfolio panel thingamabob
+  // Fancy responsive portfolio panel
   // ----------------------------------------------
 
   // Returns an array of items in the portfolio section
   var $itemArray = $('.panel-group').children('.item');
 
-  function calculateAppendPosition(item) {
-    if ($(window).width() > 1280) {
-      return 12 % ($(item).index() + 1) + 3
+  // TODO: This series of if else statements is extremely inefficient
+  // Working on an algorithm to handle this instead
+  // Using this now so that I can actually finish this website, will refactor at a later time.
+
+  // Functions return correct index that project info should be appended after based on screen size.
+  function largePortfolio (index) {
+    console.log(index);
+    if (index >= 0 && index <=3) {
+      return 3
     }
-    else if ($(window).width() > 1024) {
-      return 12 % ($(item).index() + 1) + 2
-    }
-    else if ($(window).width() > 768) {
-      return 12 % ($(item).index() + 1) + 1
-    }
-    else if ($(window).width() > 320) {
-      return 12 % ($(item).index() + 1)
+    else if (index >= 4 && index <= 12) {
+      return 7
     }
   }
 
+  function mediumPortfolio (index) {
+    console.log(index);
+    if (index >= 0 && index <= 2) {
+      return 2
+    }
+    else if (index >= 3 && index <= 5) {
+      return 5
+    }
+    else if (index >= 6 && index <= 8) {
+      return 8
+    }
+  }
+
+  function smallPortfolio (index) {
+    console.log(index);
+    if (index >= 0 && index <= 1) {
+      return 1
+    }
+    else if (index >= 2 && index <= 3) {
+      return 3
+    }
+    else if (index >= 4 && index <= 5) {
+      return 5
+    }
+    else if (index >= 6 && index <= 7) {
+      return 7
+    }
+    else if (index >= 8 && index <= 11) {
+      return 9
+    }
+  }
+
+  function extraSmallPortfolio (index) {
+    console.log(index);
+    return index
+  }
+
+  // Finds screen size and calls correct function
+  function calculateAppendPosition(item) {
+    if ($(window).width() > 1280) {
+      return largePortfolio($(item).index());
+    }
+    else if ($(window).width() > 1024) {
+      return mediumPortfolio($(item).index());
+    }
+    else if ($(window).width() > 768) {
+      return smallPortfolio($(item).index());
+    }
+    else if ($(window).width() > 320) {
+      return extraSmallPortfolio($(item).index());
+    }
+  }
+
+  // Bind function to button click
   $('.item a').click(function() {
+
     // Get data attribute of current button
     var $panelId = $(this).attr('data-target');
+    // Returns correct panel that matches the associated button
     var $projectInfo = $('.panel-group').children($panelId);
 
     // Only append if there isn't a panel currently open or toggling
     if (!$('.panel-group').children().hasClass('in') && !$('.panel-group').children().hasClass('collapsing')) {
-      console.log(calculateAppendPosition($(this).closest('.item')));
-      $($itemArray[calculateAppendPosition($(this).closest('.item'))]).append().after($projectInfo);
+
+      // Find the index of the current clicked item within the item array object
+      $($itemArray[calculateAppendPosition($(this).closest('.item'))])
+        // Append the following object after the given item in returned index position
+        .append().after($projectInfo);
     }
   });
 
+  // Close all open or collapsing panels on resize of window
+  $(window).on('resize', function () {
+    $('.panel-group').children('.in').collapse('hide');
+    $('.panel-group').children('.collapsing').collapse('hide')
+  });
 
   // Smooth Scrolling to all 'a' tags
   // ----------------------------------------------
@@ -129,55 +193,18 @@ $(document).ready(function() {
   var browserDesignerController = new ScrollMagic.Controller();
 
   var designerTweenTimeline = new TimelineMax()
-    .add(TweenMax.to('.browser-designer-container', 1, {height: 670, ease:Linear.easeNone}));
+    .add(TweenMax.to('.browser-designer-container', 1, {height: 700, ease:Linear.easeNone}));
 
   new ScrollMagic.Scene({
-    triggerElement: '#designer',
+    triggerElement: '#browser-designer-trigger',
     // Sets speed of wipe dynamically based on browser height
     duration: $('.browser-developer-container').height(),
-    offset: (navHeight),
+    offset: -$('#browser-developer-container').height(),
     triggerHook: 'onEnter'
   })
     .setTween(designerTweenTimeline)
     .addIndicators()
     .addTo(browserDesignerController);
 
-
-  // ScrollMagic - Writing Effect - Developer
-  // ----------------------------------------------
-
-  //function pathPrepare ($el) {
-  //  var lineLength = $el[0].getTotalLength();
-  //  $el.css("stroke-dasharray", lineLength);
-  //  $el.css("stroke-dashoffset", lineLength);
-  //}
-  //
-  //var $developerWriting = $('path#developer-writing');
-  //var $developerDot = $('path#developer-dot');
-  //var $designerWriting = $('path#designer-writing');
-  //
-  //// prepare SVG
-  //pathPrepare($developerWriting);
-  //pathPrepare($developerDot);
-  //pathPrepare($designerWriting);
-  //
-  //// init controller
-  //var writingController = new ScrollMagic.Controller();
-  //
-  //// build tween
-  //var writingTween = new TimelineMax()
-  //  .add(TweenMax.to($developerWriting, 1, {strokeDashoffset: 0, ease:Linear.easeNone}));
-  //
-  //// build scene
-  //var writingEffectScene = new ScrollMagic.Scene({
-  //  triggerElement: "#pin",
-  //  tweenChanges: true
-  //})
-  //  .setTween(writingTween)
-  //  .addTo(writingController);
-  //
-  //$(window).resize(function() {
-  //  navigationScene.update();
-  //});
 });
 
