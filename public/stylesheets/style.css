@@ -4791,7 +4791,10 @@ i {
   text-align: center; }
   #hero.jumbotron h1 {
     font-size: 50px;
+    margin: 0 0 15px 0;
     font-weight: 400; }
+    #hero.jumbotron h1:last-child {
+      margin-bottom: 0; }
   #hero.jumbotron p {
     font-size: 20px; }
   #hero.jumbotron .hero-container {
@@ -5248,8 +5251,6 @@ i {
     padding: 75px; }
     #hero.jumbotron #logo {
       height: 75px; }
-    #hero.jumbotron h1 {
-      margin-top: 100px; }
   .contact-form-container .button {
     width: 200px;
     margin: 40px 0 auto 0; }

@@ -5,6 +5,8 @@ $(window).load(function() {
 
 $(document).ready(function() {
   // Created variable so that offsetting based on navigation height will be more DRY
+
+
   var navHeight = $('.nav-trigger').innerHeight();
 
   // Dynamic resize of textarea based on content
@@ -17,9 +19,6 @@ $(document).ready(function() {
   // Fancy responsive portfolio panel
   // ----------------------------------------------
 
-  // Returns an array of items in the portfolio section
-  var $itemArray = $('.panel-group').children('.item');
-
   // TODO: This series of if else statements is extremely inefficient
   // Working on an algorithm to handle this instead
   // Using this now so that I can actually finish this website, will refactor at a later time.
@@ -30,7 +29,7 @@ $(document).ready(function() {
     if (index >= 0 && index <=3) {
       return 3
     }
-    else if (index >= 4 && index <= 12) {
+    else if (index >= 4 && index <= 11) {
       return 7
     }
   }
@@ -43,7 +42,7 @@ $(document).ready(function() {
     else if (index >= 3 && index <= 5) {
       return 5
     }
-    else if (index >= 6 && index <= 8) {
+    else if (index >= 6 && index <= 11) {
       return 8
     }
   }
@@ -75,22 +74,23 @@ $(document).ready(function() {
   // Finds screen size and calls correct function
   function calculateAppendPosition(item) {
     if ($(window).width() > 1280) {
-      return largePortfolio($(item).index());
+      return largePortfolio($(item).index('.item'));
     }
     else if ($(window).width() > 1024) {
-      return mediumPortfolio($(item).index());
+      return mediumPortfolio($(item).index('.item'));
     }
     else if ($(window).width() > 768) {
-      return smallPortfolio($(item).index());
+      return smallPortfolio($(item).index('.item'));
     }
     else if ($(window).width() > 320) {
-      return extraSmallPortfolio($(item).index());
+      return extraSmallPortfolio($(item).index('.item'));
     }
   }
 
   // Bind function to button click
   $('.item a').click(function() {
-
+    // Returns an array of items in the portfolio section
+    var $itemArray = $('.panel-group').children('.item');
     // Get data attribute of current button
     var $panelId = $(this).attr('data-target');
     // Returns correct panel that matches the associated button
