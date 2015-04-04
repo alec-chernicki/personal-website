@@ -74,33 +74,39 @@ $(document).ready(function() {
   // Finds screen size and calls correct function
   function calculateAppendPosition(item) {
     if ($(window).width() > 1280) {
-      return largePortfolio($(item).index('.item'));
+      return largePortfolio($(item).index('.portfolio-item'));
     }
     else if ($(window).width() > 1024) {
-      return mediumPortfolio($(item).index('.item'));
+      return mediumPortfolio($(item).index('.portfolio-item'));
     }
     else if ($(window).width() > 768) {
-      return smallPortfolio($(item).index('.item'));
+      return smallPortfolio($(item).index('.portfolio-item'));
     }
     else if ($(window).width() > 320) {
-      return extraSmallPortfolio($(item).index('.item'));
+      return extraSmallPortfolio($(item).index('.portfolio-item'));
     }
   }
 
   // Bind function to button click
-  $('.item a').click(function() {
+  $('.portfolio-item a').click(function() {
+
+    $('#accordion').on('show.bs.collapse', function () {
+      $('#accordion .in').collapse('hide');
+    });
+
     // Returns an array of items in the portfolio section
-    var $itemArray = $('.panel-group').children('.item');
+    var $itemArray = $('.panel-group').children('.portfolio-item');
     // Get data attribute of current button
     var $panelId = $(this).attr('data-target');
     // Returns correct panel that matches the associated button
     var $projectInfo = $('.panel-group').children($panelId);
 
     // Only append if there isn't a panel currently open or toggling
-    if (!$('.panel-group').children().hasClass('in') && !$('.panel-group').children().hasClass('collapsing')) {
+    if (!$('.panel-group').children().hasClass('in') &&
+        !$('.panel-group').children().hasClass('collapsing')) {
 
       // Find the index of the current clicked item within the item array object
-      $($itemArray[calculateAppendPosition($(this).closest('.item'))])
+      $($itemArray[calculateAppendPosition($(this).closest('.portfolio-item'))])
         // Append the following object after the given item in returned index position
         .append().after($projectInfo);
     }
@@ -109,7 +115,7 @@ $(document).ready(function() {
   // Close all open or collapsing panels on resize of window
   $(window).on('resize', function () {
     $('.panel-group').children('.in').collapse('hide');
-    $('.panel-group').children('.collapsing').collapse('hide')
+    $('.panel-group').children('.collapsing').collapse('hide');
   });
 
   // Smooth Scrolling to all 'a' tags

@@ -3,17 +3,38 @@
 
 #portfolio.clearfix
   #masonry
-    .panel-group(id="accordion" aria-multiselectable="true")
-      .item
-        img(src='images/projects/project-1.png')
+    .panel-group(id="accordion" role='tablist' aria-multiselectable="true")
+      .portfolio-item
+        img(src='images/projects/project-1/project-1.png')
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-1' aria-expanded='false' aria-controls='#project-info-1') DETAILS
+            a.project-button(data-toggle='collapse' role='tab' data-parent="#accordion" data-target='#project-info-1' aria-expanded='false' aria-controls='#project-info-1') DETAILS
       #project-info-1.project-info.collapse
         .container
           .col-sm-5
-            img(src='images/browser_example.svg')
+            #carousel-one.carousel.slide( data-ride = 'carousel' )
+              ol.carousel-indicators
+                li(data-target = '#carousel-one' data-slide-to = '0')
+                li(data-target = '#carousel-one' data-slide-to = '1')
+                li(data-target = '#carousel-one' data-slide-to = '2')
+                li(data-target = '#carousel-one' data-slide-to = '3')
+
+              .carousel-inner(role = 'listbox')
+                .item.active
+                  img(src = 'images/projects/project-1/project-1-one.png')
+                .item
+
+                  img(src = 'images/projects/project-1/project-1-two.png')
+                .item
+
+                  img(src = 'images/projects/project-1/project-1-three.png')
+                .item
+
+                  img(src = 'images/projects/project-1/project-1-four.png')
+
+
+
           .col-sm-5.pull-right
             .section-text-container
               h3 OFFICE AND AREA GUIDE
@@ -23,12 +44,12 @@
               p.tools InDesign, Illustrator
               span.color-palette
 
-      .item
+      .portfolio-item
         img(src='images/projects/project-2.png')
         .project-button-background
           .project-button-wrapper
             p.project-title Allowance Dashboard
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-2' aria-expanded='false' aria-controls='#project-info-2') DETAILS
+            a.project-button(data-toggle='collapse' role='tab' data-parent="#accordion" data-target='#project-info-2' aria-expanded='false' aria-controls='#project-info-2') DETAILS
       #project-info-2.project-info.collapse
         .container.clearfix
           .col-sm-5
@@ -42,7 +63,7 @@
               p.tools Sketch 3, Photoshop
               .color-palette
 
-      .item
+      .portfolio-item
         img(src='images/projects/project-3.png')
         .project-button-background
           .project-button-wrapper
@@ -62,7 +83,7 @@
               p.tools InDesign, Illustrator
               span.color-palette
 
-      .item
+      .portfolio-item
         img(src='images/projects/project-4.png')
         .project-button-background
           .project-button-wrapper
@@ -82,7 +103,7 @@
               p.tools InDesign, Illustrator
               .color-palette
 
-      .item
+      .portfolio-item
         img(src='images/projects/project-5.png')
         .project-button-background
           .project-button-wrapper
@@ -102,7 +123,8 @@
               p.tools InDesign, Illustrator
               span.color-palette
 
-      .item
+      .portfolio-item
+
         img(src='images/projects/project-6.png')
         .project-button-background
           .project-button-wrapper
@@ -122,7 +144,8 @@
               p.tools InDesign, Illustrator
               .color-palette
 
-      .item
+      .portfolio-item
+
         img(src='images/projects/project-7.png')
         .project-button-background
           .project-button-wrapper
@@ -142,7 +165,8 @@
               p.tools InDesign, Illustrator
               span.color-palette
 
-      .item
+      .portfolio-item
+
         img(src='images/projects/project-8.png')
         .project-button-background
           .project-button-wrapper
@@ -162,7 +186,8 @@
               p.tools InDesign, Illustrator
               .color-palette
 
-      .item
+      .portfolio-item
+
         img(src='images/projects/project-9.png')
         .project-button-background
           .project-button-wrapper
@@ -183,7 +208,8 @@
               p.tools InDesign, Illustrator
               .color-palette
 
-      .item
+      .portfolio-item
+
         img(src='images/projects/project-10.png')
         .project-button-background
           .project-button-wrapper
@@ -204,7 +230,8 @@
               p.tools InDesign, Illustrator
               .color-palette
 
-      .item
+      .portfolio-item
+
         img(src='images/projects/project-11.png')
         .project-button-background
           .project-button-wrapper
@@ -223,7 +250,8 @@
               p.tools InDesign, Illustrator
               .color-palette
 
-      .item
+      .portfolio-item
+
         img(src='images/projects/project-12.png')
         .project-button-background
           .project-button-wrapper

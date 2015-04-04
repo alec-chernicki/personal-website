@@ -4717,7 +4717,7 @@ i {
       right: 50px; }
   .section-header-container > p {
     font-weight: 300;
-    color: #7B858B;
+    color: #6A767C;
     font-size: 1.1em;
     letter-spacing: 3px; }
 
@@ -4730,7 +4730,7 @@ i {
     letter-spacing: 2px;
     margin: 0 0 20px 0; }
   .section-text-container > p, .section-text-container > ul {
-    color: #7B858B;
+    color: #6A767C;
     font-weight: 300;
     font-size: 1.1em;
     line-height: 30px;
@@ -4858,7 +4858,7 @@ i {
   #nav-element li > a {
     font-size: 1.1em;
     font-weight: 600;
-    color: #7B858B;
+    color: #6A767C;
     letter-spacing: 2px; }
     #nav-element li > a:hover {
       background-color: inherit;
@@ -4882,7 +4882,7 @@ i {
     opacity: 1;
     bottom: 10px; }
   #nav-element .icon-bar {
-    background-color: #7B858B; }
+    background-color: #6A767C; }
   #nav-element .navbar-brand {
     margin-left: 15px; }
   #nav-element .navbar-toggle {
@@ -4893,7 +4893,7 @@ i {
 
 .about-video {
   height: 400px;
-  border-bottom: solid #7B858B 1px;
+  border-bottom: solid #6A767C 1px;
   margin: 0 auto 25px;
   box-shadow: 0 5px 7px -5px rgba(0, 0, 0, 0.2);
   max-width: 400px; }
@@ -4906,7 +4906,7 @@ i {
   .about-interests ul, .about-interests li {
     list-style-type: none; }
   .about-interests li {
-    color: #7B858B;
+    color: #6A767C;
     margin-bottom: 5px; }
     .about-interests li:last-child {
       margin: 0; }
@@ -4937,6 +4937,8 @@ i {
     font-weight: 400;
     letter-spacing: 1.5px;
     font-size: 1.1em; }
+  #developer p {
+    color: #B0BAC3; }
   #developer a {
     margin: 50px 0; }
     #developer a:hover {
@@ -5007,7 +5009,7 @@ i {
   #designer h2 {
     margin: 0; }
   #designer p {
-    color: #7B858B; }
+    color: #6A767C; }
   #designer h2, #designer h3 {
     color: #25292D; }
   #designer .section-header-container .underline:after {
@@ -5016,7 +5018,7 @@ i {
     margin-left: -10px; }
   #designer a {
     border: 1px solid #DDD;
-    color: #7B858B;
+    color: #6A767C;
     margin: 50px 0; }
     #designer a:hover {
       background: #FFF;
@@ -5030,7 +5032,7 @@ i {
     display: inline-block; }
   #work ul a {
     font-weight: 300;
-    color: #7B858B;
+    color: #6A767C;
     font-size: 15px;
     letter-spacing: 3px;
     padding: 0 30px; }
@@ -5041,7 +5043,7 @@ i {
 
 #portfolio #masonry {
   margin: 0 auto; }
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
     background-color: #1E252C;
     transition-property: transform, opacity;
     float: left;
@@ -5049,12 +5051,12 @@ i {
     width: 100%;
     position: relative;
     overflow: hidden; }
-    #portfolio #masonry .item img {
+    #portfolio #masonry .portfolio-item > img {
       position: absolute;
       z-index: 5000;
       width: 100%;
       min-height: 250px; }
-    #portfolio #masonry .item .project-button-background {
+    #portfolio #masonry .portfolio-item .project-button-background {
       background-color: rgba(0, 0, 0, 0.6);
       position: absolute;
       display: none;
@@ -5064,18 +5066,18 @@ i {
       right: 0;
       z-index: 10000;
       padding: 15% 0; }
-    #portfolio #masonry .item:hover .project-button-background {
+    #portfolio #masonry .portfolio-item:hover .project-button-background {
       display: inline-flex;
       transition-duration: 0.2s; }
-    #portfolio #masonry .item .project-button-wrapper {
+    #portfolio #masonry .portfolio-item .project-button-wrapper {
       color: #FFF;
       text-align: center;
       margin: auto auto; }
-      #portfolio #masonry .item .project-button-wrapper p {
+      #portfolio #masonry .portfolio-item .project-button-wrapper p {
         font-weight: 600;
         font-size: 20px;
         margin-bottom: 15px; }
-      #portfolio #masonry .item .project-button-wrapper a {
+      #portfolio #masonry .portfolio-item .project-button-wrapper a {
         display: block;
         font-weight: 600;
         padding: 10px 0;
@@ -5086,18 +5088,18 @@ i {
         width: 130px;
         margin: 0 auto;
         color: #FFF; }
-        #portfolio #masonry .item .project-button-wrapper a:hover {
+        #portfolio #masonry .portfolio-item .project-button-wrapper a:hover {
           background-color: #FFF;
           transition: 0.1s;
           color: #1E252C; }
-  #portfolio #masonry .item-project-info {
+  #portfolio #masonry .portfolio-item-project-info {
     background-color: #1E252C;
     transition-property: transform, opacity;
     float: left;
     width: 100%;
     position: relative;
     overflow: hidden; }
-#portfolio .item {
+#portfolio .portfolio-item {
   transition-duration: 0.4s;
   transition-property: transform, opacity; }
 
@@ -5112,7 +5114,7 @@ i {
     color: #21A3CA; }
   .project-info .company-name, .project-info .tools-used {
     font-size: 1.1em;
-    color: #7B858B;
+    color: #6A767C;
     font-weight: 400; }
   .project-info .tools-used {
     font-size: 1.1em;
@@ -5143,7 +5145,7 @@ i {
 .contact-form-container .float-label form {
   margin: 3em auto;
   font-weight: 300;
-  color: #7B858B;
+  color: #6A767C;
   font-size: 15px;
   letter-spacing: 3px; }
 .contact-form-container .float-label input, .contact-form-container .float-label textarea {
@@ -5212,7 +5214,7 @@ i {
     .contact-links-container li:last-child {
       margin-right: 0; }
     .contact-links-container li a {
-      color: #7B858B;
+      color: #6A767C;
       font-weight: 200; }
       .contact-links-container li a:before {
         color: #21A3CA; }
@@ -5226,7 +5228,7 @@ i {
   overflow: hidden; }
 
 @media screen and (min-width: 320px) {
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
     width: 100%; } }
 
 /* Responsive: Portrait tablets and up */
@@ -5256,7 +5258,7 @@ i {
     margin: 40px 0 auto 0; }
   .contact-links-container .button {
     margin: 30px 0 0 0; }
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
     width: 50%; }
   nav .navbar-brand {
     font-size: 40px; }
@@ -5277,7 +5279,7 @@ i {
 @media screen and (min-width: 1024px) {
   #hero.jumbotron .hero-container {
     width: 60%; }
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
     width: 33.3333%; }
   #developer .developer-concise, #designer .designer-showtell {
     text-align: right; }
@@ -5289,7 +5291,7 @@ i {
     padding: 60px; } }
 
 @media screen and (min-width: 1280px) {
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
     width: 25%; }
   #hero.jumbotron .hero-container {
     width: 50%; } }

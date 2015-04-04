@@ -12,13 +12,14 @@ $line-height: 30px;
 $paragraph-text: 1.1em;
 
 $text-dark: #25292D;
-$text-light: #7B858B;
+$text-light: #6A767C;
 $background-dark-blue: #1E252C;
 $background-light-grey: #F5F5F5;
 $background-light-blue: #21A3CA;
 $border: 1px solid #ddd;
 $padding: 10px;
 $label-font-size: 13px;
+$developer-text: #B0BAC3;
 
 $transition-time: 0.2s;
 $short-transition: 0.1s;
@@ -520,6 +521,10 @@ i {
     font-size: $paragraph-text;
   }
 
+  p {
+    color: $developer-text
+  }
+
   a {
     margin: 50px 0;
 
@@ -700,7 +705,7 @@ i {
   #masonry {
     margin: 0 auto;
 
-    .item {
+    .portfolio-item {
       background-color: $background-dark-blue;
       transition-property: transform, opacity;
 
@@ -710,7 +715,7 @@ i {
       position: relative;
       overflow: hidden;
 
-      img {
+      & > img {
         position: absolute;
         z-index: 5000;
         width: 100%;
@@ -767,7 +772,7 @@ i {
       }
     }
 
-    .item-project-info {
+    .portfolio-item-project-info {
       background-color: $background-dark-blue;
       transition-property: transform, opacity;
 
@@ -778,7 +783,7 @@ i {
     }
   }
 
-  & .item {
+  & .portfolio-item {
     transition-duration: 0.4s;
     transition-property: transform, opacity;
   }
@@ -998,7 +1003,7 @@ i {
 @media screen and (min-width: 320px) {
   #portfolio {
     #masonry {
-      .item {
+      .portfolio-item {
         width: 100%;
       }
     }
@@ -1069,7 +1074,7 @@ i {
     }
   }
 
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
       width: 50%;
   }
 
@@ -1108,7 +1113,7 @@ i {
     width: 60%;
   }
 
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
         width: 33.3333%;
   }
 
@@ -1133,7 +1138,7 @@ i {
 }
 
 @media screen and (min-width: 1280px) {
-  #portfolio #masonry .item {
+  #portfolio #masonry .portfolio-item {
     width: 25%;
   }
 
