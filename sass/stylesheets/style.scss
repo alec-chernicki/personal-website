@@ -501,7 +501,6 @@ i {
   }
 }
 #developer {
-  background-color: $background-dark-blue;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -546,6 +545,18 @@ i {
       margin-bottom: 5px;
     }
   }
+}
+
+#developer-background {
+  background-color: $background-dark-blue;
+  top: -100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  height: 200%;
+
 
   .gear {
     background: url('/images/gear_icon.svg');
@@ -572,10 +583,6 @@ i {
     right: -300px;
     width: 600px;
   }
-}
-
-#developer-writing {
-  margin-left: -10px;
 }
 
 #browser-developer-trigger,
@@ -794,7 +801,7 @@ i {
 .project-info {
   float: left;
   background-color: $background-light-grey;
-  padding: 50px 0;
+  padding: 50px 0 70px 0;
   width: 100%;
 
   .company-name {
@@ -818,6 +825,27 @@ i {
 
   .tools {
     display: inline-block;
+  }
+
+  .carousel {
+    box-shadow: 0 0 0 15px #FFF,
+                0 0 0 16px #E3E3E3
+  }
+
+  .carousel-indicators {
+    bottom: -60px;
+
+    li {
+      width: 13px;
+      height: 13px;
+      margin: 5px;
+      border: 1px solid $text-light;
+
+      &.active {
+        margin: 5px;
+        background-color: $text-light;
+      }
+    }
   }
 }
 // Recommendations

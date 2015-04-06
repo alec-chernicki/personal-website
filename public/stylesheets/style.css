@@ -4924,7 +4924,6 @@ i {
   margin-top: 75px; }
 
 #developer {
-  background-color: #1E252C;
   overflow: hidden;
   position: relative;
   width: 100%; }
@@ -4950,27 +4949,34 @@ i {
       margin-bottom: 15px; }
     #developer .progress-bar-container p {
       margin-bottom: 5px; }
-  #developer .gear {
+
+#developer-background {
+  background-color: #1E252C;
+  top: -100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  height: 200%; }
+  #developer-background .gear {
     background: url('/images/gear_icon.svg');
     position: absolute; }
-  #developer #gear-one {
+  #developer-background #gear-one {
     bottom: -200px;
     height: 500px;
     left: -150px;
     width: 500px; }
-  #developer #gear-two {
+  #developer-background #gear-two {
     bottom: 300px;
     height: 250px;
     left: -100px;
     width: 250px; }
-  #developer #gear-three {
+  #developer-background #gear-three {
     bottom: -150px;
     height: 600px;
     right: -300px;
     width: 600px; }
-
-#developer-writing {
-  margin-left: -10px; }
 
 #browser-developer-trigger, #browser-designer-trigger {
   height: 700px;
@@ -5106,7 +5112,7 @@ i {
 .project-info {
   float: left;
   background-color: #F5F5F5;
-  padding: 50px 0;
+  padding: 50px 0 70px 0;
   width: 100%; }
   .project-info .company-name {
     display: block;
@@ -5122,6 +5128,18 @@ i {
     margin-right: 10px; }
   .project-info .tools {
     display: inline-block; }
+  .project-info .carousel {
+    box-shadow: 0 0 0 15px #FFF, 0 0 0 16px #E3E3E3; }
+  .project-info .carousel-indicators {
+    bottom: -60px; }
+    .project-info .carousel-indicators li {
+      width: 13px;
+      height: 13px;
+      margin: 5px;
+      border: 1px solid #6A767C; }
+      .project-info .carousel-indicators li.active {
+        margin: 5px;
+        background-color: #6A767C; }
 
 .recommendations {
   height: 100%;

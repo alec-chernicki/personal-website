@@ -175,7 +175,7 @@ $(document).ready(function() {
     .addTo(navigationController);
 
 
-  // ScrollMagic - Skillset wipe effect
+  // ScrollMagic - Browser wipe effect
   // ----------------------------------------------
 
   // Scene that controls the developer browser effect
@@ -211,6 +211,24 @@ $(document).ready(function() {
     .setTween(designerTweenTimeline)
     .addIndicators()
     .addTo(browserDesignerController);
+
+
+  // ScrollMagic - Parallax Effect
+  // ----------------------------------------------
+  var parallaxController = new ScrollMagic.Controller({
+    globalSceneOptions: {
+      triggerHook: 'onEnter',
+      duration: '200%'
+    }
+  });
+
+  new ScrollMagic.Scene({
+    triggerElement: '#developer'
+  })
+    .setTween('#developer > div', { y: '80%', ease: Linear.easeNone })
+    .addIndicators()
+    .addTo(parallaxController);
+
 
 });
 

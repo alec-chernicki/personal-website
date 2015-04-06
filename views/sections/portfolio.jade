@@ -12,7 +12,7 @@
             a.project-button(data-toggle='collapse' role='tab' data-parent="#accordion" data-target='#project-info-1' aria-expanded='false' aria-controls='#project-info-1') DETAILS
       #project-info-1.project-info.collapse
         .container
-          .col-sm-5
+          .col-sm-6
             #carousel-one.carousel.slide( data-ride = 'carousel' )
               ol.carousel-indicators
                 li(data-target = '#carousel-one' data-slide-to = '0')
@@ -24,13 +24,10 @@
                 .item.active
                   img(src = 'images/projects/project-1/project-1-one.png')
                 .item
-
                   img(src = 'images/projects/project-1/project-1-two.png')
                 .item
-
                   img(src = 'images/projects/project-1/project-1-three.png')
                 .item
-
                   img(src = 'images/projects/project-1/project-1-four.png')
 
 
@@ -52,8 +49,13 @@
             a.project-button(data-toggle='collapse' role='tab' data-parent="#accordion" data-target='#project-info-2' aria-expanded='false' aria-controls='#project-info-2') DETAILS
       #project-info-2.project-info.collapse
         .container.clearfix
-          .col-sm-5
-            img(src='images/browser_example.svg')
+          .col-sm-6
+            #carousel-two.carousel.slide( data-ride = 'carousel' )
+              .carousel-inner(role = 'listbox')
+                .item.active
+                  img(src = 'images/projects/project-2/project-2-one.png')
+
+
           .col-sm-5.pull-right
             .section-text-container
               h3 ALLOWANCE DASHBOARD
@@ -61,7 +63,6 @@
               p A concept for a dashboard to manage your kid's allowance and track spending habits for the entire family. This was my first time using Sketch 3 to create a Hi-Fi and is being used as an asset on my personal website.
               span.tools-used Tools Used:
               p.tools Sketch 3, Photoshop
-              .color-palette
 
       .portfolio-item
         img(src='images/projects/project-3.png')
