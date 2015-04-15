@@ -1,7 +1,3 @@
-var secrets = require('../config/secrets');
-var async = require('async');
-
-var LastFmNode = require('lastfm').LastFmNode;
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   host: 'smtp-mail.outlook.com',
