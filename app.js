@@ -3,7 +3,6 @@
  * Module dependencies.
  */
 var express = require('express');
-var errorHandler = require('errorhandler');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -69,7 +68,6 @@ app.use(function(req, res, next) {
 /**
  * Error Handlers
  */
-app.use(errorHandler());
 
 /**
  * Start Express server.

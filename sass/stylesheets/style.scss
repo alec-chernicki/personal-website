@@ -2,6 +2,7 @@
 
 $open-sans: "Open Sans", "Arial", san-serif;
 
+
 $weight-light: 300;
 $weight-regular: 400;
 $primary-title-weight: 600;
@@ -13,9 +14,9 @@ $paragraph-text: 1.1em;
 
 $text-dark: #25292D;
 $text-light: #6A767C;
-$background-dark-blue: #1E252C;
+$background-dark-blue: #1E272F;
 $background-light-grey: #F5F5F5;
-$background-light-blue: #21A3CA;
+$background-light-blue: #6fcdde;
 $border: 1px solid #ddd;
 $padding: 10px;
 $label-font-size: 13px;
@@ -62,6 +63,59 @@ html {
   0%   { -ms-transform: rotate(360deg); }
   100% { -ms-transform: rotate(0deg); }
 }
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.hero-container {
+  .animated:nth-child(1) {
+    -webkit-animation-delay: 0s;
+  }
+
+  .animated:nth-child(2) {
+    -webkit-animation-delay: 1.5s;
+  }
+
+  .animated:nth-child(3) {
+    -webkit-animation-delay: 3s;
+  }
+}
+
+#hero-arrow {
+  -webkit-animation-delay: 5s;
+}
+
 
 .rotation-left {
   -webkit-animation: rotation-left 12s linear infinite;
@@ -140,10 +194,6 @@ i {
   vertical-align: middle;
 }
 
-.skillset-bold {
-  font-weight: 600;
-}
-
 // Defines styles for all text in header containers
 // ----------------------------------------------
 // TODO: clean up all the & and >
@@ -151,11 +201,11 @@ i {
   text-align: center;
   margin-bottom: 80px;
 
-  >h2 {
+  h2 {
     font-weight: $primary-title-weight;
     color: $text-dark;
-    font-size: 60px;
-    letter-spacing: 4px;
+    font-size: 50px;
+    letter-spacing: 3px;
     position: relative;
 
     &:before, &:after {
@@ -177,7 +227,7 @@ i {
     }
   }
 
-  >p {
+  p {
     font-weight: $weight-light;
     color: $text-light;
     font-size: 1.1em;
@@ -217,9 +267,10 @@ i {
 .browser-designer-container {
   overflow: hidden;
 
-  .browser {
-    display: none;
-  }
+}
+
+.browser-column {
+  display: none;
 }
 
 // Pre-Load Animation
@@ -266,7 +317,7 @@ i {
 // ----------------------------------------------
 #hero.jumbotron {
   height: 100%;
-  min-height: 550px;
+  min-height: 500px;
   padding-top: 50px;
   margin: 0;
   width: 100%;
@@ -281,7 +332,7 @@ i {
   text-align: center;
 
   h1 {
-    font-size: 50px;
+    font-size: 22px;
     margin: 0 0 15px 0;
     font-weight: $secondary-title-weight;
 
@@ -291,7 +342,7 @@ i {
   }
 
   p {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .hero-container {
@@ -335,6 +386,19 @@ i {
     font-size: 20px;
     letter-spacing: 2px;
   }
+}
+
+#hero-arrow {
+  background: url('/images/down_arrow.svg');
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 40px;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 30px;
 }
 
 // Navigation Bar
@@ -492,23 +556,20 @@ i {
     padding-bottom: 0;
   }
 
-  .section-header-container h2 {
-    font-weight: $weight-light;
-  }
-
   .spacer {
     margin-top: 75px;
   }
+
+  h2 {
+    line-height: 65px;
+    margin: 0;
+  }
 }
+
 #developer {
   overflow: hidden;
   position: relative;
   width: 100%;
-
-  h2 {
-    line-height: 90px;
-    margin: 0;
-  }
 
   h2, h3, p, a {
     color: #FFF;
@@ -578,7 +639,7 @@ i {
   }
 
   #gear-three {
-    bottom: -150px;
+    bottom: 650px;
     height: 600px;
     right: -300px;
     width: 600px;
@@ -628,6 +689,12 @@ i {
 
 #browser-designer-wrapper {
 
+}
+
+#browser-developer-trigger {
+  background-color: #1B2126;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
 }
 // Designer
 // ----------------------------------------------
@@ -799,10 +866,12 @@ i {
 // Project Info
 // ----------------------------------------------
 .project-info {
+  position: relative;
   float: left;
   background-color: $background-light-grey;
   padding: 50px 0 70px 0;
   width: 100%;
+  display: none;
 
   .company-name {
     display: block;
@@ -846,6 +915,18 @@ i {
         background-color: $text-light;
       }
     }
+  }
+
+  #x-button {
+    background: url('/images/x_button.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
   }
 }
 // Recommendations
@@ -1041,13 +1122,6 @@ i {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
 
-  .browser-designer-container,
-  .browser-developer-container{
-    .browser {
-      display: block;
-    }
-  }
-
   #nav-element {
     .collapse {
       background-color: #FFF;
@@ -1086,6 +1160,14 @@ i {
 
     #logo {
       height: 75px;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+
+    p {
+      font-size: 1.5em;
     }
   }
 
@@ -1137,6 +1219,11 @@ i {
 }
 
 @media screen and (min-width: 1024px) {
+
+  .browser-column {
+    display: block;
+  }
+
   #hero.jumbotron .hero-container {
     width: 60%;
   }
@@ -1162,6 +1249,18 @@ i {
 
   #contact .section-container {
     padding: 60px;
+  }
+
+  #developer-background {
+    #gear-three {
+      bottom: -150px;
+    }
+  }
+
+  .section-header-container {
+    h2 {
+      margin: 30px 0;
+    }
   }
 }
 

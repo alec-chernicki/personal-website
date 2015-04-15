@@ -8,6 +8,7 @@ block content
 
   #hero.jumbotron
     // Refactor navigation to partial to DRY
+    #hero-arrow.animated.fadeInUp
     #hero-nav-wrapper.navbar
       .container
         .navbar-header
@@ -20,9 +21,8 @@ block content
           li
             a.contact-link(href='#contact') CONTACT
     .hero-container
-      h1#hero-fade-one Design for empathy.
-      h1#hero-fade-two Develop for ease.
-      p#hero-fade-three Storytelling isn't
+      h1.animated.fadeInUp Hey there, I'm Alec
+      p.animated.fadeInUp Let's get to know each other.
 
   .nav-trigger.clearfix
     #nav-element.navbar
@@ -59,8 +59,7 @@ block content
       #gear-three.gear.rotation-left
     .section-container
       .section-header-container
-        h2 I'M A:#{' '}
-          span.skillset-bold DEVELOPER
+        h2 I'M A: DEVELOPER
 
 
       .large-container
@@ -74,7 +73,14 @@ block content
             p Git, GitHub
             h3.spacer CLEAN, CONCISE
             p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
-        .col-md-3.pull-right
+
+        .col-md-6.browser-column
+          #browser-developer-trigger
+            .browser-developer-container
+              img.browser#browser-developer-element(src="images/BrowserLoFi.png")
+
+
+        .col-md-3
           .developer-laguages.section-text-container
             h3 KNOWLEDGE IS POWER
             p Technologies are constantly changing, new and awesome technologies are always being introduced. Learning a new framework, library, or language feels like gaining a super power and after all, every kid grows up wanting to be a superhero.
@@ -86,17 +92,10 @@ block content
             p JavaScript, jQuery
             p Ruby
             p Java
-
-        .col-md-6
-          #browser-developer-trigger
-            .browser-developer-container
-              img.browser#browser-developer-element(src="images/BrowserLoFi.png")
-
   #designer
     .section-container
       .section-header-container
-        h2 I'M A:#{' '}
-          span.skillset-bold DESIGNER
+        h2 I'M A: DESIGNER
 
 
       .large-container
@@ -107,7 +106,12 @@ block content
             a.button(href='https://www.behance.net/alecortega' target='blank')
               i.fa.fa-behance.fa-lg #{'  '}VIEW BEHANCE
 
-        .col-md-3.pull-right
+        .col-md-6.browser-column
+          #browser-designer-trigger
+            .browser-designer-container
+              img.browser#browser-designer-element(src="images/BrowserHiFi.png")
+
+        .col-md-3
           .designer-empathy.section-text-container
             h3 SOFTWARE
             p Adobe Photoshop
@@ -118,10 +122,7 @@ block content
 
             h3.spacer ORGANIC INTERACTIONS
             p If a user hesitates for too long in order to locate a certain control, the design has already failed. Interfaces should feel familiar and intuitive; animations should be used sparingly and only to enhance context.
-        .col-md-6
-          #browser-designer-trigger
-            .browser-designer-container
-                img.browser#browser-designer-element(src="images/BrowserHiFi.png")
+
   #work.container.clearfix
     .section-header-container
       h2 MY WORK

@@ -1,8 +1,3 @@
-$(window).load(function() {
-  $('#pre-load').fadeOut();
-});
-
-
 $(document).ready(function() {
   // Created variable so that offsetting based on navigation height will be more DRY
 
@@ -87,35 +82,67 @@ $(document).ready(function() {
     }
   }
 
+  // When user clicks x button close open panel
+  $('#x-button').click(function () {
+    $('.panel-group').children('.open').removeClass('open').slideToggle(300);
+  });
+
+
   // Bind function to button click
   $('.portfolio-item a').click(function() {
-
-    $('#accordion').on('show.bs.collapse', function () {
-      $('#accordion .in').collapse('hide');
-    });
-
     // Returns an array of items in the portfolio section
     var $itemArray = $('.panel-group').children('.portfolio-item');
+
     // Get data attribute of current button
     var $panelId = $(this).attr('data-target');
+
     // Returns correct panel that matches the associated button
     var $projectInfo = $('.panel-group').children($panelId);
 
-    // Only append if there isn't a panel currently open or toggling
-    if (!$('.panel-group').children().hasClass('in') &&
-        !$('.panel-group').children().hasClass('collapsing')) {
+    // If button click is current open panel, close open panel
+    if ($('.panel-group').children('.open').attr('id') != undefined &&
+        $panelId ==  '#' + $('.panel-group').children('.open').attr('id')) {
 
+      console.log('first case fired');
+      $('.panel-group').children('.open').removeClass('open').slideToggle(300);
+
+    }
+
+    // If button click is different panel, close prev panel and open new one
+    else if ($('.panel-group').children().hasClass('open')) {
+
+      $('.panel-group').children('.open').removeClass('open').slideToggle(300, function () {
+
+        console.log($(this).closest('.portfolio-item'));
+        // Find the index of the current clicked item within the item array object
+        $($itemArray[calculateAppendPosition($(this).closest('.portfolio-item'))])
+
+          // Append the following object after the given item in returned index position
+          .append().after($projectInfo);
+
+        $($panelId).addClass('open').slideToggle();
+      });
+    }
+
+    // If no panels are open, just open the panel.
+    else {
+      console.log('third case fired');
       // Find the index of the current clicked item within the item array object
       $($itemArray[calculateAppendPosition($(this).closest('.portfolio-item'))])
         // Append the following object after the given item in returned index position
-        .append().after($projectInfo);
+          .append().after($projectInfo);
+
+      $($panelId).slideToggle(function () {
+        $(this).addClass('open');
+      });
     }
+
+
   });
 
   // Close all open or collapsing panels on resize of window
   $(window).on('resize', function () {
-    $('.panel-group').children('.in').collapse('hide');
-    $('.panel-group').children('.collapsing').collapse('hide');
+    $('.panel-group').children('.open').removeClass('open').slideToggle(300);
   });
 
   // Smooth Scrolling to all 'a' tags
@@ -185,10 +212,10 @@ $(document).ready(function() {
     .add(TweenMax.to('.browser-developer-container', 1, {height: '0', ease:Linear.easeNone}));
 
   new ScrollMagic.Scene({
-    triggerElement: '#browser-developer-trigger',
+    triggerElement: '#developer',
     // Sets speed of wipe dynamically based on browser height
     duration: $('#browser-developer-trigger').height(),
-    offset: -(navHeight * 2),
+    offset: -navHeight,
     triggerHook: 'onLeave'
   })
     .setTween(developerTweenTimeline)
@@ -202,33 +229,15 @@ $(document).ready(function() {
     .add(TweenMax.to('.browser-designer-container', 1, {height: 700, ease:Linear.easeNone}));
 
   new ScrollMagic.Scene({
-    triggerElement: '#browser-designer-trigger',
+    triggerElement: '#developer',
     // Sets speed of wipe dynamically based on browser height
     duration: $('.browser-developer-container').height(),
-    offset: -$('#browser-developer-container').height(),
+    offset: $('#designer').height() - $('.browser-designer-container').height(),
     triggerHook: 'onEnter'
   })
     .setTween(designerTweenTimeline)
     .addIndicators()
     .addTo(browserDesignerController);
-
-
-  // ScrollMagic - Parallax Effect
-  // ----------------------------------------------
-  var parallaxController = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      triggerHook: 'onEnter',
-      duration: '200%'
-    }
-  });
-
-  new ScrollMagic.Scene({
-    triggerElement: '#developer'
-  })
-    .setTween('#developer > div', { y: '80%', ease: Linear.easeNone })
-    .addIndicators()
-    .addTo(parallaxController);
-
 
 });
 

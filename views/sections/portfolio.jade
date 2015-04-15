@@ -3,14 +3,18 @@
 
 #portfolio.clearfix
   #masonry
-    .panel-group(id="accordion" role='tablist' aria-multiselectable="true")
+    .panel-group.clearfix
+
+      // First portfolio item
       .portfolio-item
         img(src='images/projects/project-1/project-1.png')
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' role='tab' data-parent="#accordion" data-target='#project-info-1' aria-expanded='false' aria-controls='#project-info-1') DETAILS
-      #project-info-1.project-info.collapse
+            a.project-button(data-target='#project-info-1') DETAILS
+
+      #project-info-1.project-info
+        #x-button
         .container
           .col-sm-6
             #carousel-one.carousel.slide( data-ride = 'carousel' )
@@ -20,7 +24,7 @@
                 li(data-target = '#carousel-one' data-slide-to = '2')
                 li(data-target = '#carousel-one' data-slide-to = '3')
 
-              .carousel-inner(role = 'listbox')
+              .carousel-inner
                 .item.active
                   img(src = 'images/projects/project-1/project-1-one.png')
                 .item
@@ -29,8 +33,6 @@
                   img(src = 'images/projects/project-1/project-1-three.png')
                 .item
                   img(src = 'images/projects/project-1/project-1-four.png')
-
-
 
           .col-sm-5.pull-right
             .section-text-container
@@ -46,11 +48,12 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Allowance Dashboard
-            a.project-button(data-toggle='collapse' role='tab' data-parent="#accordion" data-target='#project-info-2' aria-expanded='false' aria-controls='#project-info-2') DETAILS
-      #project-info-2.project-info.collapse
+            a.project-button(data-target='#project-info-2') DETAILS
+      #project-info-2.project-info
+        #x-button
         .container.clearfix
           .col-sm-6
-            #carousel-two.carousel.slide( data-ride = 'carousel' )
+            #carousel-two.carousel.slide(data-ride = 'carousel')
               .carousel-inner(role = 'listbox')
                 .item.active
                   img(src = 'images/projects/project-2/project-2-one.png')
@@ -69,9 +72,9 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-3'
-            aria-expanded='false' aria-controls='#project-info-3') DETAILS
-      #project-info-3.project-info.collapse
+            a.project-button(data-target='#project-info-3') DETAILS
+      #project-info-3.project-info
+        #x-button
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -89,9 +92,9 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-4'
-            aria-expanded='false' aria-controls='#project-info-4') DETAILS
-      #project-info-4.project-info.collapse
+            a.project-button(data-target='#project-info-4') DETAILS
+      #project-info-4.project-info
+        #x-button
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -109,9 +112,8 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-5'
-            aria-expanded='false' aria-controls='#project-info-5') DETAILS
-      #project-info-5.project-info.collapse
+            a.project-button(data-target='#project-info-5') DETAILS
+      #project-info-5.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -130,9 +132,8 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-6'
-            aria-expanded='false' aria-controls='#project-info-6') DETAILS
-      #project-info-6.project-info.collapse
+            a.project-button(data-target='#project-info-6') DETAILS
+      #project-info-6.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -145,15 +146,16 @@
               p.tools InDesign, Illustrator
               .color-palette
 
-      .portfolio-item
+      .reccomendation-item
+        .large-container
 
+      .portfolio-item
         img(src='images/projects/project-7.png')
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-7'
-            aria-expanded='false' aria-controls='#project-info-7') DETAILS
-      #project-info-7.project-info.collapse
+            a.project-button(data-target='#project-info-7') DETAILS
+      #project-info-7.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -172,9 +174,8 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-8'
-            aria-expanded='false' aria-controls='#project-info-8') DETAILS
-      #project-info-8.project-info.collapse
+            a.project-button(data-target='#project-info-8') DETAILS
+      #project-info-8.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -193,10 +194,8 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion"
-            data-target='#project-info-9'
-            aria-expanded='false' aria-controls='#project-info-9') DETAILS
-      #project-info-9.project-info.collapse
+            a.project-button(data-target='#project-info-9') DETAILS
+      #project-info-9.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -215,10 +214,8 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion"
-            data-target='#project-info-10'
-            aria-expanded='false' aria-controls='#project-info-10') DETAILS
-      #project-info-10.project-info.collapse
+            a.project-button(data-target='#project-info-10') DETAILS
+      #project-info-10.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -237,8 +234,8 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-11' aria-expanded='false' aria-controls='#project-info-11') DETAILS
-      #project-info-11.project-info.collapse
+            a.project-button(data-target='#project-info-11') DETAILS
+      #project-info-11.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
@@ -257,8 +254,8 @@
         .project-button-background
           .project-button-wrapper
             p.project-title Office & Area Guide
-            a.project-button(data-toggle='collapse' data-parent="#accordion" data-target='#project-info-12' aria-expanded='false' aria-controls='#project-info-12') DETAILS
-      #project-info-12.project-info.collapse
+            a.project-button(data-target='#project-info-12') DETAILS
+      #project-info-12.project-info
         .container.clearfix
           .col-sm-5
             img(src='images/browser_example.svg')
