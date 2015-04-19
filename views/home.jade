@@ -17,12 +17,11 @@ block content
           li
             a.about-link(href='#about') ABOUT
           li
-            a.work-link(href='#work') WORK
+            a.work-link(href='#work') PORTFOLIO
           li
             a.contact-link(href='#contact') CONTACT
     .hero-container
-      h1.animated.fadeInUp Hey there, I'm Alec
-      p.animated.fadeInUp Let's get to know each other.
+      h1.animated.fadeInUp HEY THERE
 
   .nav-trigger.clearfix
     #nav-element.navbar
@@ -39,27 +38,25 @@ block content
             li
               a.about-link(href='#about') ABOUT
             li
-              a.work-link(href='#work') WORK
+              a.work-link(href='#work') PORTFOLIO
             li
               a.contact-link(href='#contact') CONTACT
 
   #about
     .container
-      .section-header-container
-        h2 HEY THERE
       .about-video.col-md-5
       .section-text-container.col-md-5.pull-right
         h3 IT'S GREAT TO MEET YOU,
         p I'm currently a student in Boston studying Computer Science. I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s what it envokes in a user as well. It's with this perspective that I approach both my personal and professional projects.
+    .section-header-container
+      h2 I'M A: DEVELOPER
+      .section-header-container-background
 
   #developer
-    #developer-background
-      #gear-one.gear.rotation-right
-      #gear-two.gear.rotation-left
-      #gear-three.gear.rotation-left
-    .section-container
-      .section-header-container
-        h2 I'M A: DEVELOPER
+    #gear-one.gear.rotation-right
+    #gear-two.gear.rotation-left
+    #gear-three.gear.rotation-left
+    .section-container.clearfix
 
 
       .large-container
@@ -93,13 +90,12 @@ block content
             p Ruby
             p Java
   #designer
-    .section-container
-      .section-header-container
-        h2 I'M A: DESIGNER
-
-
+    .section-header-container.designer-title
+      h2 I'M A: DESIGNER
+      .section-header-container-background
+    .section-container.clearfix
       .large-container
-        .col-md-3
+        .col-md-3.designer-column
           .designer-showtell.section-text-container
             h3 DON'T JUST TELL, SHOW
             p There's a difference between neatly displaying information and telling a story. Design elements should come together to create an experience that not only gets the message across but also captures the essence of the product.
@@ -111,7 +107,7 @@ block content
             .browser-designer-container
               img.browser#browser-designer-element(src="images/BrowserHiFi.png")
 
-        .col-md-3
+        .col-md-3.designer-column
           .designer-empathy.section-text-container
             h3 SOFTWARE
             p Adobe Photoshop
@@ -122,10 +118,6 @@ block content
 
             h3.spacer ORGANIC INTERACTIONS
             p If a user hesitates for too long in order to locate a certain control, the design has already failed. Interfaces should feel familiar and intuitive; animations should be used sparingly and only to enhance context.
-
-  #work.container.clearfix
-    .section-header-container
-      h2 MY WORK
 
   include sections/portfolio
 

@@ -178,10 +178,10 @@ $(document).ready(function() {
 
   // Set scroll to "My Work" options
   new ScrollMagic.Scene({
-    triggerElement: '#work',
+    triggerElement: '#portfolio',
     offset: -(navHeight+1),
     triggerHook: 0,
-    duration: $('#work').height() +
+    duration: $('#portfolio').height() +
     $('#portfolio').height() -
     $('#contact').height() +
     navHeight,

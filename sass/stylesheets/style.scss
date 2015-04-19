@@ -10,13 +10,13 @@ $secondary-title-weight: 400;
 $tertiary-title-weight: 700;
 
 $line-height: 30px;
-$paragraph-text: 1.1em;
+$paragraph-text: 1.05em;
 
 $text-dark: #25292D;
 $text-light: #6A767C;
-$background-dark-blue: #1E272F;
+$background-dark-blue: #212C35;
 $background-light-grey: #F5F5F5;
-$background-light-blue: #6fcdde;
+$background-light-blue: #6FBCDE;
 $border: 1px solid #ddd;
 $padding: 10px;
 $label-font-size: 13px;
@@ -98,35 +98,19 @@ html {
   animation-fill-mode: both;
 }
 
-.hero-container {
-  .animated:nth-child(1) {
-    -webkit-animation-delay: 0s;
-  }
-
-  .animated:nth-child(2) {
-    -webkit-animation-delay: 1.5s;
-  }
-
-  .animated:nth-child(3) {
-    -webkit-animation-delay: 3s;
-  }
-}
-
 #hero-arrow {
-  -webkit-animation-delay: 5s;
+  -webkit-animation-delay: 1.5s;
 }
 
 
 .rotation-left {
   -webkit-animation: rotation-left 12s linear infinite;
   -moz-animation: rotation-left 12s linear infinite;
-  -ms-animation: rotation-left 12s linear infinite;
 }
 
 .rotation-right {
   -webkit-animation: rotation-right 12s linear infinite;
   -moz-animation: rotation-right 12s linear infinite;
-  -ms-animation: rotation-right 12s linear infinite;
 }
 
 img, ul, li {
@@ -198,41 +182,36 @@ i {
 // ----------------------------------------------
 // TODO: clean up all the & and >
 .section-header-container {
-  text-align: center;
-  margin-bottom: 80px;
+  position: absolute;
+  height: 150px;
+  width: 100%;
+  z-index: 1000;
+  bottom: -75px;
 
   h2 {
     font-weight: $primary-title-weight;
-    color: $text-dark;
+    color: #FFF;
     font-size: 50px;
     letter-spacing: 3px;
-    position: relative;
-
-    &:before, &:after {
-      content: '';
-      display: none;
-      height: 1px;
-      width: 70px;
-      background-color: $text-dark;
-      position: absolute;
-      top: 35px;
-    }
-
-    &:before {
-      left: 50px;
-    }
-
-    &:after {
-      right: 50px;
-    }
+    line-height: 150px;
+    position: absolute;
+    width: 600px;
+    left: 50%;
+    margin: 0 0 0 -300px;
+    z-index: 200;
+    text-align: center;
+    text-shadow: 0 -1px #4292B5;
   }
 
-  p {
-    font-weight: $weight-light;
-    color: $text-light;
-    font-size: 1.1em;
-    letter-spacing: 3px;
+  .section-header-container-background {
+    position: absolute;
+    width: 80%;
+    background-color: $background-light-blue;
+    z-index: 100;
+    height: 100%;
   }
+
+
 }
 
 // Defines styles for all text in text containers
@@ -245,11 +224,11 @@ i {
     font-weight: $primary-title-weight;
     font-size: 1.25em;
     letter-spacing: 2px;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
 
   }
 
-  >p, >ul {
+  p, ul {
     color: $text-light;
     font-weight: $weight-light;
     font-size: $paragraph-text;
@@ -324,7 +303,9 @@ i {
   display: inline-flex;
   position: relative;
 
-  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("/images/desk.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.6),
+                                    rgba(0,0,0,0.6)),
+                                    url("/images/desk.jpg");
   background-size: cover;
   color: #fff;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
@@ -332,17 +313,11 @@ i {
   text-align: center;
 
   h1 {
-    font-size: 22px;
+    font-size: 3.15em;
+    line-height: 1.25em;
     margin: 0 0 15px 0;
-    font-weight: $secondary-title-weight;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  p {
-    font-size: 15px;
+    font-weight: $primary-title-weight;
+    letter-spacing: 3px;
   }
 
   .hero-container {
@@ -389,8 +364,7 @@ i {
 }
 
 #hero-arrow {
-  background: url('/images/down_arrow.svg');
-  background-repeat: no-repeat;
+  background: url('/images/down_arrow.svg') no-repeat;
   position: absolute;
   width: 40px;
   height: 15px;
@@ -411,7 +385,6 @@ i {
   padding: 10px 0;
   border-radius: 0;
   top: 0;
-  transition: $short-transition;
   margin: 0;
 }
 
@@ -501,7 +474,8 @@ i {
 // ----------------------------------------------
 
 #about {
-  padding: 50px 0 100px 0;
+  position: relative;
+  padding: 100px 0 180px 0;
 }
 
 .about-video {
@@ -512,40 +486,8 @@ i {
   max-width: 400px;
 }
 
-// About Interests
-// ----------------------------------------------
-//TODO: Need to change hacky nature of using a jumbotron here
-.about-interests {
-  display: none;
-  background-color: $background-light-grey;
-  margin: 50px 0 0 0;
-  padding: 50px 15px;
-
-  ul, li {
-    list-style-type: none;
-  }
-
-  li {
-    color: $text-light;
-    margin-bottom: 5px;
-
-    &:last-child {
-      margin: 0;
-    }
-  }
-}
-
 // Developer
 // ----------------------------------------------
-//TODO:major refactoring needs to be done to DRY this all up
-
-#developer .section-header-container,
-#designer .section-header-container {
-  h2:before,
-  h2:after {
-    display: none;
-  }
-}
 
 #developer,
 #designer {
@@ -559,17 +501,13 @@ i {
   .spacer {
     margin-top: 75px;
   }
-
-  h2 {
-    line-height: 65px;
-    margin: 0;
-  }
 }
 
 #developer {
   overflow: hidden;
   position: relative;
   width: 100%;
+  background-color: $background-dark-blue;
 
   h2, h3, p, a {
     color: #FFF;
@@ -582,7 +520,7 @@ i {
   }
 
   p {
-    color: $developer-text
+    color: $developer-text;
   }
 
   a {
@@ -593,31 +531,6 @@ i {
       color: $background-light-blue;
     }
   }
-
-  // TODO: Too much nesting, refactor
-  .progress-bar-container {
-    margin: 20px 0;
-
-    li {
-      margin-bottom: 15px;
-    }
-
-    p {
-      margin-bottom: 5px;
-    }
-  }
-}
-
-#developer-background {
-  background-color: $background-dark-blue;
-  top: -100%;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  height: 200%;
-
 
   .gear {
     background: url('/images/gear_icon.svg');
@@ -645,6 +558,7 @@ i {
     width: 600px;
   }
 }
+
 
 #browser-developer-trigger,
 #browser-designer-trigger{
@@ -701,28 +615,15 @@ i {
 
 #designer {
   background-color: $background-light-grey;
-  overflow: hidden;
   width: 100%;
   position: relative;
-
-  h2 {
-    margin: 0;
-  }
 
   p {
     color: $text-light;
   }
 
-  h2, h3 {
+  h3 {
     color: $text-dark;
-  }
-
-  .section-header-container .underline:after {
-    background-color: $text-dark;
-  }
-
-  #designer-writing {
-    margin-left: -10px;
   }
 
   a {
@@ -739,36 +640,19 @@ i {
       background: #F0F0F0;
     }
   }
+
+  .section-header-container-background {
+    right: 0;
+  }
 }
 
-// My Work
-// ----------------------------------------------
-// TODO: Excessive nesting fix later
-#work {
+.designer-title {
+  top: -75px;
+}
 
-  ul {
-    text-align: center;
-
-    li {
-      display: inline-block;
-    }
-
-    a {
-      font-weight: $weight-light;
-      color: $text-light;
-      font-size: 15px;
-      letter-spacing: 3px;
-      padding: 0 30px;
-
-      &:hover {
-        font-weight: $secondary-title-weight;
-      }
-    }
-  }
-
-  .section-header-container {
-    margin: 50px 0;
-  }
+.designer-column {
+  padding-top: 175px;
+  padding-bottom: 50px;
 }
 
 
@@ -918,9 +802,8 @@ i {
   }
 
   #x-button {
-    background: url('/images/x_button.svg');
+    background: url('/images/x_button.svg') no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
     position: absolute;
     top: 25px;
     right: 25px;
@@ -935,8 +818,8 @@ i {
 .recommendations {
   height: 100%;
   min-height: 750px;
-
   background-color: $background-light-grey;
+
 }
 
 
@@ -1128,30 +1011,9 @@ i {
     }
   }
 
-  .section-container {
-    width: 100%;
-    padding: 50px 50px;
-  }
-
   .section-header-container {
     h2 {
       font-size: 60px;
-
-      &:after, &:before {
-        display: block;
-      }
-    }
-
-    p {
-      font-size: 20px;
-    }
-  }
-
-  #work,
-  #about {
-    .section-header-container h2 {
-      width: 675px;
-      margin: 0 auto;
     }
   }
 
@@ -1163,7 +1025,7 @@ i {
     }
 
     h1 {
-      font-size: 50px;
+      font-size: 60px;
     }
 
     p {
@@ -1194,9 +1056,20 @@ i {
     }
   }
 
+  #developer {
+    padding: 175px 50px 50px;
+  }
+
+  #designer {
+    .section-container {
+      padding: 0 50px;
+    }
+  }
+
   #contact .section-container {
     padding: 50px 15px;
   }
+
 
   .contact-links-container {
     float: right;
@@ -1228,8 +1101,14 @@ i {
     width: 60%;
   }
 
-  #portfolio #masonry .portfolio-item {
-        width: 33.3333%;
+  #portfolio #masonry {
+    .portfolio-item {
+      width: 33.3333%;
+    }
+
+    .recommendation-item {
+      width: 66.3333%;
+    }
   }
 
   #developer .developer-concise,
@@ -1256,17 +1135,17 @@ i {
       bottom: -150px;
     }
   }
-
-  .section-header-container {
-    h2 {
-      margin: 30px 0;
-    }
-  }
 }
 
 @media screen and (min-width: 1280px) {
-  #portfolio #masonry .portfolio-item {
-    width: 25%;
+  #portfolio #masonry {
+    .portfolio-item {
+      width: 25%;
+    }
+
+    .recommendation-item {
+      width: 50%;
+    }
   }
 
   #hero.jumbotron .hero-container {

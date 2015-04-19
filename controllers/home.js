@@ -1,3 +1,4 @@
+var secrets = require('../config/secrets.js');
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   host: 'smtp-mail.outlook.com',
@@ -11,7 +12,6 @@ var transporter = nodemailer.createTransport({
     ciphers: 'SSLv3'
   }
 });
-
 
 /**
  * GET /
