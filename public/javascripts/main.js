@@ -83,7 +83,7 @@ $(document).ready(function() {
   }
 
   // When user clicks x button close open panel
-  $('#x-button').click(function () {
+  $('.x-button').click(function () {
     $('.panel-group').children('.open').removeClass('open').slideToggle(300);
   });
 

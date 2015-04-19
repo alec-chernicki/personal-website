@@ -5124,7 +5124,7 @@ i {
       .project-info .carousel-indicators li.active {
         margin: 5px;
         background-color: #6A767C; }
-  .project-info #x-button {
+  .project-info .x-button {
     background: url('/images/x_button.svg') no-repeat;
     background-size: cover;
     position: absolute;
