@@ -2,7 +2,6 @@
 
 $open-sans: "Open Sans", "Arial", san-serif;
 
-
 $weight-light: 300;
 $weight-regular: 400;
 $primary-title-weight: 600;
@@ -26,18 +25,20 @@ $transition-time: 0.2s;
 $short-transition: 0.1s;
 
 // Define General Styling
-html {
-  box-sizing: border-box;
-  height: 100%;
-  -webkit-font-smoothing: antialiased;
 
-  body {
-    font-family: $open-sans;
-    height: 100%;
-    margin: 0;
-  }
+html {
+  height: 100%;
 }
 
+body {
+  box-sizing: border-box;
+  font-family: $open-sans;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Animations
+// ----------------------------------------------
 @-webkit-keyframes rotation-right {
   0%   { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
@@ -86,6 +87,16 @@ html {
   }
 }
 
+.rotation-left {
+  -webkit-animation: rotation-left 15s linear infinite;
+  -moz-animation: rotation-left 15s linear infinite;
+}
+
+.rotation-right {
+  -webkit-animation: rotation-right 15s linear infinite;
+  -moz-animation: rotation-right 15s linear infinite;
+}
+
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
@@ -102,16 +113,6 @@ html {
   -webkit-animation-delay: 1.5s;
 }
 
-
-.rotation-left {
-  -webkit-animation: rotation-left 12s linear infinite;
-  -moz-animation: rotation-left 12s linear infinite;
-}
-
-.rotation-right {
-  -webkit-animation: rotation-right 12s linear infinite;
-  -moz-animation: rotation-right 12s linear infinite;
-}
 
 img, ul, li {
   display: block;
@@ -178,6 +179,11 @@ i {
   vertical-align: middle;
 }
 
+.gear {
+  background: url('/images/gear_icon.svg');
+  position: absolute;
+}
+
 // Defines styles for all text in header containers
 // ----------------------------------------------
 // TODO: clean up all the & and >
@@ -219,7 +225,7 @@ i {
 .section-text-container {
   text-align: center;
 
-  >h3 {
+  h3 {
     color: $text-dark;
     font-weight: $primary-title-weight;
     font-size: 1.25em;
@@ -240,16 +246,6 @@ i {
 .section-container {
   width: 100%;
   padding: 50px 15px;
-}
-
-.browser-developer-container,
-.browser-designer-container {
-  overflow: hidden;
-
-}
-
-.browser-column {
-  display: none;
 }
 
 // Pre-Load Animation
@@ -295,22 +291,20 @@ i {
 // Hero Section
 // ----------------------------------------------
 #hero.jumbotron {
-  height: 100%;
-  min-height: 500px;
-  padding-top: 50px;
-  margin: 0;
-  width: 100%;
-  display: inline-flex;
-  position: relative;
-
   background-image: linear-gradient(rgba(0,0,0,0.6),
                                     rgba(0,0,0,0.6)),
                                     url("/images/desk.jpg");
   background-size: cover;
   color: #fff;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-
+  display: inline-flex;
+  height: 100%;
+  margin: 0;
+  min-height: 500px;
+  padding-top: 50px;
+  position: relative;
   text-align: center;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  width: 100%;
 
   h1 {
     font-size: 3.15em;
@@ -486,15 +480,69 @@ i {
   max-width: 400px;
 }
 
+
+// Browser Animation
+// ----------------------------------------------
+
+
+// Define properties of containers and triggers
+.browser-developer-container,
+.browser-designer-container{
+  height: 800px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+#browser-developer-element,
+#browser-designer-element{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+#browser-developer-trigger,
+#browser-designer-trigger{
+  height: 800px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.browser-column {
+  display: none;
+}
+
+// Define differences between animations
+#browser-designer-element {
+  bottom: 0;
+  position: absolute;
+}
+
+.browser-developer-container {
+  bottom: 0;
+}
+
+.browser-designer-container {
+  top: 0;
+  height: 0;
+}
+
+#browser-developer-trigger {
+  background-color: #1B2126;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
+}
+
 // Developer
 // ----------------------------------------------
 
 #developer,
 #designer {
+  position: relative;
 
   .section-container {
-    z-index: 20;
-    margin: 0 auto;
     padding-bottom: 0;
   }
 
@@ -505,18 +553,10 @@ i {
 
 #developer {
   overflow: hidden;
-  position: relative;
-  width: 100%;
   background-color: $background-dark-blue;
 
-  h2, h3, p, a {
+  h3 {
     color: #FFF;
-  }
-
-  li>p {
-    font-weight: $secondary-title-weight;
-    letter-spacing: 1.5px;
-    font-size: $paragraph-text;
   }
 
   p {
@@ -524,17 +564,13 @@ i {
   }
 
   a {
+    color: #FFF;
     margin: 50px 0;
 
     &:hover {
       background-color: #FFF;
       color: $background-light-blue;
     }
-  }
-
-  .gear {
-    background: url('/images/gear_icon.svg');
-    position: absolute;
   }
 
   #gear-one {
@@ -559,72 +595,11 @@ i {
   }
 }
 
-
-#browser-developer-trigger,
-#browser-designer-trigger{
-  height: 700px;
-  position: relative;
-  margin: 0 auto;
-}
-
-#browser-designer-trigger {
-}
-
-#browser-developer-element,
-#browser-designer-element{
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-}
-
-#browser-designer-element {
-  bottom: 0;
-  position: absolute;
-}
-
-.browser-developer-container,
-.browser-designer-container{
-  height: 700px;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  left: 0;
-}
-
-.browser-developer-container {
-  bottom: 0;
-}
-
-.browser-designer-container {
-  top: 0;
-  height: 0;
-}
-
-#browser-designer-wrapper {
-
-}
-
-#browser-developer-trigger {
-  background-color: #1B2126;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
-}
 // Designer
 // ----------------------------------------------
 
 #designer {
   background-color: $background-light-grey;
-  width: 100%;
-  position: relative;
-
-  p {
-    color: $text-light;
-  }
-
-  h3 {
-    color: $text-dark;
-  }
 
   a {
     border: 1px solid #DDD;
@@ -639,6 +614,14 @@ i {
     &:active {
       background: #F0F0F0;
     }
+  }
+
+  h3 {
+    color: $text-dark;
+  }
+
+  p {
+    color: $text-light;
   }
 
   .section-header-container-background {
@@ -989,6 +972,20 @@ i {
   overflow: hidden;
 }
 
+#gear-four {
+  height: 600px;
+  width: 600px;
+  top: -300px;
+  right: 50px;
+}
+
+#gear-five {
+  height: 700px;
+  width: 700px;
+  left: 0px;
+  bottom: -500px;
+}
+
 
 // Media Queries - Responsiveness
 // ----------------------------------------------
@@ -1057,7 +1054,7 @@ i {
   }
 
   #developer {
-    padding: 175px 50px 50px;
+    padding: 150px 50px 50px;
   }
 
   #designer {

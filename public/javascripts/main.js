@@ -226,7 +226,7 @@ $(document).ready(function() {
   var browserDesignerController = new ScrollMagic.Controller();
 
   var designerTweenTimeline = new TimelineMax()
-    .add(TweenMax.to('.browser-designer-container', 1, {height: 700, ease:Linear.easeNone}));
+    .add(TweenMax.to('.browser-designer-container', 1, {height: 800, ease:Linear.easeNone}));
 
   new ScrollMagic.Scene({
     triggerElement: '#developer',

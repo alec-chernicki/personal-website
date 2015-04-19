@@ -4580,13 +4580,13 @@ button.close {
     display: none !important; } }
 
 html {
+  height: 100%; }
+
+body {
   box-sizing: border-box;
+  font-family: "Open Sans", "Arial", san-serif;
   height: 100%;
   -webkit-font-smoothing: antialiased; }
-  html body {
-    font-family: "Open Sans", "Arial", san-serif;
-    height: 100%;
-    margin: 0; }
 
 @-webkit-keyframes rotation-right {
   0% {
@@ -4648,6 +4648,14 @@ html {
     opacity: 1;
     transform: translateY(0); } }
 
+.rotation-left {
+  -webkit-animation: rotation-left 15s linear infinite;
+  -moz-animation: rotation-left 15s linear infinite; }
+
+.rotation-right {
+  -webkit-animation: rotation-right 15s linear infinite;
+  -moz-animation: rotation-right 15s linear infinite; }
+
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp; }
@@ -4660,14 +4668,6 @@ html {
 
 #hero-arrow {
   -webkit-animation-delay: 1.5s; }
-
-.rotation-left {
-  -webkit-animation: rotation-left 12s linear infinite;
-  -moz-animation: rotation-left 12s linear infinite; }
-
-.rotation-right {
-  -webkit-animation: rotation-right 12s linear infinite;
-  -moz-animation: rotation-right 12s linear infinite; }
 
 img, ul, li {
   display: block;
@@ -4720,6 +4720,10 @@ i {
   font-size: inherit;
   vertical-align: middle; }
 
+.gear {
+  background: url('/images/gear_icon.svg');
+  position: absolute; }
+
 .section-header-container {
   position: absolute;
   height: 150px;
@@ -4748,7 +4752,7 @@ i {
 
 .section-text-container {
   text-align: center; }
-  .section-text-container > h3 {
+  .section-text-container h3 {
     color: #25292D;
     font-weight: 600;
     font-size: 1.25em;
@@ -4764,12 +4768,6 @@ i {
 .section-container {
   width: 100%;
   padding: 50px 15px; }
-
-.browser-developer-container, .browser-designer-container {
-  overflow: hidden; }
-
-.browser-column {
-  display: none; }
 
 #pre-load {
   display: none;
@@ -4803,18 +4801,18 @@ i {
   left: 66px; }
 
 #hero.jumbotron {
-  height: 100%;
-  min-height: 500px;
-  padding-top: 50px;
-  margin: 0;
-  width: 100%;
-  display: inline-flex;
-  position: relative;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/desk.jpg");
   background-size: cover;
   color: #fff;
+  display: inline-flex;
+  height: 100%;
+  margin: 0;
+  min-height: 500px;
+  padding-top: 50px;
+  position: relative;
+  text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  text-align: center; }
+  width: 100%; }
   #hero.jumbotron h1 {
     font-size: 3.15em;
     line-height: 1.25em;
@@ -4933,34 +4931,63 @@ i {
   box-shadow: 0 5px 7px -5px rgba(0, 0, 0, 0.2);
   max-width: 400px; }
 
-#developer .section-container, #designer .section-container {
-  z-index: 20;
-  margin: 0 auto;
-  padding-bottom: 0; }
-#developer .spacer, #designer .spacer {
-  margin-top: 75px; }
+.browser-developer-container, .browser-designer-container {
+  height: 800px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  left: 0; }
+
+#browser-developer-element, #browser-designer-element {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%; }
+
+#browser-developer-trigger, #browser-designer-trigger {
+  height: 800px;
+  position: relative;
+  margin: 0 auto; }
+
+.browser-column {
+  display: none; }
+
+#browser-designer-element {
+  bottom: 0;
+  position: absolute; }
+
+.browser-developer-container {
+  bottom: 0; }
+
+.browser-designer-container {
+  top: 0;
+  height: 0; }
+
+#browser-developer-trigger {
+  background-color: #1B2126;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset; }
+
+#developer, #designer {
+  position: relative; }
+  #developer .section-container, #designer .section-container {
+    padding-bottom: 0; }
+  #developer .spacer, #designer .spacer {
+    margin-top: 75px; }
 
 #developer {
   overflow: hidden;
-  position: relative;
-  width: 100%;
   background-color: #212C35; }
-  #developer h2, #developer h3, #developer p, #developer a {
+  #developer h3 {
     color: #FFF; }
-  #developer li > p {
-    font-weight: 400;
-    letter-spacing: 1.5px;
-    font-size: 1.05em; }
   #developer p {
     color: #B0BAC3; }
   #developer a {
+    color: #FFF;
     margin: 50px 0; }
     #developer a:hover {
       background-color: #FFF;
       color: #6FBCDE; }
-  #developer .gear {
-    background: url('/images/gear_icon.svg');
-    position: absolute; }
   #developer #gear-one {
     bottom: -200px;
     height: 500px;
@@ -4977,48 +5004,8 @@ i {
     right: -300px;
     width: 600px; }
 
-#browser-developer-trigger, #browser-designer-trigger {
-  height: 700px;
-  position: relative;
-  margin: 0 auto; }
-
-#browser-developer-element, #browser-designer-element {
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%; }
-
-#browser-designer-element {
-  bottom: 0;
-  position: absolute; }
-
-.browser-developer-container, .browser-designer-container {
-  height: 700px;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  left: 0; }
-
-.browser-developer-container {
-  bottom: 0; }
-
-.browser-designer-container {
-  top: 0;
-  height: 0; }
-
-#browser-developer-trigger {
-  background-color: #1B2126;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset; }
-
 #designer {
-  background-color: #F5F5F5;
-  width: 100%;
-  position: relative; }
-  #designer p {
-    color: #6A767C; }
-  #designer h3 {
-    color: #25292D; }
+  background-color: #F5F5F5; }
   #designer a {
     border: 1px solid #DDD;
     color: #6A767C;
@@ -5028,6 +5015,10 @@ i {
       color: #6FBCDE; }
     #designer a:active {
       background: #F0F0F0; }
+  #designer h3 {
+    color: #25292D; }
+  #designer p {
+    color: #6A767C; }
   #designer .section-header-container-background {
     right: 0; }
 
@@ -5247,6 +5238,18 @@ i {
   height: 150px;
   overflow: hidden; }
 
+#gear-four {
+  height: 600px;
+  width: 600px;
+  top: -300px;
+  right: 50px; }
+
+#gear-five {
+  height: 700px;
+  width: 700px;
+  left: 0px;
+  bottom: -500px; }
+
 @media screen and (min-width: 320px) {
   #portfolio #masonry .portfolio-item {
     width: 100%; } }
@@ -5275,7 +5278,7 @@ i {
   nav .navbar-brand {
     font-size: 40px; }
   #developer {
-    padding: 175px 50px 50px; }
+    padding: 150px 50px 50px; }
   #designer .section-container {
     padding: 0 50px; }
   #contact .section-container {
