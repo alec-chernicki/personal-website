@@ -248,46 +248,6 @@ i {
   padding: 50px 15px;
 }
 
-// Pre-Load Animation
-// ----------------------------------------------
-
-#pre-load {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10000;
-  background: $background-dark-blue;
-}
-
-.gear-outline {
-  background: url('/images/gear_outline_icon.svg');
-  position: absolute;
-}
-
-.pre-load-gear-wrapper {
-  margin: 0 auto;
-  height: 110px;
-  width: 120px;
-  position: relative;
-}
-
-.gear-outline-one {
-  height: 75px;
-  width: 75px;
-  bottom: 0;
-}
-
-.gear-outline-two {
-  height: 50px;
-  width: 50px;
-  bottom: 52px;
-  left: 66px;
-}
-
-
 // Hero Section
 // ----------------------------------------------
 #hero.jumbotron {
