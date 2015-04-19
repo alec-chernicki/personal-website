@@ -1,8 +1,14 @@
 $(document).ready(function() {
-  // Created variable so that offsetting based on navigation height will be more DRY
 
+  // Initialize commonly used variables
+  var $navHeight = $('.nav-trigger').height();
+  var $aboutHeight = $('#about').height();
+  var $developerHeight = $('#developer').height();
+  var $designerHeight = $('#designer').height();
+  var $portfolioHeight = $('#portfolio').height();
+  var $contactHeight = $('#contact').height();
 
-  var navHeight = $('.nav-trigger').innerHeight();
+  var $panelGroup = $('.panel-group');
 
   // Dynamic resize of textarea based on content
   // ----------------------------------------------
@@ -13,10 +19,7 @@ $(document).ready(function() {
 
   // Fancy responsive portfolio panel
   // ----------------------------------------------
-
-  // TODO: This series of if else statements is extremely inefficient
-  // Working on an algorithm to handle this instead
-  // Using this now so that I can actually finish this website, will refactor at a later time.
+  // TODO: Working on more efficient algorithm for all of this
 
   // Functions return correct index that project info should be appended after based on screen size.
   function largePortfolio (index) {
@@ -87,7 +90,6 @@ $(document).ready(function() {
     $('.panel-group').children('.open').removeClass('open').slideToggle(300);
   });
 
-
   // Bind function to button click
   $('.portfolio-item a').click(function() {
     // Returns an array of items in the portfolio section
@@ -147,7 +149,7 @@ $(document).ready(function() {
 
   // Smooth Scrolling to all 'a' tags
   // ----------------------------------------------
-  $('a').smoothScroll({offset: -navHeight});
+  $('a').smoothScroll({offset: -$navHeight});
 
   // ScrollMagic - Navigation
   // ----------------------------------------------
@@ -157,7 +159,7 @@ $(document).ready(function() {
   new ScrollMagic.Scene({
     triggerElement: '#about',
     triggerHook: 0,
-    offset: -navHeight,
+    offset: -$navHeight,
     reverse: true
   })
     .setClassToggle('.nav-trigger', 'visible')
@@ -166,11 +168,9 @@ $(document).ready(function() {
   // Set scroll to "About" options
   new ScrollMagic.Scene({
     triggerElement: '#about',
-    offset: -(navHeight+1),
+    offset: -($navHeight+1),
     triggerHook: 0,
-    duration: $('#about').height() * 2 +
-    $('#developer').height() +
-    $('#designer').height(),
+    duration: $aboutHeight * 2 + $developerHeight + $designerHeight,
     reverse: true
   })
     .setClassToggle('.about-link', 'highlight')
@@ -179,10 +179,9 @@ $(document).ready(function() {
   // Set scroll to "Portfolio" options
   new ScrollMagic.Scene({
     triggerElement: '#portfolio',
-    offset: -(navHeight+1),
+    offset: -($navHeight+1),
     triggerHook: 0,
-    duration: $('#portfolio').height() -
-    $('#contact').height(),
+    duration: $portfolioHeight - $contactHeight,
     reverse: true
   })
     .setClassToggle('.work-link', 'highlight')
@@ -191,9 +190,9 @@ $(document).ready(function() {
   // Set scroll to "Contact Me" options
   new ScrollMagic.Scene({
     triggerElement: '#contact',
-    offset: -(navHeight+1),
+    offset: -($navHeight+1),
     triggerHook: 0.5,
-    duration: $('#contact').height() + $('.footer').height(),
+    duration: $contactHeight + $('.footer').height(),
     reverse: true
   })
     .setClassToggle('.contact-link', 'highlight')
@@ -213,7 +212,7 @@ $(document).ready(function() {
     triggerElement: '#developer',
     // Sets speed of wipe dynamically based on browser height
     duration: $('#browser-developer-trigger').height(),
-    offset: -navHeight,
+    offset: -$navHeight,
     triggerHook: 'onLeave'
   })
     .setTween(developerTweenTimeline)
@@ -230,7 +229,7 @@ $(document).ready(function() {
     triggerElement: '#developer',
     // Sets speed of wipe dynamically based on browser height
     duration: $('.browser-developer-container').height(),
-    offset: $('#designer').height() - $('.browser-designer-container').height(),
+    offset: $designerHeight - $('.browser-designer-container').height(),
     triggerHook: 'onEnter'
   })
     .setTween(designerTweenTimeline)

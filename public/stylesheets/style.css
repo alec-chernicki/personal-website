@@ -4769,37 +4769,6 @@ i {
   width: 100%;
   padding: 50px 15px; }
 
-#pre-load {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10000;
-  background: #212C35; }
-
-.gear-outline {
-  background: url('/images/gear_outline_icon.svg');
-  position: absolute; }
-
-.pre-load-gear-wrapper {
-  margin: 0 auto;
-  height: 110px;
-  width: 120px;
-  position: relative; }
-
-.gear-outline-one {
-  height: 75px;
-  width: 75px;
-  bottom: 0; }
-
-.gear-outline-two {
-  height: 50px;
-  width: 50px;
-  bottom: 52px;
-  left: 66px; }
-
 #hero.jumbotron {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/desk.jpg");
   background-size: cover;
