@@ -4649,12 +4649,12 @@ body {
     transform: translateY(0); } }
 
 .rotation-left {
-  -webkit-animation: rotation-left 15s linear infinite;
-  -moz-animation: rotation-left 15s linear infinite; }
+  -webkit-animation: rotation-left 20s linear infinite;
+  -moz-animation: rotation-left 20s linear infinite; }
 
 .rotation-right {
-  -webkit-animation: rotation-right 15s linear infinite;
-  -moz-animation: rotation-right 15s linear infinite; }
+  -webkit-animation: rotation-right 20s linear infinite;
+  -moz-animation: rotation-right 20s linear infinite; }
 
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
@@ -4952,11 +4952,13 @@ i {
   #developer p {
     color: #B0BAC3; }
   #developer a {
+    background: #6FBCDE;
     color: #FFF;
     margin: 50px 0; }
     #developer a:hover {
       background-color: #FFF;
-      color: #6FBCDE; }
+      color: #6FBCDE;
+      border: solid 1px #6FBCDE; }
   #developer #gear-one {
     bottom: -200px;
     height: 500px;
@@ -4976,12 +4978,13 @@ i {
 #designer {
   background-color: #F5F5F5; }
   #designer a {
+    background: #FFF;
     border: 1px solid #DDD;
-    color: #6A767C;
+    color: #6FBCDE;
     margin: 50px 0; }
     #designer a:hover {
-      background: #FFF;
-      color: #6FBCDE; }
+      background: #6FBCDE;
+      color: #FFF; }
     #designer a:active {
       background: #F0F0F0; }
   #designer h3 {

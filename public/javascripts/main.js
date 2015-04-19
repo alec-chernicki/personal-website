@@ -8,8 +8,6 @@ $(document).ready(function() {
   var $portfolioHeight = $('#portfolio').height();
   var $contactHeight = $('#contact').height();
 
-  var $panelGroup = $('.panel-group');
-
   // Dynamic resize of textarea based on content
   // ----------------------------------------------
   window.jQuery.fn.autosize = function() {
@@ -105,7 +103,6 @@ $(document).ready(function() {
     if ($('.panel-group').children('.open').attr('id') != undefined &&
         $panelId ==  '#' + $('.panel-group').children('.open').attr('id')) {
 
-      console.log('first case fired');
       $('.panel-group').children('.open').removeClass('open').slideToggle(300);
 
     }
@@ -115,7 +112,6 @@ $(document).ready(function() {
 
       $('.panel-group').children('.open').removeClass('open').slideToggle(300, function () {
 
-        console.log($(this).closest('.portfolio-item'));
         // Find the index of the current clicked item within the item array object
         $($itemArray[calculateAppendPosition($(this).closest('.portfolio-item'))])
 
@@ -128,7 +124,6 @@ $(document).ready(function() {
 
     // If no panels are open, just open the panel.
     else {
-      console.log('third case fired');
       // Find the index of the current clicked item within the item array object
       $($itemArray[calculateAppendPosition($(this).closest('.portfolio-item'))])
         // Append the following object after the given item in returned index position

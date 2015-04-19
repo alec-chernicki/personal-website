@@ -88,13 +88,13 @@ body {
 }
 
 .rotation-left {
-  -webkit-animation: rotation-left 15s linear infinite;
-  -moz-animation: rotation-left 15s linear infinite;
+  -webkit-animation: rotation-left 20s linear infinite;
+  -moz-animation: rotation-left 20s linear infinite;
 }
 
 .rotation-right {
-  -webkit-animation: rotation-right 15s linear infinite;
-  -moz-animation: rotation-right 15s linear infinite;
+  -webkit-animation: rotation-right 20s linear infinite;
+  -moz-animation: rotation-right 20s linear infinite;
 }
 
 .fadeInUp {
@@ -524,12 +524,14 @@ i {
   }
 
   a {
+    background: $background-light-blue;
     color: #FFF;
     margin: 50px 0;
 
     &:hover {
       background-color: #FFF;
       color: $background-light-blue;
+      border: solid 1px $background-light-blue;
     }
   }
 
@@ -562,13 +564,14 @@ i {
   background-color: $background-light-grey;
 
   a {
+    background: #FFF;
     border: 1px solid #DDD;
-    color: $text-light;
+    color: $background-light-blue;
     margin: 50px 0;
 
     &:hover {
-      background: #FFF;
-      color: $background-light-blue;
+      background: $background-light-blue;
+      color: #FFF;
     }
 
     &:active {
