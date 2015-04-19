@@ -153,8 +153,8 @@ $(document).ready(function() {
   // ----------------------------------------------
   var navigationController = new ScrollMagic.Controller();
 
-  // Set navbar to visible right above the about section
-  var navigationScene = new ScrollMagic.Scene({
+  // Set navbar to appear above #about section
+  new ScrollMagic.Scene({
     triggerElement: '#about',
     triggerHook: 0,
     offset: -navHeight,
@@ -163,12 +163,12 @@ $(document).ready(function() {
     .setClassToggle('.nav-trigger', 'visible')
     .addTo(navigationController);
 
-  // Set scroll to "About Me" options
+  // Set scroll to "About" options
   new ScrollMagic.Scene({
     triggerElement: '#about',
     offset: -(navHeight+1),
     triggerHook: 0,
-    duration: $('#about').height() +
+    duration: $('#about').height() * 2 +
     $('#developer').height() +
     $('#designer').height(),
     reverse: true
@@ -176,15 +176,13 @@ $(document).ready(function() {
     .setClassToggle('.about-link', 'highlight')
     .addTo(navigationController);
 
-  // Set scroll to "My Work" options
+  // Set scroll to "Portfolio" options
   new ScrollMagic.Scene({
     triggerElement: '#portfolio',
     offset: -(navHeight+1),
     triggerHook: 0,
-    duration: $('#portfolio').height() +
-    $('#portfolio').height() -
-    $('#contact').height() +
-    navHeight,
+    duration: $('#portfolio').height() -
+    $('#contact').height(),
     reverse: true
   })
     .setClassToggle('.work-link', 'highlight')
