@@ -9,13 +9,13 @@ $secondary-title-weight: 400;
 $tertiary-title-weight: 700;
 
 $line-height: 30px;
-$paragraph-text: 1.05em;
+$paragraph-text: 14px;
 
 $text-dark: #25292D;
-$text-light: #6A767C;
-$background-dark-blue: #212C35;
-$background-light-grey: #F5F5F5;
-$background-light-blue: #6FBCDE;
+$text-light: #999;
+$background-dark-blue: #273644;
+$background-light-grey: #f1f3f4;
+$background-light-blue: #6AAECF;
 $border: 1px solid #ddd;
 $padding: 10px;
 $label-font-size: 13px;
@@ -34,7 +34,6 @@ body {
   box-sizing: border-box;
   font-family: $open-sans;
   height: 100%;
-  -webkit-font-smoothing: antialiased;
 }
 
 // Animations
@@ -87,6 +86,12 @@ body {
   }
 }
 
+@-webkit-keyframes developer-gradient {
+  0% {background-position: 0 0, 0 0}
+  100%{background-position: 0 0, 2000px 0}
+}
+
+
 .rotation-left {
   -webkit-animation: rotation-left 20s linear infinite;
   -moz-animation: rotation-left 20s linear infinite;
@@ -137,7 +142,7 @@ a {
   padding: 20px 0;
   border: solid 1px #fff;
   letter-spacing: 1.5px;
-  border-radius: 30px;
+  border-radius: 5px;
   text-align: center;
   width: 100%;
 
@@ -206,7 +211,8 @@ i {
     margin: 0 0 0 -300px;
     z-index: 200;
     text-align: center;
-    text-shadow: 0 -1px #4292B5;
+    text-shadow: 0 1px #4292B5;
+    -webkit-font-smoothing: antialiased;
   }
 
   .section-header-container-background {
@@ -227,10 +233,12 @@ i {
 
   h3 {
     color: $text-dark;
-    font-weight: $primary-title-weight;
-    font-size: 1.25em;
+    font-weight: 500;
+    font-size: 23px;
     letter-spacing: 2px;
+    line-height: 40px;
     margin: 0 0 15px 0;
+    -webkit-font-smoothing: antialiased;
 
   }
 
@@ -256,7 +264,6 @@ i {
                                     url("/images/desk.jpg");
   background-size: cover;
   color: #fff;
-  display: inline-flex;
   height: 100%;
   margin: 0;
   min-height: 500px;
@@ -275,8 +282,13 @@ i {
   }
 
   .hero-container {
-    margin: auto auto;
-    width: 80%;
+    height: 80px;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+    margin-top: -40px;
+    position: absolute;
+    top: 50%;
   }
 }
 
@@ -489,12 +501,6 @@ i {
   height: 0;
 }
 
-#browser-developer-trigger {
-  background-color: #1B2126;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) inset;
-}
-
 // Developer
 // ----------------------------------------------
 
@@ -512,8 +518,12 @@ i {
 }
 
 #developer {
-  overflow: hidden;
-  background-color: $background-dark-blue;
+  background: url('/images/grid_background.svg') repeat,
+              linear-gradient(90deg, #19232d 0%, #35546a 48%, #243949 50%, #19232d 100%);
+  animation: developer-gradient infinite 6s linear;
+  background-size: 80px 80px, 2000px auto;
+  -webkit-animation: developer-gradient infinite 6s linear;
+  position: relative;
 
   h3 {
     color: #FFF;
@@ -535,25 +545,8 @@ i {
     }
   }
 
-  #gear-one {
-    bottom: -200px;
-    height: 500px;
-    left: -150px;
-    width: 500px;
-  }
-
-  #gear-two {
-    bottom: 300px;
-    height: 250px;
-    left: -100px;
-    width: 250px;
-  }
-
-  #gear-three {
-    bottom: 650px;
-    height: 600px;
-    right: -300px;
-    width: 600px;
+  .section-header-container-background {
+    right: 0;
   }
 }
 
@@ -562,6 +555,7 @@ i {
 
 #designer {
   background-color: $background-light-grey;
+  overflow: hidden;
 
   a {
     background: #FFF;
@@ -580,20 +574,37 @@ i {
   }
 
   h3 {
-    color: $text-dark;
+    color: $background-dark-blue;
   }
 
   p {
-    color: $text-light;
+    color: #999;
   }
 
-  .section-header-container-background {
-    right: 0;
+  #gear-one {
+    bottom: -200px;
+    height: 500px;
+    left: -150px;
+    width: 500px;
+  }
+
+  #gear-two {
+    bottom: 300px;
+    height: 250px;
+    left: -100px;
+    width: 250px;
+  }
+
+  #gear-three {
+    top: -100px;
+    height: 600px;
+    right: -300px;
+    width: 600px;
   }
 }
 
 .designer-title {
-  top: -75px;
+  bottom: -75px;
 }
 
 .designer-column {
@@ -627,31 +638,32 @@ i {
       }
 
       .project-button-background {
-        background-color: rgba(0,0,0,0.6);
         position: absolute;
-        display: none;
+        visibility: hidden;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
         z-index: 10000;
-        padding: 15% 0;
+        transition: 0.1s;
       }
 
       &:hover .project-button-background {
-        display: inline-flex;
-        transition-duration: $transition-time;
+        background-color: rgba(0,0,0,0.6);
+        visibility: visible;
       }
 
       .project-button-wrapper {
         color: #FFF;
         text-align: center;
-        margin: auto auto;
+        margin: 0 auto;
+        height: 250px;
 
         p {
           font-weight: $primary-title-weight;
           font-size: 20px;
           margin-bottom: 15px;
+          -webkit-font-smoothing: antialiased;
         }
 
         // TODO: Repetitive code from button, DRY it up
@@ -661,15 +673,15 @@ i {
           padding: 10px 0;
           border: solid 1px #FFF;
           letter-spacing: 1.5px;
-          border-radius: 30px;
+          border-radius: 5px;
           text-align: center;
           width: 130px;
           margin: 0 auto;
           color: #FFF;
+          transition: none;
 
           &:hover {
             background-color: #FFF;
-            transition: $short-transition;
             color: $background-dark-blue;
           }
         }
@@ -685,11 +697,6 @@ i {
       position: relative;
       overflow: hidden;
     }
-  }
-
-  & .portfolio-item {
-    transition-duration: 0.4s;
-    transition-property: transform, opacity;
   }
 }
 
@@ -784,7 +791,7 @@ i {
   h3 {
     font-weight: $weight-regular;
     font-size: 30px;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
   }
 
   // This creates the form animation
@@ -799,9 +806,12 @@ i {
       padding-bottom: 10px;
     }
 
+    label {
+      -webkit-font-smoothing: antialiased;
+    }
+
     form {
       margin: 3em auto;
-
       font-weight: $weight-light;
       color: $text-light;
       font-size: 15px;
@@ -819,6 +829,7 @@ i {
       outline: 0;
       resize: none;
       transition: $short-transition;
+      -webkit-font-smoothing: antialiased;
 
       & + label {
         position: absolute;
@@ -1057,10 +1068,6 @@ i {
     display: block;
   }
 
-  #hero.jumbotron .hero-container {
-    width: 60%;
-  }
-
   #portfolio #masonry {
     .portfolio-item {
       width: 33.3333%;
@@ -1092,7 +1099,7 @@ i {
 
   #developer-background {
     #gear-three {
-      bottom: -150px;
+      bottom: -50px;
     }
   }
 }
@@ -1106,10 +1113,6 @@ i {
     .recommendation-item {
       width: 50%;
     }
-  }
-
-  #hero.jumbotron .hero-container {
-    width: 50%;
   }
 }
 
