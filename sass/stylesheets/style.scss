@@ -646,6 +646,7 @@ i {
         right: 0;
         z-index: 10000;
         transition: 0.1s;
+        padding: 80px 0;
       }
 
       &:hover .project-button-background {
@@ -657,7 +658,7 @@ i {
         color: #FFF;
         text-align: center;
         margin: 0 auto;
-        height: 250px;
+        height: 90px;
 
         p {
           font-weight: $primary-title-weight;
@@ -1028,7 +1029,7 @@ i {
   }
 
   #developer {
-    padding: 150px 50px 50px;
+    padding: 150px 0 50px;
   }
 
   #designer {

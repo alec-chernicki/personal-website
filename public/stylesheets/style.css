@@ -5036,7 +5036,8 @@ i {
       bottom: 0;
       right: 0;
       z-index: 10000;
-      transition: 0.1s; }
+      transition: 0.1s;
+      padding: 80px 0; }
     #portfolio #masonry .portfolio-item:hover .project-button-background {
       background-color: rgba(0, 0, 0, 0.6);
       visibility: visible; }
@@ -5044,7 +5045,7 @@ i {
       color: #FFF;
       text-align: center;
       margin: 0 auto;
-      height: 250px; }
+      height: 90px; }
       #portfolio #masonry .portfolio-item .project-button-wrapper p {
         font-weight: 600;
         font-size: 20px;
@@ -5263,7 +5264,7 @@ i {
   nav .navbar-brand {
     font-size: 40px; }
   #developer {
-    padding: 150px 50px 50px; }
+    padding: 150px 0 50px; }
   #designer .section-container {
     padding: 0 50px; }
   #contact .section-container {
