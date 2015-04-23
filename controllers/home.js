@@ -1,12 +1,11 @@
-var secrets = require('../config/secrets.js');
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   host: 'smtp-mail.outlook.com',
   secureConnection: false,
   port: 587,
   auth: {
-    user: secrets.email.user,
-    pass: secrets.email.pass
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD
   },
   tls: {
     ciphers: 'SSLv3'

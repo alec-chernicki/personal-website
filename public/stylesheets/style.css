@@ -4731,15 +4731,15 @@ i {
   position: absolute; }
 
 .section-header-container {
+  bottom: -150px;
   position: absolute;
   height: 150px;
   width: 100%;
-  z-index: 1000;
-  bottom: -75px; }
+  z-index: 1000; }
   .section-header-container h2 {
     font-weight: 600;
     color: #FFF;
-    font-size: 50px;
+    font-size: 40px;
     letter-spacing: 3px;
     line-height: 150px;
     position: absolute;
@@ -4752,7 +4752,7 @@ i {
     -webkit-font-smoothing: antialiased; }
   .section-header-container .section-header-container-background {
     position: absolute;
-    width: 80%;
+    width: 100%;
     background-color: #6AAECF;
     z-index: 100;
     height: 100%; }
@@ -4904,7 +4904,7 @@ i {
 
 #about {
   position: relative;
-  padding: 100px 0 180px 0; }
+  padding: 100px 0 100px 0; }
 
 .about-video {
   height: 400px;
@@ -4946,6 +4946,7 @@ i {
   height: 0; }
 
 #developer, #designer {
+  padding: 150px 0 50px;
   position: relative; }
   #developer .section-container, #designer .section-container {
     padding-bottom: 0; }
@@ -4953,10 +4954,10 @@ i {
     margin-top: 75px; }
 
 #developer {
-  background: url('/images/grid_background.svg') repeat, linear-gradient(90deg, #19232d 0%, #35546a 48%, #243949 50%, #19232d 100%);
-  animation: developer-gradient infinite 6s linear;
+  background: url('/images/grid_background.svg') repeat, linear-gradient(90deg, #19232d 35%, #243949 70%, #345169 95%, #19252D 100%);
+  animation: developer-gradient infinite 8s linear;
   background-size: 80px 80px, 2000px auto;
-  -webkit-animation: developer-gradient infinite 6s linear;
+  -webkit-animation: developer-gradient infinite 8s linear;
   position: relative; }
   #developer h3 {
     color: #FFF; }
@@ -4970,12 +4971,17 @@ i {
       background-color: #FFF;
       color: #6AAECF;
       border: solid 1px #6AAECF; }
+  #developer .developer-concise h3:nth-child(2), #developer .developer-languages {
+    margin-top: 500px; }
+  #developer .section-header-container {
+    bottom: -150px; }
   #developer .section-header-container-background {
     right: 0; }
 
 #designer {
   background-color: #f1f3f4;
-  overflow: hidden; }
+  overflow: hidden;
+  border-bottom: solid 5px #6AAECF; }
   #designer a {
     background: #FFF;
     border: 1px solid #DDD;
@@ -5005,9 +5011,6 @@ i {
     height: 600px;
     right: -300px;
     width: 600px; }
-
-.designer-title {
-  bottom: -75px; }
 
 .designer-column {
   padding-top: 175px;
@@ -5246,6 +5249,8 @@ i {
     background-color: #FFF; }
   .section-header-container h2 {
     font-size: 60px; }
+  #about .section-header-container-background, #developer .section-header-container-background {
+    width: 95%; }
   #hero.jumbotron {
     padding: 75px; }
     #hero.jumbotron #logo {
@@ -5259,13 +5264,19 @@ i {
     margin: 40px 0 auto 0; }
   .contact-links-container .button {
     margin: 30px 0 0 0; }
+  #developer .section-header-container {
+    bottom: -75px; }
   #portfolio #masonry .portfolio-item {
     width: 50%; }
   nav .navbar-brand {
     font-size: 40px; }
-  #developer {
-    padding: 150px 0 50px; }
-  #designer .section-container {
+  #about {
+    padding: 100px 0 180px 0; }
+    #about .section-header-container {
+      bottom: -75px; }
+  #about .section-header-container-background, #developer .section-header-container-background {
+    width: 80%; }
+  #designer {
     padding: 0 50px; }
   #contact .section-container {
     padding: 50px 15px; }
