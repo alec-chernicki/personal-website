@@ -1,0 +1,1172 @@
+@import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
+
+$open-sans: "Open Sans", "Arial", san-serif;
+
+$weight-light: 300;
+$weight-regular: 400;
+$primary-title-weight: 600;
+$secondary-title-weight: 400;
+$tertiary-title-weight: 700;
+
+$line-height: 30px;
+$paragraph-text: 14px;
+
+$text-dark: #25292D;
+$text-light: #999;
+$background-dark-blue: #273644;
+$background-light-grey: #f1f3f4;
+$background-light-blue: #6AAECF;
+$border: 1px solid #ddd;
+$padding: 10px;
+$label-font-size: 13px;
+$developer-text: #B0BAC3;
+
+$transition-time: 0.2s;
+$short-transition: 0.1s;
+
+// Define General Styling
+
+html {
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $open-sans;
+  height: 100%;
+}
+
+// Animations
+// ----------------------------------------------
+@-webkit-keyframes rotation-right {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotation-right {
+  0%   { -moz-transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes rotation-right {
+  0%   { -ms-transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rotation-left {
+  0%   { -webkit-transform: rotate(360deg); }
+  100% { -webkit-transform: rotate(0deg); }
+}
+@-moz-keyframes rotation-left {
+  0%   { -moz-transform: rotate(360deg); }
+  100% { -moz-transform: rotate(0deg); }
+}
+@-ms-keyframes rotation-left {
+  0%   { -ms-transform: rotate(360deg); }
+  100% { -ms-transform: rotate(0deg); }
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes developer-gradient {
+  0% {background-position: 0 0, 0 0}
+  100%{background-position: 0 0, 2000px 0}
+}
+
+
+.rotation-left {
+  -webkit-animation: rotation-left 20s linear infinite;
+  -moz-animation: rotation-left 20s linear infinite;
+}
+
+.rotation-right {
+  -webkit-animation: rotation-right 20s linear infinite;
+  -moz-animation: rotation-right 20s linear infinite;
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.animated {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#hero-arrow {
+  -webkit-animation-delay: 1.5s;
+}
+
+
+img, ul, li {
+  display: block;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: $short-transition;
+  cursor: pointer;
+
+  &:hover, &:visited, &:focus {
+    text-decoration: none;
+  }
+}
+
+.button  {
+  display: block;
+  font-weight: $secondary-title-weight;
+  padding: 20px 0;
+  border: solid 1px #fff;
+  letter-spacing: 1.5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+
+  &:hover {
+    transition: $short-transition;
+  }
+}
+
+i {
+  font-weight: $secondary-title-weight;
+  letter-spacing: 1.5px;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.large-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.link-underline {
+  &:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background-color: $background-dark-blue;
+    width: 100%;
+    bottom: 5px;
+    left: 0;
+  }
+}
+
+.fa-lg {
+  font-weight: $primary-title-weight;
+  letter-spacing: 2.5px;
+  font-size: inherit;
+  vertical-align: middle;
+}
+
+.gear {
+  background: url('/images/gear_icon.svg');
+  position: absolute;
+}
+
+// Defines styles for all text in header containers
+// ----------------------------------------------
+// TODO: clean up all the & and >
+.section-header-container {
+  bottom: -150px;
+  position: absolute;
+  overflow: hidden;
+  height: 150px;
+  width: 100%;
+  z-index: 1000;
+
+  h2 {
+    font-weight: $primary-title-weight;
+    color: #FFF;
+    font-size: 26px;
+    letter-spacing: 3px;
+    line-height: 150px;
+    position: absolute;
+    width: 600px;
+    left: 50%;
+    margin: 0 0 0 -300px;
+    z-index: 200;
+    text-align: center;
+    text-shadow: 0 1px #4292B5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .section-header-container-background {
+    position: absolute;
+    width: 100%;
+    background-color: $background-light-blue;
+    z-index: 100;
+    height: 100%;
+  }
+
+
+}
+
+// Defines styles for all text in text containers
+// ----------------------------------------------
+.section-text-container {
+  text-align: center;
+
+  h3 {
+    color: $text-dark;
+    font-weight: 500;
+    font-size: 23px;
+    letter-spacing: 2px;
+    line-height: 40px;
+    margin: 0 0 15px 0;
+    -webkit-font-smoothing: antialiased;
+
+  }
+
+  p, ul {
+    color: $text-light;
+    font-weight: $weight-light;
+    font-size: $paragraph-text;
+    line-height: $line-height;
+    letter-spacing: 0.5px;
+  }
+}
+
+.section-container {
+  width: 100%;
+  padding: 50px 15px;
+}
+
+// Hero Section
+// ----------------------------------------------
+#hero.jumbotron {
+  background-image: linear-gradient(rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)),
+  url("/images/desk.jpg");
+  background-size: cover;
+  color: #fff;
+  height: 100%;
+  margin: 0;
+  min-height: 500px;
+  overflow: hidden;
+  padding-top: 50px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  h1 {
+    font-size: 3.15em;
+    line-height: 1.25em;
+    margin: 0 0 15px 0;
+    font-weight: $primary-title-weight;
+    letter-spacing: 3px;
+  }
+
+  .hero-container {
+    height: 80px;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+    margin-top: -40px;
+    position: absolute;
+    top: 50%;
+  }
+}
+
+#hero-nav-wrapper {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  border: none;
+  display: none;
+
+  .hero-nav-links li {
+    display: inline-block;
+  }
+
+  // TODO: Repeat of main navbar DRY it up
+  li a {
+    font-size: $paragraph-text;
+    color: #FFF;
+    letter-spacing: 2px;
+    font-weight: $tertiary-title-weight;
+
+    &:hover {
+      background: inherit;
+    }
+
+    &:active, &:focus {
+      background-color: inherit;
+    }
+  }
+
+  // TODO: Again this is a repeat
+  .navbar-brand {
+    color: #FFF;
+    font-weight: $tertiary-title-weight;
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+
+#hero-arrow {
+  background: url('/images/down_arrow.svg') no-repeat;
+  position: absolute;
+  width: 40px;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+}
+
+// Navigation Bar
+// ----------------------------------------------
+
+.navbar {
+  transition: $short-transition;
+  font-family: $open-sans;
+  border-bottom: 1px solid #E3E3E3;
+  padding: 10px 0;
+  border-radius: 0;
+  top: 0;
+  margin: 0;
+}
+
+.nav-trigger {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20000;
+  transition: $short-transition;
+}
+
+.visible {
+  display: block;
+  transition: $short-transition;
+}
+
+#nav-element {
+  background-color: #FFF;
+
+  .navbar-brand {
+    color: $text-dark;
+    font-weight: $tertiary-title-weight;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  //TODO: make sure text styles are consistent
+  li > a {
+
+    font-size: $paragraph-text;
+    font-weight: $primary-title-weight;
+    color: $text-light;
+    letter-spacing: 2px;
+
+    &:hover {
+      background-color: inherit;
+      color: $background-dark-blue;
+    }
+
+    &:active, &:focus {
+      background-color: inherit;
+    }
+  }
+
+  #full-navigation {
+    .highlight {
+      color: $background-dark-blue;
+    }
+
+    a:after {
+      content: '';
+      position: absolute;
+      display: block;
+      transition: $short-transition;
+      opacity: 0;
+      bottom: 0;
+      left: 5px;
+      right: 5px;
+      height: 1px;
+      background-color: $background-dark-blue;
+    }
+
+    .highlight:after {
+      opacity: 1;
+      bottom: 10px;
+    }
+  }
+
+  .icon-bar {
+    background-color: $text-light;
+  }
+
+  .navbar-brand {
+    margin-left: 15px;
+  }
+
+  .navbar-toggle {
+    margin-right: 15px;
+  }
+}
+
+
+
+// About Section
+// ----------------------------------------------
+
+#about {
+  position: relative;
+  padding: 100px 0 100px 0;
+}
+
+.about-video {
+  height: 400px;
+  border-bottom: solid $text-light 1px;
+  margin: 0 auto 25px;
+  box-shadow: 0 5px 7px -5px rgba(0,0,0,0.2);
+  max-width: 400px;
+}
+
+
+// Browser Animation
+// ----------------------------------------------
+
+
+// Define properties of containers and triggers
+.browser-developer-container,
+.browser-designer-container{
+  height: 800px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+#browser-developer-element,
+#browser-designer-element{
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+#browser-developer-trigger,
+#browser-designer-trigger{
+  height: 800px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.browser-column {
+  display: none;
+}
+
+// Define differences between animations
+#browser-designer-element {
+  bottom: 0;
+  position: absolute;
+}
+
+.browser-developer-container {
+  bottom: 0;
+}
+
+.browser-designer-container {
+  top: 0;
+  height: 0;
+}
+
+// Developer
+// ----------------------------------------------
+
+#developer,
+#designer {
+  padding: 150px 0 50px;
+  position: relative;
+
+  .section-container {
+    padding-bottom: 0;
+  }
+
+  .spacer {
+    margin-top: 75px;
+  }
+}
+
+#developer {
+  background: url('/images/grid_background.svg') repeat,
+  linear-gradient(90deg, #19232d 35%, #243949 70%, #345169 95%, #19252D 100%);
+  animation: developer-gradient infinite 8s linear;
+  background-size: 80px 80px, 2000px auto;
+  -webkit-animation: developer-gradient infinite 8s linear;
+  position: relative;
+
+  h3 {
+    color: #FFF;
+  }
+
+  p {
+    color: $developer-text;
+  }
+
+  a {
+    background: $background-light-blue;
+    color: #FFF;
+    margin: 50px 0;
+
+    &:hover {
+      background-color: #FFF;
+      color: $background-light-blue;
+      border: solid 1px $background-light-blue;
+    }
+  }
+
+  .developer-concise h3:nth-child(2),
+  .developer-languages {
+    margin-top: 500px;
+  }
+
+  .section-header-container {
+    bottom: -150px;
+  }
+
+  .section-header-container-background {
+    right: 0;
+  }
+}
+
+// Designer
+// ----------------------------------------------
+
+#designer {
+  background-color: $background-light-grey;
+  overflow: hidden;
+  border-bottom: solid 5px $background-light-blue;
+
+  a {
+    background: #FFF;
+    border: 1px solid #DDD;
+    color: $background-light-blue;
+    margin: 50px 0;
+
+    &:hover {
+      background: $background-light-blue;
+      color: #FFF;
+    }
+
+    &:active {
+      background: #F0F0F0;
+    }
+  }
+
+  h3 {
+    color: $background-dark-blue;
+  }
+
+  p {
+    color: #999;
+  }
+
+  #gear-one {
+    bottom: -200px;
+    height: 500px;
+    left: -150px;
+    width: 500px;
+  }
+
+  #gear-two {
+    bottom: 300px;
+    height: 250px;
+    left: -100px;
+    width: 250px;
+  }
+
+  #gear-three {
+    top: -50px;
+    height: 600px;
+    right: -300px;
+    width: 600px;
+  }
+}
+
+
+.designer-column {
+  padding-top: 175px;
+  padding-bottom: 50px;
+}
+
+
+
+
+// Portfolio
+// ----------------------------------------------
+#portfolio {
+  // TODO: Complex nesting, fix
+  #masonry {
+    margin: 0 auto;
+
+    .portfolio-item {
+      background-color: $background-dark-blue;
+      transition-property: transform, opacity;
+
+      float: left;
+      height: 250px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+
+      & > img {
+        position: absolute;
+        z-index: 5000;
+        width: 100%;
+        min-height: 250px;
+      }
+
+      .project-button-background {
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10000;
+        transition: 0.1s;
+        padding: 80px 0;
+      }
+
+      &:hover .project-button-background {
+        background-color: rgba(39, 54, 68, 0.75);
+        visibility: visible;
+      }
+
+      .project-button-wrapper {
+        color: #FFF;
+        text-align: center;
+        margin: 0 auto;
+        height: 90px;
+
+        p {
+          font-weight: $primary-title-weight;
+          font-size: 20px;
+          margin-bottom: 15px;
+          -webkit-font-smoothing: antialiased;
+        }
+
+        // TODO: Repetitive code from button, DRY it up
+        a {
+          display: block;
+          font-weight: $primary-title-weight;
+          padding: 10px 0;
+          border: solid 1px #FFF;
+          letter-spacing: 1.5px;
+          border-radius: 5px;
+          text-align: center;
+          width: 130px;
+          margin: 0 auto;
+          color: #FFF;
+          transition: none;
+
+          &:hover {
+            background-color: #FFF;
+            color: $background-dark-blue;
+          }
+        }
+      }
+    }
+
+    .portfolio-item-project-info {
+      background-color: $background-dark-blue;
+      transition-property: transform, opacity;
+
+      float: left;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+}
+
+// Project Info
+// ----------------------------------------------
+.project-info {
+  position: relative;
+  float: left;
+  background-color: $background-light-grey;
+  padding: 100px 0 70px 0;
+  width: 100%;
+  display: none;
+
+  .company-name {
+    display: block;
+    margin-bottom: 15px;
+    color: $background-light-blue;
+  }
+
+  .company-name,
+  .tools-used {
+    font-size: $paragraph-text;
+    color: $text-light;
+    font-weight: $secondary-title-weight;
+  }
+
+  .tools-used {
+    font-size: $paragraph-text;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .tools {
+    display: inline-block;
+  }
+
+  .carousel {
+    box-shadow: 0 0 0 15px #FFF,
+    0 0 0 16px #E3E3E3
+  }
+
+  .carousel-indicators {
+    bottom: -60px;
+
+    li {
+      width: 13px;
+      height: 13px;
+      margin: 5px;
+      border: 1px solid $text-light;
+
+      &.active {
+        margin: 5px;
+        background-color: $text-light;
+      }
+    }
+  }
+
+  .x-button {
+    background: url('/images/x_button.svg') no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+
+  .section-text-container {
+    padding-top: 50px;
+  }
+}
+// Recommendations
+// ----------------------------------------------
+
+.recommendations {
+  height: 100%;
+  min-height: 750px;
+  background-color: $background-light-grey;
+
+}
+
+
+
+
+// Contact Me
+// ----------------------------------------------
+#contact {
+  .container {
+    padding: 0;
+  }
+}
+
+.contact-form-container {
+
+  h3 {
+    font-weight: $weight-regular;
+    font-size: 30px;
+    letter-spacing: 3px;
+  }
+
+  // This creates the form animation
+  // TODO: Make container expand when label is displayed
+  .float-label {
+    .control {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      border-bottom: $border;
+      padding-top: 15px + $label-font-size;
+      padding-bottom: 10px;
+    }
+
+    label {
+      -webkit-font-smoothing: antialiased;
+    }
+
+    form {
+      margin: 3em auto;
+      font-weight: $weight-light;
+      color: $text-light;
+      font-size: 15px;
+      letter-spacing: 3px;
+    }
+
+    input[type='text'] {
+
+    }
+
+    input, textarea {
+      display: block;
+      width: 100%;
+      border: 0;
+      outline: 0;
+      resize: none;
+      transition: $short-transition;
+      -webkit-font-smoothing: antialiased;
+
+      & + label {
+        position: absolute;
+        display: block;
+        top: 10px;
+        left: 0;
+        transition: top 0.7s ease, opacity 0.7s ease;
+        opacity: 0;
+
+        font-size: $label-font-size;
+        font-weight: 600;
+        color: #ccc;
+      }
+
+      &:valid + label {
+        opacity: 1;
+        top: 3px;
+      }
+
+      &:focus + label {
+        transition: $transition-time;
+        color: $background-light-blue;
+      }
+    }
+  }
+
+  textarea {
+    padding: 1px;
+    overflow: hidden;
+    word-wrap: break-word;
+    height: 22px;
+  }
+
+  .button {
+    display: block;
+    color: $background-light-blue;
+    background-color: inherit;
+    font-weight: $primary-title-weight;
+    padding: 15px 0;
+    border: solid 1px #DDD;
+    letter-spacing: 1.5px;
+    border-radius: 50px;
+    margin: $line-height auto 0;
+
+    &:hover, &:focus {
+      color: #FFF;
+      background-color: $background-light-blue;
+      border: solid 1px $background-light-blue;
+    }
+
+    &:active {
+      color: #FFF;
+      transition: $short-transition;
+      background-color: #1A7390;
+      border: 1px solid #1A7390;
+      outline: 0;
+    }
+  }
+}
+
+
+.contact-links-container {
+  margin-top: 30px;
+
+  .fa-twitter,
+  .fa-dribbble,
+  .fa-linkedin,
+  .fa-medium {
+    &:before {
+      color: $background-light-blue;
+      margin-right: 10px;
+    }
+  }
+
+  li {
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+
+    a:last-child {
+      margin: 0;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      color: $text-light;
+      font-weight: 200;
+
+      &:before {
+        color: $background-light-blue;
+      }
+    }
+  }
+
+  .fa-ul li p {
+    display: none;
+  }
+}
+
+// Footer
+// ----------------------------------------------
+.footer {
+  position: relative;
+  background-color: $background-dark-blue;
+  height: 150px;
+  overflow: hidden;
+}
+
+#gear-four {
+  height: 600px;
+  width: 600px;
+  top: -300px;
+  right: 50px;
+}
+
+#gear-five {
+  height: 700px;
+  width: 700px;
+  left: 0px;
+  bottom: -500px;
+}
+
+
+// Media Queries - Responsiveness
+// ----------------------------------------------
+@media screen and (min-width: 320px) {
+  #portfolio {
+    #masonry {
+      .portfolio-item {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+  #nav-element {
+    .collapse {
+      background-color: #FFF;
+    }
+  }
+
+  .section-header-container {
+    h2 {
+      font-size: 60px;
+    }
+  }
+
+
+  #hero.jumbotron {
+    padding: 75px;
+
+    #logo {
+      height: 75px;
+    }
+
+    h1 {
+      font-size: 60px;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+  }
+
+  .contact-form-container {
+    .button {
+      width: 200px;
+      margin: 40px 0 auto 0;
+    }
+  }
+
+  .contact-links-container {
+    .button {
+      margin: $line-height 0 0 0;
+    }
+  }
+
+  // Developer
+  // ---------------
+  #developer {
+    .section-header-container {
+      bottom: -75px;
+    }
+  }
+
+  #portfolio #masonry .portfolio-item {
+    width: 50%;
+  }
+
+  nav {
+    .navbar-brand {
+      font-size: 40px;
+    }
+  }
+
+  // About
+  // ---------------
+  #about {
+    padding: 100px 0 180px 0;
+
+    .section-header-container {
+      bottom: -75px;
+    }
+  }
+
+  #about, #developer {
+    .section-header-container-background {
+      width: 90%;
+    }
+  }
+
+  // Project Info
+  // ---------------
+  .project-info {
+    padding: 50px 0 70px 0;
+
+    .container .section-text-container {
+      padding-top: 0;
+    }
+  }
+
+  #designer {
+    padding: 0 50px;
+
+    .column {
+      margin-top: 125px;
+    }
+  }
+
+  #contact .section-container {
+    padding: 50px 15px;
+  }
+
+
+  .contact-links-container {
+    float: right;
+    width: 30%;
+    margin: 0;
+
+    li {
+      margin: 0 0 20px 0;
+    }
+
+    .fa-ul li p {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  #hero-nav-wrapper {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  .browser-column {
+    display: block;
+  }
+
+  #portfolio #masonry {
+    .portfolio-item {
+      width: 33.3333%;
+    }
+
+    .recommendation-item {
+      width: 66.3333%;
+    }
+  }
+
+  #developer .developer-concise,
+  #designer .designer-showtell {
+    text-align: right;
+  }
+
+  #about, #developer {
+    .section-header-container-background {
+      width: 80%;
+    }
+  }
+
+  #designer {
+    .designer-showtell {
+      text-align: right;
+    }
+  }
+
+  .section-text-container {
+    text-align: left;
+  }
+
+  #contact .section-container {
+    padding: 60px;
+  }
+
+  #developer-background {
+    #gear-three {
+      bottom: -50px;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  #portfolio #masonry {
+    .portfolio-item {
+      width: 25%;
+    }
+
+    .recommendation-item {
+      width: 50%;
+    }
+  }
+}
