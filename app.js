@@ -1,18 +1,18 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
+var sgTransport = require('nodemailer-sendgrid-transport');
 var nodemailer = require('nodemailer');
-var transporter = nodemailer.createTransport({
-  host: 'smtp-mail.outlook.com',
-  secureConnection: false,
-  port: 587,
+var favicon = require('serve-favicon');
+var path = require('path');
+var connectAssets = require('connect-assets');
+
+var sendGridOptions = {
   auth: {
-    user: process.env.EMAIL_USERNAME,
-    pass: process.env.EMAIL_PASSWORD
-  },
-  tls: {
-    ciphers: 'SSLv3'
+    api_user: 'alecortega',
+    api_key: 'moose213'
   }
-});
+};
 
 /**
  * Create Express server
@@ -23,20 +23,38 @@ var app = express();
  * Express configuration
  */
 app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'dist'));
+app.use(favicon(__dirname + '/dist/favicon.ico'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
+app.use(connectAssets({
+  paths: [path.join(__dirname, '/dist/styles'), path.join(__dirname, '/dist/scripts')]
+}));
 app.use(express.static('dist'));
 
 /**
  * GET: Respond with rendering index page
  */
 app.get('/', function (req, res) {
-  res.render('index')
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
 /**
- * POST: Pass to nodemailer and send email
+ * POST: Respond with download of resume
  */
-app.post('/', function (req, res) {
+app.get('/resume', function (req, res) {
+  var file = path.join(__dirname + '/dist/images/resume.pdf');
+  res.download(file);
+});
+
+/**
+ * POST: Pass req to nodemailer and send email
+ */
+app.post('/', function(req,res) {
+
+  var mailer = nodemailer.createTransport(sgTransport(sendGridOptions));
+
   req.checkBody('fullname', 'Name cannot be blank').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('message', 'Message cannot be blank').notEmpty();
@@ -47,25 +65,25 @@ app.post('/', function (req, res) {
     console.log(errors);
   }
 
-  var from = req.body.email;
-  var fullname = req.body.name;
+  var from = '<' + req.body.email + '>';
+  var fullname = '"' + req.body.name + '"';
+  var fullSender = '\'' + fullname + from + '\'';
   var body = req.body.message;
-  var to = 'alecortega@live.com';
-  var subject = 'Contact Form | Personal Website';
 
-  var mailOptions = {
-    to: to,
-    from: from,
-    subject: subject,
+  var email = {
+    to: 'alecortega@live.com',
+    from: fullSender,
+    subject: 'Contact Form | Personal Website',
     text: body
   };
 
-  transporter.sendMail(mailOptions, function(err) {
+  mailer.sendMail(email, function(err, response) {
     if (err) {
-      console.log('Mail not sent! Danger Will Robinson!');
-      console.log(err);
+      res.status(500).send({success: 'false'});
+      console.log('Error');
     }
-    console.log('Email sent! All clear!');
+    console.log('Success');
+    res.status(200).send({success: 'true'});
   });
 });
 

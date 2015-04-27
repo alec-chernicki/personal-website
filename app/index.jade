@@ -11,6 +11,8 @@ block content
           li
             a.about-link(href='#about') ABOUT
           li
+            a.resume-link(href='#resume-header') RESUMÉ
+          li
             a.work-link(href='#portfolio') PORTFOLIO
           li
             a.contact-link(href='#contact') CONTACT
@@ -21,7 +23,7 @@ block content
       #nav-element.navbar
         .container
           .navbar-header
-            button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#full-navigation")
+            button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#full-navigation')
               span.icon-bar
               span.icon-bar
               span.icon-bar
@@ -30,6 +32,8 @@ block content
             ul.nav.navbar-nav.navbar-right
               li
                 a.about-link(href='#about') ABOUT
+              li
+                a.resume-link(href='#resume-header') RESUMÉ
               li
                 a.work-link(href='#portfolio') PORTFOLIO
               li
@@ -41,12 +45,19 @@ block content
         h3 It's great to meet you,
         p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s what it envokes in a user as well. It's with this perspective that I approach both my personal and professional projects.
     .section-header-container
-      h2 I'M A: DEVELOPER
+      h2
+        span I'M A:
+        span DEVELOPER
       .section-header-container-background
 
   #developer
+    .developer-background-container
+      .developer-gradient
+      .developer-overlay
     .section-header-container
-      h2 I'M A: DESIGNER
+      h2
+        span I'M A:
+        span DESIGNER
       .section-header-container-background
     .section-container.clearfix
       .large-container
@@ -59,20 +70,20 @@ block content
             p Grunt, Bower, Yeoman
             p Git, GitHub
             p GSAP, Fabric.js, Paper.js
-            h3 Clean, Concise
+            h3.spacer Clean, Concise
             p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
 
         .col-md-6.browser-column
           #browser-developer-trigger
-            .browser-developer-container
-              img.browser#browser-developer-element(src="images/BrowserLoFi.png")
+            img.browser#browser-developer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_1200/v1430102631/BrowserLoFi_bizzq2.png')
 
         .col-md-3.column
           .developer-laguages.section-text-container
             h3 Knowledge is Power
-            p Technologies are constantly changing, new and awesome technologies are always being introduced. Learning a new framework, library, or language feels like gaining a super power and after all, every kid grows up wanting to be a superhero.
-            a.button(href='https://github.com/alecortega' target='_blank')
-              i.fa.fa-github.fa-lg #{'  '}VIEW GITHUB
+            p New and awesome technologies are always being introduced. Learning a new framework, library, or language feels like gaining a super power and after all, every kid grows up wanting to be a superhero. I'm constantly learning not because I need to, but because it's fun.
+            a.button.developer-button-github(href='https://github.com/alecortega' target='_blank')
+              i.fa.fa-github.fa-lg
+              | &nbsp;VIEW GITHUB
             h3 Languages
             p HTML5, Haml, Jade
             p CSS3, SASS, SCSS
@@ -83,19 +94,20 @@ block content
     #gear-one.gear.rotation-right
     #gear-two.gear.rotation-left
     #gear-three.gear.rotation-left
-    .section-container.clearfix
+    .section-container.clearfixgul
       .large-container
         .col-md-3.column
           .designer-showtell.section-text-container
             h3 Don't Just Tell, Show
-            p There's a difference between neatly displaying information and telling a story. Design elements should come together to create an experience that not only gets the message across but also captures the essence of the product.
-            a.button(href='https://www.behance.net/alecortega' target='blank')
-              i.fa.fa-behance.fa-lg #{'  '}VIEW BEHANCE
-
+            p There's a difference between neatly displaying information and telling a story. Design elements should come together to create an experience that not only gets the message across but also captures the essence of the product or brand.
+            a.button.designer-button-behance(href='https://www.behance.net/alecortega' target='blank')
+              i.fa.fa-behance.fa-lg
+              | &nbsp; VIEW BEHANCE
+            h3 All Things Considered
+            p There's more that goes into design than just making it look pretty. Things like production constraints and how the product is actually going to be used need to be taken into consideration. Anyone can make something look nice, I can make it work.
         .col-md-6.browser-column
           #browser-designer-trigger
-            .browser-designer-container
-              img.browser#browser-designer-element(src="images/BrowserHiFi.png")
+            img.browser#browser-designer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_1200/v1430102633/BrowserHiFi_hsvwbz.png')
 
         .col-md-3.column
           .designer-empathy.section-text-container
@@ -105,8 +117,34 @@ block content
             p Framer.js
             p Proto.io
             p Balsamiq
-            h3 Organic Interactions
-            p If a user hesitates for too long in order to locate a certain control, the design has already failed. Interfaces should feel familiar and intuitive; animations should be used sparingly and only to enhance context.
+            h3.spacer Design for Empathy
+            p No one is going to remember how you made something as much as they are the way that you made them feel afterwards. Design should always be created with the user's perspective and the feeling that you wish to envoke in mind.
+
+
+  #resume.clearfix
+    .resume-gradient
+    .resume-overlay
+    #resume-header.section-header-container
+      h2 RESUMÉ
+      .section-header-container-background
+
+    .section-container.clearfix
+      .large-container
+        .col-md-3.column
+        .col-md-6.resume-column
+          #resume-download-wrapper
+            a.button.resume-button-download(href='/resume')
+              i.fa.fa-download
+              | &nbsp; DOWNLOAD
+            h3 OR TO SEE MORE
+            a.button.resume-button-linkedin(href='https://linkedin.com/in/alecortega/' target='blank')
+              i.fa.fa-linkedin
+              | &nbsp; VIEW LINKEDIN
+          .resume-trigger
+            img#resume-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_1200/v1431880065/Official_Resume_abs4s9.png')
+          img#envelope-top(src='/images/Envelope-Top.png')
+          img#envelope-bottom(src='/images/Envelope-Bottom.png')
+        .col-md-3.column
 
   include layouts/sections/portfolio
 
@@ -115,33 +153,37 @@ block content
       .contact-form-container.section-text-container.col-sm-7
         h3 Get in Touch
         p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
-        form.float-label(role='form', method='POST')
+
+        form#contact-form.float-label(role='form', method='POST', action='/')
           .control.clearfix
             input(type="text" spellcheck="false" name="fullname", id='fullname', placeholder='Full Name', required)
             label.clearfix(for="fullname") Full Name
           .control
-            input(type="text" spellcheck="false" name="email",id="email" placeholder="Your Email", required)
+            input(type="text" spellcheck="false" name="email", placeholder="Your Email", required)
             label(for="email") Your Email
           .control
             textarea.message(type='text', name="message", placeholder='Your Message', rows='1',
             required)
-          button.button(type="submit") SEND MESSAGE
+          button.button.submit-button(type="submit")
+            i.fa.fa-paper-plane
+            | &nbsp; SEND MESSAGE
+
       .contact-links-container
         .section-text-container
           h3 Find Me Elsewhere
           ul.fa-ul
             li.fa-li.fa.fa-twitter
-              a.twitter(target= "_blank" href="https://twitter.com/WhyNotDoStuff") Twitter
+              a.twitter(target= '_blank' href='https://twitter.com/WhyNotDoStuff') Twitter
             li.fa-li.fa.fa-dribbble
-              a.dribbble(target= "_blank" href="https://dribbble.com/alecortega") Dribbble
+              a.dribbble(target= '_blank' href='https://dribbble.com/alecortega') Dribbble
             li.fa-li.fa.fa-linkedin
-              a.linkedin(target= "_blank" href="https://linkedin.com/in/alecortega/") LinkedIn
+              a.linkedin(target= '_blank' href='https://linkedin.com/in/alecortega/') LinkedIn
             li.fa-li.fa.fa-medium
-              a.medium(target= "_blank" href="https://medium.com/@whynotdostuff") Medium
+              a.medium(target= '_blank' href='https://medium.com/@whynotdostuff') Medium
 
   .footer
-    #gear-four.gear.rotation-right
-    #gear-five.gear.rotation-left
+    #gear-four.gear-dark.rotation-right
+    #gear-five.gear-dark.rotation-left
     .section-container.clearfix
       p Website handcrafted with love
       p Check it out on GitHub
