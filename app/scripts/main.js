@@ -208,7 +208,6 @@ $(document).ready(function() {
     triggerElement: '#developer',
     // Sets speed of wipe dynamically based on browser height
     duration: $('#browser-developer-trigger').height(),
-    offset: -$navHeight,
     triggerHook: 'onLeave'
   })
     .setTween(developerTweenTimeline)
@@ -225,7 +224,7 @@ $(document).ready(function() {
     triggerElement: '#developer',
     // Sets speed of wipe dynamically based on browser height
     duration: $('.browser-developer-container').height(),
-    offset: $designerHeight - $('.browser-designer-container').height(),
+    offset: $developerHeight - $('.browser-designer-container').height(),
     triggerHook: 'onEnter'
   })
     .setTween(designerTweenTimeline)
