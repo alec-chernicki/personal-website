@@ -217,6 +217,7 @@ i {
   position: absolute;
   overflow: hidden;
   height: 150px;
+  left: 0;
   width: 100%;
   z-index: 900;
 
@@ -511,7 +512,7 @@ i {
 
 #browser-designer-element {
   position: absolute;
-  top:-550px;
+
 }
 
 #browser-developer-trigger,
@@ -855,19 +856,19 @@ i {
   background-repeat: no-repeat;
   background-size: cover;
 
-  @include breakpoint($tiny-breakpoint) {
+  @include breakpoint($small-breakpoint) {
     height: 50vw;
     width: 50vw;
   }
 
-  @include breakpoint($small-breakpoint) {
+  @include breakpoint($medium-breakpoint) {
     height: 33.3333vw;
     height: calc(100vw / 3);
     width: 33.3333vw;
     width: calc(100vw / 3);
   }
 
-  @include breakpoint($medium-breakpoint) {
+  @include breakpoint($large-breakpoint) {
     height: 25vw;
     width: 25vw;
   }

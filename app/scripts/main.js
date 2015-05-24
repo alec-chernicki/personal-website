@@ -1,7 +1,8 @@
-/* jshint devel:true */
 'use strict';
 
 // Initialize commonly used variables
+var $windowWidth = $(window).width;
+
 var $navHeight = $('.nav-trigger').height();
 var $aboutHeight = $('.about').height();
 var $developerHeight = $('#developer').height();
@@ -10,6 +11,8 @@ var $resumeHeight = $('#resume').height();
 var $portfolioHeight = $('#portfolio').height();
 var $contactHeight = $('#contact').height();
 
+var $designerElementHeight = $('#browser-designer-element').height();
+var $resumeElementHeight = $('#resume-element').height();
  //AJAX Contact Form Submission Handler
 //----------------------------------------------
 $('#contact-form').submit(function(event){
@@ -40,10 +43,10 @@ $('#contact-form').submit(function(event){
 
 //AJAX Resume Download Handler
 //----------------------------------------------
-$('.resume-button-download').click(function(event){
+$('.resume-button-download').click(function() {
   $.ajax({
     url: '/resume',
-    type: 'POST'
+    type: 'GET'
   });
 });
 
@@ -75,6 +78,9 @@ positionElements();
 // Make all these fun js effects completely responsive! YAY FUTUREZ!
 //----------------------------------------------
 $(window).resize(function () {
+  $windowWidth = $(window).width;
+  console.log($windowWidth);
+
   positionElements();
 });
 
@@ -82,7 +88,7 @@ $(window).resize(function () {
 // ----------------------------------------------
 $('a').smoothScroll({offset: -$navHeight});
 
-// GSAP
+// GSAP - Animate opacity on download or linkedin button hover
 //----------------------------------------------
 $('.resume-button-download').hover(
   function() {
@@ -105,7 +111,7 @@ $('.resume-button-linkedin').hover(
 
 // GSAP - Moves linear gradient behind developer-overlay (translate3D)
 //----------------------------------------------
-TweenMax.to('.developer-gradient', 12, {x: 2000, y: 0, repeat: -1, yoyo: true, ease:Linear.easeNone});
+TweenMax.to('.developer-gradient', 12, {x: $windowWidth, y: 0, repeat: -1, yoyo: true, ease:Linear.easeNone});
 
 // Dynamic resize of textarea based on content
 // ----------------------------------------------
@@ -308,9 +314,9 @@ var developerTweenTimeline = new TimelineMax()
   .add(TweenMax.to('#browser-developer-element', 1, {y:1000, ease:Linear.easeNone}));
 
 new ScrollMagic.Scene({
-  triggerElement: '#developer',
+  triggerElement: '#browser-developer-trigger',
   duration: 1000,
-  offset: $navHeight,
+  offset: -$navHeight - 50,
   triggerHook: 'onLeave'
 })
   .setTween(developerTweenTimeline)
@@ -323,9 +329,9 @@ var designerTweenTimeline = new TimelineMax()
   .add(TweenMax.to('#browser-designer-element', 1, {y:2000, ease:Linear.easeNone}));
 
 new ScrollMagic.Scene({
-  triggerElement: '#designer',
+  triggerElement: '#browser-designer-trigger',
   duration: 2000,
-  offset: -$navHeight - $('#browser-designer-element').height(),
+  offset: -$navHeight - 50 - $('#browser-designer-element').height(),
   triggerHook: 'onLeave'
 })
   .setTween(designerTweenTimeline)
@@ -340,8 +346,19 @@ var resumeTweenTimeline = new TimelineMax()
 new ScrollMagic.Scene({
   triggerElement: '.resume-trigger',
   duration: $('.resume-trigger').height(),
-  offset: $navHeight - $('#resume-element').height(),
+  offset: -$navHeight - 50 - $resumeElementHeight,
   triggerHook: 'onLeave'
 })
   .setTween(resumeTweenTimeline)
   .addTo(resumeController);
+
+/* This is super janky but there's a bug where the trigger of the element
+   ignores the original css:top style, if you set the top property AFTER
+   the js kicks in it fixes it, ugh so gross tho
+ */
+
+$(document).on('ready', function() {
+  $('#browser-designer-element').css('top', -$designerElementHeight);
+  $('#resume-element').css('top', -$resumeElementHeight);
+});
+

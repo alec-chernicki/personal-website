@@ -41,7 +41,7 @@ app.get('/', function (req, res) {
 });
 
 /**
- * POST: Respond with download of resume
+ * GET: Respond with download of resume
  */
 app.get('/resume', function (req, res) {
   var file = path.join(__dirname + '/dist/images/resume.pdf');
