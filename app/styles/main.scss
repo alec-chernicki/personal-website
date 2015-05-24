@@ -1,6 +1,8 @@
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
+@import '../bower_components/normalize.css/normalize.css';
 
-$open-sans: "Raleway", "Arial", san-serif;
+
+$raleway: "Raleway", sans-serif;
 
 $weight-light: 300;
 $weight-regular: 400;
@@ -24,57 +26,76 @@ $developer-text: #B0BAC3;
 $transition-time: all 0.2s ease-in-out;
 $short-transition: all 0.15s ease-in-out;
 
-// Define General Styling
+// Breakpoints
+// ----------------------------------------------------------------------
+$tiny-breakpoint: 320px;
+$small-breakpoint: 768px;
+$medium-breakpoint: 1024px;
+$large-breakpoint: 1280px;
 
+// Mixins
+// ----------------------------------------------------------------------
+
+@mixin absolute-horizontal-center {
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+}
+
+@mixin absolute-all-center {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@mixin breakpoint($device-width) {
+  @media screen and (min-width: $device-width) {
+    @content
+  }
+}
+
+// Define General Styling
 html {
   height: 100%;
 }
 
 body {
   box-sizing: border-box;
-  font-family: $open-sans;
+  font-family: $raleway;
   height: 100%;
 }
 
 // Animations
 // ----------------------------------------------
-@-webkit-keyframes rotation-right {
+
+// Rotate Right
+@keyframes rotation-right {
   0%   { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
 }
-@-moz-keyframes rotation-right {
-  0%   { -moz-transform: rotate(0deg); }
-  100% { -moz-transform: rotate(360deg); }
-}
-@-ms-keyframes rotation-right {
-  0%   { -ms-transform: rotate(0deg); }
-  100% { -ms-transform: rotate(360deg); }
+
+.rotation-right {
+  -webkit-animation: rotation-right 20s linear infinite;
+  -moz-animation: rotation-right 20s linear infinite;
 }
 
-@-webkit-keyframes rotation-left {
+
+// Rotate Left
+@keyframes rotation-left {
   0%   { -webkit-transform: rotate(360deg); }
   100% { -webkit-transform: rotate(0deg); }
 }
-@-moz-keyframes rotation-left {
-  0%   { -moz-transform: rotate(360deg); }
-  100% { -moz-transform: rotate(0deg); }
-}
-@-ms-keyframes rotation-left {
-  0%   { -ms-transform: rotate(360deg); }
-  100% { -ms-transform: rotate(0deg); }
+
+.rotation-left {
+  -webkit-animation: rotation-left 20s linear infinite;
+  -moz-animation: rotation-left 20s linear infinite;
 }
 
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-  }
-}
-
+// Fade in and Move Up
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -86,20 +107,11 @@ body {
   }
 }
 
-.rotation-left {
-  -webkit-animation: rotation-left 20s linear infinite;
-  -moz-animation: rotation-left 20s linear infinite;
-}
-
-.rotation-right {
-  -webkit-animation: rotation-right 20s linear infinite;
-  -moz-animation: rotation-right 20s linear infinite;
-}
-
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
 }
+
 
 .animated {
   -webkit-animation-duration: 2s;
@@ -107,11 +119,6 @@ body {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
-
-#hero-arrow {
-  -webkit-animation-delay: 1.5s;
-}
-
 
 img, ul, li {
   display: block;
@@ -127,9 +134,6 @@ img {
 a {
   text-decoration: none;
   transition: $short-transition;
-  cursor: pointer;
-  -webkit-font-smoothing: initial;
-
 
   &:hover, &:visited, &:focus {
     text-decoration: none;
@@ -154,6 +158,7 @@ i {
   max-width: 300px;
   transition: $short-transition;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  -webkit-font-smoothing: antialiased;
 
   &:hover {
     background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.15));
@@ -213,29 +218,23 @@ i {
   overflow: hidden;
   height: 150px;
   width: 100%;
-  z-index: 1000;
+  z-index: 900;
 
   h2 {
+    @include absolute-horizontal-center;
     font-weight: $primary-title-weight;
     color: #FFF;
     font-size: 50px;
     letter-spacing: 4px;
     line-height: 150px;
     position: absolute;
-    width: 600px;
-    left: 50%;
-    margin: 0 0 0 -300px;
-    z-index: 200;
+    z-index: 100;
     text-align: center;
     text-shadow: 0 1px #4292B5;
     -webkit-font-smoothing: antialiased;
 
-    span {
-      display: inline-block;
-
-      &:first-child {
-        display: none;
-      }
+    @include breakpoint($small-breakpoint) {
+      font-size: 60px;
     }
   }
 
@@ -243,11 +242,17 @@ i {
     position: absolute;
     width: 100%;
     background-color: $background-light-blue;
-    z-index: 100;
-    height: 100%;
+    top: 0;
+    bottom: 0;
+
+    @include breakpoint($medium-breakpoint) {
+      width: 80%;
+    }
+
+    @include breakpoint($large-breakpoint) {
+      width: 90%;
+    }
   }
-
-
 }
 
 // Defines styles for all text in text containers
@@ -282,62 +287,23 @@ i {
   z-index: 100;
 }
 
-// Hero Section
+// Navigation Bar
 // ----------------------------------------------
-#hero.jumbotron {
-  background-color: $background-dark-blue;
-  background-image: linear-gradient(rgba(0,0,0,0.6),
-    rgba(0,0,0,0.6)),
-  url("http://res.cloudinary.com/alecoortega/image/upload/v1430102636/desk_yrtsmg.jpg");
-  background-size: cover;
-  color: #fff;
-  height: 100%;
+.navbar {
+  transition: $short-transition;
+  font-family: $raleway;
+  border-bottom: 1px solid $border-color;
+  padding: 10px 0;
+  border-radius: 0;
+  top: 0;
   margin: 0;
-  min-height: 500px;
-  overflow: hidden;
-  padding-top: 50px;
-  position: relative;
-  text-align: center;
-  width: 100%;
 
-  h1 {
-    font-size: 3.15em;
-    line-height: 1.25em;
-    margin: 0 0 15px 0;
-    font-weight: $primary-title-weight;
-    letter-spacing: 3px;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .hero-container {
-    height: 80px;
-    left: 50%;
-    width: 500px;
-    margin-left: -250px;
-    margin-top: -40px;
-    position: absolute;
-    top: 50%;
-  }
-}
-
-#hero-nav-wrapper {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  right: 0;
-  border: none;
-  display: none;
-
-  .hero-nav-links li {
-    display: inline-block;
-  }
-
-  // TODO: Repeat of main navbar DRY it up
   li a {
-    font-size: $paragraph-text;
     color: #FFF;
+    font-size: $paragraph-text;
     letter-spacing: 2px;
     font-weight: $tertiary-title-weight;
+    -webkit-font-smoothing: antialiased;
 
     &:hover {
       background: inherit;
@@ -347,50 +313,83 @@ i {
       background-color: inherit;
     }
   }
-
-  // TODO: Again this is a repeat
-  .navbar-brand {
-    color: #FFF;
-    font-weight: $tertiary-title-weight;
-    font-size: 20px;
-    letter-spacing: 2px;
-    padding-left: 50px;
-
-    background-image: url('/images/logo.svg');
-    background-position: 0 25%;
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-  }
 }
 
-#hero-arrow {
-  background: url('/images/down_arrow.svg') no-repeat;
-  position: absolute;
-  width: 40px;
-  height: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  bottom: 30px;
+.navbar-brand {
+  font-weight: $tertiary-title-weight;
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding-left: 50px;
+  -webkit-font-smoothing: antialiased;
+
+  background-position: 0 25%;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+}
+
+
+// Hero Section
+// ----------------------------------------------
+.hero {
+  background-color: $background-dark-blue;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6),
+                                    rgba(0, 0, 0, 0.6)),
+                                    url("http://res.cloudinary.com/alecoortega/image/upload/v1430102636/desk_yrtsmg.jpg");
+  background-size: cover;
+  height: 100%;
+  min-height: 500px;
+  position: relative;
+  width: 100%;
+
+  h1 {
+    color: #FFF;
+    font-size: 3.15em;
+    line-height: 1.25em;
+    margin: 0 0 15px 0;
+    font-weight: $primary-title-weight;
+    letter-spacing: 3px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero-arrow {
+    @include absolute-horizontal-center;
+    background: url('/images/down_arrow.svg') no-repeat;
+    width: 40px;
+    height: 15px;
+    bottom: 30px;
+    -webkit-animation-delay: 1.5s;
+  }
+
+  .hero-container {
+    @include absolute-all-center;
+    height: 80px;
+    max-width: 500px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-nav-wrapper {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    border: none;
+
+    .hero-nav-links li {
+      display: inline-block;
+    }
+
+    // TODO: Again this is a repeat
+    .navbar-brand {
+      background-image: url('/images/logo.svg');
+      color: #FFF;
+    }
+  }
 }
 
 // Navigation Bar
 // ----------------------------------------------
 
-.navbar {
-  transition: $short-transition;
-  font-family: $open-sans;
-  border-bottom: 1px solid $border-color;
-  padding: 10px 0;
-  border-radius: 0;
-  top: 0;
-  margin: 0;
-
-  li a {
-
-  }
-}
 
 .nav-trigger {
   display: none;
@@ -398,83 +397,49 @@ i {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 20000;
-  transition: $short-transition;
+  z-index: 1000;
 }
 
-.visible {
-  display: block;
-  transition: $short-transition;
-}
-
-#nav-element {
+.nav-element {
   background-color: #FFF;
 
   .navbar-brand {
-    color: $text-dark;
-    font-weight: $tertiary-title-weight;
-    font-size: 20px;
-    letter-spacing: 2px;
-    padding-left: 50px;
-
     background-image: url('/images/logo_dark.svg');
-    background-position: 0 25%;
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
+    color: $text-dark;
   }
 
-  //TODO: make sure text styles are consistent
-  li > a {
-
-    font-size: $paragraph-text;
-    font-weight: $primary-title-weight;
+  li a {
     color: $text-light;
-    letter-spacing: 2px;
 
     &:hover {
-      background-color: inherit;
       color: $background-dark-blue;
     }
-
-    &:active, &:focus {
-      background-color: inherit;
-    }
   }
 
-  #full-navigation {
-    .highlight {
-      color: $background-dark-blue;
+  // TODO: DRY THIS UP
+  .full-navigation {
+    a {
+      &:after {
+        opacity: 0;
+        bottom: 0;
+        content: '';
+        position: absolute;
+        transition: $short-transition;
+        left: 5px;
+        right: 5px;
+        height: 1px;
+        background-color: $background-dark-blue;
+      }
+
+      .highlight {
+        color: $background-dark-blue;
+
+        &:after {
+          opacity: 1;
+          bottom: 10px;
+        }
+      }
     }
-
-    a:after {
-      content: '';
-      position: absolute;
-      display: block;
-      transition: $short-transition;
-      opacity: 0;
-      bottom: 0;
-      left: 5px;
-      right: 5px;
-      height: 1px;
-      background-color: $background-dark-blue;
-    }
-
-    .highlight:after {
-      opacity: 1;
-      bottom: 10px;
-    }
-  }
-
-  .icon-bar {
-    background-color: $text-light;
-  }
-
-  .navbar-brand {
-    margin-left: 15px;
-  }
-
-  .navbar-toggle {
-    margin-right: 15px;
   }
 }
 
@@ -483,9 +448,9 @@ i {
 // About Section
 // ----------------------------------------------
 
-#about {
+.about {
   position: relative;
-  padding: 100px 0 100px 0;
+  padding: 100px 0;
 }
 
 .about-video {
@@ -538,10 +503,6 @@ i {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-}
-
-.browser-column {
-  display: none;
 }
 
 // Developer
@@ -687,15 +648,24 @@ i {
 // ----------------------------------------------
 
 #resume {
-  position: relative;
   background: $background-light-grey;
+  position: relative;
 
-  .section-header-container {
-    top: 0;
+  @include breakpoint($small-breakpoint) {
+    padding: 0 50px 50px 50px;
   }
 
   .column {
     margin: 0;
+  }
+
+  .section-header-container {
+    top: 0;
+
+    @include breakpoint($small-breakpoint) {
+      top: -75px;
+      left: 0;
+    }
   }
 }
 
@@ -705,7 +675,7 @@ i {
 
 .resume-overlay {
   position: absolute;
-  background-image: linear-gradient(0deg, #FFF, rgba(255,255,255, 0) 50%), url('/images/circuit_background.svg');
+  background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('/images/circuit_background.svg');
   background-size: auto, contain;
   background-repeat: no-repeat,repeat-y;
   top: 0;
@@ -760,7 +730,6 @@ i {
 
 }
 
-// Refactor and DRY up to be .white-button and .blue-button
 .resume-button-download {
   margin: 50px 0;
   color: #FFF;
@@ -784,6 +753,7 @@ i {
   z-index: 1;
   margin: 500px auto 0;
   width: 95%;
+  max-width: 600px;
   left: 0;
   right: 0;
 
@@ -796,6 +766,7 @@ i {
   left: 0;
   right: 0;
   width: 95%;
+  max-width: 600px;
   margin: 0 auto;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
@@ -805,9 +776,14 @@ i {
   z-index: 2;
   top: -175px;
   width: 95%;
+  max-width: 570px;
   margin: 0 auto;
   left: 0;
   right: 0;
+
+  @include breakpoint($small-breakpoint) {
+    top: -536px;
+  }
 }
 
 // Portfolio
@@ -824,55 +800,36 @@ i {
   background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_fill,g_north_west,h_500,w_750/v1430197810/postr3_innrnf.png');
 }
 
-#portfolio-item-4 {
-  background-image: url('');
-}
-
-#portfolio-item-5 {
-  background-image: url('');
-}
-
-#portfolio-item-6 {
-  background-image: url('');
-}
-
-#portfolio-item-7 {
-  background-image: url('');
-}
-
-#portfolio-item-8 {
-  background-image: url('');
-}
-
-#portfolio-item-9 {
-  background-image: url('');
-}
-
-#portfolio-item-10 {
-  background-image: url('');
-}
-
-#portfolio-item-11 {
-  background-image: url('');
-}
-
-#portfolio-item-12 {
-  background-image: url('');
-}
-
 .portfolio-item {
-  background-color: $background-light-grey;
+  background-color: $border-color;
   transition: $short-transition;
 
   float: left;
   height: 50vw;
-  width: 100%;
+  width: 100vw;
   position: relative;
   overflow: hidden;
 
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @include breakpoint($tiny-breakpoint) {
+    height: 50vw;
+    width: 50vw;
+  }
+
+  @include breakpoint($small-breakpoint) {
+    height: 33.3333vw;
+    height: calc(100vw / 3);
+    width: 33.3333vw;
+    width: calc(100vw / 3);
+  }
+
+  @include breakpoint($medium-breakpoint) {
+    height: 25vw;
+    width: 25vw;
+  }
 }
 
 .project-button-background {
@@ -1033,7 +990,7 @@ i {
       width: 100%;
       border-bottom: solid 1px $border-color;
       padding-top: 15px + $label-font-size;
-      padding-bottom: 10px;
+      padding-bottom: 5px;
     }
 
     label {
@@ -1067,7 +1024,7 @@ i {
       & + label {
         position: absolute;
         display: block;
-        top: 10px;
+        top: 20px;
         left: 0;
         transition: top 0.7s ease, opacity 0.7s ease;
         opacity: 0;
@@ -1079,7 +1036,7 @@ i {
 
       &:valid + label {
         opacity: 1;
-        top: 3px;
+        top: 10px;
       }
 
       &:focus + label {
@@ -1097,12 +1054,12 @@ i {
   }
 
   .button {
+    border: solid 1px $background-light-blue;
     color: #FFF;
     font-weight: $primary-title-weight;
     margin: $line-height auto 0;
     background-color: $background-light-blue;
-
-    border: solid 1px $background-light-blue;
+    -webkit-font-smoothing: antialiased;
 
     &:hover, &:focus {
       color: #FFF;
@@ -1188,7 +1145,6 @@ i {
 }
 
 #gear-four {
-  display: none;
   height: 600px;
   width: 600px;
   top: -300px;
@@ -1202,43 +1158,9 @@ i {
   bottom: -500px;
 }
 
-
-// Media Queries - Responsiveness
-// ----------------------------------------------
-@media screen and (min-width: 320px) {
-  #portfolio {
-    .portfolio-item {
-      width: 100%;
-    }
-  }
-}
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-
-  #nav-element {
-    .collapse {
-      background-color: #FFF;
-    }
-  }
-
-  .section-header-container {
-    h2 {
-      font-size: 60px;
-
-      span:first-child {
-        display: inline-block;
-        margin-right: 10px;
-      }
-    }
-  }
-
-  #hero.jumbotron {
-    padding: 75px;
-
-    #logo {
-      height: 75px;
-    }
+  .hero {
 
     h1 {
       font-size: 60px;
@@ -1281,11 +1203,6 @@ i {
     }
   }
 
-  #portfolio .portfolio-item {
-    width: 50vw;
-    height: 50vw;
-  }
-
   nav {
     .navbar-brand {
       font-size: 40px;
@@ -1294,7 +1211,7 @@ i {
 
   // About
   // ---------------
-  #about {
+  .about {
     padding: 150px 0 225px 0;
 
     .section-header-container {
@@ -1302,26 +1219,6 @@ i {
       left: 0;
     }
   }
-
-  #about, #developer, #resume {
-    .section-header-container-background {
-      width: 90%;
-    }
-  }
-
-  // Resume
-  // ---------------
-  #resume {
-    .section-header-container {
-      top: -75px;
-      left: 0;
-    }
-  }
-
-  #resume-element {
-    top: -536px;
-  }
-
 
   // Project Info
   // ---------------
@@ -1343,10 +1240,6 @@ i {
     .spacer {
       margin-top: 80px;
     }
-  }
-
-  #resume {
-    padding-bottom: 50px;
   }
 
   #contact {
@@ -1374,46 +1267,14 @@ i {
       margin-left: 10px;
     }
   }
-
-  #hero-nav-wrapper {
-    display: block;
-  }
-
-
 }
 
 @media screen and (min-width: 1024px) {
 
-  .browser-column {
-    display: block;
-    position: relative;
-  }
-
-  #portfolio {
-    .portfolio-item {
-      width: 33.3333%;
-      width: 33.3333vw;
-      width: calc(100vw/3);
-      height: 33.3333%;
-      height: 33.3333vw;
-      height: calc(100vw/3);
-    }
-
-    .recommendation-item {
-      width: 66.3333%;
-    }
-  }
 
   #developer .developer-concise,
   #designer .designer-showtell {
     text-align: right;
-  }
-
-  #about, #developer, #resume {
-
-    .section-header-container-background {
-      width: 80%;
-    }
   }
 
   #designer {
@@ -1443,20 +1304,9 @@ i {
       bottom: -50px;
     }
   }
-
-  #gear-four {
-    display: block;
-  }
 }
 
 @media screen and (min-width: 1280px) {
-  #portfolio {
-    .portfolio-item {
-      width: 25vw;
-      height: 25vw;
-    }
-  }
-
   #contact .section-container {
     padding: 60px;
   }

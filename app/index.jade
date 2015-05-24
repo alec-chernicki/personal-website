@@ -1,9 +1,9 @@
 extends layouts/default
 block content
-  #hero.jumbotron
+  .hero
     // Refactor navigation to partial to DRY
-    #hero-arrow.animated.fadeInUp
-    #hero-nav-wrapper.navbar
+    .hero-arrow.animated.fadeInUp
+    .hero-nav-wrapper.navbar.hidden-xs
       .container
         .navbar-header
           a.navbar-brand.navbar-left ALEC ORTEGA
@@ -19,35 +19,33 @@ block content
     .hero-container
       h1.animated.fadeInUp HEY THERE
 
-    .nav-trigger.clearfix
-      #nav-element.navbar
-        .container
-          .navbar-header
-            button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#full-navigation')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand.navbar-left(href='#hero') ALEC ORTEGA
-          #full-navigation.collapse.navbar-collapse
-            ul.nav.navbar-nav.navbar-right
-              li
-                a.about-link(href='#about') ABOUT
-              li
-                a.resume-link(href='#resume-header') RESUMÉ
-              li
-                a.work-link(href='#portfolio') PORTFOLIO
-              li
-                a.contact-link(href='#contact') CONTACT
-  #about
+  .nav-trigger.clearfix
+    .nav-element.navbar
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#full-navigation')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.navbar-left(href='#hero') ALEC ORTEGA
+        .full-navigation.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.about-link(href='#about') ABOUT
+            li
+              a.resume-link(href='#resume-header') RESUMÉ
+            li
+              a.work-link(href='#portfolio') PORTFOLIO
+            li
+              a.contact-link(href='#contact') CONTACT
+  .about
     .container
       .about-video.col-md-5
       .section-text-container.col-md-5.pull-right
         h3 It's great to meet you,
         p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s what it envokes in a user as well. It's with this perspective that I approach both my personal and professional projects.
     .section-header-container
-      h2
-        span I'M A:
-        span DEVELOPER
+      h2 I'M A: DEVELOPER
       .section-header-container-background
 
   #developer
@@ -55,9 +53,7 @@ block content
       .developer-gradient
       .developer-overlay
     .section-header-container
-      h2
-        span I'M A:
-        span DESIGNER
+      h2 I'M A: DESIGNER
       .section-header-container-background
     .section-container.clearfix
       .large-container
@@ -73,7 +69,7 @@ block content
             h3.spacer Clean, Concise
             p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
 
-        .col-md-6.browser-column
+        .col-md-6.hidden-xs.hidden-sm
           #browser-developer-trigger
             img.browser#browser-developer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_1200/v1430102631/BrowserLoFi_bizzq2.png')
 
@@ -94,7 +90,7 @@ block content
     #gear-one.gear.rotation-right
     #gear-two.gear.rotation-left
     #gear-three.gear.rotation-left
-    .section-container.clearfixgul
+    .section-container.clearfix
       .large-container
         .col-md-3.column
           .designer-showtell.section-text-container
@@ -105,7 +101,7 @@ block content
               | &nbsp; VIEW BEHANCE
             h3 All Things Considered
             p There's more that goes into design than just making it look pretty. Things like production constraints and how the product is actually going to be used need to be taken into consideration. Anyone can make something look nice, I can make it work.
-        .col-md-6.browser-column
+        .col-md-6.hidden-xs.hidden-sm
           #browser-designer-trigger
             img.browser#browser-designer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_1200/v1430102633/BrowserHiFi_hsvwbz.png')
 
@@ -182,8 +178,5 @@ block content
               a.medium(target= '_blank' href='https://medium.com/@whynotdostuff') Medium
 
   .footer
-    #gear-four.gear-dark.rotation-right
+    #gear-four.gear-dark.rotation-right.hidden-xs.hidden-sm
     #gear-five.gear-dark.rotation-left
-    .section-container.clearfix
-      p Website handcrafted with love
-      p Check it out on GitHub

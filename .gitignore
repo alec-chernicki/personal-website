@@ -4,4 +4,4 @@ node_modules
 bower_components
 test/bower_components
 .awspublish-*
-app
+dist

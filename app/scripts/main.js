@@ -3,7 +3,7 @@
 
 // Initialize commonly used variables
 var $navHeight = $('.nav-trigger').height();
-var $aboutHeight = $('#about').height();
+var $aboutHeight = $('.about').height();
 var $developerHeight = $('#developer').height();
 var $designerHeight = $('#designer').height();
 var $resumeHeight = $('#resume').height();
@@ -48,16 +48,16 @@ $('.resume-button-download').click(function(event){
 });
 
 
-// Make all these fun js effects completely responsive! YAY FUTUREZ!
+// Positioning function
 //----------------------------------------------
-$(window).resize(function () {
+var positionElements = function() {
   var envelopeHeight = $('#envelope-top').height();
 
-  // Position download wrapper
+  // Position resume-download wrapper
   var wrapperPosition = envelopeHeight / 2 - $('#resume-download-wrapper').height() / 2;
   $('#resume-download-wrapper').css('bottom', wrapperPosition);
 
-  // Position envelope bottom
+  // Position envelope-bottom
   var bottomPosition = envelopeHeight - $('#envelope-bottom').height() / 3.5;
   $('#envelope-bottom').css('bottom', bottomPosition);
 
@@ -68,8 +68,22 @@ $(window).resize(function () {
   // Position the resume-trigger margin based on the envelope-bottom height
   var resumeTriggerOffset = $('#envelope-bottom').height() * 2.25;
   $('.resume-trigger').css('margin-bottom', resumeTriggerOffset);
-}).resize();
+};
 
+positionElements();
+
+// Make all these fun js effects completely responsive! YAY FUTUREZ!
+//----------------------------------------------
+$(window).resize(function () {
+  positionElements();
+});
+
+// Smooth Scrolling to all 'a' tags
+// ----------------------------------------------
+$('a').smoothScroll({offset: -$navHeight});
+
+// GSAP
+//----------------------------------------------
 $('.resume-button-download').hover(
   function() {
     TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
@@ -89,6 +103,8 @@ $('.resume-button-linkedin').hover(
   }
 );
 
+// GSAP - Moves linear gradient behind developer-overlay (translate3D)
+//----------------------------------------------
 TweenMax.to('.developer-gradient', 12, {x: 2000, y: 0, repeat: -1, yoyo: true, ease:Linear.easeNone});
 
 // Dynamic resize of textarea based on content
@@ -223,27 +239,23 @@ $(window).on('resize', function () {
   $('.panel-group').children('.open').removeClass('open').slideToggle(300);
 });
 
-// Smooth Scrolling to all 'a' tags
-// ----------------------------------------------
-$('a').smoothScroll({offset: -$navHeight});
-
 // ScrollMagic - Navigation
 // ----------------------------------------------
 var navigationController = new ScrollMagic.Controller();
 
-// Set navbar to appear above #about section
+// Set navbar to appear above about section
 new ScrollMagic.Scene({
-  triggerElement: '#about',
+  triggerElement: '.about',
   triggerHook: 0,
   offset: -$navHeight,
   reverse: true
 })
-  .setClassToggle('.nav-trigger', 'visible')
+  .setClassToggle('.nav-trigger', 'show')
   .addTo(navigationController);
 
 // Set scroll to "About" options
 new ScrollMagic.Scene({
-  triggerElement: '#about',
+  triggerElement: '.about',
   offset: -($navHeight+1),
   triggerHook: 0,
   duration: $aboutHeight * 2 + $developerHeight + $designerHeight,
