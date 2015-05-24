@@ -5,16 +5,24 @@
     "bootstrap-sass-official": "~3.3.1",
     "modernizr": "~2.8.1",
     "gsap": "~1.16.1",
-    "jquery-autosize": "~3.0.3",
+    "jquery-autosize": "~3.0.6",
     "jquery-smooth-scroll": "~1.5.5",
-    "scrollmagic": "~2.0.3"
+    "scrollmagic": "~2.0.3",
+    "normalize.css": "~3.0.3"
   },
   "overrides": {
     "gsap": {
-      "main": ["./src/uncompressed/TweenMax.js", "./src/uncompressed/TimelineMax.js"]
+      "main": [
+        "./src/uncompressed/TweenMax.js",
+        "./src/uncompressed/TimelineMax.js"
+      ]
     },
     "scrollmagic": {
-      "main": ["scrollmagic/uncompressed/ScrollMagic.js", "scrollmagic/uncompressed/plugins/animation.gsap.js", "scrollmagic/uncompressed/plugins/debug.addIndicators.js"]
+      "main": [
+        "scrollmagic/uncompressed/ScrollMagic.js",
+        "scrollmagic/uncompressed/plugins/animation.gsap.js",
+        "scrollmagic/uncompressed/plugins/debug.addIndicators.js"
+      ]
     }
   }
 }
