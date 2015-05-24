@@ -195,6 +195,7 @@ i {
 .section-header-container {
   bottom: -150px;
   position: absolute;
+  overflow: hidden;
   height: 150px;
   width: 100%;
   z-index: 1000;
@@ -272,6 +273,7 @@ i {
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
   width: 100%;
+  overflow: hidden;
 
   h1 {
     font-size: 3.15em;
@@ -607,7 +609,7 @@ i {
   }
 
   #gear-three {
-    top: -100px;
+    top: -50px;
     height: 600px;
     right: -300px;
     width: 600px;
@@ -717,7 +719,7 @@ i {
   position: relative;
   float: left;
   background-color: $background-light-grey;
-  padding: 50px 0 70px 0;
+  padding: 100px 0 70px 0;
   width: 100%;
   display: none;
 
@@ -775,15 +777,16 @@ i {
     height: 35px;
     cursor: pointer;
   }
+
+  .section-text-container {
+    padding-top: 50px;
+  }
 }
-// Recommendations
+// Resume
 // ----------------------------------------------
 
-.recommendations {
-  height: 100%;
-  min-height: 750px;
-  background-color: $background-light-grey;
-
+#resume {
+  position: relative;
 }
 
 
@@ -999,11 +1002,6 @@ i {
     }
   }
 
-  #about, #developer {
-    .section-header-container-background {
-      width: 95%;
-    }
-  }
 
   #hero.jumbotron {
     padding: 75px;
@@ -1040,10 +1038,10 @@ i {
     .section-header-container {
       bottom: -75px;
     }
-
   }
+
   #portfolio #masonry .portfolio-item {
-      width: 50%;
+    width: 50%;
   }
 
   nav {
@@ -1068,8 +1066,22 @@ i {
     }
   }
 
+  // Project Info
+  // ---------------
+  .project-info {
+    padding: 50px 0 70px 0;
+
+    .container .section-text-container {
+      padding-top: 0;
+    }
+  }
+
   #designer {
     padding: 0 50px;
+
+    .column {
+      margin-top: 125px;
+    }
   }
 
   #contact .section-container {

@@ -4733,6 +4733,7 @@ i {
 .section-header-container {
   bottom: -150px;
   position: absolute;
+  overflow: hidden;
   height: 150px;
   width: 100%;
   z-index: 1000; }
@@ -5007,7 +5008,7 @@ i {
     left: -100px;
     width: 250px; }
   #designer #gear-three {
-    top: -100px;
+    top: -50px;
     height: 600px;
     right: -300px;
     width: 600px; }
@@ -5081,7 +5082,7 @@ i {
   position: relative;
   float: left;
   background-color: #f1f3f4;
-  padding: 50px 0 70px 0;
+  padding: 100px 0 70px 0;
   width: 100%;
   display: none; }
   .project-info .company-name {
@@ -5119,6 +5120,8 @@ i {
     width: 35px;
     height: 35px;
     cursor: pointer; }
+  .project-info .section-text-container {
+    padding-top: 50px; }
 
 .recommendations {
   height: 100%;
@@ -5249,8 +5252,6 @@ i {
     background-color: #FFF; }
   .section-header-container h2 {
     font-size: 60px; }
-  #about .section-header-container-background, #developer .section-header-container-background {
-    width: 95%; }
   #hero.jumbotron {
     padding: 75px; }
     #hero.jumbotron #logo {
@@ -5276,8 +5277,14 @@ i {
       bottom: -75px; }
   #about .section-header-container-background, #developer .section-header-container-background {
     width: 80%; }
+  .project-info {
+    padding: 50px 0 70px 0; }
+    .project-info .container .section-text-container {
+      padding-top: 0; }
   #designer {
     padding: 0 50px; }
+    #designer .column {
+      margin-top: 125px; }
   #contact .section-container {
     padding: 50px 15px; }
   .contact-links-container {
