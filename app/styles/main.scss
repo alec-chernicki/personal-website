@@ -30,8 +30,8 @@ $short-transition: all 0.15s ease-in-out;
 // ----------------------------------------------------------------------
 $tiny-breakpoint: 320px;
 $small-breakpoint: 768px;
-$medium-breakpoint: 1024px;
-$large-breakpoint: 1280px;
+$medium-breakpoint: 992px;
+$large-breakpoint: 1200px;
 
 // Mixins
 // ----------------------------------------------------------------------
@@ -285,6 +285,18 @@ i {
   padding: 50px 15px;
   position: relative;
   z-index: 100;
+
+  .button {
+    @include breakpoint($small-breakpoint) {
+      margin: 80px auto;
+    }
+  }
+
+  .spacer {
+    @include breakpoint($small-breakpoint) {
+      margin-top: 80px;
+    }
+  }
 }
 
 // Navigation Bar
@@ -318,13 +330,14 @@ i {
 .navbar-brand {
   font-weight: $tertiary-title-weight;
   font-size: 20px;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   padding-left: 50px;
   -webkit-font-smoothing: antialiased;
 
   background-position: 0 25%;
   background-repeat: no-repeat;
   background-size: 40px 40px;
+
 }
 
 
@@ -349,6 +362,10 @@ i {
     font-weight: $primary-title-weight;
     letter-spacing: 3px;
     -webkit-font-smoothing: antialiased;
+
+    @include breakpoint($small-breakpoint) {
+      font-size: 60px;
+    }
   }
 
   .hero-arrow {
@@ -451,14 +468,25 @@ i {
 .about {
   position: relative;
   padding: 100px 0;
-}
 
-.about-video {
-  height: 400px;
-  border-bottom: solid $border-color 1px;
-  margin: 0 auto 25px;
-  box-shadow: 0 5px 7px -5px rgba(0,0,0,0.1);
-  max-width: 400px;
+  @include breakpoint($small-breakpoint) {
+    padding: 150px 0 225px 0;
+  }
+
+  .about-video {
+    height: 400px;
+    border-bottom: solid $border-color 1px;
+    margin: 0 auto 25px;
+    box-shadow: 0 5px 7px -5px rgba(0,0,0,0.1);
+    max-width: 400px;
+  }
+
+  .section-header-container {
+    @include breakpoint($small-breakpoint) {
+      bottom: -75px;
+      left: 0;
+    }
+  }
 }
 
 
@@ -483,7 +511,7 @@ i {
 
 #browser-designer-element {
   position: absolute;
-  top:-650px;
+  top:-550px;
 }
 
 #browser-developer-trigger,
@@ -526,6 +554,10 @@ i {
   position: relative;
   background: #202C38;
 
+  @include breakpoint($medium-breakpoint) {
+    padding: 175px 50px 0;
+  }
+
   h3 {
     color: #FFF;
   }
@@ -541,6 +573,10 @@ i {
 
   .section-header-container {
     bottom: -150px;
+
+    @include breakpoint($small-breakpoint) {
+      bottom: -75px;
+    }
   }
 
   .section-header-container-background {
@@ -595,6 +631,10 @@ i {
   position:relative;
   overflow: hidden;
 
+  @include breakpoint($small-breakpoint) {
+    padding: 0 50px;
+  }
+
   h3 {
     color: $background-dark-blue;
   }
@@ -602,6 +642,7 @@ i {
   p {
     color: #999;
   }
+
 
   #gear-one {
     bottom: -200px;
@@ -894,6 +935,10 @@ i {
   width: 100%;
   display: none;
 
+  @include breakpoint($small-breakpoint) {
+    padding: 50px 0 70px 0;
+  }
+
   .company-name {
     display: block;
     margin-bottom: 15px;
@@ -962,6 +1007,10 @@ i {
 
   .section-text-container {
     padding-top: 50px;
+
+    @include breakpoint($small-breakpoint) {
+      padding-top: 0;
+    }
   }
 }
 
@@ -970,6 +1019,10 @@ i {
 #contact {
   .container {
     padding: 0;
+  }
+
+  @include breakpoint($small-breakpoint) {
+    text-align: left;
   }
 }
 
@@ -1061,6 +1114,11 @@ i {
     background-color: $background-light-blue;
     -webkit-font-smoothing: antialiased;
 
+    @include breakpoint($medium-breakpoint) {
+      width: 225px;
+      margin: 40px 0 auto 0;
+    }
+
     &:hover, &:focus {
       color: #FFF;
     }
@@ -1074,6 +1132,10 @@ i {
 
 .contact-links-container {
   margin-top: 30px;
+
+  @include breakpoint($medium-breakpoint) {
+    margin: 0;
+  }
 
   .fa-twitter,
   .fa-dribbble,
@@ -1104,6 +1166,11 @@ i {
     margin: 0;
     text-align: left;
 
+    @include breakpoint($medium-breakpoint) {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
     a:last-child {
       margin: 0;
     }
@@ -1120,18 +1187,13 @@ i {
   a {
     color: $text-light;
     font-weight: 300;
-    display: none;
+    display: inline-block;
     letter-spacing: 0.6px;
     font-size: 14px;
-
 
     &:before {
       color: $background-light-blue;
     }
-  }
-
-  .fa-ul li p {
-    display: none;
   }
 }
 
@@ -1158,118 +1220,7 @@ i {
   bottom: -500px;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .hero {
-
-    h1 {
-      font-size: 60px;
-    }
-
-    p {
-      font-size: 1.5em;
-    }
-  }
-
-  .contact-form-container {
-    .button {
-      width: 225px;
-      margin: 40px 0 auto 0;
-    }
-  }
-
-  .contact-links-container {
-    .button {
-      margin: $line-height 0 0 0;
-    }
-  }
-
-  // Developer
-  // ---------------
-  #developer {
-    padding: 175px 50px 0;
-
-    a {
-      margin: 80px auto;
-    }
-
-    .section-header-container {
-      bottom: -75px;
-      left: 0;
-    }
-
-    .spacer {
-      margin-top: 80px;
-    }
-  }
-
-  nav {
-    .navbar-brand {
-      font-size: 40px;
-    }
-  }
-
-  // About
-  // ---------------
-  .about {
-    padding: 150px 0 225px 0;
-
-    .section-header-container {
-      bottom: -75px;
-      left: 0;
-    }
-  }
-
-  // Project Info
-  // ---------------
-  .project-info {
-    padding: 50px 0 70px 0;
-
-    .container .section-text-container {
-      padding-top: 0;
-    }
-  }
-
-  #designer {
-    padding: 0 50px;
-
-    a {
-      margin: 80px auto;
-    }
-
-    .spacer {
-      margin-top: 80px;
-    }
-  }
-
-  #contact {
-    .section-text-container {
-      text-align: left;
-    }
-  }
-
-  .contact-links-container {
-    float: right;
-    width: 30%;
-    margin: 0;
-
-    li {
-      margin: 0 0 20px 0;
-      width: 100%;
-
-      a {
-        display: inline-block;
-      }
-    }
-
-    .fa-ul li p {
-      display: inline-block;
-      margin-left: 10px;
-    }
-  }
-}
-
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
 
 
   #developer .developer-concise,
