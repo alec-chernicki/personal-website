@@ -38,14 +38,16 @@ block content
               a.work-link(href='#portfolio') PORTFOLIO
             li
               a.contact-link(href='#contact') CONTACT
-  .about
+  #about
     .container
       .about-video.col-md-5
       .section-text-container.col-md-5.pull-right
         h3 It's great to meet you,
         p I believe that like music, good design is found between the notes. Design should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s what it envokes in a user as well. It's with this perspective that I approach both my personal and professional projects.
     .section-header-container
-      h2 I'M A: DEVELOPER
+      h2
+        span.hidden-xs I'M A:
+        | &nbsp;DEVELOPER
       .section-header-container-background
 
   #developer
@@ -53,7 +55,9 @@ block content
       .developer-gradient
       .developer-overlay
     .section-header-container
-      h2 I'M A: DESIGNER
+      h2
+        span.hidden-xs I'M A:
+        | &nbsp;DESIGNER
       .section-header-container-background
     .section-container.clearfix
       .large-container
@@ -75,7 +79,7 @@ block content
 
         .col-md-3.column
           .developer-laguages.section-text-container
-            h3 Knowledge is Power
+            h3.spacer-medium-down Knowledge is Power
             p New and awesome technologies are always being introduced. Learning a new framework, library, or language feels like gaining a super power and after all, every kid grows up wanting to be a superhero. I'm constantly learning not because I need to, but because it's fun.
             a.button.developer-button-github(href='https://github.com/alecortega' target='_blank')
               i.fa.fa-github.fa-lg
@@ -107,8 +111,8 @@ block content
 
         .col-md-3.column
           .designer-empathy.section-text-container
-            h3 Software
-            p Adobe Photoshop, Illustrator, InDesign
+            h3.spacer-medium-down Software
+            p Photoshop, Illustrator, InDesign
             p Sketch 3
             p Framer.js
             p Proto.io

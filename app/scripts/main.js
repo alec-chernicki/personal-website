@@ -4,7 +4,7 @@
 var $windowWidth = $(window).width();
 
 var $navHeight = $('.nav-trigger').height();
-var $aboutHeight = $('.about').height();
+var $aboutHeight = $('#about').height();
 var $developerHeight = $('#developer').height();
 var $designerHeight = $('#designer').height();
 var $resumeHeight = $('#resume').height();
@@ -80,6 +80,9 @@ var positionElements = function() {
   // Position the resume-trigger margin based on the envelope-bottom height
   var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $('.resume-trigger').css('margin-bottom', resumeTriggerOffset);
+
+  $('#browser-designer-element').css('top', -$designerElementHeight);
+  $('#resume-element').css('top', -$resumeElementHeight);
 };
 
 positionElements();
@@ -88,7 +91,6 @@ positionElements();
 //----------------------------------------------
 $(window).resize(function () {
   $windowWidth = $(window).width;
-  console.log($windowWidth);
 
   positionElements();
 });
@@ -257,7 +259,7 @@ var navigationController = new ScrollMagic.Controller();
 
 // Set navbar to appear above about section
 new ScrollMagic.Scene({
-  triggerElement: '.about',
+  triggerElement: '#about',
   triggerHook: 0,
   offset: -$navHeight,
   reverse: true
@@ -267,10 +269,10 @@ new ScrollMagic.Scene({
 
 // Set scroll to "About" options
 new ScrollMagic.Scene({
-  triggerElement: '.about',
+  triggerElement: '#about',
   offset: -($navHeight+1),
   triggerHook: 0,
-  duration: $aboutHeight * 2 + $developerHeight + $designerHeight,
+  duration: $aboutHeight + $developerHeight + $designerHeight,
   reverse: true
 })
   .setClassToggle('.about-link', 'highlight')
@@ -358,11 +360,6 @@ new ScrollMagic.Scene({
   .setTween(resumeTweenTimeline)
   .addTo(resumeController);
 
-/* This is super janky but there's a bug where the trigger of the element
- ignores the original css:top style, if you set the top property AFTER
- the js kicks in it fixes it, ugh so gross tho
- */
-$('#browser-designer-element').css('top', -$designerElementHeight);
-$('#resume-element').css('top', -$resumeElementHeight);
+
 
 

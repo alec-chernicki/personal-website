@@ -230,7 +230,7 @@ i {
     @include absolute-horizontal-center;
     font-weight: $primary-title-weight;
     color: #FFF;
-    font-size: 26px;
+    font-size: 40px;
     letter-spacing: 4px;
     line-height: 125px;
     position: absolute;
@@ -252,11 +252,11 @@ i {
     top: 0;
     bottom: 0;
 
-    @include breakpoint($medium-breakpoint) {
+    @include breakpoint($small-breakpoint) {
       width: 90%;
     }
 
-    @include breakpoint($large-breakpoint) {
+    @include breakpoint($medium-breakpoint) {
       width: 80%;
     }
   }
@@ -267,10 +267,14 @@ i {
 .section-text-container {
   text-align: center;
 
+  @include breakpoint($medium-breakpoint) {
+    text-align: left;
+  }
+
   h3 {
     color: $text-dark;
     font-weight: 500;
-    font-size: 23px;
+    font-size: 22px;
     letter-spacing: 2px;
     line-height: 40px;
     margin: 0 0 15px 0;
@@ -300,8 +304,18 @@ i {
   }
 
   .spacer {
+    margin-top: 50px;
+
     @include breakpoint($small-breakpoint) {
       margin-top: 80px;
+    }
+  }
+
+  .spacer-medium-down {
+    margin-top: 50px;
+
+    @include breakpoint($small-breakpoint) {
+      margin: 0;;
     }
   }
 }
@@ -321,7 +335,7 @@ i {
     color: #FFF;
     font-size: $paragraph-text;
     letter-spacing: 2px;
-    font-weight: $tertiary-title-weight;
+    font-weight: $primary-title-weight;
     -webkit-font-smoothing: antialiased;
 
     &:hover {
@@ -471,12 +485,12 @@ i {
 // About Section
 // ----------------------------------------------
 
-.about {
+#about {
   position: relative;
-  padding: 100px 0;
+  padding: 75px 0;
 
   @include breakpoint($small-breakpoint) {
-    padding: 150px 0 225px 0;
+    padding: 125px 0 175px 0;
   }
 
   .about-video {
@@ -528,10 +542,6 @@ i {
   overflow: hidden;
 }
 
-#browser-developer-trigger {
-  height: 950px;
-}
-
 #browser-designer-trigger {
   height: 1150px;
   position: relative;
@@ -541,27 +551,17 @@ i {
 
 // Developer
 // ----------------------------------------------
-
-#developer,
-#designer {
+#developer {
+  background: #202C38;
   padding: 150px 0 50px;
   position: relative;
 
-  .section-container {
-    padding-bottom: 0;
+  @include breakpoint($small-breakpoint) {
+    padding: 150px 0 150px;
   }
-
-  .spacer {
-    margin-top: 50px;
-  }
-}
-
-#developer {
-  position: relative;
-  background: #202C38;
 
   @include breakpoint($medium-breakpoint) {
-    padding: 175px 50px 0;
+    padding: 150px 50px 0;
   }
 
   h3 {
@@ -572,9 +572,29 @@ i {
     color: $developer-text;
   }
 
-  .developer-concise h3:nth-child(2),
-  .developer-languages {
-    margin-top: 500px;
+  .column {
+    @include breakpoint($medium-breakpoint) {
+      margin-bottom: 150px;
+    }
+  }
+
+  .developer-background-container {
+    position: absolute;
+    overflow: hidden;
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+  }
+
+  .developer-concise {
+    @include breakpoint($medium-breakpoint) {
+      text-align: right;
+    }
+  }
+
+  .section-container {
+    padding-bottom: 0;
   }
 
   .section-header-container {
@@ -588,15 +608,6 @@ i {
   .section-header-container-background {
     right: 0;
   }
-}
-
-.developer-background-container {
-  position: absolute;
-  overflow: hidden;
-  top:0;
-  left:0;
-  right: 0;
-  bottom:0;
 }
 
 .developer-gradient {
@@ -634,10 +645,15 @@ i {
 
 #designer {
   background-color: $background-light-grey;
+  padding: 150px 0 50px;
   position:relative;
   overflow: hidden;
 
   @include breakpoint($small-breakpoint) {
+    padding: 150px 0 150px;
+  }
+
+  @include breakpoint($medium-breakpoint) {
     padding: 0 50px;
   }
 
@@ -665,10 +681,30 @@ i {
   }
 
   #gear-three {
-    top: -50px;
+    top: 250px;
     height: 600px;
     right: -300px;
     width: 600px;
+
+    @include breakpoint($medium-breakpoint) {
+      top: -50px;
+    }
+  }
+
+  .column {
+    @include breakpoint($medium-breakpoint) {
+      margin-top: 150px;
+    }
+  }
+
+  .designer-showtell {
+    @include breakpoint($medium-breakpoint) {
+      text-align: right;
+    }
+  }
+
+  .section-container {
+    padding-bottom: 0;
   }
 }
 
@@ -697,14 +733,10 @@ i {
 #resume {
   background: $background-light-grey;
   position: relative;
-  padding-top: 100px;
+  padding-top: 75px;
 
   @include breakpoint($small-breakpoint) {
     padding: 0 50px 50px 50px;
-  }
-
-  .column {
-    margin: 0;
   }
 
   .section-header-container {
@@ -892,14 +924,9 @@ i {
 }
 
 .project-button-wrapper {
+  @include absolute-all-center;
   color: #FFF;
   text-align: center;
-  margin: auto;
-  top: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   height: 90px;
 
   p {
@@ -1024,12 +1051,20 @@ i {
 // Contact Me
 // ----------------------------------------------
 #contact {
-  .container {
-    padding: 0;
-  }
 
   @include breakpoint($small-breakpoint) {
     text-align: left;
+  }
+
+  .section-container {
+    @include breakpoint($medium-breakpoint) {
+      padding: 60px;
+    }
+  }
+
+  // FIXME: should not be styling off of bootstrap base classes
+  &.container {
+    padding: 0;
   }
 }
 
@@ -1225,47 +1260,4 @@ i {
   width: 700px;
   left: 0;
   bottom: -500px;
-}
-
-@media screen and (min-width: 992px) {
-
-
-  #developer .developer-concise,
-  #designer .designer-showtell {
-    text-align: right;
-  }
-
-  #designer {
-    .designer-showtell {
-      text-align: right;
-    }
-
-    // TODO: Inconsistencies with margins here fix this ASAP
-    .column {
-      margin-top: 175px;
-    }
-  }
-
-  #developer {
-    .column {
-      margin-bottom: 150px;
-    }
-  }
-
-  .section-text-container {
-    text-align: left;
-  }
-
-
-  #developer-background {
-    #gear-three {
-      bottom: -50px;
-    }
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  #contact .section-container {
-    padding: 60px;
-  }
 }
