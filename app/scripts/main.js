@@ -1,7 +1,7 @@
 'use strict';
 
 // Initialize commonly used variables
-var $windowWidth = $(window).width;
+var $windowWidth = $(window).width();
 
 var $navHeight = $('.nav-trigger').height();
 var $aboutHeight = $('.about').height();
@@ -13,6 +13,9 @@ var $contactHeight = $('#contact').height();
 
 var $designerElementHeight = $('#browser-designer-element').height();
 var $resumeElementHeight = $('#resume-element').height();
+var $envelopeTopHeight = $('#envelope-top').height();
+
+
  //AJAX Contact Form Submission Handler
 //----------------------------------------------
 $('#contact-form').submit(function(event){
@@ -51,25 +54,31 @@ $('.resume-button-download').click(function() {
 });
 
 
+// GSAP - Moves linear gradient behind developer-overlay (translate3D)
+//----------------------------------------------
+TweenMax.to('.developer-gradient', 10, {x: $windowWidth + 600, repeat: -1, yoyo: true, ease:Linear.easeNone});
+
 // Positioning function
 //----------------------------------------------
 var positionElements = function() {
-  var envelopeHeight = $('#envelope-top').height();
+  $windowWidth = $(window).width();
+  $envelopeTopHeight = $('#envelope-top').height();
+  $resumeElementHeight = $('#resume-element').height();
 
   // Position resume-download wrapper
-  var wrapperPosition = envelopeHeight / 2 - $('#resume-download-wrapper').height() / 2;
+  var wrapperPosition = $envelopeTopHeight / 2 - $('#resume-download-wrapper').height() / 2;
   $('#resume-download-wrapper').css('bottom', wrapperPosition);
 
   // Position envelope-bottom
-  var bottomPosition = envelopeHeight - $('#envelope-bottom').height() / 3.5;
+  var bottomPosition = $envelopeTopHeight - $('#envelope-bottom').height() / 3.5;
   $('#envelope-bottom').css('bottom', bottomPosition);
 
   // Resize resume-trigger based on current height of the envelope
-  var triggerHeight = envelopeHeight *  1.1;
+  var triggerHeight = $envelopeTopHeight *  1.25;
   $('.resume-trigger').css('height', triggerHeight);
 
   // Position the resume-trigger margin based on the envelope-bottom height
-  var resumeTriggerOffset = $('#envelope-bottom').height() * 2.25;
+  var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $('.resume-trigger').css('margin-bottom', resumeTriggerOffset);
 };
 
@@ -83,6 +92,7 @@ $(window).resize(function () {
 
   positionElements();
 });
+
 
 // Smooth Scrolling to all 'a' tags
 // ----------------------------------------------
@@ -108,10 +118,6 @@ $('.resume-button-linkedin').hover(
     TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
   }
 );
-
-// GSAP - Moves linear gradient behind developer-overlay (translate3D)
-//----------------------------------------------
-TweenMax.to('.developer-gradient', 12, {x: $windowWidth, y: 0, repeat: -1, yoyo: true, ease:Linear.easeNone});
 
 // Dynamic resize of textarea based on content
 // ----------------------------------------------
@@ -353,12 +359,10 @@ new ScrollMagic.Scene({
   .addTo(resumeController);
 
 /* This is super janky but there's a bug where the trigger of the element
-   ignores the original css:top style, if you set the top property AFTER
-   the js kicks in it fixes it, ugh so gross tho
+ ignores the original css:top style, if you set the top property AFTER
+ the js kicks in it fixes it, ugh so gross tho
  */
+$('#browser-designer-element').css('top', -$designerElementHeight);
+$('#resume-element').css('top', -$resumeElementHeight);
 
-$(document).on('ready', function() {
-  $('#browser-designer-element').css('top', -$designerElementHeight);
-  $('#resume-element').css('top', -$resumeElementHeight);
-});
 
