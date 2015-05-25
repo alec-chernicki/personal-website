@@ -669,26 +669,33 @@ i {
   #gear-one {
     bottom: -200px;
     height: 500px;
-    left: -150px;
+    right: -150px;
     width: 500px;
   }
 
   #gear-two {
     bottom: 300px;
     height: 250px;
-    left: -100px;
+    right: -100px;
     width: 250px;
   }
 
   #gear-three {
-    top: 250px;
+    top: 200px;
     height: 600px;
-    right: -300px;
+    left: -300px;
     width: 600px;
 
     @include breakpoint($medium-breakpoint) {
-      top: -50px;
+      top: 275px;
     }
+  }
+
+  #gear-six {
+    right: -200px;
+    top: -100px;
+    height: 500px;
+    width: 500px;
   }
 
   .column {
