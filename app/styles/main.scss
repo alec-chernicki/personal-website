@@ -52,6 +52,10 @@ $large-breakpoint: 1200px;
   top: 0;
 }
 
+@mixin box-shadow {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 @mixin breakpoint($device-width) {
   @media screen and (min-width: $device-width) {
     @content
@@ -145,6 +149,7 @@ i {
 }
 
 .button  {
+  color: #FFF;
   display: block;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
   background: $background-light-blue;
@@ -209,6 +214,10 @@ i {
   position: absolute;
 }
 
+.column {
+  position: relative;
+}
+
 // Defines styles for all text in header containers
 // ----------------------------------------------
 // TODO: clean up all the & and >
@@ -265,6 +274,8 @@ i {
 // Defines styles for all text in text containers
 // ----------------------------------------------
 .section-text-container {
+  margin: 0 auto;
+  max-width: 450px;
   text-align: center;
 
   @include breakpoint($medium-breakpoint) {
@@ -314,8 +325,8 @@ i {
   .spacer-medium-down {
     margin-top: 50px;
 
-    @include breakpoint($small-breakpoint) {
-      margin: 0;;
+    @include breakpoint($medium-breakpoint) {
+      margin: 0;
     }
   }
 }
@@ -516,7 +527,7 @@ i {
 #browser-developer-element,
 #browser-designer-element,
 #resume-element {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  @include box-shadow;
   width: 95%;
   margin: 0 auto;
   left: 0;
@@ -742,6 +753,7 @@ i {
   position: relative;
   padding-top: 75px;
 
+
   @include breakpoint($small-breakpoint) {
     padding: 0 50px 50px 50px;
   }
@@ -754,85 +766,104 @@ i {
       left: 0;
     }
   }
-}
 
-.resume-column {
-  overflow: hidden;
-}
-
-.resume-overlay {
-  position: absolute;
-  background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('/images/circuit_background.svg');
-  background-size: auto, contain;
-  background-repeat: no-repeat,repeat-y;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.resume-gradient {
-  position: absolute;
-  background: $border-color;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-.resume-trigger {
-  position: relative;
-  height: 1400px;
-  overflow: hidden;
-  min-height: 450px;
-  width: 100%;
-
-  img {
-    width: 100%;
+  .resume-button-download, .resume-button-linkedin {
+    margin: 50px 0;
   }
-}
 
-#resume-download-wrapper {
-  position: absolute;
-  width: 80%;
-  z-index: 4;
-  height: 225px;
-  bottom: 350px;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-
-  a {
+  .resume-card-one, .resume-card-two {
+    @include box-shadow;
+    padding-top: 120%;
+    width: 70%;
     margin: 0 auto;
   }
 
-  h3 {
-    margin: 40px auto;
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: 1px;
+  .resume-card-one {
+    background: url('/images/card-front.png');
+    background-size: cover;
+    margin-top: 250px;
   }
 
-}
-
-.resume-button-download {
-  margin: 50px 0;
-  color: #FFF;
-
-  &:hover {
-    color: #FFF;
+  .resume-card-two {
+    background: url('/images/card-back.png');
+    background-size: cover;
+    margin-top: 40px;
   }
 
-  &:visited {
-    color: #FFF;
+  .resume-moleskin {
+    @include box-shadow;
+    background: url('/images/moleskin.png');
+    background-size: cover;
+    border-radius: 5px 25px 25px 5px;
+    padding-top: 157.5%;
+    margin-top: 250px;
+    width: 100%;
   }
-}
 
-.resume-button-linkedin {
-  margin: 50px 0;
-  color: #FFF;
+  .resume-column {
+    overflow: hidden;
+  }
+
+  #resume-download-wrapper {
+    @include absolute-horizontal-center;
+    width: 80%;
+    z-index: 4;
+    height: 225px;
+    bottom: 350px;
+    text-align: center;
+
+    a {
+      margin: 0 auto;
+    }
+
+    h3 {
+      margin: 40px auto;
+      font-weight: $primary-title-weight;
+      font-size: 20px;
+      letter-spacing: 1px;
+    }
+  }
+
+  #resume-element {
+    @include absolute-horizontal-center;
+    z-index: 2;
+    top: 100px;
+    width: 95%;
+    max-width: 530px;
+  }
+
+  .resume-gradient {
+    position: absolute;
+    background: $border-color;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .resume-overlay {
+    position: absolute;
+    background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('/images/circuit_background.svg');
+    background-size: auto, contain;
+    background-repeat: no-repeat,repeat-y;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .resume-trigger {
+    position: relative;
+    height: 1400px;
+    overflow: hidden;
+    min-height: 450px;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
 }
 
 #envelope-bottom {
@@ -856,21 +887,6 @@ i {
   max-width: 550px;
   margin: 0 auto;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-}
-
-#resume-element {
-  position: absolute;
-  z-index: 2;
-  top: -175px;
-  width: 95%;
-  max-width: 530px;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-
-  @include breakpoint($small-breakpoint) {
-    top: -536px;
-  }
 }
 
 // Portfolio

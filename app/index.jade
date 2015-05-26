@@ -57,7 +57,7 @@ block content
     .section-header-container
       h2
         span.hidden-xs I'M A:
-        | &nbspDESIGNER
+        | &nbsp;DESIGNER
       .section-header-container-background
     .section-container.clearfix
       .large-container
@@ -132,6 +132,8 @@ block content
     .section-container.clearfix
       .large-container
         .col-md-3.column
+          .resume-card-one.hidden-xs.hidden-sm
+          .resume-card-two.hidden-xs.hidden-sm
         .col-md-6.resume-column
           #resume-download-wrapper
             a.button.resume-button-download(href='/resume')
@@ -146,6 +148,7 @@ block content
           img#envelope-top(src='/images/Envelope-Top.png')
           img#envelope-bottom(src='/images/Envelope-Bottom.png')
         .col-md-3.column
+          .resume-moleskin.hidden-xs.hidden-sm
 
   include layouts/sections/portfolio
 
