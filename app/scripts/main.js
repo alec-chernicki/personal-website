@@ -15,6 +15,8 @@ var $designerElementHeight = $('#browser-designer-element').height();
 var $resumeElementHeight = $('#resume-element').height();
 var $envelopeTopHeight = $('#envelope-top').height();
 
+var $resumeTriggerHeight =  $('#envelope-top').height() * 1.25;
+
 
  //AJAX Contact Form Submission Handler
 //----------------------------------------------
@@ -66,16 +68,16 @@ var positionElements = function() {
   $resumeElementHeight = $('#resume-element').height();
 
   // Position resume-download wrapper
-  var wrapperPosition = $envelopeTopHeight / 2 - $('#resume-download-wrapper').height() / 2;
-  $('#resume-download-wrapper').css('bottom', wrapperPosition);
+  var $wrapperPosition = $envelopeTopHeight / 2 - $('#resume-download-wrapper').height() / 2;
+  $('#resume-download-wrapper').css('bottom', $wrapperPosition);
 
   // Position envelope-bottom
-  var bottomPosition = $envelopeTopHeight - $('#envelope-bottom').height() / 3.5;
-  $('#envelope-bottom').css('bottom', bottomPosition);
+  var $bottomPosition = $envelopeTopHeight - $('#envelope-bottom').height() / 3.5;
+  $('#envelope-bottom').css('bottom', $bottomPosition);
 
   // Resize resume-trigger based on current height of the envelope
-  var triggerHeight = $envelopeTopHeight *  1.25;
-  $('.resume-trigger').css('height', triggerHeight);
+  $resumeTriggerHeight = $envelopeTopHeight *  1.25;
+  $('.resume-trigger').css('height', $resumeTriggerHeight);
 
   // Position the resume-trigger margin based on the envelope-bottom height
   var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
@@ -84,8 +86,6 @@ var positionElements = function() {
   $('#browser-designer-element').css('top', -$designerElementHeight);
   $('#resume-element').css('top', -$resumeElementHeight);
 };
-
-positionElements();
 
 // Make all these fun js effects completely responsive! YAY FUTUREZ!
 //----------------------------------------------
@@ -349,17 +349,21 @@ new ScrollMagic.Scene({
 var resumeController = new ScrollMagic.Controller();
 
 var resumeTweenTimeline = new TimelineMax()
-  .add(TweenLite.to('#resume-element', 1, {y: $('.resume-trigger').height(), ease: Linear.easeNone}));
+  .add(TweenLite.to('#resume-element', 1, {y: $resumeTriggerHeight, ease: Linear.easeNone}));
 
 new ScrollMagic.Scene({
   triggerElement: '.resume-trigger',
-  duration: $('.resume-trigger').height(),
+  duration: $resumeTriggerHeight,
   offset: -$navHeight - 50 - $resumeElementHeight,
   triggerHook: 'onLeave'
 })
   .setTween(resumeTweenTimeline)
   .addTo(resumeController);
 
+
+$(document).on('ready', function() {
+  positionElements();
+});
 
 
 
