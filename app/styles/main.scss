@@ -275,7 +275,6 @@ i {
 // ----------------------------------------------
 .section-text-container {
   margin: 0 auto;
-  max-width: 450px;
   text-align: center;
 
   @include breakpoint($medium-breakpoint) {
@@ -946,17 +945,23 @@ i {
 
 .project-button-background {
   background: rgba(39, 54, 68, 0.75);
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease-in-out;
   height: 100%;
   opacity: 0;
+  -webkit-backface-visibility: hidden;
 
   &:hover {
     opacity: 1;
+
+    & .project-button-wrapper {
+      visibility: visible;
+    }
   }
 }
 
 .project-button-wrapper {
-  @include absolute-all-center;
+  visibility: hidden;
+  transition: none;
   color: #FFF;
   text-align: center;
   height: 90px;
@@ -980,7 +985,6 @@ i {
     width: 130px;
     margin: 0 auto;
     color: #FFF;
-    transition: none;
 
     &:hover {
       background-color: #FFF;

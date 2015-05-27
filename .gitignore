@@ -6,4 +6,4 @@ test/bower_components
 .awspublish-*
 dist
 npm-debug.log
-
+.idea/workspace.xml
