@@ -3,7 +3,7 @@ block content
   .hero
     // Refactor navigation to partial to DRY
     .hero-arrow.animated.fadeInUp
-    .hero-nav-wrapper.navbar.hidden-xs
+    nav.hero-nav-wrapper.navbar.hidden-xs
       .container
         .navbar-header
           a.navbar-brand.navbar-left ALEC ORTEGA
@@ -20,15 +20,15 @@ block content
       h1.animated.fadeInUp HEY THERE
 
   .nav-trigger.clearfix
-    .nav-element.navbar
+    nav.nav-element.navbar
       .container
         .navbar-header
-          button.navbar-toggle.collapsed(type='button' data-toggle='collapse' data-target='#full-navigation')
+          button.navbar-toggle.collapsed(data-toggle='collapse', type='button', data-target='#full-navigation')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand.navbar-left(href='#hero') ALEC ORTEGA
-        .full-navigation.collapse.navbar-collapse
+          a.navbar-brand(href='#hero') ALEC ORTEGA
+        #full-navigation.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
               a.about-link(href='#about') ABOUT

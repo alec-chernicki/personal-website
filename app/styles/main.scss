@@ -356,19 +356,26 @@ i {
       background-color: inherit;
     }
   }
+
+  .icon-bar {
+    background: $text-light;
+  }
 }
 
 .navbar-brand {
+  background-position: 0 25%;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
   font-weight: $tertiary-title-weight;
   font-size: 20px;
   letter-spacing: 1.5px;
   padding-left: 50px;
+  margin-left: 15px;
   -webkit-font-smoothing: antialiased;
 
-  background-position: 0 25%;
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
-
+  @include breakpoint($small-breakpoint) {
+    margin-left: 0;
+  }
 }
 
 
@@ -465,20 +472,23 @@ i {
   }
 
   // TODO: DRY THIS UP
-  .full-navigation {
+  #full-navigation {
     a {
       &:after {
-        opacity: 0;
-        bottom: 0;
-        content: '';
-        position: absolute;
-        transition: $short-transition;
-        left: 5px;
-        right: 5px;
-        height: 1px;
-        background-color: $background-dark-blue;
+        @include breakpoint($small-breakpoint) {
+          opacity: 0;
+          bottom: 0;
+          content: '';
+          position: absolute;
+          transition: $short-transition;
+          left: 5px;
+          right: 5px;
+          height: 1px;
+          background-color: $background-dark-blue;
+        }
       }
     }
+
     .highlight {
       color: $background-dark-blue;
 
@@ -828,7 +838,7 @@ i {
     z-index: 2;
     top: 100px;
     width: 95%;
-    max-width: 530px;
+    max-width: 590px;
   }
 
   .resume-gradient {
@@ -879,7 +889,7 @@ i {
   z-index: 1;
   margin: 500px auto 0;
   width: 95%;
-  max-width: 550px;
+  max-width: 620px;
   left: 0;
   right: 0;
 
@@ -892,9 +902,10 @@ i {
   left: 0;
   right: 0;
   width: 95%;
-  max-width: 550px;
+  max-width: 620px;
   margin: 0 auto;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  -webkit-backface-visibility: hidden;
 }
 
 // Portfolio
@@ -960,6 +971,7 @@ i {
 }
 
 .project-button-wrapper {
+  @include absolute-all-center;
   visibility: hidden;
   transition: none;
   color: #FFF;
@@ -985,6 +997,7 @@ i {
     width: 130px;
     margin: 0 auto;
     color: #FFF;
+    cursor: pointer;
 
     &:hover {
       background-color: #FFF;
