@@ -82,9 +82,6 @@ var positionElements = function() {
   // Position the resume-trigger margin based on the envelope-bottom height
   var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $('.resume-trigger').css('margin-bottom', resumeTriggerOffset);
-
-  $('#browser-designer-element').css('top', -$designerElementHeight);
-  $('#resume-element').css('top', -$resumeElementHeight);
 };
 
 // Make all these fun js effects completely responsive! YAY FUTUREZ!
@@ -363,6 +360,8 @@ new ScrollMagic.Scene({
 
 $(document).on('ready', function() {
   positionElements();
+  $('#resume-element').css('top', -$resumeElementHeight);
+  $('#browser-designer-element').css('top', -$designerElementHeight);
 });
 
 

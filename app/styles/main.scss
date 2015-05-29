@@ -156,6 +156,7 @@ i {
   padding: 20px 0;
   border: solid 1px #62a2c3;
   letter-spacing: 2px;
+  outline: 0;
   border-radius: 5px;
   text-align: center;
   width: 100%;
@@ -275,10 +276,13 @@ i {
 // ----------------------------------------------
 .section-text-container {
   margin: 0 auto;
+  max-width: 450px;
   text-align: center;
 
   @include breakpoint($medium-breakpoint) {
     text-align: left;
+    max-width: 100%;
+    margin: initia;
   }
 
   h3 {
@@ -306,6 +310,14 @@ i {
   padding: 50px 15px;
   position: relative;
   z-index: 100;
+
+  @include breakpoint($small-breakpoint) {
+    padding: 0 15px;
+  }
+
+  @include breakpoint($medium-breakpoint) {
+    padding: 50px 15px;
+  }
 
   .button {
     @include breakpoint($small-breakpoint) {
@@ -1106,9 +1118,13 @@ i {
   }
 
   .section-container {
-    @include breakpoint($medium-breakpoint) {
+    @include breakpoint($small-breakpoint) {
       padding: 60px;
     }
+  }
+
+  .section-text-container {
+    max-width: 100%;
   }
 
   // FIXME: should not be styling off of bootstrap base classes
@@ -1225,7 +1241,15 @@ i {
   margin-top: 30px;
 
   @include breakpoint($medium-breakpoint) {
-    margin: 0;
+    margin-top: 0
+  }
+
+  .fa-ul {
+    margin-left: 0;
+
+    @include breakpoint($medium-breakpoint) {
+      margin-left: inherit;
+    }
   }
 
   .fa-twitter,
@@ -1233,6 +1257,13 @@ i {
   .fa-linkedin,
   .fa-medium {
     font-size: 14px;
+    text-align: center;
+    left: 0;
+
+    @include breakpoint($medium-breakpoint) {
+      left: inherit;
+      text-align: left;
+    }
 
     a {
       transition: $short-transition;
@@ -1248,7 +1279,10 @@ i {
 
     &:before {
       color: $background-light-blue;
-      margin-right: 10px;
+
+      @include breakpoint($medium-breakpoint) {
+        margin-right: 10px;
+      }
     }
   }
 
@@ -1256,6 +1290,7 @@ i {
     display: inline-block;
     margin: 0;
     text-align: left;
+    -webkit-font-smoothing: auto;
 
     @include breakpoint($medium-breakpoint) {
       margin-bottom: 20px;
