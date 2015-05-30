@@ -1,3 +1,5 @@
+// Defines style for all section headers
+// ----------------------------------------------------------------------
 .section-header-container {
   bottom: -125px;
   left: 0;
@@ -45,8 +47,8 @@
   }
 }
 
-// Defines styles for all text in text containers
-// ----------------------------------------------
+// Defines style for every container that contains text
+// ----------------------------------------------------------------------
 .section-text-container {
   margin: 0 auto;
   max-width: 450px;
@@ -76,6 +78,8 @@
   }
 }
 
+// Defines style for every section container
+// ----------------------------------------------------------------------
 .section-container {
   width: 100%;
   padding: 50px 15px;
@@ -111,4 +115,14 @@
       margin: 0;
     }
   }
+}
+
+// TODO: Refactor these classes out if possible
+.container {
+  max-width: 1200px;
+}
+
+.large-container {
+  max-width: 1300px;
+  margin: 0 auto;
 }
