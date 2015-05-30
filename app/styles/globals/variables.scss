@@ -1,0 +1,35 @@
+
+$raleway: "Raleway", sans-serif;
+
+// Font Weights
+// ----------------------------------------------------------------------
+$weight-light: 300;
+$weight-regular: 400;
+$primary-title-weight: 600;
+$secondary-title-weight: 400;
+$tertiary-title-weight: 700;
+
+$line-height: 30px;
+$paragraph-text: 14px;
+
+// Colors
+// ----------------------------------------------------------------------
+$text-dark: #25292D;
+$text-light: #999;
+$background-dark-blue: #273644;
+$background-light-grey: #F5F8FA;
+$background-light-blue: #6AAECF;
+$border-color: #e1e8ed;
+$developer-text: #B0BAC3;
+
+// Transition Times
+// ----------------------------------------------------------------------
+$transition-time: all 0.2s ease-in-out;
+$short-transition: all 0.15s ease-in-out;
+
+// Breakpoints
+// ----------------------------------------------------------------------
+$tiny-breakpoint: 320px;
+$small-breakpoint: 768px;
+$medium-breakpoint: 992px;
+$large-breakpoint: 1200px;

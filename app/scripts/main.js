@@ -63,7 +63,6 @@ TweenMax.to('.developer-gradient', 10, {x: $windowWidth + 600, repeat: -1, yoyo:
 // Positioning function
 //----------------------------------------------
 var positionElements = function() {
-  $windowWidth = $(window).width();
   $envelopeTopHeight = $('#envelope-top').height();
   $resumeElementHeight = $('#resume-element').height();
 
@@ -87,9 +86,10 @@ var positionElements = function() {
 // Make all these fun js effects completely responsive! YAY FUTUREZ!
 //----------------------------------------------
 $(window).resize(function () {
-  $windowWidth = $(window).width;
 
-  positionElements();
+  if ($(window).width() != $windowWidth) {
+    positionElements();
+  }
 });
 
 

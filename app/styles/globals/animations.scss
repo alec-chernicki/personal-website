@@ -1,0 +1,45 @@
+// Rotate Right
+// ----------------------------------------------------------------------
+@keyframes rotation-right {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.rotation-right {
+  animation: rotation-right 20s linear infinite;
+}
+
+// Rotate Left
+// ----------------------------------------------------------------------
+@keyframes rotation-left {
+  0%   { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.rotation-left {
+  animation: rotation-left 20s linear infinite;
+}
+
+// Fade In + Move Up
+// ----------------------------------------------------------------------
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Animation Classes
+// ----------------------------------------------------------------------
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+.animated {
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}

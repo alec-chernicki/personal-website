@@ -1,68 +1,17 @@
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
 @import '../bower_components/normalize.css/normalize.css';
 
-
-$raleway: "Raleway", sans-serif;
-
-$weight-light: 300;
-$weight-regular: 400;
-$primary-title-weight: 600;
-$secondary-title-weight: 400;
-$tertiary-title-weight: 700;
-
-$line-height: 30px;
-$paragraph-text: 14px;
-
-$text-dark: #25292D;
-$text-light: #999;
-$background-dark-blue: #273644;
-$background-light-grey: #F5F8FA;
-$background-light-blue: #6AAECF;
-$border-color: #e1e8ed;
-$padding: 10px;
-$label-font-size: 13px;
-$developer-text: #B0BAC3;
-
-$transition-time: all 0.2s ease-in-out;
-$short-transition: all 0.15s ease-in-out;
-
-// Breakpoints
+// Globals
 // ----------------------------------------------------------------------
-$tiny-breakpoint: 320px;
-$small-breakpoint: 768px;
-$medium-breakpoint: 992px;
-$large-breakpoint: 1200px;
+@import 'globals/animations';
+@import 'globals/mixins';
+@import 'globals/variables';
 
-// Mixins
+// Globals
 // ----------------------------------------------------------------------
+@import 'components/containers';
+@import 'components/navigation';
 
-@mixin absolute-horizontal-center {
-  left: 0;
-  margin: 0 auto;
-  position: absolute;
-  right: 0;
-}
-
-@mixin absolute-all-center {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-@mixin box-shadow {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-@mixin breakpoint($device-width) {
-  @media screen and (min-width: $device-width) {
-    @content
-  }
-}
-
-// Define General Styling
 html {
   height: 100%;
 }
@@ -71,57 +20,6 @@ body {
   box-sizing: border-box;
   font-family: $raleway;
   height: 100%;
-}
-
-// Animations
-// ----------------------------------------------
-
-// Rotate Right
-@keyframes rotation-right {
-  0%   { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-.rotation-right {
-  -webkit-animation: rotation-right 20s linear infinite;
-  -moz-animation: rotation-right 20s linear infinite;
-}
-
-
-// Rotate Left
-@keyframes rotation-left {
-  0%   { -webkit-transform: rotate(360deg); }
-  100% { -webkit-transform: rotate(0deg); }
-}
-
-.rotation-left {
-  -webkit-animation: rotation-left 20s linear infinite;
-  -moz-animation: rotation-left 20s linear infinite;
-}
-
-// Fade in and Move Up
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-
-
-.animated {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
 }
 
 img, ul, li {
@@ -218,178 +116,6 @@ i {
 .column {
   position: relative;
 }
-
-// Defines styles for all text in header containers
-// ----------------------------------------------
-// TODO: clean up all the & and >
-.section-header-container {
-  bottom: -125px;
-  position: absolute;
-  overflow: hidden;
-  height: 125px;
-  left: 0;
-  width: 100%;
-  z-index: 900;
-
-  @include breakpoint($small-breakpoint) {
-    bottom: -150px;
-    height: 150px;
-  }
-
-  h2 {
-    @include absolute-horizontal-center;
-    font-weight: $primary-title-weight;
-    color: #FFF;
-    font-size: 40px;
-    letter-spacing: 4px;
-    line-height: 125px;
-    position: absolute;
-    z-index: 100;
-    text-align: center;
-    text-shadow: 0 1px #4292B5;
-    -webkit-font-smoothing: antialiased;
-
-    @include breakpoint($small-breakpoint) {
-      font-size: 60px;
-      line-height: 150px;
-    }
-  }
-
-  .section-header-container-background {
-    position: absolute;
-    width: 100%;
-    background-color: $background-light-blue;
-    top: 0;
-    bottom: 0;
-
-    @include breakpoint($small-breakpoint) {
-      width: 90%;
-    }
-
-    @include breakpoint($medium-breakpoint) {
-      width: 80%;
-    }
-  }
-}
-
-// Defines styles for all text in text containers
-// ----------------------------------------------
-.section-text-container {
-  margin: 0 auto;
-  max-width: 450px;
-  text-align: center;
-
-  @include breakpoint($medium-breakpoint) {
-    text-align: left;
-    max-width: 100%;
-    margin: initia;
-  }
-
-  h3 {
-    color: $text-dark;
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: 2px;
-    line-height: 40px;
-    margin: 0 0 15px 0;
-    -webkit-font-smoothing: antialiased;
-
-  }
-
-  p, ul {
-    color: $text-light;
-    font-weight: $weight-light;
-    font-size: $paragraph-text;
-    line-height: $line-height;
-    letter-spacing: 0.6px;
-  }
-}
-
-.section-container {
-  width: 100%;
-  padding: 50px 15px;
-  position: relative;
-  z-index: 100;
-
-  @include breakpoint($small-breakpoint) {
-    padding: 0 15px;
-  }
-
-  @include breakpoint($medium-breakpoint) {
-    padding: 50px 15px;
-  }
-
-  .button {
-    @include breakpoint($small-breakpoint) {
-      margin: 80px auto;
-    }
-  }
-
-  .spacer {
-    margin-top: 50px;
-
-    @include breakpoint($small-breakpoint) {
-      margin-top: 80px;
-    }
-  }
-
-  .spacer-medium-down {
-    margin-top: 50px;
-
-    @include breakpoint($medium-breakpoint) {
-      margin: 0;
-    }
-  }
-}
-
-// Navigation Bar
-// ----------------------------------------------
-.navbar {
-  transition: $short-transition;
-  font-family: $raleway;
-  border-bottom: 1px solid $border-color;
-  padding: 10px 0;
-  border-radius: 0;
-  top: 0;
-  margin: 0;
-
-  li a {
-    color: #FFF;
-    font-size: $paragraph-text;
-    letter-spacing: 2px;
-    font-weight: $primary-title-weight;
-    -webkit-font-smoothing: antialiased;
-
-    &:hover {
-      background: inherit;
-    }
-
-    &:active, &:focus {
-      background-color: inherit;
-    }
-  }
-
-  .icon-bar {
-    background: $text-light;
-  }
-}
-
-.navbar-brand {
-  background-position: 0 25%;
-  background-repeat: no-repeat;
-  background-size: 40px 40px;
-  font-weight: $tertiary-title-weight;
-  font-size: 20px;
-  letter-spacing: 1.5px;
-  padding-left: 50px;
-  margin-left: 15px;
-  -webkit-font-smoothing: antialiased;
-
-  @include breakpoint($small-breakpoint) {
-    margin-left: 0;
-  }
-}
-
 
 // Hero Section
 // ----------------------------------------------
@@ -1147,7 +873,7 @@ i {
       overflow: hidden;
       width: 100%;
       border-bottom: solid 1px $border-color;
-      padding-top: 15px + $label-font-size;
+      padding-top: 28px;
       padding-bottom: 5px;
     }
 
@@ -1187,7 +913,7 @@ i {
         transition: top 0.7s ease, opacity 0.7s ease;
         opacity: 0;
 
-        font-size: $label-font-size;
+        font-size: 13px;
         font-weight: 600;
         color: #ccc;
       }

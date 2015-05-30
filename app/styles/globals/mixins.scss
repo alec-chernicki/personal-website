@@ -1,0 +1,33 @@
+// Aligns an absolute element within a relative container horizontally
+@mixin absolute-horizontal-center {
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+}
+
+// Aligns an absolute element within a relative container
+@mixin absolute-all-center {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@mixin box-shadow {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+// Uses fancy @content to allow inline breakpoints
+@mixin breakpoint($device-width) {
+  @media screen and (min-width: $device-width) {
+    @content
+  }
+}
+
+@mixin size($width, $height) {
+  height: $height;
+  width: $width;
+}
