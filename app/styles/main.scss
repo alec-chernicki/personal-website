@@ -1,3 +1,5 @@
+// Vendor
+// ----------------------------------------------------------------------
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
 @import '../bower_components/normalize.css/normalize.css';
 
@@ -7,10 +9,11 @@
 @import 'globals/mixins';
 @import 'globals/variables';
 
-// Globals
+// Components
 // ----------------------------------------------------------------------
 @import 'components/containers';
 @import 'components/navigation';
+@import 'components/buttons';
 
 html {
   height: 100%;
@@ -79,12 +82,13 @@ i {
   background-color: $background-dark-blue;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6),
                                     rgba(0, 0, 0, 0.6)),
-                                    url("http://res.cloudinary.com/alecoortega/image/upload/v1430102636/desk_yrtsmg.jpg");
+                    url("http://res.cloudinary.com/alecoortega/image/upload/v1430102636/desk_yrtsmg.jpg");
+  background-position: center;
   background-size: cover;
-  height: 100%;
   min-height: 500px;
   position: relative;
-  width: 100%;
+  @include size(100%, 100%);
+
 
   h1 {
     color: #FFF;
@@ -103,18 +107,16 @@ i {
   .hero-arrow {
     @include absolute-horizontal-center;
     background: url('/images/down_arrow.svg') no-repeat;
-    width: 40px;
-    height: 15px;
     bottom: 30px;
+    @include size(40px, 15px);
     -webkit-animation-delay: 1.5s;
   }
 
   .hero-container {
     @include absolute-all-center;
-    height: 80px;
     max-width: 500px;
+    @include size(100%, 80px);
     text-align: center;
-    width: 100%;
   }
 
   .hero-nav-wrapper {
@@ -185,8 +187,8 @@ i {
       color: $background-dark-blue;
 
       &:after {
-        opacity: 1;
         bottom: 10px;
+        opacity: 1;
       }
     }
   }
@@ -196,20 +198,19 @@ i {
 
 // About Section
 // ----------------------------------------------
-
 #about {
-  position: relative;
   padding: 75px 0;
+  position: relative;
 
   @include breakpoint($small-breakpoint) {
     padding: 125px 0 175px 0;
   }
 
   .about-video {
-    height: 400px;
     border-bottom: solid $border-color 1px;
-    margin: 0 auto 25px;
     box-shadow: 0 5px 7px -5px rgba(0,0,0,0.1);
+    height: 400px;
+    margin: 0 auto 25px;
     max-width: 400px;
   }
 
@@ -323,33 +324,26 @@ i {
 }
 
 .developer-gradient {
+  background: linear-gradient(90deg, #202C38, #273644, #3f6882, #273644, #202C38);
+  bottom: 0;
+  left: -600px;
   position: absolute;
   top: 0;
   width: 600px;
-  bottom: 0;
-  left: -600px;
-  background: linear-gradient(90deg, #202C38, #273644, #3f6882, #273644, #202C38);
 }
 
 .developer-overlay {
-  position: absolute;
   background: url('/images/grid_background.svg') repeat;
   background-size: 80px 80px;
-  top:0;
-  left:0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
   right: 0;
-  bottom:0;
+  top: 0;
 }
 
 .developer-button-github {
-  background: $background-light-blue;
-  color: #FFF;
   margin: 50px auto;
-  border: solid 1px #62a2c3;
-
-  &:hover {
-    color: #FFF;
-  }
 }
 
 // Designer
@@ -358,11 +352,11 @@ i {
 #designer {
   background-color: $background-light-grey;
   padding: 150px 0 50px;
-  position:relative;
+  position: relative;
   overflow: hidden;
 
   @include breakpoint($small-breakpoint) {
-    padding: 150px 0 150px;
+    padding: 150px 0;
   }
 
   @include breakpoint($medium-breakpoint) {
@@ -376,7 +370,6 @@ i {
   p {
     color: #999;
   }
-
 
   #gear-one {
     bottom: -200px;
@@ -393,9 +386,9 @@ i {
   }
 
   #gear-three {
-    top: 200px;
     height: 600px;
     left: -300px;
+    top: 200px;
     width: 600px;
 
     @include breakpoint($medium-breakpoint) {
@@ -404,9 +397,9 @@ i {
   }
 
   #gear-six {
+    height: 500px;
     right: -200px;
     top: -100px;
-    height: 500px;
     width: 500px;
   }
 
@@ -428,23 +421,8 @@ i {
 }
 
 .designer-button-behance {
-  color: #FFF;
   margin: 50px auto;
-
-  &:hover {
-    color: #FFF;
-  }
-
-  &:visited {
-    color: #FFF;
-  }
 }
-
-.designer-column {
-  padding-top: 175px;
-  padding-bottom: 50px;
-}
-
 
 // Resume
 // ----------------------------------------------
@@ -463,8 +441,8 @@ i {
     top: 0;
 
     @include breakpoint($small-breakpoint) {
-      top: -75px;
       left: 0;
+      top: -75px;
     }
   }
 
@@ -474,9 +452,9 @@ i {
 
   .resume-card-one, .resume-card-two {
     @include box-shadow;
+    margin: 0 auto;
     padding-top: 120%;
     width: 70%;
-    margin: 0 auto;
   }
 
   .resume-card-one {
@@ -507,58 +485,59 @@ i {
 
   #resume-download-wrapper {
     @include absolute-horizontal-center;
+    bottom: 350px;
+    height: 225px;
+    text-align: center;
     width: 80%;
     z-index: 4;
-    height: 225px;
-    bottom: 350px;
-    text-align: center;
 
     a {
       margin: 0 auto;
     }
 
     h3 {
-      margin: 40px auto;
       font-weight: $primary-title-weight;
       font-size: 20px;
       letter-spacing: 1px;
+      margin: 40px auto;
     }
   }
 
   #resume-element {
     @include absolute-horizontal-center;
-    z-index: 2;
+    max-width: 590px;
     top: 100px;
     width: 95%;
-    max-width: 590px;
+    z-index: 2;
   }
 
   .resume-gradient {
-    position: absolute;
     background: $border-color;
-    opacity: 0;
-    top: 0;
-    left: 0;
     bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
     right: 0;
+    top: 0;
   }
 
   .resume-overlay {
-    position: absolute;
     background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('/images/circuit_background.svg');
-    background-size: auto, contain;
     background-repeat: no-repeat,repeat-y;
-    top: 0;
+    background-size: auto, contain;
     bottom: 0;
     left: 0;
+    position: absolute;
     right: 0;
+    top: 0;
   }
 
   .resume-trigger {
-    position: relative;
-    height: 1400px;
-    overflow: hidden;
     min-height: 450px;
+    overflow: hidden;
+    position: relative;
+    @include size(1400px, 100%);
+    height: 1400px;
     width: 100%;
 
     img {

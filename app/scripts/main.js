@@ -1,6 +1,7 @@
 'use strict';
 
 // Initialize commonly used variables
+// ----------------------------------------------------------------------
 var $windowWidth = $(window).width();
 
 var $navHeight = $('.nav-trigger').height();
@@ -17,9 +18,11 @@ var $envelopeTopHeight = $('#envelope-top').height();
 
 var $resumeTriggerHeight =  $('#envelope-top').height() * 1.25;
 
+var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
 
- //AJAX Contact Form Submission Handler
-//----------------------------------------------
+
+// AJAX Contact Form Submission Handler
+// ----------------------------------------------------------------------
 $('#contact-form').submit(function(event){
 
   $('.submit-button').text(' SENDING');
@@ -46,8 +49,8 @@ $('#contact-form').submit(function(event){
   });
 });
 
-//AJAX Resume Download Handler
-//----------------------------------------------
+// AJAX Resume Download Handler
+// ----------------------------------------------------------------------
 $('.resume-button-download').click(function() {
   $.ajax({
     url: '/resume',
@@ -55,13 +58,32 @@ $('.resume-button-download').click(function() {
   });
 });
 
-
-// GSAP - Moves linear gradient behind developer-overlay (translate3D)
-//----------------------------------------------
+// GSAP - Moves linear gradient behind developer-overlay (translate3D - hardware accelerated)
+// ----------------------------------------------------------------------
 TweenMax.to('.developer-gradient', 10, {x: $windowWidth + 600, repeat: -1, yoyo: true, ease:Linear.easeNone});
 
-// Positioning function
-//----------------------------------------------
+// GSAP - Animate opacity on download or linkedin button hover (opacity - hardware accelerated)
+// ----------------------------------------------------------------------
+$('.resume-button-download').hover(
+  function() {
+    TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
+  },
+  function() {
+    TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
+  }
+);
+
+$('.resume-button-linkedin').hover(
+  function() {
+    TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
+  },
+  function() {
+    TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
+  }
+);
+
+// Aligns elements based on screen resolution
+// ----------------------------------------------------------------------
 var positionElements = function() {
   $envelopeTopHeight = $('#envelope-top').height();
   $resumeElementHeight = $('#resume-element').height();
@@ -79,179 +101,101 @@ var positionElements = function() {
   $('.resume-trigger').css('height', $resumeTriggerHeight);
 
   // Position the resume-trigger margin based on the envelope-bottom height
-  var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
+  resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $('.resume-trigger').css('margin-bottom', resumeTriggerOffset);
 };
 
 // Make all these fun js effects completely responsive! YAY FUTUREZ!
 //----------------------------------------------
 $(window).resize(function () {
-
   if ($(window).width() != $windowWidth) {
+
     positionElements();
   }
 });
-
 
 // Smooth Scrolling to all 'a' tags
 // ----------------------------------------------
 $('a').smoothScroll({offset: -$navHeight});
 
-// GSAP - Animate opacity on download or linkedin button hover
-//----------------------------------------------
-$('.resume-button-download').hover(
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
-  },
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
-  }
-);
-
-
-$('.resume-button-linkedin').hover(
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
-  },
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
-  }
-);
-
 // Dynamic resize of textarea based on content
-// ----------------------------------------------
+// ----------------------------------------------------------------------
 window.jQuery.fn.autosize = function() {
   return autosize(this);
 };
+
 $('textarea').autosize();
 
 // Fancy responsive portfolio panel
-// ----------------------------------------------
-// TODO: Working on more efficient algorithm for all of this
+// ----------------------------------------------------------------------
 
-// Functions return correct index that project info should be appended after based on screen size.
-function largePortfolio (index) {
-  console.log(index);
-  if (index >= 0 && index <=3) {
-    return 3;
-  }
-  else if (index >= 4 && index <= 11) {
-    return 7;
-  }
-}
+// Returns an array of items in the portfolio section
+var $itemArray = $('.panel-group').children('.portfolio-item');
 
-function mediumPortfolio (index) {
-  console.log(index);
-  if (index >= 0 && index <= 2) {
-    return 2;
-  }
-  else if (index >= 3 && index <= 5) {
-    return 5;
-  }
-  else if (index >= 6 && index <= 11) {
-    return 8;
-  }
-}
 
-function smallPortfolio (index) {
-  console.log(index);
-  if (index >= 0 && index <= 1) {
-    return 1;
-  }
-  else if (index >= 2 && index <= 3) {
-    return 3;
-  }
-  else if (index >= 4 && index <= 5) {
-    return 5;
-  }
-  else if (index >= 6 && index <= 7) {
-    return 7;
-  }
-  else if (index >= 8 && index <= 11) {
-    return 9;
-  }
-}
+// Returns the correct row to append panel to
+var appendItem = function(portfolioItemButton, panel) {
 
-function extraSmallPortfolio (index) {
-  console.log(index);
-  return index;
-}
+  // Stores the closest portfolio item object
+  var $portfolioItem = portfolioItemButton.closest('.portfolio-item');
 
-// Finds screen size and calls correct function
-function calculateAppendPosition(item) {
-  if ($(window).width() > 1280) {
-    return largePortfolio($(item).index('.portfolio-item'));
-  }
-  else if ($(window).width() > 1024) {
-    return mediumPortfolio($(item).index('.portfolio-item'));
-  }
-  else if ($(window).width() > 768) {
-    return smallPortfolio($(item).index('.portfolio-item'));
-  }
-  else if ($(window).width() > 320) {
-    return extraSmallPortfolio($(item).index('.portfolio-item'));
-  }
-}
+  // Calculates number of items in row by dividing window width by width of item
+  var itemsInRow = Math.round($(window).width() / $($portfolioItem).width());
 
-// When user clicks x button close open panel
-$('.x-button').click(function () {
-  $('.panel-group').children('.open').removeClass('open').slideToggle(300);
-});
+  // Finds the row by dividing the index of the item by the number of items in a row and rounding up
+  var rowOfItem = Math.ceil(($($itemArray).index($portfolioItem) + 1) / itemsInRow);
+
+  // Find the project correct item to append to within the item array and append the panel
+  $($itemArray[itemsInRow * rowOfItem - 1]).append().after(panel);
+};
+
+// Checks if there are any open panels, if so returns ID, if not returns false
+var isPanelOpen = function() {
+  if ($('.panel-group').children('.open').length > 0) {
+    return $('.panel-group').children('.open')
+  }
+  else {
+    return false
+  }
+};
 
 // Bind function to button click
 $('.portfolio-item a').click(function() {
-  // Returns an array of items in the portfolio section
-  var $itemArray = $('.panel-group').children('.portfolio-item');
+  // Returns panel that corresponds to the buttons data-target
+  var $panel = $('.panel-group').children($(this).attr('data-target'));
 
-  // Get data attribute of current button
-  var $panelId = $(this).attr('data-target');
-
-  // Returns correct panel that matches the associated button
-  var $projectInfo = $('.panel-group').children($panelId);
-
-  // If button click is current open panel, close open panel
-  if ($('.panel-group').children('.open').attr('id') !== undefined &&
-    $panelId ===  '#' + $('.panel-group').children('.open').attr('id')) {
-
-    $('.panel-group').children('.open').removeClass('open').slideToggle(300);
-
+  // IF: Button clicked corresponds to a panel and no panels are already open, open panel
+  if (isPanelOpen() === false) {
+    appendItem(this, $panel);
+    $($panel).addClass('open').slideToggle(300);
   }
 
-  // If button click is different panel, close prev panel and open new one
-  else if ($('.panel-group').children().hasClass('open')) {
-
-    $('.panel-group').children('.open').removeClass('open').slideToggle(300, function () {
-
-      // Find the index of the current clicked item within the item array object
-      $($itemArray[calculateAppendPosition($(this).closest('.portfolio-item'))])
-
-        // Append the following object after the given item in returned index position
-        .append().after($projectInfo);
-
-      $($panelId).addClass('open').slideToggle();
-    });
+  // ELSE IF: Button clicked corresponds to a panel that is already open
+  else if ($(isPanelOpen()).attr('id') === $($panel).attr('id')) {
+    $($panel).removeClass('open').slideToggle(300);
   }
 
-  // If no panels are open, just open the panel.
-  else {
-    // Find the index of the current clicked item within the item array object
-    $($itemArray[calculateAppendPosition($(this).closest('.portfolio-item'))])
-      // Append the following object after the given item in returned index position
-      .append().after($projectInfo);
-
-    $($panelId).slideToggle(function () {
-      $(this).addClass('open');
-    });
+  // ELSE IF: Button clicked corresponds to a different panel and a panel is open
+  else if (isPanelOpen() && $(isPanelOpen()).attr('id') !== $($panel).attr('id')) {
+    appendItem(this, $panel);
+    $(isPanelOpen()).removeClass('open').slideToggle(300, function() {
+      $($panel).addClass('open').slideToggle(300)
+    })
   }
 });
 
 // Close all open or collapsing panels on resize of window
 $(window).on('resize', function () {
-  $('.panel-group').children('.open').removeClass('open').slideToggle(300);
+  $(isPanelOpen()).removeClass('open').slideToggle(300);
+});
+
+// Bind x-button to closing the open panel
+$('.x-button').click(function () {
+  $(isPanelOpen()).removeClass('open').slideToggle(300);
 });
 
 // ScrollMagic - Navigation
-// ----------------------------------------------
+// ----------------------------------------------------------------------
 var navigationController = new ScrollMagic.Controller();
 
 // Set navbar to appear above about section
@@ -310,9 +254,8 @@ new ScrollMagic.Scene({
 
 
 // ScrollMagic - Browser wipe effect
-// ----------------------------------------------
-
-// Scene that controls the developer browser effect
+// ----------------------------------------------------------------------
+// Scene that controls the developer pin effect
 var browserDeveloperController = new ScrollMagic.Controller();
 
 var developerTweenTimeline = new TimelineMax()
@@ -327,7 +270,7 @@ new ScrollMagic.Scene({
   .setTween(developerTweenTimeline)
   .addTo(browserDeveloperController);
 
-// Scene that controls the designer browser effect
+// Scene that controls the designer pin effect
 var browserDesignerController = new ScrollMagic.Controller();
 
 var designerTweenTimeline = new TimelineMax()
@@ -336,13 +279,13 @@ var designerTweenTimeline = new TimelineMax()
 new ScrollMagic.Scene({
   triggerElement: '#browser-designer-trigger',
   duration: 2000,
-  offset: -$navHeight - 50 - $('#browser-designer-element').height(),
+  offset: -$navHeight - 50 - $designerElementHeight,
   triggerHook: 'onLeave'
 })
   .setTween(designerTweenTimeline)
   .addTo(browserDesignerController);
 
-// Scene that controls the resume wipe effect
+// Scene that controls the resume pin effect
 var resumeController = new ScrollMagic.Controller();
 
 var resumeTweenTimeline = new TimelineMax()
@@ -357,12 +300,10 @@ new ScrollMagic.Scene({
   .setTween(resumeTweenTimeline)
   .addTo(resumeController);
 
-
+// On document ready align elements
+// ----------------------------------------------------------------------
 $(document).on('ready', function() {
   positionElements();
   $('#resume-element').css('top', -$resumeElementHeight);
   $('#browser-designer-element').css('top', -$designerElementHeight);
 });
-
-
-
