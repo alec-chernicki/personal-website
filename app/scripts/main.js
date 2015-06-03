@@ -114,8 +114,26 @@ var positionElements = function(callback) {
 $(window).resize(function () {
   if ($(window).width() != $windowWidth) {
     positionElements();
+    responsiveParallax();
   }
 });
+
+
+var responsiveParallax = function() {
+  if ($(window).width() <= 768) {
+    developerHeaderScene.remove(true);
+    designerHeaderScene.remove(true);
+    resumeHeaderScene.remove(true);
+    resumeHeaderScene.progress(0.5);
+    designerHeaderScene.progress(0.5);
+    developerHeaderScene.progress(0.5);
+  }
+  else {
+    developerHeaderScene.addTo(headerController);
+    designerHeaderScene.addTo(headerController);
+    resumeHeaderScene.addTo(headerController);
+  }
+};
 
 // Smooth Scrolling to all 'a' tags
 // ----------------------------------------------------------------------
@@ -254,6 +272,44 @@ new ScrollMagic.Scene({
   .setClassToggle('.contact-link', 'highlight')
   .addTo(navigationController);
 
+// ScrollMagic - Parallax Section Headers
+// ----------------------------------------------------------------------
+
+var headerController = new ScrollMagic.Controller();
+
+var developerHeaderTweenTimeline = new TimelineMax()
+  .add(TweenMax.fromTo('#about .section-header-container', 1, {y: 55}, {y: -55, ease: Linear.easeNone}));
+
+var developerHeaderScene = new ScrollMagic.Scene({
+  triggerElement: '#developer',
+  triggerHook: 1,
+  duration: $(window).height() - $navHeight
+})
+  .setTween(developerHeaderTweenTimeline)
+  .addTo(headerController);
+
+var designerHeaderTweenTimeline = new TimelineMax()
+  .add(TweenMax.fromTo('#developer .section-header-container', 1, {y: 55}, {y: -55, ease: Linear.easeNone}));
+
+var designerHeaderScene = new ScrollMagic.Scene({
+  triggerElement: '#designer',
+  triggerHook: 1,
+  duration: $(window).height() - $navHeight
+})
+  .setTween(designerHeaderTweenTimeline)
+  .addTo(headerController);
+
+var resumeHeaderTweenTimeline = new TimelineMax()
+  .add(TweenMax.fromTo('#resume .section-header-container', 1, {y: 55}, {y: -55, ease: Linear.easeNone}));
+
+var resumeHeaderScene = new ScrollMagic.Scene({
+  triggerElement: '#resume',
+  triggerHook: 1,
+  duration: $(window).height() - $navHeight
+})
+  .setTween(resumeHeaderTweenTimeline)
+  .addTo(headerController);
+
 
 // ScrollMagic - Browser wipe effect
 // ----------------------------------------------------------------------
@@ -309,4 +365,5 @@ $(document).on('ready', function() {
     $('#resume-element').css('top', -$resumeElementHeight);
     $('#browser-designer-element').css('top', -$designerElementHeight);
   });
+  responsiveParallax();
 });
