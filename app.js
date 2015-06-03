@@ -9,8 +9,8 @@ var connectAssets = require('connect-assets');
 
 var sendGridOptions = {
   auth: {
-    api_user: 'alecortega',
-    api_key: 'moose213'
+    api_user: process.env.SENDGRID_USERNAME,
+    api_key: process.env.SENDGRID_PASSWORD
   }
 };
 

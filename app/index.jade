@@ -2,7 +2,7 @@ extends layouts/default
 block content
   .hero
     // Refactor navigation to partial to DRY
-    .hero-arrow.animated.fadeInUp
+    .hero-arrow
     nav.hero-nav-wrapper.navbar.hidden-xs
       .container
         .navbar-header
@@ -17,7 +17,7 @@ block content
           li
             a.contact-link(href='#contact') CONTACT
     .hero-container
-      h1.animated.fadeInUp HEY THERE
+      h1 HEY THERE
 
   .nav-trigger.clearfix
     nav.nav-element.navbar
@@ -93,10 +93,10 @@ block content
             p Ruby
             p Java
   #designer
-    #gear-one.gear.rotation-right
-    #gear-two.gear.rotation-left
-    #gear-three.gear.rotation-left
-    #gear-six.gear.rotation-right.hidden-xs
+    #gear-one.gear
+    #gear-two.gear
+    #gear-three.gear
+    #gear-six.gear.hidden-xs
     .section-container.clearfix
       .large-container
         .col-md-3.column
@@ -151,7 +151,10 @@ block content
           img#envelope-bottom(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_1200/v1431387403/envelope-bottom_osl5jy.png')
         .col-md-3.column
           .resume-moleskin.hidden-xs.hidden-sm
-          .resume-yoyo.hidden-xs.hidden-sm
+          .resume-yoyo-container.hidden-xs.hidden-sm
+            .resume-yoyo-body
+            .resume-yoyo-string
+
 
   include layouts/sections/portfolio
 
@@ -189,5 +192,5 @@ block content
               a.medium.hidden-xs.hidden-sm(target= '_blank' href='https://medium.com/@whynotdostuff') Medium
 
   .footer
-    #gear-four.gear-dark.rotation-right.hidden-xs.hidden-sm
-    #gear-five.gear-dark.rotation-left
+    #gear-four.gear-dark.hidden-xs.hidden-sm
+    #gear-five.gear-dark

@@ -31,3 +31,21 @@
   height: $height;
   width: $width;
 }
+
+// Animation Mixins
+@mixin rotation-right {
+  animation: rotation-right 20s linear infinite;
+}
+
+@mixin rotation-right-fast {
+  animation: rotation-right 0.15s linear infinite;
+}
+
+@mixin rotation-left {
+  animation: rotation-left 20s linear infinite;
+}
+
+@mixin fadeInUp {
+  animation: fadeInUp 2s;
+  animation-fill-mode: both;
+}

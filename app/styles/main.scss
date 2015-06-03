@@ -49,19 +49,6 @@ i {
   -webkit-font-smoothing: antialiased;
 }
 
-.link-underline {
-  &:after {
-    content: '';
-    position: absolute;
-    height: 1px;
-    background-color: $background-dark-blue;
-    width: 100%;
-    bottom: 5px;
-    left: 0;
-  }
-}
-
-
 .gear {
   background: url('/images/gear_icon.svg');
   position: absolute;
@@ -93,9 +80,10 @@ i {
   h1 {
     color: #FFF;
     font-size: 3.15em;
+    @include fadeInUp;
+    font-weight: $primary-title-weight;
     line-height: 1.25em;
     margin: 0 0 15px 0;
-    font-weight: $primary-title-weight;
     letter-spacing: 3px;
     -webkit-font-smoothing: antialiased;
 
@@ -108,6 +96,7 @@ i {
     @include absolute-horizontal-center;
     background: url('/images/down_arrow.svg') no-repeat;
     bottom: 30px;
+    @include fadeInUp;
     @include size(40px, 15px);
     -webkit-animation-delay: 1.5s;
   }
@@ -375,6 +364,7 @@ i {
     bottom: -200px;
     height: 500px;
     right: -150px;
+    @include rotation-right;
     width: 500px;
   }
 
@@ -382,6 +372,7 @@ i {
     bottom: 300px;
     height: 250px;
     right: -100px;
+    @include rotation-left;
     width: 250px;
   }
 
@@ -389,6 +380,7 @@ i {
     height: 600px;
     left: -300px;
     top: 200px;
+    @include rotation-left;
     width: 600px;
 
     @include breakpoint($medium-breakpoint) {
@@ -400,6 +392,7 @@ i {
     height: 500px;
     right: -200px;
     top: -100px;
+    @include rotation-right;
     width: 500px;
   }
 
@@ -545,11 +538,36 @@ i {
     }
   }
 
-  .resume-yoyo {
-    background: url('/images/yoyo.png');
+  .resume-yoyo-body {
+     background: url('/images/yoyo-body.png');
+     background-size: cover;
+     bottom: 5%;
+     left: 0;
+     position: absolute;
+     top: 5%;
+     right: 38%;
+     z-index: 200;
+
+    &:hover {
+      @include rotation-right-fast
+    }
+  }
+
+  .resume-yoyo-string {
+    background: url('/images/yoyo-string.png');
     background-size: cover;
+    position: absolute;
+    top: 8%;
+    left: 27%;
+    right: 0;
+    bottom: 8%;
+    z-index: 100;
+  }
+
+  .resume-yoyo-container {
     padding-left: 116.5%;
     padding-top: 80%;
+    position: relative;
     margin: 40px auto 0;
     width: 80%;
   }
@@ -689,7 +707,7 @@ i {
   width: 100%;
   display: none;
 
-  @include breakpoint($small-breakpoint) {
+  @include breakpoint($medium-breakpoint) {
     padding: 50px 0 70px 0;
   }
 
@@ -762,7 +780,7 @@ i {
   .section-text-container {
     padding-top: 50px;
 
-    @include breakpoint($small-breakpoint) {
+    @include breakpoint($medium-breakpoint) {
       padding-top: 0;
     }
   }
@@ -826,19 +844,16 @@ i {
 
     input, textarea {
       // TODO: DRY this out to apply to all p tags
-      font-size: $paragraph-text;
-      color:$background-dark-blue;
-      letter-spacing: 0.6px;
-      font-weight: $weight-light;
-      line-height: $line-height;
-
-
-      display: block;
-      width: 100%;
       border: 0;
+      color: $background-dark-blue;
+      font-weight: $weight-light;
+      font-size: $paragraph-text;
+      line-height: $line-height;
+      letter-spacing: 0.6px;
       outline: 0;
       resize: none;
       transition: height 2s ease-in-out;
+      width: 100%;
 
       & + label {
         position: absolute;
@@ -995,12 +1010,14 @@ i {
   height: 600px;
   width: 600px;
   top: -300px;
+  @include rotation-right;
   right: 50px;
 }
 
 #gear-five {
-  height: 700px;
-  width: 700px;
-  left: 0;
   bottom: -500px;
+  left: 0;
+  height: 700px;
+  @include rotation-left;
+  width: 700px;
 }

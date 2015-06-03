@@ -82,9 +82,9 @@ $('.resume-button-linkedin').hover(
   }
 );
 
-// Aligns elements based on screen resolution
+// Makes all the fun js effects completely responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
-var positionElements = function() {
+var positionElements = function(callback) {
   $envelopeTopHeight = $('#envelope-top').height();
   $resumeElementHeight = $('#resume-element').height();
 
@@ -103,19 +103,22 @@ var positionElements = function() {
   // Position the resume-trigger margin based on the envelope-bottom height
   resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $('.resume-trigger').css('margin-bottom', resumeTriggerOffset);
+
+  if (typeof callback === 'function') {
+    callback();
+  }
 };
 
-// Make all these fun js effects completely responsive! YAY FUTUREZ!
-//----------------------------------------------
+// Tests against width since iOS safari is evil and calls onOrientationChange
+// ----------------------------------------------------------------------
 $(window).resize(function () {
   if ($(window).width() != $windowWidth) {
-
     positionElements();
   }
 });
 
 // Smooth Scrolling to all 'a' tags
-// ----------------------------------------------
+// ----------------------------------------------------------------------
 $('a').smoothScroll({offset: -$navHeight});
 
 // Dynamic resize of textarea based on content
@@ -131,7 +134,6 @@ $('textarea').autosize();
 
 // Returns an array of items in the portfolio section
 var $itemArray = $('.panel-group').children('.portfolio-item');
-
 
 // Returns the correct row to append panel to
 var appendItem = function(portfolioItemButton, panel) {
@@ -303,7 +305,8 @@ new ScrollMagic.Scene({
 // On document ready align elements
 // ----------------------------------------------------------------------
 $(document).on('ready', function() {
-  positionElements();
-  $('#resume-element').css('top', -$resumeElementHeight);
-  $('#browser-designer-element').css('top', -$designerElementHeight);
+  positionElements(function() {
+    $('#resume-element').css('top', -$resumeElementHeight);
+    $('#browser-designer-element').css('top', -$designerElementHeight);
+  });
 });

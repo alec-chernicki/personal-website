@@ -9,7 +9,7 @@
   animation: rotation-right 20s linear infinite;
 }
 
-// Rotate Left
+// Rotate Left - Slow
 // ----------------------------------------------------------------------
 @keyframes rotation-left {
   0%   { transform: rotate(360deg); }

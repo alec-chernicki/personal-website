@@ -15,7 +15,7 @@ gulp.task('styles', function () {
       onError: console.error.bind(console, 'Sass error:')
     }))
     .pipe($.postcss([
-      require('autoprefixer-core')({browsers: ['last 1 version']})
+      require('autoprefixer-core')()
     ]))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
@@ -79,26 +79,6 @@ gulp.task('extras', function () {
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
-});
-
-gulp.task('deploy', ['build'], function () {
-  // create a new publisher
-  var publisher = $.awspublish.create({
-    key: process.env.AWS_KEY,
-    secret: process.env.AWS_SECRET,
-    bucket: 'alecortega.com'
-  });
-
-  // define custom headers
-  var headers = {
-    'Cache-Control': 'max-age=315360000, no-transform, public'
-  };
-
-  return gulp.src('dist/**/*.*')
-    .pipe(publisher.publish(headers))
-    .pipe(publisher.sync())
-    .pipe(publisher.cache())
-    .pipe($.awspublish.reporter());
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
