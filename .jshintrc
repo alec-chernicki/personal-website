@@ -6,13 +6,22 @@
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
+  "globals": {
+    "ScrollMagic": false,
+    "TweenMax": false,
+    "TweenLite": false,
+    "TimelineMax": false,
+    "TimelineLite": false,
+    "Linear": false,
+    "autosize": false
+  },
   "immed": true,
   "indent": 2,
   "latedef": true,
   "newcap": true,
   "noarg": true,
   "quotmark": "single",
-  "undef": false,
+  "undef": true,
   "unused": true,
   "strict": true,
   "jquery": true
