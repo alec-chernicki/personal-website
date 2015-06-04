@@ -198,6 +198,17 @@ $('.x-button').click(function () {
 // ScrollMagic - Navigation
 // ----------------------------------------------------------------------
 var navigationController = new ScrollMagic.Controller();
+var navigationScrollMagic = function (time, element, link) {
+  new ScrollMagic.Scene({
+    duration: time - $navHeight,
+    offset: -($navHeight+1),
+    reverse: true,
+    triggerHook: 0,
+    triggerElement: element
+  })
+    .setClassToggle(link, 'highlight')
+    .addTo(navigationController);
+};
 
 // Set navbar to appear above about section
 new ScrollMagic.Scene({
@@ -209,49 +220,14 @@ new ScrollMagic.Scene({
   .setClassToggle('.nav-trigger', 'show')
   .addTo(navigationController);
 
-// Set scroll to "About" options
-new ScrollMagic.Scene({
-  triggerElement: '#about',
-  offset: -($navHeight + 1),
-  triggerHook: 0,
-  duration: $aboutHeight + $developerHeight + $designerHeight - $navHeight * 2,
-  reverse: true
-})
-  .setClassToggle('.about-link', 'highlight')
-  .addTo(navigationController);
-
-// Set scroll to "Resume" options
-new ScrollMagic.Scene({
-  triggerElement: '#resume-header',
-  offset: -($navHeight+1),
-  triggerHook: 0,
-  duration: $resumeHeight - $navHeight,
-  reverse: true
-})
-  .setClassToggle('.resume-link', 'highlight')
-  .addTo(navigationController);
-
-// Set scroll to "Portfolio" options
-new ScrollMagic.Scene({
-  triggerElement: '#portfolio',
-  offset: -($navHeight+1),
-  triggerHook: 0,
-  duration: $portfolioHeight - $navHeight,
-  reverse: true
-})
-  .setClassToggle('.work-link', 'highlight')
-  .addTo(navigationController);
-
-// Set scroll to "Contact Me" options
-new ScrollMagic.Scene({
-  triggerElement: '#contact',
-  offset: -($navHeight+1),
-  triggerHook: 0,
-  duration: $contactHeight,
-  reverse: true
-})
-  .setClassToggle('.contact-link', 'highlight')
-  .addTo(navigationController);
+// Initialize for about link
+navigationScrollMagic($aboutHeight + $developerHeight + $designerHeight - $navHeight, '#about', '.about-link');
+// Initialize for resume link
+navigationScrollMagic($resumeHeight, '#resume-header', '.resume-link');
+// Initialize for portfolio link
+navigationScrollMagic($portfolioHeight, '#portfolio', '.portfolio-link');
+// Initialize for contact link
+navigationScrollMagic($contactHeight, '#contact', '.contact-link');
 
 // ScrollMagic - Parallax Section Headers
 // ----------------------------------------------------------------------
