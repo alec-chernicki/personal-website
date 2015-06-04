@@ -4,13 +4,13 @@
 // ----------------------------------------------------------------------
 var $windowWidth = $(window).width();
 
-var $navHeight = $('.nav-trigger').height();
-var $aboutHeight = $('#about').height();
-var $developerHeight = $('#developer').height();
-var $designerHeight = $('#designer').height();
+var $navHeight = $('.nav-trigger').outerHeight(true);
+var $aboutHeight = $('#about').outerHeight(true);
+var $developerHeight = $('#developer').outerHeight(true);
+var $designerHeight = $('#designer').outerHeight(true);
 var $resumeHeight = $('#resume').height();
-var $portfolioHeight = $('#portfolio').height();
-var $contactHeight = $('#contact').height();
+var $portfolioHeight = $('#portfolio').outerHeight(true);
+var $contactHeight = $('#contact').outerHeight(true);
 
 var $designerElementHeight = $('#browser-designer-element').height();
 var $resumeElementHeight = $('#resume-element').height();
@@ -109,32 +109,6 @@ var positionElements = function(callback) {
   }
 };
 
-// Tests against width since iOS safari is evil and calls onOrientationChange
-// ----------------------------------------------------------------------
-$(window).resize(function () {
-  if ($(window).width() != $windowWidth) {
-    positionElements();
-    responsiveParallax();
-  }
-});
-
-
-var responsiveParallax = function() {
-  if ($(window).width() <= 768) {
-    developerHeaderScene.remove(true);
-    designerHeaderScene.remove(true);
-    resumeHeaderScene.remove(true);
-    resumeHeaderScene.progress(0.5);
-    designerHeaderScene.progress(0.5);
-    developerHeaderScene.progress(0.5);
-  }
-  else {
-    developerHeaderScene.addTo(headerController);
-    designerHeaderScene.addTo(headerController);
-    resumeHeaderScene.addTo(headerController);
-  }
-};
-
 // Smooth Scrolling to all 'a' tags
 // ----------------------------------------------------------------------
 $('a').smoothScroll({offset: -$navHeight});
@@ -151,7 +125,7 @@ $('textarea').autosize();
 // ----------------------------------------------------------------------
 
 // Returns an array of items in the portfolio section
-var $itemArray = $('.panel-group').children('.portfolio-item');
+var $itemArray = $('#portfolio').children('.portfolio-item');
 
 // Returns the correct row to append panel to
 var appendItem = function(portfolioItemButton, panel) {
@@ -169,20 +143,22 @@ var appendItem = function(portfolioItemButton, panel) {
   $($itemArray[itemsInRow * rowOfItem - 1]).append().after(panel);
 };
 
-// Checks if there are any open panels, if so returns ID, if not returns false
+// Checks if there are any open panels
 var isPanelOpen = function() {
-  if ($('.panel-group').children('.open').length > 0) {
-    return $('.panel-group').children('.open')
+  // Returns ID of panel if a panel is open
+  if ($('#portfolio').children('.open').length > 0) {
+    return $('#portfolio').children('.open');
   }
+  // Returns false if no panels are open
   else {
-    return false
+    return false;
   }
 };
 
 // Bind function to button click
 $('.portfolio-item a').click(function() {
   // Returns panel that corresponds to the buttons data-target
-  var $panel = $('.panel-group').children($(this).attr('data-target'));
+  var $panel = $('#portfolio').children($(this).attr('data-target'));
 
   // IF: Button clicked corresponds to a panel and no panels are already open, open panel
   if (isPanelOpen() === false) {
@@ -199,7 +175,7 @@ $('.portfolio-item a').click(function() {
   else if (isPanelOpen() && $(isPanelOpen()).attr('id') !== $($panel).attr('id')) {
     appendItem(this, $panel);
     $(isPanelOpen()).removeClass('open').slideToggle(300, function() {
-      $($panel).addClass('open').slideToggle(300)
+      $($panel).addClass('open').slideToggle(300);
     })
   }
 });
@@ -231,20 +207,20 @@ new ScrollMagic.Scene({
 // Set scroll to "About" options
 new ScrollMagic.Scene({
   triggerElement: '#about',
-  offset: -($navHeight+1),
+  offset: -($navHeight + 1),
   triggerHook: 0,
-  duration: $aboutHeight + $developerHeight + $designerHeight,
+  duration: $aboutHeight + $developerHeight + $designerHeight - $navHeight * 2,
   reverse: true
 })
   .setClassToggle('.about-link', 'highlight')
   .addTo(navigationController);
 
-// Set scroll to "Resumé" options
+// Set scroll to "Resume" options
 new ScrollMagic.Scene({
   triggerElement: '#resume-header',
   offset: -($navHeight+1),
   triggerHook: 0,
-  duration: $resumeHeight,
+  duration: $resumeHeight - $navHeight,
   reverse: true
 })
   .setClassToggle('.resume-link', 'highlight')
@@ -255,7 +231,7 @@ new ScrollMagic.Scene({
   triggerElement: '#portfolio',
   offset: -($navHeight+1),
   triggerHook: 0,
-  duration: $portfolioHeight,
+  duration: $portfolioHeight - $navHeight,
   reverse: true
 })
   .setClassToggle('.work-link', 'highlight')
@@ -367,3 +343,34 @@ $(document).on('ready', function() {
   });
   responsiveParallax();
 });
+
+// Tests against width since iOS safari is evil and calls onOrientationChange
+// ----------------------------------------------------------------------
+$(window).on('resize', function () {
+  if ($(window).width() !== $windowWidth) {
+    positionElements();
+    responsiveParallax();
+  }
+});
+
+
+var responsiveParallax = function() {
+  if ($(window).width() <= 768) {
+    // Removes parallax animation
+    designerHeaderScene.remove(true);
+    developerHeaderScene.remove(true);
+    resumeHeaderScene.remove(true);
+
+    // Progresses animation to starting point
+    designerHeaderScene.progress(0.5);
+    developerHeaderScene.progress(0.5);
+    resumeHeaderScene.progress(0.5);
+  }
+  else {
+    // Adds parallax effect back to ScrollMagic controller
+    designerHeaderScene.addTo(headerController);
+    developerHeaderScene.addTo(headerController);
+    resumeHeaderScene.addTo(headerController);
+  }
+};
+

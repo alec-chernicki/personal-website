@@ -41,7 +41,7 @@
       width: 90%;
     }
 
-    @include breakpoint($medium-breakpoint) {
+    @include breakpoint($large-breakpoint) {
       width: 80%;
     }
   }
@@ -75,6 +75,10 @@
     font-size: $paragraph-text;
     line-height: $line-height;
     letter-spacing: 0.6px;
+
+    &::selection {
+      background: $border-color;
+    }
   }
 }
 
@@ -91,7 +95,7 @@
   }
 
   @include breakpoint($medium-breakpoint) {
-    padding: 50px 15px;
+    padding: 0 15px;
   }
 
   .button {

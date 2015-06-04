@@ -251,6 +251,10 @@ i {
   overflow: hidden;
 }
 
+#browser-designer-element {
+  top: 150px;
+}
+
 // Developer
 // ----------------------------------------------
 #developer {
@@ -539,14 +543,16 @@ i {
   }
 
   .resume-yoyo-body {
-     background: url('/images/yoyo-body.png');
-     background-size: cover;
-     bottom: 5%;
-     left: 0;
-     position: absolute;
-     top: 5%;
-     right: 38%;
-     z-index: 200;
+    background: url('/images/yoyo-body.png');
+    background-size: cover;
+    border-radius: 50%;
+    bottom: 5%;
+    @include box-shadow;
+    left: 0;
+    position: absolute;
+    top: 5%;
+    right: 38%;
+    z-index: 200;
 
     &:hover {
       @include rotation-right-fast
