@@ -4,19 +4,26 @@
 // ----------------------------------------------------------------------
 var $windowWidth = $(window).width();
 
+// Elements
+var $resumeDownloadWrapper = $('#resume-download-wrapper');
+var $portfolio = $('#portfolio');
+var $envelopeBottom = $('#envelope-bottom');
+var $resumeTrigger = $('.resume-trigger');
+var $resumeButtonDownload = $('.resume-button-download');
+
+// Heights of elements
 var $navHeight = $('.nav-trigger').outerHeight(true);
 var $aboutHeight = $('#about').outerHeight(true);
 var $developerHeight = $('#developer').outerHeight(true);
 var $designerHeight = $('#designer').outerHeight(true);
 var $resumeHeight = $('#resume').height();
-var $portfolioHeight = $('#portfolio').outerHeight(true);
+var $portfolioHeight = $portfolio.outerHeight(true);
 var $contactHeight = $('#contact').outerHeight(true);
-
 var $designerElementHeight = $('#browser-designer-element').height();
 var $resumeElementHeight = $('#resume-element').height();
 var $envelopeTopHeight = $('#envelope-top').height();
 
-var $resumeTriggerHeight =  $('#envelope-top').height() * 1.25;
+var $resumeTriggerHeight =  $envelopeTopHeight * 1.25;
 
 var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
 
@@ -51,7 +58,7 @@ $('#contact-form').submit(function(event){
 
 // AJAX Resume Download Handler
 // ----------------------------------------------------------------------
-$('.resume-button-download').click(function() {
+$resumeButtonDownload.click(function() {
   $.ajax({
     url: '/resume',
     type: 'GET'
@@ -62,25 +69,23 @@ $('.resume-button-download').click(function() {
 // ----------------------------------------------------------------------
 TweenMax.to('.developer-gradient', 10, {x: $windowWidth + 600, repeat: -1, yoyo: true, ease:Linear.easeNone});
 
+// GSAP - Animate opacity
+// ----------------------------------------------------------------------
+
+var showResumeGradient = function() {
+  TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
+};
+
+var hideResumeGradient = function() {
+  TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
+};
+
+
 // GSAP - Animate opacity on download or linkedin button hover (opacity - hardware accelerated)
 // ----------------------------------------------------------------------
-$('.resume-button-download').hover(
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
-  },
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
-  }
-);
+$resumeButtonDownload.hover(showResumeGradient(), hideResumeGradient());
 
-$('.resume-button-linkedin').hover(
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
-  },
-  function() {
-    TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
-  }
-);
+$('.resume-button-linkedin').hover(showResumeGradient(), hideResumeGradient());
 
 // Makes all the fun js effects completely responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
@@ -88,21 +93,19 @@ var positionElements = function(callback) {
   $envelopeTopHeight = $('#envelope-top').height();
   $resumeElementHeight = $('#resume-element').height();
 
-  // Position resume-download wrapper
-  var $wrapperPosition = $envelopeTopHeight / 2 - $('#resume-download-wrapper').height() / 2;
-  $('#resume-download-wrapper').css('bottom', $wrapperPosition);
+  var $wrapperPosition = $envelopeTopHeight / 2 - $resumeDownloadWrapper.height() / 2;
+  $resumeDownloadWrapper.css('bottom', $wrapperPosition);
 
-  // Position envelope-bottom
-  var $bottomPosition = $envelopeTopHeight - $('#envelope-bottom').height() / 3.5;
-  $('#envelope-bottom').css('bottom', $bottomPosition);
+  var $bottomPosition = $envelopeTopHeight - $envelopeBottom.height() / 3.5;
+  $envelopeBottom.css('bottom', $bottomPosition);
 
   // Resize resume-trigger based on current height of the envelope
   $resumeTriggerHeight = $envelopeTopHeight *  1.25;
-  $('.resume-trigger').css('height', $resumeTriggerHeight);
+  $resumeTrigger.css('height', $resumeTriggerHeight);
 
   // Position the resume-trigger margin based on the envelope-bottom height
   resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
-  $('.resume-trigger').css('margin-bottom', resumeTriggerOffset);
+  $resumeTrigger.css('margin-bottom', resumeTriggerOffset);
 
   if (typeof callback === 'function') {
     callback();
@@ -125,7 +128,7 @@ $('textarea').autosize();
 // ----------------------------------------------------------------------
 
 // Returns an array of items in the portfolio section
-var $itemArray = $('#portfolio').children('.portfolio-item');
+var $itemArray = $portfolio.children('.portfolio-item');
 
 // Returns the correct row to append panel to
 var appendItem = function(portfolioItemButton, panel) {
@@ -134,20 +137,22 @@ var appendItem = function(portfolioItemButton, panel) {
   var $portfolioItem = portfolioItemButton.closest('.portfolio-item');
 
   // Calculates number of items in row by dividing window width by width of item
-  var itemsInRow = Math.round($(window).width() / $($portfolioItem).width());
+  var itemsInRow = Math.round($(window).width() / $portfolioItem.width());
 
   // Finds the row by dividing the index of the item by the number of items in a row and rounding up
-  var rowOfItem = Math.ceil(($($itemArray).index($portfolioItem) + 1) / itemsInRow);
+  var rowOfItem = Math.ceil(($itemArray.index($portfolioItem) + 1) / itemsInRow);
 
   // Find the project correct item to append to within the item array and append the panel
-  $($itemArray[itemsInRow * rowOfItem - 1]).append().after(panel);
+  $itemArray[itemsInRow * rowOfItem - 1].append().after(panel);
 };
 
 // Checks if there are any open panels
 var isPanelOpen = function() {
+  var $openPanel = $portfolio.children('.open');
+
   // Returns ID of panel if a panel is open
-  if ($('#portfolio').children('.open').length > 0) {
-    return $('#portfolio').children('.open');
+  if ($openPanel.length > 0) {
+    return $openPanel;
   }
   // Returns false if no panels are open
   else {
@@ -158,36 +163,36 @@ var isPanelOpen = function() {
 // Bind function to button click
 $('.portfolio-item a').click(function() {
   // Returns panel that corresponds to the buttons data-target
-  var $panel = $('#portfolio').children($(this).attr('data-target'));
+  var $panel = $portfolio.children($(this).attr('data-target'));
 
   // IF: Button clicked corresponds to a panel and no panels are already open, open panel
   if (isPanelOpen() === false) {
     appendItem(this, $panel);
-    $($panel).addClass('open').slideToggle(300);
+    $panel.addClass('open').slideToggle(300);
   }
 
   // ELSE IF: Button clicked corresponds to a panel that is already open
-  else if ($(isPanelOpen()).attr('id') === $($panel).attr('id')) {
-    $($panel).removeClass('open').slideToggle(300);
+  else if (isPanelOpen().attr('id') === $panel.attr('id')) {
+    $panel.removeClass('open').slideToggle(300);
   }
 
   // ELSE IF: Button clicked corresponds to a different panel and a panel is open
-  else if (isPanelOpen() && $(isPanelOpen()).attr('id') !== $($panel).attr('id')) {
+  else if (isPanelOpen() && isPanelOpen().attr('id') !== $panel.attr('id')) {
     appendItem(this, $panel);
     $(isPanelOpen()).removeClass('open').slideToggle(300, function() {
-      $($panel).addClass('open').slideToggle(300);
-    })
+      $panel.addClass('open').slideToggle(300);
+    });
   }
 });
 
 // Close all open or collapsing panels on resize of window
 $(window).on('resize', function () {
-  $(isPanelOpen()).removeClass('open').slideToggle(300);
+  isPanelOpen().removeClass('open').slideToggle(300);
 });
 
 // Bind x-button to closing the open panel
 $('.x-button').click(function () {
-  $(isPanelOpen()).removeClass('open').slideToggle(300);
+  isPanelOpen().removeClass('open').slideToggle(300);
 });
 
 // ScrollMagic - Navigation
