@@ -83,9 +83,15 @@ var hideResumeGradient = function() {
 
 // GSAP - Animate opacity on download or linkedin button hover (opacity - hardware accelerated)
 // ----------------------------------------------------------------------
-$resumeButtonDownload.hover(function() {showResumeGradient()}, function() {hideResumeGradient()});
+$resumeButtonDownload.hover(
+  function() {showResumeGradient();},
+  function() {hideResumeGradient();}
+);
 
-$('.resume-button-linkedin').hover(function() {showResumeGradient()}, function() {hideResumeGradient()});
+$('.resume-button-linkedin').hover(
+  function() {showResumeGradient();},
+  function() {hideResumeGradient();}
+);
 
 // Makes all the fun js effects completely responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
@@ -160,6 +166,14 @@ var isPanelOpen = function() {
   }
 };
 
+var openPanel = function($panel) {
+  $panel.addClass('open').slideToggle(300);
+};
+
+var closePanel = function($panel) {
+  $panel.removeClass('open').slideToggle(300);
+};
+
 // Bind function to button click
 $('.portfolio-item a').click(function() {
   // Returns panel that corresponds to the buttons data-target
@@ -168,26 +182,26 @@ $('.portfolio-item a').click(function() {
   // IF: Button clicked corresponds to a panel and no panels are already open, open panel
   if (isPanelOpen() === false) {
     appendItem(this, $panel);
-    $panel.addClass('open').slideToggle(300);
+    openPanel($panel);
   }
 
   // ELSE IF: Button clicked corresponds to a panel that is already open
   else if (isPanelOpen().attr('id') === $panel.attr('id')) {
-    $panel.removeClass('open').slideToggle(300);
+    closePanel($panel);
   }
 
   // ELSE IF: Button clicked corresponds to a different panel and a panel is open
   else if (isPanelOpen() && isPanelOpen().attr('id') !== $panel.attr('id')) {
     appendItem(this, $panel);
     $(isPanelOpen()).removeClass('open').slideToggle(300, function() {
-      $panel.addClass('open').slideToggle(300);
+      openPanel($panel);
     });
   }
 });
 
 // Bind x-button to closing the open panel
 $('.x-button').click(function () {
-  isPanelOpen().removeClass('open').slideToggle(300);
+  closePanel(isPanelOpen());
 });
 
 // ScrollMagic - Navigation
@@ -348,6 +362,6 @@ $(window).on('resize', function () {
     responsiveParallax();
 
     // Close all open or collapsing panels on resize of window
-    isPanelOpen().removeClass('open').slideToggle(300);
+    closePanel(isPanelOpen());
   }
 });
