@@ -317,24 +317,6 @@ new ScrollMagic.Scene({
 
 // On document ready align elements
 // ----------------------------------------------------------------------
-$(document).on('ready', function() {
-  positionElements(function() {
-    $('#resume-element').css('top', -$resumeElementHeight);
-    $('#browser-designer-element').css('top', -$designerElementHeight);
-  });
-  responsiveParallax();
-});
-
-// Tests against width since iOS safari is evil and calls onOrientationChange
-// ----------------------------------------------------------------------
-$(window).on('resize', function () {
-  if ($(window).width() !== $windowWidth) {
-    positionElements();
-    responsiveParallax();
-  }
-});
-
-
 var responsiveParallax = function() {
   if ($(window).width() <= 768) {
     // Removes parallax animation
@@ -355,3 +337,19 @@ var responsiveParallax = function() {
   }
 };
 
+$(document).on('ready', function() {
+  positionElements(function() {
+    $('#resume-element').css('top', -$resumeElementHeight);
+    $('#browser-designer-element').css('top', -$designerElementHeight);
+  });
+  responsiveParallax();
+});
+
+// Tests against width since iOS safari is evil and calls onOrientationChange
+// ----------------------------------------------------------------------
+$(window).on('resize', function () {
+  if ($(window).width() !== $windowWidth) {
+    positionElements();
+    responsiveParallax();
+  }
+});
