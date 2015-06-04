@@ -10,6 +10,8 @@ var $portfolio = $('#portfolio');
 var $envelopeBottom = $('#envelope-bottom');
 var $resumeTrigger = $('.resume-trigger');
 var $resumeButtonDownload = $('.resume-button-download');
+var $submitButton = $('.submit-button');
+var $submitButtonIcon = $('.submit-button i');
 
 // Heights of elements
 var $navHeight = $('.nav-trigger').outerHeight(true);
@@ -32,8 +34,8 @@ var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeEl
 // ----------------------------------------------------------------------
 $('#contact-form').submit(function(event){
 
-  $('.submit-button').text(' SENDING');
-  $('.submit-button i').removeClass('fa-paper-plane').addClass('fa-cog').addClass('fa-spin');
+  $submitButton.text(' SENDING');
+  $submitButtonIcon.removeClass('fa-paper-plane').addClass('fa-cog').addClass('fa-spin');
 
   event.preventDefault();
   var postData = $(this).serializeArray();
@@ -44,13 +46,13 @@ $('#contact-form').submit(function(event){
     datatype: 'JSON',
     data: postData,
     success: function() {
-      $('.submit-button').text(' SENT!');
-      $('.submit-button i').removeClass('fa-cog').addClass('fa-check');
+      $submitButton.text(' SENT!');
+      $submitButtonIcon.removeClass('fa-cog').removeClass('.fa-spin').addClass('fa-check');
       document.getElementById('contact-form').reset();
     },
     error: function() {
-      $('.submit-button').text(' ERROR SENDING');
-      $('.submit-button i').removeClass('fa-cog').addClass('fa-times');
+      $submitButton.text(' ERROR SENDING');
+      $submitButtonIcon.removeClass('fa-cog').removeClass('.fa-spin').addClass('fa-times');
       document.getElementById('contact-form').reset();
     }
   });
@@ -71,7 +73,6 @@ TweenMax.to('.developer-gradient', 10, {x: $windowWidth + 600, repeat: -1, yoyo:
 
 // GSAP - Animate opacity
 // ----------------------------------------------------------------------
-
 var showResumeGradient = function() {
   return TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
 };
