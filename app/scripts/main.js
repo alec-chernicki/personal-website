@@ -73,19 +73,18 @@ TweenMax.to('.developer-gradient', 10, {x: $windowWidth + 600, repeat: -1, yoyo:
 // ----------------------------------------------------------------------
 
 var showResumeGradient = function() {
-  TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
+  return TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
 };
 
 var hideResumeGradient = function() {
-  TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
+  return TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
 };
-
 
 // GSAP - Animate opacity on download or linkedin button hover (opacity - hardware accelerated)
 // ----------------------------------------------------------------------
-$resumeButtonDownload.hover(showResumeGradient(), hideResumeGradient());
+$resumeButtonDownload.hover(function() {showResumeGradient()}, function() {hideResumeGradient()});
 
-$('.resume-button-linkedin').hover(showResumeGradient(), hideResumeGradient());
+$('.resume-button-linkedin').hover(function() {showResumeGradient()}, function() {hideResumeGradient()});
 
 // Makes all the fun js effects completely responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
@@ -183,11 +182,6 @@ $('.portfolio-item a').click(function() {
       $panel.addClass('open').slideToggle(300);
     });
   }
-});
-
-// Close all open or collapsing panels on resize of window
-$(window).on('resize', function () {
-  isPanelOpen().removeClass('open').slideToggle(300);
 });
 
 // Bind x-button to closing the open panel
@@ -351,5 +345,8 @@ $(window).on('resize', function () {
   if ($(window).width() !== $windowWidth) {
     positionElements();
     responsiveParallax();
+
+    // Close all open or collapsing panels on resize of window
+    isPanelOpen().removeClass('open').slideToggle(300);
   }
 });
