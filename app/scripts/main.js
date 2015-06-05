@@ -81,7 +81,7 @@ var hideResumeGradient = function() {
   return TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
 };
 
-// GSAP - Animate opacity on download or linkedin button hover (opacity - hardware accelerated)
+// GSAP - Animate opacity on button hover (opacity - hardware accelerated)
 // ----------------------------------------------------------------------
 $resumeButtonDownload
   .mouseenter(function() {
@@ -335,20 +335,16 @@ new ScrollMagic.Scene({
 var responsiveParallax = function() {
   if ($(window).width() <= 768) {
     // Removes parallax animation
-    designerHeaderScene.remove(true);
-    developerHeaderScene.remove(true);
-    resumeHeaderScene.remove(true);
+    headerController.removeScene([designerHeaderScene, developerHeaderScene, resumeHeaderScene]);
 
-    // Progresses animation to starting point
+    // Progresses animation to starting point, can't bundle these up unfortunately
     designerHeaderScene.progress(0.5);
     developerHeaderScene.progress(0.5);
     resumeHeaderScene.progress(0.5);
   }
   else {
     // Adds parallax effect back to ScrollMagic controller
-    designerHeaderScene.addTo(headerController);
-    developerHeaderScene.addTo(headerController);
-    resumeHeaderScene.addTo(headerController);
+    headerController.addScene([designerHeaderScene, developerHeaderScene, resumeHeaderScene]);
   }
 };
 
