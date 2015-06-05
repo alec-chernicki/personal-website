@@ -140,7 +140,7 @@ var $itemArray = $portfolio.children('.portfolio-item');
 var appendItem = function(portfolioItemButton, panel) {
 
   // Stores the closest portfolio item object
-  var $portfolioItem = portfolioItemButton.closest('.portfolio-item');
+  var $portfolioItem = $(portfolioItemButton).closest('.portfolio-item');
 
   // Calculates number of items in row by dividing window width by width of item
   var itemsInRow = Math.round($(window).width() / $portfolioItem.width());
@@ -149,7 +149,7 @@ var appendItem = function(portfolioItemButton, panel) {
   var rowOfItem = Math.ceil(($itemArray.index($portfolioItem) + 1) / itemsInRow);
 
   // Find the project correct item to append to within the item array and append the panel
-  $itemArray[itemsInRow * rowOfItem - 1].append().after(panel);
+  $($itemArray[itemsInRow * rowOfItem - 1]).append().after(panel);
 };
 
 // Checks if there are any open panels
