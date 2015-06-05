@@ -83,15 +83,21 @@ var hideResumeGradient = function() {
 
 // GSAP - Animate opacity on download or linkedin button hover (opacity - hardware accelerated)
 // ----------------------------------------------------------------------
-$resumeButtonDownload.hover(
-  function() {showResumeGradient();},
-  function() {hideResumeGradient();}
-);
+$resumeButtonDownload
+  .mouseenter(function() {
+    showResumeGradient();
+  })
+  .mouseleave(function() {
+    hideResumeGradient();
+  });
 
-$('.resume-button-linkedin').hover(
-  function() {showResumeGradient();},
-  function() {hideResumeGradient();}
-);
+$('.resume-button-linkedin')
+  .mouseenter(function() {
+    showResumeGradient();
+  })
+  .mouseleave(function() {
+    hideResumeGradient();
+  });
 
 // Makes all the fun js effects completely responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
