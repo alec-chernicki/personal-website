@@ -124,7 +124,7 @@ block content
             p No one is going to remember how you made something as much as they are the way that you made them feel afterwards. Design should always be created with the user's perspective and the feeling that you wish to envoke in mind.
 
 
-  #resume.clearfix
+  #resume
     .resume-gradient
     .resume-overlay
     #resume-header.section-header-container
@@ -134,8 +134,14 @@ block content
     .section-container.clearfix
       .large-container
         .col-md-3.column
-          .resume-card-one.hidden-xs.hidden-sm
-          .resume-card-two.hidden-xs.hidden-sm
+          .resume-card-container.hidden-xs.hidden-sm
+            .resume-card
+              figure.resume-card-front
+              figure.resume-card-back
+          .resume-card-container.hidden-xs.hidden-sm
+            .resume-card
+              figure.resume-card-front
+              figure.resume-card-back
         .col-md-6.resume-column
           #resume-download-wrapper
             a.button.resume-button-download(href='/resume')

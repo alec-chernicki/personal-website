@@ -140,6 +140,7 @@ i {
 
 .nav-element {
   background-color: #FFF;
+  @include box-shadow;
 
   .navbar-brand {
     background-image: url('/images/logo_dark.svg');
@@ -154,7 +155,6 @@ i {
     }
   }
 
-  // TODO: DRY THIS UP
   #full-navigation {
     a {
       &:after {
@@ -447,23 +447,63 @@ i {
     margin: 50px 0;
   }
 
-  .resume-card-one, .resume-card-two {
-    @include box-shadow;
-    margin: 0 auto;
+  .resume-card-container {
+    margin: 50px auto 0;
+    perspective: 1250px;
     padding-top: 120%;
     width: 70%;
+
+    &:first-child {
+      margin-top: 250px;
+    }
+
+    &:nth-child(2) .resume-card {
+      & .resume-card-front {
+        background: url('/images/card-back.png');
+        background-size: cover;
+        @include box-shadow;
+      }
+
+      & .resume-card-back {
+        background: url('/images/card-front.png');
+        background-size: cover;
+        @include box-shadow;
+        transform: rotateY( 180deg );
+      }
+    }
   }
 
-  .resume-card-one {
-    background: url('/images/card-front.png');
-    background-size: cover;
-    margin-top: 250px;
-  }
+  .resume-card {
+    position: absolute;
+    transform-style: preserve-3d;
+    top: 0;
+    left: 0;
+    @include size(100%, 100%);
+    transition: transform 0.75s;
 
-  .resume-card-two {
-    background: url('/images/card-back.png');
-    background-size: cover;
-    margin-top: 40px;
+    & figure {
+      backface-visibility: hidden;
+      display: block;
+      position: absolute;
+      @include size(100%, 100%);
+    }
+
+    &:hover {
+      transform: rotateY( 180deg );
+    }
+
+    & .resume-card-front {
+      background: url('/images/card-front.png');
+      background-size: cover;
+      @include box-shadow;
+    }
+
+    & .resume-card-back {
+      background: url('/images/card-back.png');
+      background-size: cover;
+      @include box-shadow;
+      transform: rotateY( 180deg );
+    }
   }
 
   .resume-moleskin {

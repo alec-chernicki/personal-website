@@ -18,7 +18,7 @@ var $navHeight = $('.nav-trigger').outerHeight(true);
 var $aboutHeight = $('#about').outerHeight(true);
 var $developerHeight = $('#developer').outerHeight(true);
 var $designerHeight = $('#designer').outerHeight(true);
-var $resumeHeight = $('#resume').height();
+var $resumeHeight = $('#resume').innerHeight();
 var $portfolioHeight = $portfolio.outerHeight(true);
 var $contactHeight = $('#contact').outerHeight(true);
 var $designerElementHeight = $('#browser-designer-element').height();
@@ -238,7 +238,7 @@ new ScrollMagic.Scene({
 // Initialize for about link
 navigationScrollMagic($aboutHeight + $developerHeight + $designerHeight - $navHeight, '#about', '.about-link');
 // Initialize for resume link
-navigationScrollMagic($resumeHeight, '#resume-header', '.resume-link');
+navigationScrollMagic($('#resume').height(), '#resume-header', '.resume-link');
 // Initialize for portfolio link
 navigationScrollMagic($portfolioHeight, '#portfolio', '.portfolio-link');
 // Initialize for contact link
