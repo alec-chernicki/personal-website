@@ -69,7 +69,7 @@ i {
   background-color: $background-dark-blue;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6),
                                     rgba(0, 0, 0, 0.6)),
-                    url("http://res.cloudinary.com/alecoortega/image/upload/v1430102636/desk_yrtsmg.jpg");
+                    url("http://res.cloudinary.com/alecoortega/image/upload/q_40/v1430102636/desk_yrtsmg.jpg");
   background-position: center;
   background-size: cover;
   min-height: 500px;
@@ -145,6 +145,7 @@ i {
   .navbar-brand {
     background-image: url('/images/logo_dark.svg');
     color: $text-dark;
+    font-weight: $weight-important;
   }
 
   li a {
@@ -765,7 +766,7 @@ i {
   .company-name,
   .tools-used {
     font-size: $paragraph-text;
-    font-weight: $secondary-title-weight;
+    font-weight: $weight-light;
     color: $background-light-blue;
     letter-spacing: 0.6px;
   }
@@ -979,6 +980,7 @@ i {
     font-size: 14px;
     text-align: center;
     left: 0;
+    font-weight: $weight-light;
 
     @include breakpoint($medium-breakpoint) {
       left: inherit;
@@ -987,10 +989,10 @@ i {
 
     a {
       transition: $short-transition;
-      font-family: "Raleway";
       font-size: 14px;
+      font-family: $raleway;
       letter-spacing: 0.6px;
-      font-weight: 300;
+      font-weight: $weight-light;
 
       &:hover {
         color: $background-light-blue;
@@ -1032,7 +1034,7 @@ i {
 
   a {
     color: $text-light;
-    font-weight: 300;
+    font-weight: $weight-light;
     display: inline-block;
     letter-spacing: 0.6px;
     font-size: 14px;
