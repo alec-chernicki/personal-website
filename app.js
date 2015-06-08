@@ -39,6 +39,7 @@ app.use(express.static('dist'));
  * GET: Respond with rendering index page
  */
 app.get('/', function (req, res) {
+  res.header('Cache-Control', 'public, max-age=86400');
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
 
