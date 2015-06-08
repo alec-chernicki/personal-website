@@ -11,7 +11,7 @@ html.no-js
 
     // build:css styles/vendor.css
     // bower:css
-    link(rel='stylesheet', href='/bower_components/normalize.css/normalize.css')
+    link(rel='stylesheet', href='/bower_components/normalize.css/normalize.css', type='text/css')
     // endbower
     // endbuild
 
@@ -44,7 +44,7 @@ html.no-js
       document.write("<script type='text/javascript' src='" + scJsHost+ "statcounter.com/counter/counter.js'></"+"script>");
 
     // build:js scripts/vendor.js
-      
+
     script(src='/bower_components/jquery/dist/jquery.js')
     script(src='/bower_components/gsap/src/uncompressed/TweenMax.js')
     script(src='/bower_components/gsap/src/uncompressed/TimelineMax.js')
@@ -52,14 +52,11 @@ html.no-js
     script(src='/bower_components/jquery-smooth-scroll/jquery.smooth-scroll.js')
     script(src='/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js')
     script(src='/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js')
-    script(src='/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js')
 
     // endbuild
 
     // build:js scripts/plugins.js
-    script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/dropdown.js')
     script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js')
-    script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js')
     script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js')
     script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js')
     script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js')
