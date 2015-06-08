@@ -4,6 +4,6 @@ node_modules
 bower_components
 test/bower_components
 .awspublish-*
-npm-debug.log
+npm-debug.logging
 .idea/workspace.xml
-dist
+app

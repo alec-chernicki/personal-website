@@ -38,6 +38,7 @@
     "autoprefixer-core": "^5.2.0",
     "body-parser": "^1.12.3",
     "cloudinary": "^1.2.1",
+    "compression": "^1.4.4",
     "connect-assets": "^4.7.0",
     "express": "^4.12.3",
     "express-validator": "^2.9.0",

@@ -50,12 +50,12 @@ i {
 }
 
 .gear {
-  background: url('/images/gear_icon.svg');
+  background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_600/v1433742601/gear_icon_ssd59j.svg');
   position: absolute;
 }
 
 .gear-dark {
-  background: url('/images/gear_icon_dark.svg');
+  background: url('http://res.cloudinary.com/alecoortega/image/upload/q_40/v1433742629/gear_icon_dark_jkq40y.svg');
   position: absolute;
 }
 
@@ -69,7 +69,7 @@ i {
   background-color: $background-dark-blue;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6),
                                     rgba(0, 0, 0, 0.6)),
-                    url("http://res.cloudinary.com/alecoortega/image/upload/v1430102636/desk_yrtsmg.jpg");
+                    url('http://res.cloudinary.com/alecoortega/image/upload/fl_progressive,q_40/v1430102636/desk_yrtsmg.jpg');
   background-position: center;
   background-size: cover;
   min-height: 500px;
@@ -121,8 +121,9 @@ i {
 
     // TODO: Again this is a repeat
     .navbar-brand {
-      background-image: url('/images/logo.svg');
+      background-image: url('http://res.cloudinary.com/alecoortega/image/upload/v1433742938/logo_q4yhrv.svg');
       color: #FFF;
+      font-weight: $weight-important;
     }
   }
 }
@@ -143,8 +144,9 @@ i {
   @include box-shadow;
 
   .navbar-brand {
-    background-image: url('/images/logo_dark.svg');
+    background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_20,w_300/v1433742896/logo_dark_nxlkcb.svg');
     color: $text-dark;
+    font-weight: $weight-important;
   }
 
   li a {
@@ -508,7 +510,7 @@ i {
 
   .resume-moleskin {
     @include box-shadow;
-    background: url('/images/moleskin.png');
+    background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_10,w_400/v1433742719/moleskin_bqe1ao.png');
     background-size: cover;
     border-radius: 5px 25px 25px 5px;
     padding-top: 157.5%;
@@ -559,7 +561,7 @@ i {
   }
 
   .resume-overlay {
-    background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('/images/circuit_background.svg');
+    background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_2000/v1433742501/circuit_background_p3h03h.svg');
     background-repeat: no-repeat,repeat-y;
     background-size: auto, contain;
     bottom: 0;
@@ -583,7 +585,7 @@ i {
   }
 
   .resume-yoyo-body {
-    background: url('/images/yoyo-body.png');
+    background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_400/v1433742408/yoyo-body_oi1lac.png');
     background-size: cover;
     border-radius: 50%;
     bottom: 5%;
@@ -600,7 +602,7 @@ i {
   }
 
   .resume-yoyo-string {
-    background: url('/images/yoyo-string.png');
+    background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_29,w_400/v1433742408/yoyo-string_vij27n.png');
     background-size: cover;
     position: absolute;
     top: 8%;
@@ -765,7 +767,7 @@ i {
   .company-name,
   .tools-used {
     font-size: $paragraph-text;
-    font-weight: $secondary-title-weight;
+    font-weight: $weight-light;
     color: $background-light-blue;
     letter-spacing: 0.6px;
   }
@@ -979,6 +981,7 @@ i {
     font-size: 14px;
     text-align: center;
     left: 0;
+    font-weight: $weight-light;
 
     @include breakpoint($medium-breakpoint) {
       left: inherit;
@@ -987,10 +990,10 @@ i {
 
     a {
       transition: $short-transition;
-      font-family: "Raleway";
       font-size: 14px;
+      font-family: $raleway;
       letter-spacing: 0.6px;
-      font-weight: 300;
+      font-weight: $weight-light;
 
       &:hover {
         color: $background-light-blue;
@@ -1032,7 +1035,7 @@ i {
 
   a {
     color: $text-light;
-    font-weight: 300;
+    font-weight: $weight-light;
     display: inline-block;
     letter-spacing: 0.6px;
     font-size: 14px;
