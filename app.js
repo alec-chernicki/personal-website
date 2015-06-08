@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var compress = require('compression');
 var expressValidator = require('express-validator');
 var sgTransport = require('nodemailer-sendgrid-transport');
 var nodemailer = require('nodemailer');
@@ -24,6 +25,7 @@ var app = express();
  */
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'dist'));
+app.use(compress());
 app.use(favicon(__dirname + '/dist/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
