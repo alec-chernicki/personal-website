@@ -101,6 +101,8 @@ $('.resume-button-linkedin')
 
 // Makes all the fun js effects completely responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
+
+// Super janky, will find way to refactor later
 var positionElements = function(callback) {
   $envelopeTopHeight = $('#envelope-top').height();
   $resumeElementHeight = $('#resume-element').height();
@@ -119,9 +121,6 @@ var positionElements = function(callback) {
   resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $resumeTrigger.css('margin-bottom', resumeTriggerOffset);
 
-  if (typeof callback === 'function') {
-    callback();
-  }
 };
 
 // Smooth Scrolling to all 'a' tags
@@ -135,6 +134,9 @@ window.jQuery.fn.autosize = function() {
 };
 
 $('textarea').autosize();
+
+// Bind slick to carousels
+// ----------------------------------------------------------------------
 
 // Fancy responsive portfolio panel
 // ----------------------------------------------------------------------
@@ -173,11 +175,22 @@ var isPanelOpen = function() {
 };
 
 var openPanel = function($panel) {
-  $panel.addClass('open').slideToggle(300);
+  $panel.addClass('open')
+    .slideToggle(300)
+    .find('.carousel')
+    .slick({
+      autoplay: true,
+      dots: true,
+      infinite: true,
+      lazyLoad: 'progressive'
+    });
 };
 
 var closePanel = function($panel) {
-  $panel.removeClass('open').slideToggle(300);
+  $panel.removeClass('open')
+    .slideToggle(300)
+    .find('carousel')
+    .unslick();
 };
 
 // Bind function to button click
@@ -238,7 +251,7 @@ new ScrollMagic.Scene({
 // Initialize for about link
 navigationScrollMagic($aboutHeight + $developerHeight + $designerHeight - $navHeight, '#about', '.about-link');
 // Initialize for resume link
-navigationScrollMagic($('#resume').height(), '#resume-header', '.resume-link');
+navigationScrollMagic($resumeHeight, '#resume-header', '.resume-link');
 // Initialize for portfolio link
 navigationScrollMagic($portfolioHeight, '#portfolio', '.portfolio-link');
 // Initialize for contact link
@@ -349,21 +362,41 @@ var responsiveParallax = function() {
 };
 
 $(document).on('ready', function() {
-  positionElements(function() {
+  positionElements();
     $('#resume-element').css('top', -$resumeElementHeight);
     $('#browser-designer-element').css('top', -$designerElementHeight);
-  });
   responsiveParallax();
 });
 
+
+// Debounce for resize event
+// ----------------------------------------------------------------------
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
 // Tests against width since iOS safari is evil and calls onOrientationChange
 // ----------------------------------------------------------------------
-$(window).on('resize', function () {
-  if ($(window).width() !== $windowWidth) {
-    positionElements();
-    responsiveParallax();
+$(window).on('resize',
+  debounce (function() {
+    if ($(window).width() !== $windowWidth) {
 
-    // Close all open or collapsing panels on resize of window
-    closePanel(isPanelOpen());
-  }
-});
+      positionElements();
+      responsiveParallax();
+
+      // Close all open or collapsing panels on resize of window
+      closePanel(isPanelOpen());
+    }
+  }, 250)
+);
