@@ -85,9 +85,10 @@
 // Defines style for every section container
 // ----------------------------------------------------------------------
 .section-container {
-  width: 100%;
+  overflow: hidden;
   padding: 50px 15px;
   position: relative;
+  width: 100%;
   z-index: 100;
 
   @include breakpoint($small-breakpoint) {

@@ -67,9 +67,9 @@ i {
 // ----------------------------------------------
 .hero {
   background-color: $background-dark-blue;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6),
-                                    rgba(0, 0, 0, 0.6)),
-                    url('http://res.cloudinary.com/alecoortega/image/upload/fl_progressive,q_40/v1430102636/desk_yrtsmg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4),
+                                    rgba(0, 0, 0, 0.5)),
+                    url('http://wallpaper-download.net/wallpapers/beach-wallpapers-blue-ocean-waves-wallpaper-36890.jpg');
   background-position: center;
   background-size: cover;
   min-height: 500px;
@@ -94,7 +94,7 @@ i {
 
   .hero-arrow {
     @include absolute-horizontal-center;
-    background: url('/images/down_arrow.svg') no-repeat;
+    background: url('http://res.cloudinary.com/alecoortega/image/upload/v1433744075/down_arrow_phzt3h.svg') no-repeat;
     bottom: 30px;
     @include fadeInUp;
     @include size(40px, 15px);
@@ -239,7 +239,7 @@ i {
 }
 
 #browser-developer-trigger,
-#resume-trigger {
+.resume-trigger {
   height: 1000px;
   position: relative;
   margin: 0 auto;
@@ -328,7 +328,7 @@ i {
 }
 
 .developer-overlay {
-  background: url('/images/grid_background.svg') repeat;
+  background: url('http://res.cloudinary.com/alecoortega/image/upload/v1433744037/grid_background_nji1a6.svg') repeat;
   background-size: 80px 80px;
   bottom: 0;
   left: 0;
@@ -573,11 +573,6 @@ i {
 
   .resume-trigger {
     min-height: 450px;
-    overflow: hidden;
-    position: relative;
-    @include size(1400px, 100%);
-    height: 1400px;
-    width: 100%;
 
     img {
       width: 100%;
@@ -783,22 +778,6 @@ i {
 
   .carousel {
     box-shadow: 0 0 0 15px #FFF, 0 0 0 16px $border-color;
-  }
-
-  .carousel-indicators {
-    bottom: -60px;
-
-    li {
-      width: 13px;
-      height: 13px;
-      margin: 5px;
-      border: 1px solid $text-light;
-
-      &.active {
-        margin: 5px;
-        background-color: $text-light;
-      }
-    }
   }
 
   .x-button {
