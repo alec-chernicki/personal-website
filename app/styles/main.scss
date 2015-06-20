@@ -642,6 +642,21 @@ i {
 
 // Portfolio
 // ----------------------------------------------
+#portfolio {
+  width: 100%;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #999;
+}
+.slick-prev {
+  left: -40px;
+}
+
+.slick-next {
+  right: -40px;
+}
+
 #portfolio-item-1 {
   background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_750/v1430102695/project-1_ninjg5.png');
 }
@@ -670,19 +685,17 @@ i {
 
   @include breakpoint($small-breakpoint) {
     height: 50vw;
-    width: 50vw;
+    width: 50%;
   }
 
   @include breakpoint($medium-breakpoint) {
     height: 33.3333vw;
-    height: calc(100vw / 3);
-    width: 33.3333vw;
-    width: calc(100vw / 3);
+    width: 33.3333%;
   }
 
   @include breakpoint($large-breakpoint) {
     height: 25vw;
-    width: 25vw;
+    width: 25%;
   }
 }
 
