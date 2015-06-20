@@ -121,6 +121,7 @@ var positionElements = function(callback) {
   resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $resumeTrigger.css('margin-bottom', resumeTriggerOffset);
 
+
 };
 
 // Smooth Scrolling to all 'a' tags
@@ -179,10 +180,9 @@ var openPanel = function($panel) {
     .slideToggle(300)
     .find('.carousel')
     .slick({
-      autoplay: true,
+      adaptiveHeight: true,
       dots: true,
-      infinite: true,
-      lazyLoad: 'progressive'
+      infinite: true
     });
 };
 
@@ -398,5 +398,5 @@ $(window).on('resize',
       // Close all open or collapsing panels on resize of window
       closePanel(isPanelOpen());
     }
-  }, 250)
+  }, 100)
 );
