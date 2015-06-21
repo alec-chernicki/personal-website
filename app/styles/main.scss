@@ -225,6 +225,8 @@ i {
   margin: 0 auto;
   left: 0;
   right: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
 }
 
 #browser-developer-element,
@@ -247,10 +249,14 @@ i {
 }
 
 #browser-designer-trigger {
-  height: 1150px;
+  height: 1200px;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
+}
+
+#browser-developer-trigger {
+  height: 975px;
 }
 
 #browser-designer-element {
@@ -364,6 +370,12 @@ i {
 
   p {
     color: #999;
+  }
+
+  .column {
+    @include breakpoint($medium-breakpoint) {
+      margin-bottom: 150px;
+    }
   }
 
   #gear-one {
@@ -561,9 +573,10 @@ i {
   }
 
   .resume-overlay {
-    background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_2000/v1433742501/circuit_background_p3h03h.svg');
-    background-repeat: no-repeat,repeat-y;
-    background-size: auto, contain;
+    background-image: linear-gradient(0deg, #FFF, rgba(255,255,255, 0) 50%), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_2000/v1433742501/circuit_background_p3h03h.svg');
+    background-repeat: no-repeat,repeat;
+    background-size: auto, 50%;
+    background-position: -1px 0;
     bottom: 0;
     left: 0;
     position: absolute;
@@ -598,9 +611,10 @@ i {
 
   .resume-yoyo-string {
     background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_29,w_400/v1433742408/yoyo-string_vij27n.png');
-    background-size: cover;
+    background-size: 90%;
+    background-repeat: no-repeat;
     position: absolute;
-    top: 8%;
+    top: 6%;
     left: 27%;
     right: 0;
     bottom: 8%;

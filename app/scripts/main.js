@@ -181,16 +181,24 @@ var openPanel = function($panel) {
     .find('.carousel')
     .slick({
       adaptiveHeight: true,
+      autoplay: true,
       dots: true,
-      infinite: true
+      infinite: true,
+      lazyLoad: 'progressive',
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false
+          }
+        }
+      ]
     });
 };
 
 var closePanel = function($panel) {
   $panel.removeClass('open')
     .slideToggle(300)
-    .find('carousel')
-    .unslick();
 };
 
 // Bind function to button click
@@ -317,11 +325,11 @@ new ScrollMagic.Scene({
 var browserDesignerController = new ScrollMagic.Controller();
 
 var designerTweenTimeline = new TimelineMax()
-  .add(TweenMax.to('#browser-designer-element', 1, {y:2000, ease:Linear.easeNone}));
+  .add(TweenMax.to('#browser-designer-element', 1, {y:2100, ease:Linear.easeNone}));
 
 new ScrollMagic.Scene({
   triggerElement: '#browser-designer-trigger',
-  duration: 2000,
+  duration: 2100,
   offset: -$navHeight - 50 - $designerElementHeight,
   triggerHook: 'onLeave'
 })
