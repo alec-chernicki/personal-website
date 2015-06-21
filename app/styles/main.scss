@@ -21,7 +21,7 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: $raleway;
+  font-family: $gotham;
   height: 100%;
 }
 
@@ -81,11 +81,10 @@ i {
     color: #FFF;
     font-size: 3.15em;
     @include fadeInUp;
-    font-weight: $primary-title-weight;
+    font-weight: $weight-regular;
     line-height: 1.25em;
     margin: 0 0 15px 0;
     letter-spacing: 3px;
-    -webkit-font-smoothing: antialiased;
 
     @include breakpoint($small-breakpoint) {
       font-size: 60px;
@@ -225,6 +224,8 @@ i {
   margin: 0 auto;
   left: 0;
   right: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
 }
 
 #browser-developer-element,
@@ -247,10 +248,14 @@ i {
 }
 
 #browser-designer-trigger {
-  height: 1150px;
+  height: 1200px;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
+}
+
+#browser-developer-trigger {
+  height: 975px;
 }
 
 #browser-designer-element {
@@ -364,6 +369,12 @@ i {
 
   p {
     color: #999;
+  }
+
+  .column {
+    @include breakpoint($medium-breakpoint) {
+      margin-bottom: 150px;
+    }
   }
 
   #gear-one {
@@ -535,7 +546,7 @@ i {
     }
 
     h3 {
-      font-weight: $primary-title-weight;
+      font-weight: $weight-regular;
       font-size: 20px;
       letter-spacing: 1px;
       margin: 40px auto;
@@ -561,9 +572,10 @@ i {
   }
 
   .resume-overlay {
-    background-image: linear-gradient(0deg, $background-light-grey, rgba(255,255,255, 0) 50%), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_2000/v1433742501/circuit_background_p3h03h.svg');
-    background-repeat: no-repeat,repeat-y;
-    background-size: auto, contain;
+    background-image: linear-gradient(0deg, #FFF, rgba(255,255,255, 0) 50%), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_2000/v1433742501/circuit_background_p3h03h.svg');
+    background-repeat: no-repeat,repeat;
+    background-size: auto, 50%;
+    background-position: -1px 0;
     bottom: 0;
     left: 0;
     position: absolute;
@@ -598,9 +610,10 @@ i {
 
   .resume-yoyo-string {
     background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_29,w_400/v1433742408/yoyo-string_vij27n.png');
-    background-size: cover;
+    background-size: 90%;
+    background-repeat: no-repeat;
     position: absolute;
-    top: 8%;
+    top: 6%;
     left: 27%;
     right: 0;
     bottom: 8%;
@@ -609,7 +622,7 @@ i {
 
   .resume-yoyo-container {
     padding-left: 116.5%;
-    padding-top: 80%;
+    padding-bottom: 80%;
     position: relative;
     margin: 40px auto 0;
     width: 80%;
@@ -640,192 +653,6 @@ i {
   -webkit-backface-visibility: hidden;
 }
 
-// Portfolio
-// ----------------------------------------------
-#portfolio {
-  width: 100%;
-}
-
-.slick-prev:before, .slick-next:before {
-  color: #999;
-}
-.slick-prev {
-  left: -40px;
-}
-
-.slick-next {
-  right: -40px;
-}
-
-#portfolio-item-1 {
-  background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_750/v1430102695/project-1_ninjg5.png');
-}
-
-#portfolio-item-2 {
-  background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_750/v1430102643/project-2_wuqlwo.png');
-}
-
-#portfolio-item-3 {
-  background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_fill,g_north_west,h_500,w_750/v1430197810/postr3_innrnf.png');
-}
-
-.portfolio-item {
-  background-color: $border-color;
-  transition: $short-transition;
-
-  float: left;
-  height: 50vw;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
-
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @include breakpoint($small-breakpoint) {
-    height: 50vw;
-    width: 50%;
-  }
-
-  @include breakpoint($medium-breakpoint) {
-    height: 33.3333vw;
-    width: 33.3333%;
-  }
-
-  @include breakpoint($large-breakpoint) {
-    height: 25vw;
-    width: 25%;
-  }
-}
-
-.project-button-background {
-  background: rgba(39, 54, 68, 0.75);
-  transition: opacity 0.2s ease-in-out;
-  height: 100%;
-  opacity: 0;
-  -webkit-backface-visibility: hidden;
-
-  &:hover {
-    opacity: 1;
-
-    & .project-button-wrapper {
-      visibility: visible;
-    }
-  }
-}
-
-.project-button-wrapper {
-  @include absolute-all-center;
-  visibility: hidden;
-  transition: none;
-  color: #FFF;
-  text-align: center;
-  height: 90px;
-
-  p {
-    font-weight: $primary-title-weight;
-    font-size: 20px;
-    margin-bottom: 15px;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  // TODO: Repetitive code from button, DRY it up
-  a {
-    display: block;
-    font-weight: $primary-title-weight;
-    padding: 10px 0;
-    border: solid 1px #FFF;
-    letter-spacing: 1.5px;
-    border-radius: 5px;
-    text-align: center;
-    width: 130px;
-    margin: 0 auto;
-    color: #FFF;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #FFF;
-      color: $background-dark-blue;
-    }
-  }
-}
-
-
-
-// Project Info
-// ----------------------------------------------
-.project-info {
-  position: relative;
-  float: left;
-  background-color: $background-light-grey;
-  padding: 100px 0 70px 0;
-  width: 100%;
-  display: none;
-
-  @include breakpoint($medium-breakpoint) {
-    padding: 50px 0 70px 0;
-  }
-
-  .company-name {
-    display: block;
-    margin-bottom: 15px;
-  }
-
-  .company-name,
-  .tools-used {
-    font-size: $paragraph-text;
-    font-weight: $weight-light;
-    color: $background-light-blue;
-    letter-spacing: 0.6px;
-  }
-
-  .tools-used {
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  .tools {
-    display: inline-block;
-  }
-
-  .carousel {
-    box-shadow: 0 0 0 15px #FFF, 0 0 0 16px $border-color;
-  }
-
-  .x-button {
-    background: url('/images/x_button.svg') no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    transition: $short-transition;
-
-    &:hover {
-      transform: rotate(90deg);
-    }
-
-    &:active{
-      transform: rotate(270deg);
-    }
-
-    &:visited {
-      transform: rotate(270deg);
-    }
-  }
-
-  .section-text-container {
-    padding-top: 50px;
-
-    @include breakpoint($medium-breakpoint) {
-      padding-top: 0;
-    }
-  }
-}
-
 // Contact Me
 // ----------------------------------------------
 #contact {
@@ -853,9 +680,8 @@ i {
 .contact-form-container {
 
   h3 {
-    font-weight: $weight-regular;
     font-size: 30px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
   }
 
   // This creates the form animation
@@ -871,7 +697,7 @@ i {
     }
 
     label {
-      -webkit-font-smoothing: antialiased;
+      font-weight: $weight-regular;
     }
 
     form {
@@ -892,7 +718,6 @@ i {
       letter-spacing: 0.6px;
       outline: 0;
       resize: none;
-      transition: height 2s ease-in-out;
       width: 100%;
 
       & + label {
@@ -904,7 +729,6 @@ i {
         opacity: 0;
 
         font-size: 13px;
-        font-weight: 600;
         color: #ccc;
       }
 
@@ -920,32 +744,20 @@ i {
     }
   }
 
-  textarea {
+  .message {
     padding: 1px;
     overflow: hidden;
     word-wrap: break-word;
     height: 22px;
+    transition: height $short-transition;
   }
 
   .button {
-    border: solid 1px $background-light-blue;
-    color: #FFF;
-    font-weight: $primary-title-weight;
     margin: $line-height auto 0;
-    background-color: $background-light-blue;
-    -webkit-font-smoothing: antialiased;
 
     @include breakpoint($medium-breakpoint) {
       width: 225px;
       margin: 40px 0 auto 0;
-    }
-
-    &:hover, &:focus {
-      color: #FFF;
-    }
-
-    &:active {
-      color: #FFF;
     }
   }
 }
@@ -983,7 +795,7 @@ i {
     a {
       transition: $short-transition;
       font-size: 14px;
-      font-family: $raleway;
+      font-family: $gotham;
       letter-spacing: 0.6px;
       font-weight: $weight-light;
 

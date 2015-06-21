@@ -1,6 +1,5 @@
 .navbar {
   transition: $short-transition;
-  font-family: $raleway;
   border-bottom: 1px solid $border-color;
   padding: 10px 0;
   border-radius: 0;
@@ -11,8 +10,7 @@
     color: #FFF;
     font-size: $paragraph-text;
     letter-spacing: 2px;
-    font-weight: $primary-title-weight;
-    -webkit-font-smoothing: antialiased;
+    font-weight: $weight-regular;
 
     &:hover {
       background: inherit;
@@ -28,13 +26,22 @@
   }
 }
 
+.navbar-container {
+  margin: 0 auto;
+  width: 100%;
+
+  @include breakpoint($small-breakpoint) {
+    width: 90%;
+  }
+}
+
 .navbar-brand {
   background-position: 0 25%;
   background-repeat: no-repeat;
   background-size: 40px 40px;
   font-weight: $primary-title-weight;
   font-size: 20px;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   padding-left: 50px;
   margin-left: 15px;
   -webkit-font-smoothing: antialiased;

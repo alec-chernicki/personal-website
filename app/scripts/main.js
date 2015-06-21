@@ -6,7 +6,6 @@ var $windowWidth = $(window).width();
 
 // Elements
 var $resumeDownloadWrapper = $('#resume-download-wrapper');
-var $portfolio = $('#portfolio');
 var $envelopeBottom = $('#envelope-bottom');
 var $resumeTrigger = $('.resume-trigger');
 var $resumeButtonDownload = $('.resume-button-download');
@@ -19,7 +18,6 @@ var $aboutHeight = $('#about').outerHeight(true);
 var $developerHeight = $('#developer').outerHeight(true);
 var $designerHeight = $('#designer').outerHeight(true);
 var $resumeHeight = $('#resume').innerHeight();
-var $portfolioHeight = $portfolio.outerHeight(true);
 var $contactHeight = $('#contact').outerHeight(true);
 var $designerElementHeight = $('#browser-designer-element').height();
 var $resumeElementHeight = $('#resume-element').height();
@@ -103,7 +101,7 @@ $('.resume-button-linkedin')
 // ----------------------------------------------------------------------
 
 // Super janky, will find way to refactor later
-var positionElements = function(callback) {
+var positionElements = function() {
   $envelopeTopHeight = $('#envelope-top').height();
   $resumeElementHeight = $('#resume-element').height();
 
@@ -130,98 +128,7 @@ $('a').smoothScroll({offset: -$navHeight});
 
 // Dynamic resize of textarea based on content
 // ----------------------------------------------------------------------
-window.jQuery.fn.autosize = function() {
-  return autosize(this);
-};
-
-$('textarea').autosize();
-
-// Bind slick to carousels
-// ----------------------------------------------------------------------
-
-// Fancy responsive portfolio panel
-// ----------------------------------------------------------------------
-
-// Returns an array of items in the portfolio section
-var $itemArray = $portfolio.children('.portfolio-item');
-
-// Returns the correct row to append panel to
-var appendItem = function(portfolioItemButton, panel) {
-
-  // Stores the closest portfolio item object
-  var $portfolioItem = $(portfolioItemButton).closest('.portfolio-item');
-
-  // Calculates number of items in row by dividing window width by width of item
-  var itemsInRow = Math.round($(window).width() / $portfolioItem.width());
-
-  // Finds the row by dividing the index of the item by the number of items in a row and rounding up
-  var rowOfItem = Math.ceil(($itemArray.index($portfolioItem) + 1) / itemsInRow);
-
-  // Find the project correct item to append to within the item array and append the panel
-  $($itemArray[itemsInRow * rowOfItem - 1]).append().after(panel);
-};
-
-// Checks if there are any open panels
-var isPanelOpen = function() {
-  var $openPanel = $portfolio.children('.open');
-
-  // Returns ID of panel if a panel is open
-  if ($openPanel.length > 0) {
-    return $openPanel;
-  }
-  // Returns false if no panels are open
-  else {
-    return false;
-  }
-};
-
-var openPanel = function($panel) {
-  $panel.addClass('open')
-    .slideToggle(300)
-    .find('.carousel')
-    .slick({
-      adaptiveHeight: true,
-      dots: true,
-      infinite: true
-    });
-};
-
-var closePanel = function($panel) {
-  $panel.removeClass('open')
-    .slideToggle(300)
-    .find('carousel')
-    .unslick();
-};
-
-// Bind function to button click
-$('.portfolio-item a').click(function() {
-  // Returns panel that corresponds to the buttons data-target
-  var $panel = $portfolio.children($(this).attr('data-target'));
-
-  // IF: Button clicked corresponds to a panel and no panels are already open, open panel
-  if (isPanelOpen() === false) {
-    appendItem(this, $panel);
-    openPanel($panel);
-  }
-
-  // ELSE IF: Button clicked corresponds to a panel that is already open
-  else if (isPanelOpen().attr('id') === $panel.attr('id')) {
-    closePanel($panel);
-  }
-
-  // ELSE IF: Button clicked corresponds to a different panel and a panel is open
-  else if (isPanelOpen() && isPanelOpen().attr('id') !== $panel.attr('id')) {
-    appendItem(this, $panel);
-    $(isPanelOpen()).removeClass('open').slideToggle(300, function() {
-      openPanel($panel);
-    });
-  }
-});
-
-// Bind x-button to closing the open panel
-$('.x-button').click(function () {
-  closePanel(isPanelOpen());
-});
+autosize($('textarea'));
 
 // ScrollMagic - Navigation
 // ----------------------------------------------------------------------
@@ -252,14 +159,11 @@ new ScrollMagic.Scene({
 navigationScrollMagic($aboutHeight + $developerHeight + $designerHeight - $navHeight, '#about', '.about-link');
 // Initialize for resume link
 navigationScrollMagic($resumeHeight, '#resume-header', '.resume-link');
-// Initialize for portfolio link
-navigationScrollMagic($portfolioHeight, '#portfolio', '.portfolio-link');
 // Initialize for contact link
 navigationScrollMagic($contactHeight, '#contact', '.contact-link');
 
 // ScrollMagic - Parallax Section Headers
 // ----------------------------------------------------------------------
-
 var headerController = new ScrollMagic.Controller();
 
 var developerHeaderTweenTimeline = new TimelineMax()
@@ -317,11 +221,11 @@ new ScrollMagic.Scene({
 var browserDesignerController = new ScrollMagic.Controller();
 
 var designerTweenTimeline = new TimelineMax()
-  .add(TweenMax.to('#browser-designer-element', 1, {y:2000, ease:Linear.easeNone}));
+  .add(TweenMax.to('#browser-designer-element', 1, {y:2100, ease:Linear.easeNone}));
 
 new ScrollMagic.Scene({
   triggerElement: '#browser-designer-trigger',
-  duration: 2000,
+  duration: 2100,
   offset: -$navHeight - 50 - $designerElementHeight,
   triggerHook: 'onLeave'
 })
@@ -377,12 +281,12 @@ function debounce(func, wait, immediate) {
     var context = this, args = arguments;
     var later = function() {
       timeout = null;
-      if (!immediate) func.apply(context, args);
+      if (!immediate) { func.apply(context, args); }
     };
     var callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+    if (callNow) { func.apply(context, args); }
   };
 }
 
@@ -394,9 +298,6 @@ $(window).on('resize',
 
       positionElements();
       responsiveParallax();
-
-      // Close all open or collapsing panels on resize of window
-      closePanel(isPanelOpen());
     }
   }, 100)
 );

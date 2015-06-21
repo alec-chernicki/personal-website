@@ -17,13 +17,12 @@
     @include absolute-horizontal-center;
     color: #FFF;
     font-size: 40px;
-    font-weight: $primary-title-weight;
+    font-weight: $weight-regular;
     line-height: 125px;
     letter-spacing: 4px;
     position: absolute;
     text-align: center;
     text-shadow: 0 1px #4292B5;
-    -webkit-font-smoothing: antialiased;
     z-index: 100;
 
     @include breakpoint($small-breakpoint) {
@@ -61,12 +60,11 @@
 
   h3 {
     color: $text-dark;
-    font-weight: $weight-regular;
+    font-weight: $weight-light;
     font-size: 22px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     line-height: 40px;
     margin: 0 0 15px 0;
-    -webkit-font-smoothing: antialiased;
   }
 
   p, ul {
@@ -74,7 +72,6 @@
     font-weight: $weight-light;
     font-size: $paragraph-text;
     line-height: $line-height;
-    letter-spacing: 0.6px;
 
     &::selection {
       background: $border-color;

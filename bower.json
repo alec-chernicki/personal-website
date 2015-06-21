@@ -8,9 +8,7 @@
     "jquery-autosize": "~3.0.6",
     "jquery-smooth-scroll": "~1.5.5",
     "scrollmagic": "~2.0.3",
-    "normalize.css": "~3.0.3",
-    "bootstrap-carousel-swipe": "*",
-    "slick.js": "~1.5.5"
+    "normalize.css": "~3.0.3"
   },
   "overrides": {
     "gsap": {

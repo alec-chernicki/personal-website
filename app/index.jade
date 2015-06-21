@@ -4,7 +4,7 @@ block content
     // Refactor navigation to partial to DRY
     .hero-arrow
     nav.hero-nav-wrapper.navbar.hidden-xs
-      .container
+      .navbar-container
         .navbar-header
           a.navbar-brand.navbar-left ALEC ORTEGA
         ul.nav.navbar-nav.navbar-right
@@ -13,15 +13,13 @@ block content
           li
             a.resume-link(href='#resume-header') RESUMÉ
           li
-            a.portfolio-link(href='#portfolio') PORTFOLIO
-          li
             a.contact-link(href='#contact') CONTACT
     .hero-container
       h1 HEY THERE
 
   .nav-trigger.clearfix
     nav.nav-element.navbar
-      .container
+      .navbar-container
         .navbar-header
           button.navbar-toggle.collapsed(data-toggle='collapse', type='button', data-target='#full-navigation')
             span.icon-bar
@@ -34,8 +32,6 @@ block content
               a.about-link(href='#about') ABOUT
             li
               a.resume-link(href='#resume-header') RESUMÉ
-            li
-              a.portfolio-link(href='#portfolio') PORTFOLIO
             li
               a.contact-link(href='#contact') CONTACT
   #about
@@ -71,7 +67,7 @@ block content
             p Bootstrap, Foundation
             p Grunt, Bower, Yeoman
             p Git, GitHub
-            p GSAP, Fabric.js, Paper.js
+            p GSAP, TweenMax
             h3.spacer Clean, Concise
             p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
 
@@ -152,7 +148,7 @@ block content
               i.fa.fa-linkedin
               | &nbsp; VIEW LINKEDIN
           .resume-trigger
-            img#resume-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1431880065/Official_Resume_abs4s9.png')
+            img#resume-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1435371961/Official_Resume_d24d7q.png')
           img#envelope-top(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1431732408/envelope-top_ynvrb1.png')
           img#envelope-bottom(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1431387403/envelope-bottom_osl5jy.png')
         .col-md-3.column
@@ -160,9 +156,6 @@ block content
           .resume-yoyo-container.hidden-xs.hidden-sm
             .resume-yoyo-body
             .resume-yoyo-string
-
-
-  include layouts/sections/portfolio
 
   #contact.container
     .section-container.clearfix

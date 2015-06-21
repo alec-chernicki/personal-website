@@ -1,11 +1,45 @@
 // Fonts
 // ----------------------------------------------------------------------
-$raleway: "Raleway", sans-serif;
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gothamlight-webfont.eot');
+  src: url('../fonts/gothamlight-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gothamlight-webfont.woff') format('woff'),
+  url('../fonts/gothamlight-webfont.ttf') format('truetype'),
+  url('../fonts/gothamlight-webfont.svg#open_sansitalic') format('svg');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gothambook-webfont.eot');
+  src: url('../fonts/gothambook-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gothambook-webfont.woff') format('woff'),
+  url('../fonts/gothambook-webfont.ttf') format('truetype'),
+  url('../fonts/gothambook-webfont.svg#open_sansitalic') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gothambold-webfont.eot');
+  src: url('../fonts/gothambold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gothambold-webfont.woff') format('woff'),
+  url('../fonts/gothambold-webfont.ttf') format('truetype'),
+  url('../fonts/gothambold-webfont.svg#open_sansitalic') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+$gotham: 'Gotham', sans-serif;
+
 
 // Font Weights
 // ----------------------------------------------------------------------
-$weight-light: 300;
-$weight-regular: 400;
+$weight-light: 200;
+$weight-regular: 300;
 $primary-title-weight: 600;
 $weight-important: 700;
 
