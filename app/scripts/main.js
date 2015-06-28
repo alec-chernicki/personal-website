@@ -152,10 +152,7 @@ new ScrollMagic.Scene({
   offset: -$navHeight,
   reverse: true
 })
-  .on ("enter leave", function () {
-    $('.nav-trigger').slideToggle();
-})
-  .setClassToggle('.nav-trigger', 'show')
+  .setClassToggle('.nav-trigger', 'nav-trigger-in')
   .addTo(navigationController);
 
 // Initialize for about link

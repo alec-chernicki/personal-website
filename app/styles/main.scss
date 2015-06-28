@@ -19,8 +19,12 @@ html {
   height: 100%;
 }
 
-body {
+*, *:before, *:after {
   box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+body {
   font-family: $gotham;
   height: 100%;
 }
@@ -130,12 +134,16 @@ i {
 // Navigation Bar
 // ----------------------------------------------
 .nav-trigger {
-  display: none;
   position: fixed;
-  top: 0;
+  top: -100px;
   left: 0;
   right: 0;
+  transition: 0.4s;
   z-index: 1000;
+}
+
+.nav-trigger-in {
+  top: 0
 }
 
 .nav-element {
@@ -574,13 +582,21 @@ i {
   .resume-overlay {
     background-image: linear-gradient(0deg, #FFF, rgba(255,255,255, 0) 50%), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_2000/v1433742501/circuit_background_p3h03h.svg');
     background-repeat: no-repeat,repeat;
-    background-size: auto, 50%;
+    background-size: auto, 100%;
     background-position: -1px 0;
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
+
+    @include breakpoint($small-breakpoint) {
+      background-size: auto, 66.6666%;
+    }
+
+    @include breakpoint($medium-breakpoint) {
+      background-size: auto, 50%;
+    }
   }
 
   .resume-trigger {
