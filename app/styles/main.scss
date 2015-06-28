@@ -27,6 +27,7 @@ html {
 body {
   font-family: $gotham;
   height: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 img, ul, li {
@@ -232,8 +233,6 @@ i {
   margin: 0 auto;
   left: 0;
   right: 0;
-  -webkit-backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
 }
 
 #browser-developer-element,
