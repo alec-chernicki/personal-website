@@ -542,6 +542,7 @@ i {
 
   #resume-download-wrapper {
     @include absolute-horizontal-center;
+    background: #F0F3F4;
     bottom: 350px;
     height: 225px;
     text-align: center;
@@ -730,7 +731,6 @@ i {
       font-weight: $weight-light;
       font-size: $paragraph-text;
       line-height: $line-height;
-      letter-spacing: 0.6px;
       outline: 0;
       resize: none;
       width: 100%;
@@ -879,12 +879,14 @@ i {
   width: 600px;
   top: -300px;
   @include rotation-right;
-  right: 50px;
+  right: 50%;
+  margin-right: -540px;
 }
 
 #gear-five {
   bottom: -500px;
-  left: 0;
+  left: 50%;
+  margin-left: -640px;
   height: 700px;
   @include rotation-left;
   width: 700px;

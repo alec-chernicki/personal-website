@@ -83,9 +83,7 @@ app.post('/', function(req,res) {
   mailer.sendMail(email, function(err, response) {
     if (err) {
       res.status(500).send({success: 'false'});
-      console.log('Error');
     }
-    console.log('Success');
     res.status(200).send({success: 'true'});
   });
 });
