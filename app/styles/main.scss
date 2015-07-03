@@ -66,6 +66,21 @@ i {
 
 .column {
   position: relative;
+
+
+  @include breakpoint($medium-breakpoint) {
+    &:nth-child(1) {
+      padding-left: 0;
+    }
+
+    &:nth-child(3) {
+      padding-right: 0;
+    }
+  }
+}
+
+.center-column {
+  padding: 0;
 }
 
 // Hero Section
@@ -129,6 +144,10 @@ i {
       color: #FFF;
       font-weight: $weight-important;
     }
+
+    .navbar-container {
+
+    }
   }
 }
 
@@ -149,7 +168,7 @@ i {
 
 .nav-element {
   background-color: #FFF;
-  @include box-shadow;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
 
   .navbar-brand {
     background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_20,w_300/v1433742896/logo_dark_nxlkcb.svg');
@@ -198,11 +217,10 @@ i {
 // About Section
 // ----------------------------------------------
 #about {
-  padding: 75px 0;
-  position: relative;
+  padding: 50px 0;
 
   @include breakpoint($small-breakpoint) {
-    padding: 125px 0 175px 0;
+    padding: 125px 0 100px 0;
   }
 
   .about-video {
@@ -211,13 +229,6 @@ i {
     height: 400px;
     margin: 0 auto 25px;
     max-width: 400px;
-  }
-
-  .section-header-container {
-    @include breakpoint($small-breakpoint) {
-      bottom: -75px;
-      left: 0;
-    }
   }
 }
 
@@ -241,7 +252,16 @@ i {
 
 }
 
+#browser-developer-element {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.42),
+  0 0 1px rgba(0,0,0,0.12),
+  inset 0 -1px 2px rgba(14,60,86,0.1);
+}
+
 #browser-designer-element {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.22),
+  0 0 1px rgba(0,0,0,0.12),
+  inset 0 -1px 2px rgba(14,60,86,0.1);
   position: absolute;
 
 }
@@ -249,13 +269,6 @@ i {
 #browser-developer-trigger,
 .resume-trigger {
   height: 1000px;
-  position: relative;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-#browser-designer-trigger {
-  height: 1200px;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
@@ -272,116 +285,32 @@ i {
 // Developer
 // ----------------------------------------------
 #developer {
-  background: #202C38;
-  padding: 150px 0 50px;
+  background: linear-gradient(to bottom right, #182E4A,#325E74, #46a4b9);
+  padding: 50px 0;
   position: relative;
 
   @include breakpoint($small-breakpoint) {
-    padding: 150px 0 150px;
+    padding: 50px 0 50px;
   }
 
   @include breakpoint($medium-breakpoint) {
-    padding: 150px 50px 0;
+    padding: 50px 50px 0;
+  }
+
+  h3, p, li {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   }
 
   h3 {
     color: #FFF;
   }
 
-  p {
-    color: $developer-text;
+  p, li {
+    color: #CEE6EA;
   }
 
-  .column {
-    @include breakpoint($medium-breakpoint) {
-      margin-bottom: 150px;
-    }
-  }
-
-  .developer-background-container {
-    position: absolute;
-    overflow: hidden;
-    top:0;
-    left:0;
-    right: 0;
-    bottom:0;
-  }
-
-  .developer-concise {
-    @include breakpoint($medium-breakpoint) {
-      text-align: right;
-    }
-  }
-
-  .section-container {
-    padding-bottom: 0;
-  }
-
-  .section-header-container {
-    bottom: -125px;
-
-    @include breakpoint($small-breakpoint) {
-      bottom: -75px;
-    }
-  }
-
-  .section-header-container-background {
-    right: 0;
-  }
-}
-
-.developer-gradient {
-  background: linear-gradient(90deg, #202C38, #273644, #3f6882, #273644, #202C38);
-  bottom: 0;
-  left: -600px;
-  position: absolute;
-  top: 0;
-  width: 600px;
-}
-
-.developer-overlay {
-  background: url('http://res.cloudinary.com/alecoortega/image/upload/v1433744037/grid_background_nji1a6.svg') repeat;
-  background-size: 80px 80px;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.developer-button-github {
-  margin: 50px auto;
-}
-
-// Designer
-// ----------------------------------------------
-
-#designer {
-  background-color: $background-light-grey;
-  padding: 150px 0 50px;
-  position: relative;
-  overflow: hidden;
-
-  @include breakpoint($small-breakpoint) {
-    padding: 150px 0;
-  }
-
-  @include breakpoint($medium-breakpoint) {
-    padding: 0 50px;
-  }
-
-  h3 {
-    color: $background-dark-blue;
-  }
-
-  p {
-    color: #999;
-  }
-
-  .column {
-    @include breakpoint($medium-breakpoint) {
-      margin-bottom: 150px;
-    }
+  .gear-dark {
+    opacity: 0.04;
   }
 
   #gear-one {
@@ -403,6 +332,7 @@ i {
   #gear-three {
     height: 600px;
     left: -300px;
+    opacity: 0.1;
     top: 200px;
     @include rotation-left;
     width: 600px;
@@ -422,18 +352,95 @@ i {
 
   .column {
     @include breakpoint($medium-breakpoint) {
-      margin-top: 150px;
+      margin-bottom: 150px;
     }
   }
 
-  .designer-showtell {
-    @include breakpoint($medium-breakpoint) {
-      text-align: right;
-    }
+  .developer-background-container {
+    position: absolute;
+    overflow: hidden;
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
   }
 
   .section-container {
     padding-bottom: 0;
+  }
+}
+
+.developer-gradient {
+  background: linear-gradient(90deg, #202C38, #273644, #3f6882, #273644, #202C38);
+  bottom: 0;
+  left: -600px;
+  position: absolute;
+  top: 0;
+  width: 600px;
+}
+
+.developer-button-github {
+  margin: 50px auto;
+}
+
+// Designer
+// ----------------------------------------------
+
+#designer {
+  background-color: #FFF;
+  box-shadow: 0 -50px 200px rgba(24,46,74,0.25);
+  padding: 30px 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
+
+
+  @include breakpoint($small-breakpoint) {
+    padding: 30px 0 30px;
+  }
+
+  @include breakpoint($medium-breakpoint) {
+    padding: 30px 50px 0;
+  }
+
+  h3 {
+    color: #000;
+  }
+
+  p {
+    color: $text-light;
+    text-shadow: 0 1px 0 #FFF;
+  }
+
+  i {
+    color: #68c62f;
+    background: linear-gradient(#68c62f,#55b31c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .column {
+    @include breakpoint($medium-breakpoint) {
+      margin-bottom: 150px;
+    }
+  }
+
+  .column {
+    @include breakpoint($medium-breakpoint) {
+      margin-top: 50px;
+    }
+  }
+  .section-container {
+    padding-bottom: 0;
+  }
+
+  .section-header-container {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    margin-bottom: 0;
+
+    h2 {
+      color: #000;
+    }
   }
 }
 
@@ -446,21 +453,18 @@ i {
 
 #resume {
   background: $background-light-grey;
+  border-bottom: 1px solid #e9eaec;
+  border-top: 1px solid #e9eaec;
+  overflow: hidden;
   position: relative;
   padding-top: 75px;
+  z-index: 100;
+
+  color: #c8cbcd;
 
 
   @include breakpoint($small-breakpoint) {
     padding: 0 50px 50px 50px;
-  }
-
-  .section-header-container {
-    top: 0;
-
-    @include breakpoint($small-breakpoint) {
-      left: 0;
-      top: -75px;
-    }
   }
 
   .resume-button-download, .resume-button-linkedin {
@@ -536,13 +540,8 @@ i {
     width: 100%;
   }
 
-  .resume-column {
-    overflow: hidden;
-  }
-
   #resume-download-wrapper {
     @include absolute-horizontal-center;
-    background: #F0F3F4;
     bottom: 350px;
     height: 225px;
     text-align: center;
@@ -563,6 +562,9 @@ i {
 
   #resume-element {
     @include absolute-horizontal-center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.22),
+    0 0 1px rgba(0,0,0,0.12),
+    inset 0 -1px 2px rgba(14,60,86,0.1);
     max-width: 590px;
     top: 100px;
     width: 95%;
@@ -577,34 +579,6 @@ i {
     position: absolute;
     right: 0;
     top: 0;
-  }
-
-  .resume-overlay {
-    background-image: linear-gradient(0deg, #FFF, rgba(255,255,255, 0) 50%), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_2000/v1433742501/circuit_background_p3h03h.svg');
-    background-repeat: no-repeat,repeat;
-    background-size: auto, 100%;
-    background-position: -1px 0;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-
-    @include breakpoint($small-breakpoint) {
-      background-size: auto, 66.6666%;
-    }
-
-    @include breakpoint($medium-breakpoint) {
-      background-size: auto, 50%;
-    }
-  }
-
-  .resume-trigger {
-    min-height: 450px;
-
-    img {
-      width: 100%;
-    }
   }
 
   .resume-yoyo-body {
@@ -643,30 +617,52 @@ i {
     margin: 40px auto 0;
     width: 80%;
   }
+
+  .section-header-container {
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    margin-bottom: 0;
+
+    h2 {
+      color: #000;
+    }
+
+    p {
+      color: rgba(0,0,0,0.65)
+    }
+  }
+
+  .section-container {
+    padding: 0 15px;
+  }
+}
+
+.moleskine {
+  position: absolute;
+  width: 300px;
+  bottom: -200px;
+  left: 30px;
 }
 
 #envelope-bottom {
   position: absolute;
   z-index: 1;
   margin: 500px auto 0;
-  width: 95%;
   max-width: 620px;
   left: 0;
   right: 0;
-
 }
 
 #envelope-top {
   position: absolute;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.22),
+  0 0 1px rgba(0,0,0,0.12),
+  inset 0 -1px 2px rgba(14,60,86,0.1);
   z-index: 3;
   bottom: 10px;
-  left: 0;
-  right: 0;
-  width: 95%;
+  left: -10px;
+  right: -10px;
   max-width: 620px;
   margin: 0 auto;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  -webkit-backface-visibility: hidden;
 }
 
 // Contact Me
@@ -688,7 +684,7 @@ i {
   }
 
   // FIXME: should not be styling off of bootstrap base classes
-  &.container {
+  &.main-container {
     padding: 0;
   }
 }
@@ -721,7 +717,7 @@ i {
       font-weight: $weight-light;
       color: $text-light;
       font-size: 15px;
-      letter-spacing: 3px;
+
     }
 
     input, textarea {
@@ -869,9 +865,13 @@ i {
 // ----------------------------------------------
 .footer {
   position: relative;
-  background-color: $background-dark-blue;
-  height: 200px;
+  background: linear-gradient(to bottom right, #182E4A,#325E74, #46a4b9);
+  height: 150px;
   overflow: hidden;
+
+  .gear-dark {
+    opacity: 0.07;
+  }
 }
 
 #gear-four {

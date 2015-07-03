@@ -1,48 +1,36 @@
 // Defines style for all section headers
 // ----------------------------------------------------------------------
 .section-header-container {
-  bottom: -125px;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  @include size(100%, 125px);
-  z-index: 900;
+  padding: 15px 0;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255,255,255,0.075);
+  font-weight: $weight-light;
+  max-width: 1050px;
+  width: 90%;
+  z-index: 1000;
 
   @include breakpoint($small-breakpoint) {
-    bottom: -150px;
-    height: 150px;
+    margin: 0 auto 50px auto;
   }
 
   h2 {
-    @include absolute-horizontal-center;
     color: #FFF;
-    font-size: 40px;
-    font-weight: $weight-regular;
-    line-height: 125px;
-    letter-spacing: 4px;
-    position: absolute;
-    text-align: center;
-    text-shadow: 0 1px #4292B5;
-    z-index: 100;
+    font-size: 30px;
+
+    letter-spacing: 1.5px;
+    margin: 20px 0 10px;
 
     @include breakpoint($small-breakpoint) {
-      font-size: 60px;
-      line-height: 150px;
+      font-size: 45px;
     }
   }
 
-  .section-header-container-background {
-    background-color: $background-light-blue;
-    position: absolute;
-    @include size(100%, 100%);
-
-    @include breakpoint($small-breakpoint) {
-      width: 90%;
-    }
-
-    @include breakpoint($large-breakpoint) {
-      width: 80%;
-    }
+  p {
+    font-size: 18px;
+    margin: 0 auto 30px;
+    max-width: 600px;
+    letter-spacing: 0.5px;
   }
 }
 
@@ -51,30 +39,46 @@
 .section-text-container {
   margin: 0 auto;
   max-width: 450px;
-  text-align: center;
+  text-align: left;
 
   @include breakpoint($medium-breakpoint) {
-    text-align: left;
     max-width: 100%;
   }
 
   h3 {
     color: $text-dark;
-    font-weight: $weight-light;
-    font-size: 22px;
+    font-weight: $weight-regular;
+    font-size: 21px;
     letter-spacing: 1px;
     line-height: 40px;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
   }
 
-  p, ul {
+  p, li {
     color: $text-light;
     font-weight: $weight-light;
     font-size: $paragraph-text;
     line-height: $line-height;
+    letter-spacing: 0.25px;
+  }
 
-    &::selection {
-      background: $border-color;
+  li {
+    margin-bottom: 10px;
+
+    p, i {
+      display: inline-block;
+    }
+
+    p {
+      line-height: 25px;
+      margin: 0;
+      vertical-align: text-bottom;
+    }
+
+    i {
+      color: #FFF;
+      font-size: 25px;
+      margin-right: 8px;
     }
   }
 }
@@ -113,18 +117,74 @@
   .spacer-medium-down {
     margin-top: 50px;
 
-    @include breakpoint($medium-breakpoint) {
+    @include breakpoint($small-breakpoint) {
       margin-top: 0;
     }
   }
 }
 
 // TODO: Refactor these classes out if possible
-.container {
-  max-width: 1200px;
+.main-container {
+  max-width: 1100px;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .large-container {
   max-width: 1300px;
   margin: 0 auto;
+}
+
+.recommendation {
+  position: absolute;
+  width: 27%;
+  background: #FFF;
+  border: solid 1px #E9EAEC;
+  padding: 15px;
+
+  &.left {
+    border-radius: 0 5px 5px 0;
+    left: 0;
+    top: 25%;
+  }
+
+  &.right {
+    border-radius: 5px 0 0 5px;
+    right: 0;
+    top: 65%;
+  }
+
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    border: solid 1px #E9EAEC;
+    float: left;
+    margin: 0 15px 15px 0;
+  }
+
+  h3 {
+    color: #000;
+    margin: 0 0 7px 0;
+  }
+
+  h4 {
+    color: rgba(0,0,0,0.65);
+    font-size: 15px;
+    margin: 5px 0;
+  }
+
+  p {
+    clear: both;
+    color: $text-light;
+    font-weight: $weight-light;
+    font-size: $paragraph-text;
+    line-height: $line-height;
+    letter-spacing: 0.25px;
+  }
+
+  .title {
+    color: $background-dark-blue;
+  }
 }

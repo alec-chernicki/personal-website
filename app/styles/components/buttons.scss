@@ -3,7 +3,7 @@
   border: solid 1px #62a2c3;
   border-radius: 5px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-  color: #FFF;
+  color: #FFF !important;
   display: block;
   font-weight: $weight-regular;
   letter-spacing: 2px;
@@ -25,6 +25,7 @@
     background: #5A94B4;
     border-color: transparent;
     box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+    color: #FFF
   }
 
   &:visited {

@@ -35,68 +35,87 @@ block content
             li
               a.contact-link(href='#contact') CONTACT
   #about
-    .container
+    .main-container.row
       .col-md-5
         .about-video
-      .col-md-5.col-md-offset-2
+      .col-md-6.col-md-offset-1
         .section-text-container
           h3 It's great to meet you,
           p I believe that like music, design is found between the notes. It should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s what it envokes in a user as well. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>It's with this perspective that I approach both my personal and professional projects.
-    .section-header-container
-      h2
-        span.hidden-xs I'M A:&nbsp;
-        |DEVELOPER
-      .section-header-container-background
 
   #developer
     .developer-background-container
-      .developer-gradient
+      #gear-one.gear-dark
+      #gear-two.gear-dark
+      #gear-three.gear-dark
+      #gear-six.gear-dark.hidden-xs.hidden-sm
       .developer-overlay
     .section-header-container
-      h2
-        span.hidden-xs I'M A:&nbsp;
-        |DESIGNER
-      .section-header-container-background
+      h2 Front-End Developer
+      p I'm a front-end developer with specialization in style and templating languages, and experience in JavaScript frameworks.
     .section-container.clearfix
-      .large-container
-        .col-md-3.column
-          .developer-concise.section-text-container
+      .main-container
+        .col-sm-6.col-md-3.column
+          .section-text-container
             h3 Frameworks & Tools
-            p Ruby on Rails
-            p Node.js, Express
-            p Bootstrap, Foundation
-            p Grunt, Bower, Yeoman
-            p Git, GitHub
-            p GSAP, TweenMax
-            h3.spacer Clean, Concise
-            p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
+            ul
+              li
+                i.devicon-rails-plain
+                p Ruby on Rails
+              li
+                i.devicon-nodejs-plain
+                p Node.js, Express
+              li
+                i.devicon-bootstrap-plain
+                p Bootstrap, Foundation
+              li
+                i.devicon-jquery-plain
+                p jQuery
+              li
+                i.devicon-gulp-plain
+                p Grunt, Bower, Yeoman
+              li
+                i.devicon-git-plain
+                p Git, GitHub
+              h3.spacer Clean, Concise
+              p I’m a major proponent of code readability and organization. It’s not just about the if it works or not. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
 
-        .col-md-6.hidden-xs.hidden-sm
+        .center-column.col-md-6.hidden-xs.hidden-sm
           #browser-developer-trigger
             img.browser#browser-developer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1433736445/BrowserLoFi_pkqj5m.png')
 
-        .col-md-3.column
-          .developer-laguages.section-text-container
+        .col-sm-6.col-md-3.column
+          .section-text-container
             h3.spacer-medium-down Knowledge is Power
             p New and awesome technologies are always being introduced. Learning a new framework, library, or language feels like gaining a super power and after all, every kid grows up wanting to be a superhero. I'm constantly learning not because I need to, but because it's fun.
             a.button.developer-button-github(href='https://github.com/alecortega' target='_blank')
               i.fa.fa-github.fa-lg
-              | &nbsp;VIEW GITHUB
+              | &nbsp;View Github
             h3 Languages
-            p HTML5, Haml, Jade
-            p CSS3, SASS, SCSS
-            p JavaScript, jQuery
-            p Ruby
-            p Java
+            ul
+              li
+                i.devicon-html5-plain
+                p HTML5, Haml, Jade
+              li
+                i.devicon-css3-plain
+                p CSS3, SASS, SCSS
+              li
+                i.devicon-javascript-plain
+                p JavaScript, CoffeeScript
+              li
+                i.devicon-ruby-plain
+                p Ruby
+              li
+                i.devicon-java-plain
+                p Java
   #designer
-    #gear-one.gear
-    #gear-two.gear
-    #gear-three.gear
-    #gear-six.gear.hidden-xs
+    .section-header-container
+      h2 User Interface Designer
+      p I'm a front-end developer with specialized experience in Sass and JavaScript frameworks and libraries.
     .section-container.clearfix
-      .large-container
+      .main-container
         .col-md-3.column
-          .designer-showtell.section-text-container
+          .section-text-container
             h3 Don't Just Tell, Show
             p There's a difference between neatly displaying information and telling a story. Design elements should come together to create an experience that not only gets the message across but also captures the essence of the product or brand.
             a.button.designer-button-behance(href='https://www.behance.net/alecortega' target='blank')
@@ -104,41 +123,47 @@ block content
               | &nbsp; VIEW BEHANCE
             h3 All Things Considered
             p There's more that goes into design than just making it look pretty. Things like production constraints and how the product is actually going to be used need to be taken into consideration. Anyone can make something look nice, I can make it work.
-        .col-md-6.hidden-xs.hidden-sm
+        .center-column.col-md-6.hidden-xs.hidden-sm
           #browser-designer-trigger
             img.browser#browser-designer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1433736446/BrowserHiFi_z4bkcr.png')
 
         .col-md-3.column
-          .designer-empathy.section-text-container
+          .section-text-container
             h3.spacer-medium-down Software
-            p Photoshop, Illustrator, InDesign
-            p Sketch 3
-            p Framer.js
-            p Proto.io
-            p Balsamiq
+            ul
+              li
+                i.devicon-photoshop-plain
+                p Photoshop
+              li
+                i.devicon-illustrator-plain
+                p Illustrator
+
             h3.spacer Design for Empathy
             p No one is going to remember how you made something as much as they are the way that you made them feel afterwards. Design should always be created with the user's perspective and the feeling that you wish to envoke in mind.
 
 
   #resume
-    .resume-gradient
-    .resume-overlay
-    #resume-header.section-header-container
-      h2 RESUMÉ
-      .section-header-container-background
+    .section-header-container
+      h2 Track Record
+      p Don't take my word for it, here's some companies that I've worked for. Download my resume if you're feeling extra curious.
 
-    .section-container.clearfix
-      .large-container
-        .col-md-3.column
-          .resume-card-container.hidden-xs.hidden-sm
-            .resume-card
-              figure.resume-card-front
-              figure.resume-card-back
-          .resume-card-container.hidden-xs.hidden-sm
-            .resume-card
-              figure.resume-card-front
-              figure.resume-card-back
-        .col-md-6.resume-column
+    .recommendation.left
+      img(src='http://placecorgi.com/200/200')
+      h3 John C.
+      h4.title Director of Operations
+      h4 WeSpire
+      p "Alec is a very talented double threat. His impeccable design skills, affinity for writing code and drive for quality make him an extremely valuable asset for any team. What I enjoyed most about working with Alec was how committed to the team he is."
+
+    .recommendation.right
+      img(src='http://placecorgi.com/200/200')
+      h3 John C.
+      h4.title Director of Operations
+      h4 WeSpire
+      p "Alec is a very talented double threat. His impeccable design skills, affinity for writing code and drive for quality make him an extremely valuable asset for any team. What I enjoyed most about working with Alec was how committed to the team he is."
+
+    .section-container
+      .main-container
+        .center-column.col-md-6.col-md-offset-3
           #resume-download-wrapper
             a.button.resume-button-download(href='/resume')
               i.fa.fa-download
@@ -149,18 +174,13 @@ block content
               | &nbsp; VIEW LINKEDIN
           .resume-trigger
             img#resume-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1435371961/Official_Resume_d24d7q.png')
-          img#envelope-top(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_1100,q_300/v1435539388/envelope-light-top_b18jwa.png')
-          img#envelope-bottom(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1435539387/envelope-light-bottom_agox7f.png')
-        .col-md-3.column
-          .resume-moleskin.hidden-xs.hidden-sm
-          .resume-yoyo-container.hidden-xs.hidden-sm
-            .resume-yoyo-body
-            .resume-yoyo-string
+          img#envelope-top(src='/images/envelope-top.png')
+          img#envelope-bottom(src='/images/envelope-bottom.png')
 
   #contact.container
     .section-container.clearfix
       .contact-form-container.section-text-container.col-md-7
-        h3 Get in Touch
+        h3 Get in touch
         p Whether it be personal or professional I'd love to hear from you. Shoot me an email and I'll get back to you as soon as soon as I can. 
 
         form#contact-form.float-label(role='form', method='POST', action='/')
@@ -179,7 +199,7 @@ block content
 
       .contact-links-container.col-md-4.col-md-offset-1
         .section-text-container
-          h3 Find Me Elsewhere
+          h3 Find me elsewhere
           ul.fa-ul
             li.fa-li.fa.fa-twitter
               a.twitter.hidden-xs.hidden-sm(target= '_blank' href='https://twitter.com/WhyNotDoStuff') Twitter

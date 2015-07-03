@@ -69,34 +69,6 @@ $resumeButtonDownload.click(function() {
 // ----------------------------------------------------------------------
 TweenMax.to('.developer-gradient', 10, {x: $windowWidth + 600, repeat: -1, yoyo: true, ease:Linear.easeNone});
 
-// GSAP - Animate opacity
-// ----------------------------------------------------------------------
-var showResumeGradient = function() {
-  return TweenLite.to('.resume-gradient', 0.25, {opacity: 1, y: 0, ease: Linear.easeNone});
-};
-
-var hideResumeGradient = function() {
-  return TweenLite.to('.resume-gradient', 0.25, {opacity: 0, y: 0, ease: Linear.easeNone});
-};
-
-// GSAP - Animate opacity on button hover (opacity - hardware accelerated)
-// ----------------------------------------------------------------------
-$resumeButtonDownload
-  .mouseenter(function() {
-    showResumeGradient();
-  })
-  .mouseleave(function() {
-    hideResumeGradient();
-  });
-
-$('.resume-button-linkedin')
-  .mouseenter(function() {
-    showResumeGradient();
-  })
-  .mouseleave(function() {
-    hideResumeGradient();
-  });
-
 // Makes all the fun js effects completely responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
 
@@ -162,44 +134,6 @@ navigationScrollMagic($resumeHeight, '#resume-header', '.resume-link');
 // Initialize for contact link
 navigationScrollMagic($contactHeight, '#contact', '.contact-link');
 
-// ScrollMagic - Parallax Section Headers
-// ----------------------------------------------------------------------
-var headerController = new ScrollMagic.Controller();
-
-var developerHeaderTweenTimeline = new TimelineMax()
-  .add(TweenMax.fromTo('#about .section-header-container', 1, {y: 55}, {y: -55, ease: Linear.easeNone}));
-
-var developerHeaderScene = new ScrollMagic.Scene({
-  triggerElement: '#developer',
-  triggerHook: 1,
-  duration: $(window).height() - $navHeight
-})
-  .setTween(developerHeaderTweenTimeline)
-  .addTo(headerController);
-
-var designerHeaderTweenTimeline = new TimelineMax()
-  .add(TweenMax.fromTo('#developer .section-header-container', 1, {y: 55}, {y: -55, ease: Linear.easeNone}));
-
-var designerHeaderScene = new ScrollMagic.Scene({
-  triggerElement: '#designer',
-  triggerHook: 1,
-  duration: $(window).height() - $navHeight
-})
-  .setTween(designerHeaderTweenTimeline)
-  .addTo(headerController);
-
-var resumeHeaderTweenTimeline = new TimelineMax()
-  .add(TweenMax.fromTo('#resume .section-header-container', 1, {y: 55}, {y: -55, ease: Linear.easeNone}));
-
-var resumeHeaderScene = new ScrollMagic.Scene({
-  triggerElement: '#resume',
-  triggerHook: 1,
-  duration: $(window).height() - $navHeight
-})
-  .setTween(resumeHeaderTweenTimeline)
-  .addTo(headerController);
-
-
 // ScrollMagic - Browser wipe effect
 // ----------------------------------------------------------------------
 // Scene that controls the developer pin effect
@@ -249,27 +183,10 @@ new ScrollMagic.Scene({
 
 // On document ready align elements
 // ----------------------------------------------------------------------
-var responsiveParallax = function() {
-  if ($(window).width() <= 768) {
-    // Removes parallax animation
-    headerController.removeScene([designerHeaderScene, developerHeaderScene, resumeHeaderScene]);
-
-    // Progresses animation to starting point, can't bundle these up unfortunately
-    designerHeaderScene.progress(0.5);
-    developerHeaderScene.progress(0.5);
-    resumeHeaderScene.progress(0.5);
-  }
-  else {
-    // Adds parallax effect back to ScrollMagic controller
-    headerController.addScene([designerHeaderScene, developerHeaderScene, resumeHeaderScene]);
-  }
-};
-
 $(document).on('ready', function() {
   positionElements();
     $('#resume-element').css('top', -$resumeElementHeight);
     $('#browser-designer-element').css('top', -$designerElementHeight);
-  responsiveParallax();
 });
 
 
@@ -297,7 +214,6 @@ $(window).on('resize',
     if ($(window).width() !== $windowWidth) {
 
       positionElements();
-      responsiveParallax();
     }
   }, 100)
 );
