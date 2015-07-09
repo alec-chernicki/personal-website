@@ -11,7 +11,7 @@ block content
           li
             a.about-link(href='#about') ABOUT
           li
-            a.resume-link(href='#resume-header') RESUMÉ
+            a.resume-link(href='#resume') RESUMÉ
           li
             a.contact-link(href='#contact') CONTACT
     .hero-container
@@ -31,14 +31,14 @@ block content
             li
               a.about-link(href='#about') ABOUT
             li
-              a.resume-link(href='#resume-header') RESUMÉ
+              a.resume-link(href='#resume') RESUMÉ
             li
               a.contact-link(href='#contact') CONTACT
   #about
     .main-container.row
       .col-md-5
         .about-video
-      .col-md-6.col-md-offset-1
+      .col-md-5.col-md-offset-1
         .section-text-container
           h3 It's great to meet you,
           p I believe that like music, design is found between the notes. It should convey just enough to tell the story of a brand while still leaving the rest up to the user’s imagination. I believe that engagement stems from a user's ability to empathize with a product. It’s never just a product that’s being developed, it’s what it envokes in a user as well. When I discovered development I was hooked, now I use code as another medium to craft engaging experiences.<br><br>It's with this perspective that I approach both my personal and professional projects.
@@ -82,7 +82,7 @@ block content
 
         .center-column.col-md-6.hidden-xs.hidden-sm
           #browser-developer-trigger
-            img.browser#browser-developer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1433736445/BrowserLoFi_pkqj5m.png')
+            img.browser#browser-developer-element(src='/images/BrowserLoFi.svg')
 
         .col-sm-6.col-md-3.column
           .section-text-container
@@ -125,7 +125,7 @@ block content
             p There's more that goes into design than just making it look pretty. Things like production constraints and how the product is actually going to be used need to be taken into consideration. Anyone can make something look nice, I can make it work.
         .center-column.col-md-6.hidden-xs.hidden-sm
           #browser-designer-trigger
-            img.browser#browser-designer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1100/v1433736446/BrowserHiFi_z4bkcr.png')
+            img.browser#browser-designer-element(src='/images/BrowserHiFi.png')
 
         .col-md-3.column
           .section-text-container
@@ -137,6 +137,9 @@ block content
               li
                 i.devicon-illustrator-plain
                 p Illustrator
+              li
+                i.devicon-trello-plain
+                p Trello
 
             h3.spacer Design for Empathy
             p No one is going to remember how you made something as much as they are the way that you made them feel afterwards. Design should always be created with the user's perspective and the feeling that you wish to envoke in mind.
@@ -147,28 +150,35 @@ block content
       h2 Track Record
       p Don't take my word for it, here's some companies that I've worked for. Download my resume if you're feeling extra curious.
 
-    .recommendation.left
-      img(src='http://placecorgi.com/200/200')
-      h3 John C.
-      h4.title Director of Operations
-      h4 WeSpire
-      p "Alec is a very talented double threat. His impeccable design skills, affinity for writing code and drive for quality make him an extremely valuable asset for any team. What I enjoyed most about working with Alec was how committed to the team he is."
+    #recommendation-trigger-left.hidden-xs.hidden-sm
+      .recommendation.left
+        img(src='/images/john.png')
+        h3 John C.
+        h4.title Director of Operations
+        h4 WeSpire
+        p "Alec is a very talented double threat. His impeccable design skills, affinity for writing code and drive for quality make him an extremely valuable asset for any team. What I enjoyed most about working with Alec was how committed to the team he is."
 
-    .recommendation.right
-      img(src='http://placecorgi.com/200/200')
-      h3 John C.
-      h4.title Director of Operations
-      h4 WeSpire
-      p "Alec is a very talented double threat. His impeccable design skills, affinity for writing code and drive for quality make him an extremely valuable asset for any team. What I enjoyed most about working with Alec was how committed to the team he is."
-
+    #recommendation-trigger-right.hidden-xs.hidden-sm
+      .recommendation.right
+        img(src='http://placecorgi.com/200/200')
+        h3 John C.
+        h4.title Director of Operations
+        h4 WeSpire
+        p "Alec is a very talented double threat. His impeccable design skills, affinity for writing code and drive for quality make him an extremely valuable asset for any team. What I enjoyed most about working with Alec was how committed to the team he is."
+    img.moleskine(src='/images/moleskin.png')
+    img.resume-yoyo-body(src='/images/yoyo-body.png')
+    img.resume-yoyo-string(src='/images/yoyo-string.png')
+    img.resume-pen(src='/images/pen.svg')
+    img.resume-pencil(src='/images/pencil.svg')
     .section-container
       .main-container
         .center-column.col-md-6.col-md-offset-3
-          #resume-download-wrapper
-            a.button.resume-button-download(href='/resume')
-              i.fa.fa-download
-              | &nbsp; DOWNLOAD
-            h3 OR TO SEE MORE
+          .resume-download-wrapper
+            .resume-download-wrapper-container
+              h3 Need a Copy?
+              a.button.resume-button-download(href='/resume')
+                i.fa.fa-download
+                | &nbsp; DOWNLOAD
             a.button.resume-button-linkedin(href='https://linkedin.com/in/alecortega/' target='blank')
               i.fa.fa-linkedin
               | &nbsp; VIEW LINKEDIN

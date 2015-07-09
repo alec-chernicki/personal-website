@@ -125,10 +125,13 @@
 
 // TODO: Refactor these classes out if possible
 .main-container {
-  max-width: 1100px;
   padding: 0;
   margin: 0 auto;
-  width: 100%;
+  width: 95%;
+
+  @include breakpoint ($medium-breakpoint) {
+
+  }
 }
 
 .large-container {
@@ -136,9 +139,25 @@
   margin: 0 auto;
 }
 
-.recommendation {
+#recommendation-trigger-left,
+#recommendation-trigger-right {
   position: absolute;
   width: 27%;
+}
+
+#recommendation-trigger-left {
+  top: 270px;
+  left: 0;
+}
+
+#recommendation-trigger-right {
+  right: 0;
+  top: 1000px;
+}
+
+.recommendation {
+  position: absolute;
+  width: 100%;
   background: #FFF;
   border: solid 1px #E9EAEC;
   padding: 15px;
@@ -146,13 +165,11 @@
   &.left {
     border-radius: 0 5px 5px 0;
     left: 0;
-    top: 25%;
   }
 
   &.right {
     border-radius: 5px 0 0 5px;
     right: 0;
-    top: 65%;
   }
 
   img {
@@ -161,12 +178,12 @@
     border-radius: 100%;
     border: solid 1px #E9EAEC;
     float: left;
-    margin: 0 15px 15px 0;
+    margin: 10px 15px 15px 10px;
   }
 
   h3 {
     color: #000;
-    margin: 0 0 7px 0;
+    margin: 10px 0 7px 0;
   }
 
   h4 {
@@ -179,9 +196,10 @@
     clear: both;
     color: $text-light;
     font-weight: $weight-light;
-    font-size: $paragraph-text;
+    font-size: 13px;
     line-height: $line-height;
-    letter-spacing: 0.25px;
+    letter-spacing: 0.1px;
+    margin-left: 10px;
   }
 
   .title {

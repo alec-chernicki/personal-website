@@ -285,7 +285,7 @@ i {
 // Developer
 // ----------------------------------------------
 #developer {
-  background: linear-gradient(to bottom right, #182E4A,#325E74, #46a4b9);
+  background: linear-gradient(to bottom right, #182945, #325E74 55%, #46a4b9);
   padding: 50px 0;
   position: relative;
 
@@ -310,7 +310,7 @@ i {
   }
 
   .gear-dark {
-    opacity: 0.04;
+    opacity: 0.055;
   }
 
   #gear-one {
@@ -332,7 +332,7 @@ i {
   #gear-three {
     height: 600px;
     left: -300px;
-    opacity: 0.1;
+    opacity: 0.125;
     top: 200px;
     @include rotation-left;
     width: 600px;
@@ -344,6 +344,7 @@ i {
 
   #gear-six {
     height: 500px;
+    opacity: 0.065;
     right: -200px;
     top: -100px;
     @include rotation-right;
@@ -368,15 +369,6 @@ i {
   .section-container {
     padding-bottom: 0;
   }
-}
-
-.developer-gradient {
-  background: linear-gradient(90deg, #202C38, #273644, #3f6882, #273644, #202C38);
-  bottom: 0;
-  left: -600px;
-  position: absolute;
-  top: 0;
-  width: 600px;
 }
 
 .developer-button-github {
@@ -412,7 +404,7 @@ i {
     text-shadow: 0 1px 0 #FFF;
   }
 
-  i {
+  li i {
     color: #68c62f;
     background: linear-gradient(#68c62f,#55b31c);
     -webkit-background-clip: text;
@@ -445,6 +437,7 @@ i {
 }
 
 .designer-button-behance {
+  background: linear-gradient(to top, $gradient-button-blue);
   margin: 50px auto;
 }
 
@@ -465,10 +458,6 @@ i {
 
   @include breakpoint($small-breakpoint) {
     padding: 0 50px 50px 50px;
-  }
-
-  .resume-button-download, .resume-button-linkedin {
-    margin: 50px 0;
   }
 
   .resume-card-container {
@@ -540,23 +529,37 @@ i {
     width: 100%;
   }
 
-  #resume-download-wrapper {
+  .resume-download-wrapper {
     @include absolute-horizontal-center;
     bottom: 350px;
-    height: 225px;
+    color: #000;
+    height: 240px;
+    padding: 15px;
     text-align: center;
-    width: 80%;
+    width: 60%;
     z-index: 4;
-
-    a {
-      margin: 0 auto;
-    }
 
     h3 {
       font-weight: $weight-regular;
       font-size: 20px;
       letter-spacing: 1px;
-      margin: 40px auto;
+      margin: 20px auto 30px;
+    }
+  }
+
+  .resume-button-linkedin {
+    margin: 20px;
+    width: auto;
+  }
+
+  .resume-download-wrapper-container {
+    background: #FFF;
+    border: solid 1px $border-color;
+    border-radius: 5px;
+    padding: 20px;
+
+    a {
+      margin: 0 auto;
     }
   }
 
@@ -582,15 +585,15 @@ i {
   }
 
   .resume-yoyo-body {
-    background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_400/v1433742408/yoyo-body_oi1lac.png');
-    background-size: cover;
     border-radius: 50%;
-    bottom: 5%;
-    @include box-shadow;
-    left: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.22),
+    0 0 1px rgba(0,0,0,0.12),
+    inset 0 -1px 2px rgba(14,60,86,0.1);
     position: absolute;
-    top: 5%;
-    right: 38%;
+    top: 45%;
+    left: 30px;
+    height: 200px;
+    width: 200px;
     z-index: 200;
 
     &:hover {
@@ -599,23 +602,12 @@ i {
   }
 
   .resume-yoyo-string {
-    background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_29,w_400/v1433742408/yoyo-string_vij27n.png');
-    background-size: 90%;
-    background-repeat: no-repeat;
     position: absolute;
-    top: 6%;
-    left: 27%;
-    right: 0;
-    bottom: 8%;
+    top: 50.5%;
+    left: 170px;
+    height: 130px;
     z-index: 100;
-  }
-
-  .resume-yoyo-container {
-    padding-left: 116.5%;
-    padding-bottom: 80%;
-    position: relative;
-    margin: 40px auto 0;
-    width: 80%;
+    width: auto;
   }
 
   .section-header-container {
@@ -637,10 +629,29 @@ i {
 }
 
 .moleskine {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.22),
+  0 0 1px rgba(0,0,0,0.12),
+  inset 0 -1px 2px rgba(14,60,86,0.1);
   position: absolute;
   width: 300px;
-  bottom: -200px;
+  top: 340px;
+  right: -80px;
+  transform: rotate(-30deg);
+  border-radius: 9px 29px 29px 9px;
+}
+
+.resume-pen {
+  position: absolute;
+  width: 40px;
   left: 30px;
+  top: 70%;
+}
+
+.resume-pencil {
+  position: absolute;
+  width: 32px;
+  left: 100px;
+  top: 70%;
 }
 
 #envelope-bottom {
@@ -865,7 +876,7 @@ i {
 // ----------------------------------------------
 .footer {
   position: relative;
-  background: linear-gradient(to bottom right, #182E4A,#325E74, #46a4b9);
+  background: linear-gradient(150deg, $gradient-blue);
   height: 150px;
   overflow: hidden;
 
@@ -880,13 +891,13 @@ i {
   top: -300px;
   @include rotation-right;
   right: 50%;
-  margin-right: -540px;
+  margin-right: -570px;
 }
 
 #gear-five {
   bottom: -500px;
   left: 50%;
-  margin-left: -640px;
+  margin-left: -680px;
   height: 700px;
   @include rotation-left;
   width: 700px;

@@ -5,7 +5,7 @@
 var $windowWidth = $(window).width();
 
 // Elements
-var $resumeDownloadWrapper = $('#resume-download-wrapper');
+var $resumeDownloadWrapper = $('.resume-download-wrapper');
 var $envelopeBottom = $('#envelope-bottom');
 var $resumeTrigger = $('.resume-trigger');
 var $resumeButtonDownload = $('.resume-button-download');
@@ -23,7 +23,7 @@ var $designerElementHeight = $('#browser-designer-element').height();
 var $resumeElementHeight = $('#resume-element').height();
 var $envelopeTopHeight = $('#envelope-top').height();
 
-var $resumeTriggerHeight =  $envelopeTopHeight * 1.25;
+var $resumeTriggerHeight;
 
 var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
 
@@ -84,14 +84,16 @@ var positionElements = function() {
   $envelopeBottom.css('bottom', $bottomPosition);
 
   // Resize resume-trigger based on current height of the envelope
-  $resumeTriggerHeight = $envelopeTopHeight *  1.25;
+  if ($windowWidth < 768) {
+    $resumeTriggerHeight = $envelopeTopHeight *  1.25;
+  } else {
+    $resumeTriggerHeight = $envelopeTopHeight *  3;
+  }
   $resumeTrigger.css('height', $resumeTriggerHeight);
 
   // Position the resume-trigger margin based on the envelope-bottom height
   resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
   $resumeTrigger.css('margin-bottom', resumeTriggerOffset);
-
-
 };
 
 // Smooth Scrolling to all 'a' tags
@@ -130,7 +132,7 @@ new ScrollMagic.Scene({
 // Initialize for about link
 navigationScrollMagic($aboutHeight + $developerHeight + $designerHeight - $navHeight, '#about', '.about-link');
 // Initialize for resume link
-navigationScrollMagic($resumeHeight, '#resume-header', '.resume-link');
+navigationScrollMagic($resumeHeight, '#resume', '.resume-link');
 // Initialize for contact link
 navigationScrollMagic($contactHeight, '#contact', '.contact-link');
 
@@ -169,6 +171,12 @@ new ScrollMagic.Scene({
 // Scene that controls the resume pin effect
 var resumeController = new ScrollMagic.Controller();
 
+if ($windowWidth < 768) {
+  $resumeTriggerHeight = $envelopeTopHeight *  1.25;
+} else {
+  $resumeTriggerHeight = $envelopeTopHeight *  3;
+}
+
 var resumeTweenTimeline = new TimelineMax()
   .add(TweenLite.to('#resume-element', 1, {y: $resumeTriggerHeight, ease: Linear.easeNone}));
 
@@ -181,12 +189,43 @@ new ScrollMagic.Scene({
   .setTween(resumeTweenTimeline)
   .addTo(resumeController);
 
+// Recommendation left pin effect
+var recommendationLeftController = new ScrollMagic.Controller();
+
+var recommendationLeftTimelinePin = new TimelineMax()
+  .add(TweenLite.to('.recommendation.left', 1, {y: 400, ease: Linear.easeNone}));
+
+new ScrollMagic.Scene({
+  triggerElement: '#recommendation-trigger-left',
+  duration: 400,
+  offset: -$navHeight - 50,
+  triggerHook: 'onLeave'
+})
+  .setTween(recommendationLeftTimelinePin)
+  .addTo(recommendationLeftController);
+
+// Recommendation right pin effect
+var recommendationRightController = new ScrollMagic.Controller();
+
+var recommendationRightTimelinePin = new TimelineMax()
+  .add(TweenLite.to('.recommendation.right', 1, {y: 400, ease: Linear.easeNone}));
+
+new ScrollMagic.Scene({
+  triggerElement: '#recommendation-trigger-right',
+  duration: 400,
+  offset: -$navHeight - 50,
+  triggerHook: 'onLeave'
+})
+  .setTween(recommendationRightTimelinePin)
+  .addTo(recommendationRightController);
+
+
 // On document ready align elements
 // ----------------------------------------------------------------------
 $(document).on('ready', function() {
   positionElements();
-    $('#resume-element').css('top', -$resumeElementHeight);
-    $('#browser-designer-element').css('top', -$designerElementHeight);
+  $('#resume-element').css('top', -$resumeElementHeight);
+  $('#browser-designer-element').css('top', -$designerElementHeight);
 });
 
 
@@ -207,13 +246,9 @@ function debounce(func, wait, immediate) {
   };
 }
 
-// Tests against width since iOS safari is evil and calls onOrientationChange
-// ----------------------------------------------------------------------
 $(window).on('resize',
   debounce (function() {
-    if ($(window).width() !== $windowWidth) {
-
-      positionElements();
-    }
+    $windowWidth = $(window).width();
+    positionElements();
   }, 100)
 );
