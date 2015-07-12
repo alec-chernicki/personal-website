@@ -6,13 +6,9 @@
   margin: 0 auto;
   border-bottom: 1px solid rgba(255,255,255,0.075);
   font-weight: $weight-light;
-  max-width: 1050px;
-  width: 90%;
+  width: 95%;
   z-index: 1000;
 
-  @include breakpoint($small-breakpoint) {
-    margin: 0 auto 50px auto;
-  }
 
   h2 {
     color: #FFF;
@@ -31,6 +27,7 @@
     margin: 0 auto 30px;
     max-width: 600px;
     letter-spacing: 0.5px;
+    line-height: $line-height;
   }
 }
 
@@ -41,7 +38,7 @@
   max-width: 450px;
   text-align: left;
 
-  @include breakpoint($medium-breakpoint) {
+  @include breakpoint($small-breakpoint) {
     max-width: 100%;
   }
 
@@ -86,19 +83,17 @@
 // Defines style for every section container
 // ----------------------------------------------------------------------
 .section-container {
+  margin: 0 auto;
   overflow: hidden;
-  padding: 50px 15px;
   position: relative;
-  width: 100%;
+  padding: 50px 0;
+  width: 95%;
   z-index: 100;
 
-  @include breakpoint($small-breakpoint) {
-    padding: 0 15px;
-  }
-
-  @include breakpoint($medium-breakpoint) {
-    padding: 0 15px;
-  }
+  //@include breakpoint($small-breakpoint) {
+  //  margin: auto;
+  //  width: $min-width;
+  //}
 
   .button {
     @include breakpoint($small-breakpoint) {
@@ -123,15 +118,10 @@
   }
 }
 
-// TODO: Refactor these classes out if possible
+// TODO: Refactor these two classes out if possible
 .main-container {
   padding: 0;
   margin: 0 auto;
-  width: 95%;
-
-  @include breakpoint ($medium-breakpoint) {
-
-  }
 }
 
 .large-container {
@@ -146,13 +136,13 @@
 }
 
 #recommendation-trigger-left {
-  top: 270px;
+  top: 15%;
   left: 0;
 }
 
 #recommendation-trigger-right {
   right: 0;
-  top: 1000px;
+  top: 50%;
 }
 
 .recommendation {

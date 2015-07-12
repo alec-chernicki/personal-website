@@ -25,8 +25,7 @@ var $envelopeTopHeight = $('#envelope-top').height();
 
 var $resumeTriggerHeight;
 
-var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
-
+var resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 2);
 
 // AJAX Contact Form Submission Handler
 // ----------------------------------------------------------------------
@@ -80,19 +79,19 @@ var positionElements = function() {
   var $wrapperPosition = $envelopeTopHeight / 2 - $resumeDownloadWrapper.height() / 2;
   $resumeDownloadWrapper.css('bottom', $wrapperPosition);
 
-  var $bottomPosition = $envelopeTopHeight - $envelopeBottom.height() / 3.5;
+  var $bottomPosition = $envelopeTopHeight - $envelopeBottom.height() / 3;
   $envelopeBottom.css('bottom', $bottomPosition);
 
   // Resize resume-trigger based on current height of the envelope
   if ($windowWidth < 768) {
     $resumeTriggerHeight = $envelopeTopHeight *  1.25;
   } else {
-    $resumeTriggerHeight = $envelopeTopHeight *  3;
+    $resumeTriggerHeight = $envelopeTopHeight *  2;
   }
   $resumeTrigger.css('height', $resumeTriggerHeight);
 
   // Position the resume-trigger margin based on the envelope-bottom height
-  resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 10);
+  resumeTriggerOffset = $envelopeTopHeight - $resumeElementHeight + ($resumeElementHeight / 11);
   $resumeTrigger.css('margin-bottom', resumeTriggerOffset);
 };
 
@@ -174,7 +173,7 @@ var resumeController = new ScrollMagic.Controller();
 if ($windowWidth < 768) {
   $resumeTriggerHeight = $envelopeTopHeight *  1.25;
 } else {
-  $resumeTriggerHeight = $envelopeTopHeight *  3;
+  $resumeTriggerHeight = $envelopeTopHeight *  2;
 }
 
 var resumeTweenTimeline = new TimelineMax()
@@ -189,15 +188,17 @@ new ScrollMagic.Scene({
   .setTween(resumeTweenTimeline)
   .addTo(resumeController);
 
+// ScrollMagic - Recommendation Pins
+// ----------------------------------------------------------------------
 // Recommendation left pin effect
 var recommendationLeftController = new ScrollMagic.Controller();
 
 var recommendationLeftTimelinePin = new TimelineMax()
-  .add(TweenLite.to('.recommendation.left', 1, {y: 400, ease: Linear.easeNone}));
+  .add(TweenLite.to('.recommendation.left', 1, {y: '200vw', ease: Linear.easeNone}));
 
 new ScrollMagic.Scene({
   triggerElement: '#recommendation-trigger-left',
-  duration: 400,
+  duration: '200vw',
   offset: -$navHeight - 50,
   triggerHook: 'onLeave'
 })
@@ -208,11 +209,11 @@ new ScrollMagic.Scene({
 var recommendationRightController = new ScrollMagic.Controller();
 
 var recommendationRightTimelinePin = new TimelineMax()
-  .add(TweenLite.to('.recommendation.right', 1, {y: 400, ease: Linear.easeNone}));
+  .add(TweenLite.to('.recommendation.right', 1, {y: $windowWidth / 5, ease: Linear.easeNone}));
 
 new ScrollMagic.Scene({
   triggerElement: '#recommendation-trigger-right',
-  duration: 400,
+  duration: $windowWidth / 5,
   offset: -$navHeight - 50,
   triggerHook: 'onLeave'
 })
@@ -227,7 +228,6 @@ $(document).on('ready', function() {
   $('#resume-element').css('top', -$resumeElementHeight);
   $('#browser-designer-element').css('top', -$designerElementHeight);
 });
-
 
 // Debounce for resize event
 // ----------------------------------------------------------------------
