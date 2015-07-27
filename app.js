@@ -1,19 +1,14 @@
+'use strict';
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var expressValidator = require('express-validator');
-var sgTransport = require('nodemailer-sendgrid-transport');
 var nodemailer = require('nodemailer');
+var mg = require('nodemailer-mailgun-transport');
 var favicon = require('serve-favicon');
 var path = require('path');
 var connectAssets = require('connect-assets');
-
-var sendGridOptions = {
-  auth: {
-    api_user: process.env.SENDGRID_USERNAME,
-    api_key: process.env.SENDGRID_PASSWORD
-  }
-};
 
 /**
  * Create Express server
@@ -54,44 +49,47 @@ app.get('/resume', function (req, res) {
 /**
  * POST: Pass req to nodemailer and send email
  */
-app.post('/', function(req,res) {
+app.post('/', function(req, res) {
 
-  var mailer = nodemailer.createTransport(sgTransport(sendGridOptions));
-
-  req.checkBody('fullname', 'Name cannot be blank').notEmpty();
+  req.checkBody('name', 'Name cannot be blank').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('message', 'Message cannot be blank').notEmpty();
 
   var errors = req.validationErrors();
 
-  if (errors) {
-    console.log(errors);
-  }
+  if (errors) console.log(errors);
 
-  var from = '<' + req.body.email + '>';
-  var fullname = '"' + req.body.name + '"';
-  var fullSender = '\'' + fullname + from + '\'';
-  var body = req.body.message;
-
-  var email = {
-    to: 'alecortega@live.com',
-    from: fullSender,
-    subject: 'Contact Form | Personal Website',
-    text: body
+  var auth = {
+    auth: {
+      api_key: process.env.MAILGUN_KEY,
+      domain: 'alecortega.com'
+    }
   };
 
-  mailer.sendMail(email, function(err, response) {
-    if (err) {
-      res.status(500).send({success: 'false'});
-    }
-    res.status(200).send({success: 'true'});
+  var nodemailerMailgun = nodemailer.createTransport(mg(auth));
+
+  var from = req.body.email;
+  var name = req.body.name;
+  var body = req.body.message;
+
+  var mailOptions = {
+    to: 'aleccortega@gmail.com',
+    from: from,
+    subject: 'Contact Form | Personal Website',
+    html: name + '<br><br>' + body
+  };
+
+  // send mail with defined transport object
+  nodemailerMailgun.sendMail(mailOptions, function(error) {
+    if (error) return console.log(error);
+    res.sendStatus(200);
   });
 });
 
 /**
  * Error Handler, in case the everything dies.
  */
-app.use(function(err, req, res, next) {
+app.use(function(err, req, res) {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });

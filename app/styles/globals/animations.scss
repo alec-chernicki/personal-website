@@ -1,45 +1,48 @@
 // Rotate Right
 // ----------------------------------------------------------------------
 @keyframes rotation-right {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.rotation-right {
-  animation: rotation-right 20s linear infinite;
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // Rotate Left - Slow
 // ----------------------------------------------------------------------
 @keyframes rotation-left {
-  0%   { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.rotation-left {
-  animation: rotation-left 20s linear infinite;
-}
-
-// Fade In + Move Up
-// ----------------------------------------------------------------------
-@keyframes fadeInUp {
   0% {
-    opacity: 0;
-    transform: translateY(20px);
+    transform: rotate(360deg);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(0deg);
   }
 }
 
-// Animation Classes
-// ----------------------------------------------------------------------
-.fadeInUp {
-  animation-name: fadeInUp;
+@keyframes jiggle-one {
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
 }
 
-.animated {
-  animation-duration: 2s;
-  animation-fill-mode: both;
+@keyframes jiggle-two {
+  25% {
+    transform: rotate(-20deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes jiggle-three {
+  25% {
+    transform: rotate(-13deg);
+  }
+  75% {
+    transform: rotate(-7deg);
+  }
 }

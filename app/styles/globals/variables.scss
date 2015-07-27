@@ -52,22 +52,22 @@ $text-dark: #25292D;
 $text-light: #6F7C82;
 $background-dark-blue: #182E4A;
 $background-light-grey: #F5F8FA;
-$background-light-blue: #46A4B9;
-$border-color: #E1E8ED;
+$background-light-blue: #46aec3;
+$border-color: #dfe6eb;
 $developer-text: #B0BAC3;
 
-$gradient-button-green: #6DCB2F, #54AE1C;
-$gradient-button-blue: #459fb4, #4ab8cd;
-$gradient-blue: #182E4A,#325E74, #46A4B9;
+$gradient-button-green: #6DCB2F 0%, #54AE1C 100%;
+$gradient-button-blue: #4ab8cd, #459fb4;
+$gradient-blue: #46b8cd, #276073 50%, #182E4A;
 
 // Transition Times
 // ----------------------------------------------------------------------
-$transition-time: all 0.2s ease-in-out;
+
 $short-transition: all 0.15s ease-in-out;
 
 // Breakpoints
 // ----------------------------------------------------------------------
-$tiny-breakpoint: 320px;
+$xsmall-breakpoint: 450px;
 $small-breakpoint: 768px;
 $medium-breakpoint: 992px;
 $large-breakpoint: 1200px;
@@ -75,3 +75,4 @@ $large-breakpoint: 1200px;
 // Breakpoints
 // ----------------------------------------------------------------------
 $min-width: 1100px;
+$max-width: 1600px;

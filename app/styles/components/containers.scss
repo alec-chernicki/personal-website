@@ -1,82 +1,24 @@
 // Defines style for all section headers
 // ----------------------------------------------------------------------
 .section-header-container {
-  padding: 15px 0;
-  text-align: center;
-  margin: 0 auto;
   border-bottom: 1px solid rgba(255,255,255,0.075);
   font-weight: $weight-light;
-  width: 95%;
+  margin: 0 auto;
+  padding: 15px 0;
+  text-align: center;
+  width: 90%;
   z-index: 1000;
 
-
-  h2 {
-    color: #FFF;
-    font-size: 30px;
-
-    letter-spacing: 1.5px;
-    margin: 20px 0 10px;
-
-    @include breakpoint($small-breakpoint) {
-      font-size: 45px;
-    }
+  @include breakpoint($small-breakpoint) {
+    width: 95%;
   }
 
   p {
     font-size: 18px;
-    margin: 0 auto 30px;
-    max-width: 600px;
     letter-spacing: 0.5px;
     line-height: $line-height;
-  }
-}
-
-// Defines style for every container that contains text
-// ----------------------------------------------------------------------
-.section-text-container {
-  margin: 0 auto;
-  max-width: 450px;
-  text-align: left;
-
-  @include breakpoint($small-breakpoint) {
-    max-width: 100%;
-  }
-
-  h3 {
-    color: $text-dark;
-    font-weight: $weight-regular;
-    font-size: 21px;
-    letter-spacing: 1px;
-    line-height: 40px;
-    margin: 0 0 10px 0;
-  }
-
-  p, li {
-    color: $text-light;
-    font-weight: $weight-light;
-    font-size: $paragraph-text;
-    line-height: $line-height;
-    letter-spacing: 0.25px;
-  }
-
-  li {
-    margin-bottom: 10px;
-
-    p, i {
-      display: inline-block;
-    }
-
-    p {
-      line-height: 25px;
-      margin: 0;
-      vertical-align: text-bottom;
-    }
-
-    i {
-      color: #FFF;
-      font-size: 25px;
-      margin-right: 8px;
-    }
+    margin: 0 auto 30px;
+    max-width: 600px;
   }
 }
 
@@ -84,28 +26,23 @@
 // ----------------------------------------------------------------------
 .section-container {
   margin: 0 auto;
+  max-width: 1200px;
   overflow: hidden;
   position: relative;
-  padding: 50px 0;
   width: 95%;
-  z-index: 100;
+  z-index: 200;
+  text-align: left;
 
-  //@include breakpoint($small-breakpoint) {
-  //  margin: auto;
-  //  width: $min-width;
-  //}
-
-  .button {
-    @include breakpoint($small-breakpoint) {
-      margin: 80px auto;
-    }
+  li {
+    color: $text-light;
+    margin-bottom: 18px;
   }
 
   .spacer {
     margin-top: 50px;
 
     @include breakpoint($small-breakpoint) {
-      margin-top: 80px;
+      margin-top: 125px;
     }
   }
 
@@ -118,39 +55,26 @@
   }
 }
 
-// TODO: Refactor these two classes out if possible
-.main-container {
-  padding: 0;
-  margin: 0 auto;
-}
+// Defines style for recommendation triggers and elements
+// ----------------------------------------------------------------------
+.recommendation-trigger {
+  height: 750px;
+  position: relative;
 
-.large-container {
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-#recommendation-trigger-left,
-#recommendation-trigger-right {
-  position: absolute;
-  width: 27%;
-}
-
-#recommendation-trigger-left {
-  top: 15%;
-  left: 0;
-}
-
-#recommendation-trigger-right {
-  right: 0;
-  top: 50%;
+  @include breakpoint($small-breakpoint) {
+    height: 50%;
+  }
+  &.right {
+    margin-top: 18%;
+  }
 }
 
 .recommendation {
-  position: absolute;
-  width: 100%;
   background: #FFF;
   border: solid 1px #E9EAEC;
+  height: 330px;
   padding: 15px;
+  width: 100%;
 
   &.left {
     border-radius: 0 5px 5px 0;
@@ -163,36 +87,58 @@
   }
 
   img {
-    height: 70px;
-    width: 70px;
-    border-radius: 100%;
-    border: solid 1px #E9EAEC;
+    border: solid 1px $border-color;
+    border-radius: 50%;
     float: left;
+    height: 70px;
     margin: 10px 15px 15px 10px;
+    width: 70px;
   }
 
   h3 {
     color: #000;
-    margin: 10px 0 7px 0;
+    margin: 0;
   }
 
   h4 {
-    color: rgba(0,0,0,0.65);
+    color: $background-light-blue;
     font-size: 15px;
-    margin: 5px 0;
+    margin: 0 0 5px 0;
   }
 
-  p {
-    clear: both;
+  .quote {
     color: $text-light;
-    font-weight: $weight-light;
-    font-size: 13px;
-    line-height: $line-height;
-    letter-spacing: 0.1px;
+    clear: both;
+    height: 200px;
     margin-left: 10px;
+    overflow: hidden;
+  }
+
+  .readmore {
+    color: $background-light-blue;
+    font-weight: $weight-regular;
   }
 
   .title {
     color: $background-dark-blue;
+  }
+}
+
+.resume-column {
+  bottom: 50px;
+  height: 75%;
+  position: absolute;
+  width: 27%;
+  z-index: 300;
+
+  @include breakpoint ($medium-breakpoint) {
+    height: 80%;
+  }
+
+  &.left {
+    left: 0;
+  }
+  &.right {
+    right: 0;
   }
 }

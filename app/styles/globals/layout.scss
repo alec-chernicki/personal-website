@@ -1,0 +1,114 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $gotham;
+  height: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  @include breakpoint($small-breakpoint) {
+    min-width: $min-width;
+  }
+}
+
+img, ul, li {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  color: $text-light;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover, &:visited, &:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+a, li {
+  i {
+    display: inline-block;
+    font-size: 25px;
+
+    @include breakpoint ($small-breakpoint) {
+      width: 29px;
+    }
+  }
+
+  span {
+    margin-left: 8px;
+    line-height: 25px;
+    vertical-align: top;
+  }
+}
+
+p, div, input, textarea {
+  font-size: $paragraph-text;
+  font-weight: $weight-light;
+  letter-spacing: 0.25px;
+  line-height: $line-height;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: $weight-regular;
+  letter-spacing: 1.5px;
+  line-height: 1.25em;
+
+  @include breakpoint($small-breakpoint) {
+    font-size: 45px;
+  }
+}
+
+h2 {
+  color: #FFF;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+  margin: 20px 0 10px;
+
+  @include breakpoint($small-breakpoint) {
+    font-size: 45px;
+  }
+}
+
+h3 {
+  color: $text-dark;
+  font-size: 21px;
+  font-weight: $weight-regular;
+  letter-spacing: 1px;
+  line-height: 40px;
+  margin: 0 0 10px 0;
+}
+
+form {
+  input, textarea {
+    border: 0;
+    color: $background-dark-blue;
+    outline: 0;
+    resize: none;
+    width: 100%;
+    word-wrap: break-word;
+    padding: 1px;
+  }
+
+  label {
+    font-weight: $weight-regular;
+  }
+}

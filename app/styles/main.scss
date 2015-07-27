@@ -1,7 +1,6 @@
 // Vendor
 // ----------------------------------------------------------------------
 @import '../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss';
-@import '../bower_components/normalize.css/normalize.css';
 
 // Globals
 // ----------------------------------------------------------------------
@@ -9,77 +8,27 @@
 @import 'globals/mixins';
 @import 'globals/variables';
 
+@import 'globals/layout';
+
 // Components
 // ----------------------------------------------------------------------
 @import 'components/containers';
 @import 'components/navigation';
 @import 'components/buttons';
 
-html {
-  height: 100%;
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-  -webkit-appearance: none;
-}
-
-body {
-  font-family: $gotham;
-  height: 100%;
-  -webkit-font-smoothing: subpixel-antialiased;
-
-  @include breakpoint ($small-breakpoint) {
-    min-width: $min-width;
-  }
-}
-
-img, ul, li {
-  display: block;
-  margin: 0;
-  list-style: none;
-  padding: 0;
-}
-
-img {
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-  transition: $short-transition;
-
-  &:hover, &:visited, &:focus {
-    text-decoration: none;
-  }
-}
-
-i {
+.fa {
+  font-size: 25px;
   -webkit-font-smoothing: antialiased;
 }
 
-.gear {
-  background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_40,w_600/v1433742601/gear_icon_ssd59j.svg');
-  position: absolute;
-}
-
 .gear-dark {
-  background: url('http://res.cloudinary.com/alecoortega/image/upload/q_40/v1433742629/gear_icon_dark_jkq40y.svg');
+  background: url('http://res.cloudinary.com/alecoortega/image/upload/v1433742629/gear_icon_dark_jkq40y.svg');
   position: absolute;
 }
 
 .column {
-  position: relative;
-
-
   @include breakpoint($small-breakpoint) {
-    &:nth-child(1) {
-      padding-left: 0;
-    }
-
-    &:nth-child(3) {
-      padding-right: 0;
-    }
+    margin-top: 75px;
   }
 }
 
@@ -87,259 +36,196 @@ i {
   padding: 0;
 }
 
+// Utility Classes
+// ----------------------------------------------
+
+.collapse-left {
+  @include breakpoint($small-breakpoint) {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0 !important;
+  }
+}
+
+.collapse-right {
+  @include breakpoint($small-breakpoint) {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0 !important;
+  }
+}
+
 // Hero Section
 // ----------------------------------------------
 .hero {
+  @include size(100%, 100%);
   background-color: $background-dark-blue;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4),
-                                    rgba(0, 0, 0, 0.5)),
-                    url('http://wallpaper-download.net/wallpapers/beach-wallpapers-blue-ocean-waves-wallpaper-36890.jpg');
+  background-image: linear-gradient(140deg, rgba(24,46,74, 0.85), rgba(70,174,195, 0.65)), url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1600/v1438708149/desk_y26zid.jpg');
   background-position: center;
   background-size: cover;
+  color: #FFF;
+  display: table;
   min-height: 500px;
   position: relative;
-  @include size(100%, 100%);
-
 
   h1 {
-    color: #FFF;
-    font-size: 3.15em;
-    @include fadeInUp;
-    font-weight: $weight-regular;
-    line-height: 1.25em;
     margin: 0 0 15px 0;
-    letter-spacing: 3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
 
-    @include breakpoint($small-breakpoint) {
-      font-size: 60px;
-    }
+  p {
+    color: #D7EFF3;
+    margin: 0 auto 20px;
+    max-width: 550px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    width: 85%;
   }
 
   .hero-arrow {
     @include absolute-horizontal-center;
+    @include size(40px, 15px);
     background: url('http://res.cloudinary.com/alecoortega/image/upload/v1433744075/down_arrow_phzt3h.svg') no-repeat;
     bottom: 30px;
-    @include fadeInUp;
-    @include size(40px, 15px);
-    -webkit-animation-delay: 1.5s;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
   }
 
   .hero-container {
-    @include absolute-all-center;
-    max-width: 500px;
-    @include size(100%, 80px);
+    margin: 0 auto;
+    padding: 0 15px;
+    display: table-cell;
+    vertical-align: middle;
     text-align: center;
-  }
 
-  .hero-nav-wrapper {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    right: 0;
-    border: none;
-
-    .hero-nav-links li {
-      display: inline-block;
+    @include breakpoint($small-breakpoint) {
+      height: 30%;
     }
 
-    // TODO: Again this is a repeat
-    .navbar-brand {
-      background-image: url('http://res.cloudinary.com/alecoortega/image/upload/v1433742938/logo_q4yhrv.svg');
-      color: #FFF;
-      font-weight: $weight-important;
-    }
-
-    .navbar-container {
-
+    .button {
+      margin: 0 auto;
+      max-width: 225px;
+      width: 60%;
     }
   }
 }
-
-// Navigation Bar
-// ----------------------------------------------
-.nav-trigger {
-  position: fixed;
-  top: -100px;
-  left: 0;
-  right: 0;
-  transition: 0.4s;
-  z-index: 1000;
-}
-
-.nav-trigger-in {
-  top: 0
-}
-
-.nav-element {
-  background-color: #FFF;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
-
-  .navbar-brand {
-    background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_20,w_300/v1433742896/logo_dark_nxlkcb.svg');
-    color: $text-dark;
-    font-weight: $weight-important;
-  }
-
-  li a {
-    color: $text-light;
-
-    &:hover {
-      color: $background-dark-blue;
-    }
-  }
-
-  #full-navigation {
-    a {
-      &:after {
-        @include breakpoint($small-breakpoint) {
-          opacity: 0;
-          bottom: 0;
-          content: '';
-          position: absolute;
-          transition: $short-transition;
-          left: 5px;
-          right: 5px;
-          height: 1px;
-          background-color: $background-dark-blue;
-        }
-      }
-    }
-
-    .highlight {
-      color: $background-dark-blue;
-
-      &:after {
-        bottom: 10px;
-        opacity: 1;
-      }
-    }
-  }
-}
-
-
 
 // About Section
 // ----------------------------------------------
 #about {
-  padding: 50px 0;
+  padding: 75px 0;
 
-  @include breakpoint($small-breakpoint) {
-    padding: 125px 0 100px 0;
-  }
-
-  .about-video {
-    border-bottom: solid $border-color 1px;
-    box-shadow: 0 5px 7px -5px rgba(0,0,0,0.1);
-    height: 400px;
-    margin: 0 auto 25px;
-    max-width: 400px;
+  .about-photo {
+    border-radius: 50%;
+    max-width: 250px;
+    margin: 0 auto 75px;
   }
 }
-
 
 // Browser Animation
 // ----------------------------------------------
 
-#browser-developer-element,
-#browser-designer-element,
-#resume-element {
-  @include box-shadow;
-  width: 95%;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-}
-
-#browser-developer-element,
-#browser-designer-element {
-  border-radius: 7px;
-
-}
-
-#browser-developer-element {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.42),
-  0 0 1px rgba(0,0,0,0.12),
-  inset 0 -1px 2px rgba(14,60,86,0.1);
-}
-
-#browser-designer-element {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.22),
-  0 0 1px rgba(0,0,0,0.12),
-  inset 0 -1px 2px rgba(14,60,86,0.1);
-  position: absolute;
-
-}
-
-#browser-developer-trigger,
-.resume-trigger {
-  height: 1100px;
-  position: relative;
+#browser-developer-trigger, #browser-designer-trigger, .resume-trigger {
   margin: 0 auto;
   overflow: hidden;
+  position: relative;
+}
 
-  @include breakpoint($medium-breakpoint) {
-    height: 1100px;
+#browser-developer-trigger, #browser-designer-trigger {
+  height: 1100px;
+
+  @include breakpoint($small-breakpoint) {
+    height: 1050px;
   }
-
   @include breakpoint($large-breakpoint) {
-    height: 950px;
+    height: 1000px;
   }
 }
 
+#browser-developer-element, #browser-designer-element, #resume-element {
+  @include box-shadow;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+  width: 95%;
+  z-index: 2;
+}
 
-#browser-designer-element {
-  top: 150px;
+#browser-developer-element, #browser-designer-element {
+  border-radius: 7px;
+}
+
+#browser-designer-element, #resume-element {
+  transform: translateY(-100%);
+}
+
+// TODO: Find more scalable solution
+.resume-trigger {
+  height: 700px;
+  margin: 0 auto 10px;
+
+  @include breakpoint($xsmall-breakpoint) {
+    height: 1050px;
+  }
+  @include breakpoint($small-breakpoint) {
+    height: 1150px;
+  }
+  @include breakpoint($medium-breakpoint) {
+    height: 1450px;
+  }
 }
 
 // Developer
 // ----------------------------------------------
 #developer {
-  background: linear-gradient(to bottom right, #182945, #325E74 55%, #46a4b9);
-  padding: 50px 0 0;
+  background: radial-gradient(circle farthest-corner at 100% 100%, $gradient-blue);
   position: relative;
-
-  @include breakpoint($large-breakpoint) {
-    padding: 50px 50px 0;
-  }
 
   h3, p, li {
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   }
 
-  h3 {
+  h3, i {
     color: #FFF;
   }
 
   p, li {
-    color: #CEE6EA;
+    color: #D7EFF3;
+  }
+
+  .developer-background-container {
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 
   .gear-dark {
     opacity: 0.055;
   }
 
-  #gear-one {
+  .gear-one {
+    @include rotation-right;
     bottom: -200px;
     height: 500px;
     right: -150px;
-    @include rotation-right;
     width: 500px;
   }
 
-  #gear-two {
+  .gear-two {
+    @include rotation-left;
     bottom: 300px;
     height: 250px;
     right: -100px;
-    @include rotation-left;
     width: 250px;
   }
 
-  #gear-three {
+  .gear-three {
+    @include rotation-left;
     height: 600px;
     left: -300px;
     opacity: 0.125;
     top: 200px;
-    @include rotation-left;
     width: 600px;
 
     @include breakpoint($small-breakpoint) {
@@ -347,53 +233,30 @@ i {
     }
   }
 
+  // TODO: Wtf is this
   #gear-six {
+    @include rotation-right;
     height: 500px;
     opacity: 0.065;
     right: -200px;
     top: -100px;
-    @include rotation-right;
     width: 500px;
   }
 
-  .developer-background-container {
-    position: absolute;
-    overflow: hidden;
-    top:0;
-    left:0;
-    right: 0;
-    bottom:0;
+  .section-header-container {
+    margin-bottom: 60px
   }
-
-  .section-container {
-    padding-bottom: 0;
-  }
-}
-
-.developer-button-github {
-  margin: 50px auto;
 }
 
 // Designer
 // ----------------------------------------------
-
 #designer {
   background-color: #FFF;
   box-shadow: 0 -50px 200px rgba(24,46,74,0.25);
-  padding: 30px 0;
   position: relative;
-  overflow: hidden;
-  z-index: 100;
+  z-index: 300;
 
-  @include breakpoint($small-breakpoint) {
-    min-width: $min-width;
-  }
-
-  @include breakpoint($large-breakpoint) {
-    padding: 30px 50px 0;
-  }
-
-  h3 {
+  h2, h3 {
     color: #000;
   }
 
@@ -403,40 +266,40 @@ i {
   }
 
   li i {
-    color: #68c62f;
-    background: linear-gradient(#68c62f,#55b31c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .column {
-    @include breakpoint($small-breakpoint) {
-      margin-bottom: 150px;
-    }
-  }
-
-  .column {
-    @include breakpoint($small-breakpoint) {
-      margin-top: 50px;
-    }
-  }
-  .section-container {
-    padding-bottom: 0;
+    color: #66C23A;
   }
 
   .section-header-container {
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-    margin-bottom: 0;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 60px;
 
-    h2 {
-      color: #000;
+    @include breakpoint($small-breakpoint) {
+      margin-bottom: 0;
     }
   }
 }
 
-.designer-button-behance {
-  background: linear-gradient(to top, $gradient-button-blue);
-  margin: 50px auto;
+// Designer, Developer Shared
+// ----------------------------------------------
+#developer, #designer {
+  padding: 60px 0;
+
+  @include breakpoint($small-breakpoint) {
+    padding: 60px 0 0;
+  }
+
+  // TODO: Replace this side padding with a max-width to .section-contianer and margin: 0 auto?
+  @include breakpoint($large-breakpoint) {
+    padding: 60px 50px 0;
+  }
+
+  .button {
+    margin: 50px auto;
+
+    @include breakpoint($small-breakpoint) {
+      margin: 90px auto;
+    }
+  }
 }
 
 // Resume
@@ -444,423 +307,272 @@ i {
 
 #resume {
   background: $background-light-grey;
-  color: #c8cbcd;
-  border-bottom: 1px solid #e9eaec;
-  border-top: 1px solid #e9eaec;
+  border-bottom: 1px solid $border-color;
+  border-top: 1px solid $border-color;
   overflow: hidden;
+  padding: 60px 0 45px;
   position: relative;
-  padding-top: 75px;
-  z-index: 100;
+  z-index: 600;
 
   @include breakpoint($small-breakpoint) {
-    min-width: $min-width;
-    padding: 0 50px 50px 50px;
+    padding: 60px 50px;
+  }
+
+  .resume-trigger, .envelope-wrapper {
+    max-width: 500px;
+
+    @include breakpoint($medium-breakpoint) {
+      max-width: 100%;
+    }
+  }
+
+  .envelope-wrapper {
+    margin: 0 auto;
+    position: relative;
   }
 
   .resume-card-container {
+    height: 25%;
     margin: 50px auto 0;
+    padding-left: 55%;
     perspective: 1250px;
-    padding-top: 120%;
-    width: 70%;
+    width: 0;
 
-    &:first-child {
-      margin-top: 250px;
+    // TODO: Find better solution
+    @include breakpoint($medium-breakpoint) {
+      padding-left: 66%;
     }
-
-    &:nth-child(2) .resume-card {
-      & .resume-card-front {
-        background: url('/images/card-back.png');
-        background-size: cover;
-        @include box-shadow;
-      }
-
-      & .resume-card-back {
-        background: url('/images/card-front.png');
-        background-size: cover;
-        @include box-shadow;
-        transform: rotateY( 180deg );
-      }
+    @include breakpoint($large-breakpoint) {
+      padding-left: 60%;
     }
   }
 
   .resume-card {
-    position: absolute;
-    transform-style: preserve-3d;
-    top: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.22), 0 0 1px rgba(0,0,0,0.12), inset 0 -1px 2px rgba(14,60,86,0.1);
     left: 0;
+    position: absolute;
     @include size(100%, 100%);
+    top: 0;
     transition: transform 0.75s;
-
-    & figure {
-      backface-visibility: hidden;
-      display: block;
-      position: absolute;
-      @include size(100%, 100%);
-    }
+    transform-style: preserve-3d;
 
     &:hover {
-      transform: rotateY( 180deg );
+      transform: rotateY(180deg);
+    }
+
+    & figure {
+      // Ugh Sass is compiling this weird so I need to throw an important in here and figure it out latah
+      @include size(100%, 100%);
+      -webkit-backface-visibility: hidden;
+      background-size: cover !important;
+      display: block;
+      position: absolute;
+      transition: transform 0.75s;
     }
 
     & .resume-card-front {
-      background: url('/images/card-front.png');
-      background-size: cover;
       @include box-shadow;
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1438044017/card-front_zay3o6.jpg');
     }
 
     & .resume-card-back {
-      background: url('/images/card-back.png');
-      background-size: cover;
       @include box-shadow;
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1439313165/card-back_ydee7b.jpg');
       transform: rotateY( 180deg );
     }
-  }
-
-  .resume-moleskin {
-    @include box-shadow;
-    background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_10,w_400/v1433742719/moleskin_bqe1ao.png');
-    background-size: cover;
-    border-radius: 5px 25px 25px 5px;
-    padding-top: 157.5%;
-    margin-top: 250px;
-    width: 100%;
   }
 
   .resume-download-wrapper {
     @include absolute-horizontal-center;
-    bottom: 350px;
+    background-color: #FFF;
+    border-radius: 5px;
+    border: solid 1px $border-color;
+    bottom: 20%;
     color: #000;
-    height: 240px;
-    padding: 15px;
+    height: 200px;
+    max-width: 325px;
+    padding: 20px;
     text-align: center;
-    width: 90%;
+    width: 100%;
     z-index: 4;
 
+    @include breakpoint ($xsmall-breakpoint) {
+      bottom: 18%;
+    }
+
     @include breakpoint($small-breakpoint) {
-      width: 60%;
+      bottom: 16%;
     }
-
-    h3 {
-      font-weight: $weight-regular;
-      font-size: 20px;
-      letter-spacing: 1px;
-      margin: 20px auto 30px;
-    }
-  }
-
-  .resume-button-linkedin {
-    margin: 20px auto;
-    width: auto;
-  }
-
-  .resume-download-wrapper-container {
-    background: #FFF;
-    border: solid 1px $border-color;
-    border-radius: 5px;
-    padding: 20px;
 
     a {
       margin: 0 auto;
     }
-  }
 
-  #resume-element {
-    @include absolute-horizontal-center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.22),
-    0 0 1px rgba(0,0,0,0.12),
-    inset 0 -1px 2px rgba(14,60,86,0.1);
-    max-width: 590px;
-    top: 100px;
-    width: 95%;
-    z-index: 2;
-  }
-
-  .resume-gradient {
-    background: $border-color;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  .resume-yoyo-body {
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.22),
-    0 0 1px rgba(0,0,0,0.12),
-    inset 0 -1px 2px rgba(14,60,86,0.1);
-    position: absolute;
-    top: 45%;
-    left: 30px;
-    height: 175px;
-    width: 175px;
-    z-index: 200;
-
-    &:hover {
-      @include rotation-right-fast
+    h3 {
+      margin: 20px auto 30px;
     }
   }
 
-  .resume-yoyo-string {
-    position: absolute;
-    top: 50.5%;
-    left: 170px;
-    height: 130px;
-    z-index: 100;
-    width: auto;
-  }
-
   .section-header-container {
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-    margin-bottom: 0;
+    border-bottom: 1px solid $border-color;
 
     h2 {
       color: #000;
     }
 
     p {
-      color: rgba(0,0,0,0.65)
+      color: rgba(0,0,0,0.65);
     }
-  }
-
-  .section-container {
-    padding: 0 15px;
   }
 }
 
 .moleskine {
-  box-shadow: 0 2px 6px rgba(0,0,0,0.22),
-  0 0 1px rgba(0,0,0,0.12),
-  inset 0 -1px 2px rgba(14,60,86,0.1);
-  position: absolute;
-  width: 300px;
-  top: 340px;
-  right: -80px;
-  transform: rotate(-30deg);
-  border-radius: 9px 29px 29px 9px;
+  height: 43%;
+  margin: 8% 0 16% 12%;
+  max-width: 500px;
+  transform: rotate(-10deg);
+  width: auto;
 }
 
-.resume-pen {
-  position: absolute;
-  width: 40px;
-  left: 30px;
-  top: 70%;
+.resume-eraser {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+  height: 7%;
+  margin: 15% 0 0 -6%;
+  transform: rotate(-10deg);
+
+  &:hover {
+    animation: jiggle-three 0.2s ease;
+  }
 }
 
-.resume-pencil {
-  position: absolute;
-  width: 32px;
-  left: 100px;
-  top: 70%;
+.resume-paperclip-one {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+  height: 2.75%;
+  margin: 10% 0 0 20%;
+  transform: rotate(15deg);
+
+  &:hover {
+    animation: jiggle-one 0.2s ease;
+  }
 }
 
-#envelope-bottom {
-  position: absolute;
-  z-index: 1;
-  margin: 500px auto 0;
-  max-width: 620px;
+.resume-paperclip-two {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+  height: 2.75%;
+  margin: 10% 0 0 -32%;
+  transform: rotate(-15deg);
+
+  &:hover {
+    animation: jiggle-two 0.2s ease;
+  }
+}
+
+.envelope-bottom {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
   left: 0;
+  position: absolute;
   right: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-#envelope-top {
-  position: absolute;
-  z-index: 3;
+.envelope-top {
   bottom: 0;
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
   left: -10px;
-  right: -10px;
-  max-width: 620px;
   margin: 0 auto;
+  position: absolute;
+  right: -10px;
+  z-index: 3;
 }
 
 // Contact Me
 // ----------------------------------------------
-#contact {
-  .section-container {
-    @include breakpoint($small-breakpoint) {
-      padding: 60px 90px;
-    }
+.contact {
+  padding: 60px 0;
+
+  @include breakpoint($large-breakpoint) {
+    padding: 60px 70px;
   }
 
-  .section-text-container {
-    max-width: 100%;
-  }
-
-  // FIXME: should not be styling off of bootstrap base classes
-  &.main-container {
-    padding: 0;
-  }
-}
-
-.contact-form-container {
-
-  h3 {
-    font-size: 30px;
-    letter-spacing: 2px;
-  }
-
-  // This creates the form animation
-  // TODO: Make container expand when label is displayed
-  .float-label {
-    .control {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      border-bottom: solid 1px $border-color;
-      padding-top: 28px;
-      padding-bottom: 5px;
+  .contact-form-container {
+    h3 {
+      font-size: 30px;
+      letter-spacing: 2px;
     }
 
-    label {
-      font-weight: $weight-regular;
+    .button {
+      margin: 40px auto 0;
+
+      @include breakpoint($small-breakpoint) {
+        margin: 40px 0 auto 0;
+        width: 250px;
+      }
     }
 
-    form {
-      margin: 3em auto;
-      font-weight: $weight-light;
-      color: $text-light;
-      font-size: 15px;
-
-    }
-
-    input, textarea {
-      // TODO: DRY this out to apply to all p tags
-      border: 0;
-      color: $background-dark-blue;
-      font-weight: $weight-light;
-      font-size: $paragraph-text;
-      line-height: $line-height;
-      outline: 0;
-      resize: none;
-      width: 100%;
-
-      & + label {
-        position: absolute;
-        display: block;
-        top: 20px;
-        left: 0;
-        transition: top 0.7s ease, opacity 0.7s ease;
-        opacity: 0;
-
-        font-size: 13px;
-        color: #ccc;
+    .float-label {
+      .control {
+        border-bottom: solid 1px $border-color;
+        padding-bottom: 5px;
+        padding-top: 28px;
+        position: relative;
       }
 
-      &:valid + label {
-        opacity: 1;
-        top: 10px;
-      }
+      input, textarea {
+        & + label {
+          color: #CCC;
+          display: block;
+          font-size: 13px;
+          left: 0;
+          opacity: 0;
+          position: absolute;
+          top: 20px;
+          transition: top 0.7s ease, opacity 0.7s ease;
+        }
 
-      &:focus + label {
-        transition: $transition-time;
-        color: $background-light-blue;
+        &:valid + label {
+          opacity: 1;
+          top: 6px;
+        }
+
+        &:focus + label {
+          color: $background-light-blue;
+          transition: $short-transition;
+        }
       }
     }
   }
 
-  .message {
-    padding: 1px;
-    overflow: hidden;
-    word-wrap: break-word;
-    height: 22px;
-    transition: height $short-transition;
-  }
-
-  .button {
-    margin: $line-height auto 0;
-
-    @include breakpoint($small-breakpoint) {
-      width: 225px;
-      margin: 40px 0 auto 0;
-    }
-  }
-}
-
-
-.contact-links-container {
-  margin-top: 30px;
-
-  @include breakpoint($small-breakpoint) {
-    margin-top: 0
-  }
-
-  .fa-ul {
-    margin-left: 0;
-
-    @include breakpoint($small-breakpoint) {
-      margin-left: inherit;
-    }
-  }
-
-  .fa-twitter,
-  .fa-dribbble,
-  .fa-linkedin,
-  .fa-medium {
-    font-size: 14px;
+  .contact-links-container {
+    margin-top: 40px;
     text-align: center;
-    left: 0;
-    font-weight: $weight-light;
 
     @include breakpoint($small-breakpoint) {
-      left: inherit;
+      margin-top: 0;
       text-align: left;
     }
 
-    a {
+    i {
+      color: $background-light-blue;
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 9px;
+
+      @include breakpoint($small-breakpoint) {
+        margin: 0 0 18px 0;
+        width: 100%;
+      }
+    }
+
+    span {
+      color: $text-light;
       transition: $short-transition;
-      font-size: 14px;
-      font-family: $gotham;
-      letter-spacing: 0.6px;
-      font-weight: $weight-light;
 
       &:hover {
         color: $background-light-blue;
       }
-    }
-
-    &:before {
-      color: $background-light-blue;
-
-      @include breakpoint($small-breakpoint) {
-        margin-right: 10px;
-      }
-    }
-  }
-
-  li {
-    display: inline-block;
-    margin: 0;
-    text-align: left;
-    -webkit-font-smoothing: auto;
-
-    @include breakpoint($small-breakpoint) {
-      margin-bottom: 20px;
-      width: 100%;
-    }
-
-    a:last-child {
-      margin: 0;
-    }
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  a {
-    color: $text-light;
-    font-weight: $weight-light;
-    display: inline-block;
-    letter-spacing: 0.6px;
-    font-size: 14px;
-
-    &:before {
-      color: $background-light-blue;
     }
   }
 }
@@ -868,30 +580,43 @@ i {
 // Footer
 // ----------------------------------------------
 .footer {
-  position: relative;
-  background: linear-gradient(150deg, $gradient-blue);
+  background: linear-gradient(-40deg, $gradient-blue);
   height: 150px;
   overflow: hidden;
+  position: relative;
 
   .gear-dark {
     opacity: 0.07;
   }
+
+  .gear-four {
+    @include rotation-right;
+    height: 600px;
+    margin-right: -570px;
+    right: 50%;
+    top: -300px;
+    width: 600px;
+  }
+
+  .gear-five {
+    @include rotation-left;
+    bottom: -500px;
+    height: 700px;
+    left: 50%;
+    margin-left: -680px;
+    width: 700px;
+  }
 }
 
-#gear-four {
-  height: 600px;
-  width: 600px;
-  top: -300px;
-  @include rotation-right;
-  right: 50%;
-  margin-right: -570px;
-}
+/*
+ScrollMagic overrides, this is ugly but ScrollMagic automatically places a div with a display:rel attr.
+Div must be absolute in order for clip to work, this ensures that the resume-element will mimic
+overflow: hidden even though it's a fixed object
+*/
 
-#gear-five {
-  bottom: -500px;
-  left: 50%;
-  margin-left: -680px;
-  height: 700px;
-  @include rotation-left;
-  width: 700px;
+.scrollmagic-pin-spacer {
+  clip: rect(auto, 1000px, auto, -1000px);
+  left: 0 !important;
+  position: absolute !important;
+  right: 0 !important;
 }

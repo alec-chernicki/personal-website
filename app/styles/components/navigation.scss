@@ -1,23 +1,45 @@
-.navbar {
-  transition: $short-transition;
-  border-bottom: 1px solid $border-color;
-  padding: 10px 0;
-  border-radius: 0;
+.nav-trigger {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: -100px;
+  transition: 0.4s;
+  z-index: 1000;
+}
+
+.nav-trigger-in {
   top: 0;
+}
+
+.navbar {
   margin: 0;
+}
+
+nav {
+  border-bottom: 1px solid $border-color;
+  border-radius: 0;
+  margin: 0;
+  padding: 10px 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #FFF;
+  transition: $short-transition;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
 
   @include breakpoint($small-breakpoint) {
     min-width: $min-width;
   }
 
-  li a {
-    color: #FFF;
+ .nav a {
+    color: $text-light;
     font-size: 13px;
-    letter-spacing: 1.5px;
     font-weight: $weight-regular;
+    letter-spacing: 1.5px;
 
     &:hover {
       background: inherit;
+      color: $background-dark-blue;
     }
 
     &:active, &:focus {
@@ -43,14 +65,61 @@
   background-position: 0 25%;
   background-repeat: no-repeat;
   background-size: 40px 40px;
-  font-weight: $primary-title-weight;
   font-size: 20px;
+  font-weight: $weight-important;
   letter-spacing: 1px;
-  padding-left: 50px;
   margin-left: 15px;
+  padding-left: 50px;
   -webkit-font-smoothing: antialiased;
+  background-image: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_20,w_300/v1433742896/logo_dark_nxlkcb.svg');
+  color: $text-dark;
 
   @include breakpoint($small-breakpoint) {
     margin-left: 0;
+  }
+}
+
+#full-navigation {
+  a:after {
+    @include breakpoint($small-breakpoint) {
+      background-color: $background-dark-blue;
+      bottom: 0;
+      content: '';
+      height: 1px;
+      left: 5px;
+      opacity: 0;
+      position: absolute;
+      right: 5px;
+      transition: $short-transition;
+    }
+  }
+
+  .highlight {
+    color: $background-dark-blue;
+
+    &:after {
+      bottom: 10px;
+      opacity: 1;
+    }
+  }
+}
+
+.hero {
+  nav {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    box-shadow: none;
+    position: absolute;
+    top: 30px;
+  }
+
+  .nav a {
+    color: #FFF;
+  }
+
+  // TODO: Again this is a repeat
+  .navbar-brand {
+    background-image: url('http://res.cloudinary.com/alecoortega/image/upload/v1433742938/logo_q4yhrv.svg');
+    color: #FFF;
   }
 }

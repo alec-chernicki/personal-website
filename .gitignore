@@ -7,4 +7,6 @@ test/bower_components
 npm-debug.logging
 .idea/workspace.xml
 dist
+.csscomb.json
 app/fonts/
+

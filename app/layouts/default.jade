@@ -4,31 +4,31 @@ html.no-js
     meta(charset='utf-8')
     meta(name='viewport' content='width = device-width, initial-scale = 1, maximum-scale = 1, user-scalable = 0')
 
-    link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+    link(rel="stylesheet" href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
     link(rel="stylesheet" href='https://cdn.rawgit.com/konpa/devicon/89f2f44ba07ea3fff7e561c2142813b278c2d6c6/devicon.min.css')
 
     title Alec Ortega | Front-End Developer
-    meta(name='description' content='The personal website of Alec Ortega, a front-end developer with a passion for building experiences and corgis.')
+    meta(name='description' content='The personal website of Alec Ortega, a design-minded front-end developer with a passion for building engaging, pixel-perfect experiences.')
     meta(itemprop='name' content='Alec Ortega | Front-End Developer')
-    meta(itemprop='description' content='The personal website of Alec Ortega, a front-end developer with a passion for building experiences and corgis.')
-    meta(itemprop='image' content='')
+    meta(itemprop='description' content='The personal website of Alec Ortega, a design-minded front-end developer with a passion for building engaging, pixel-perfect experiences.')
+    meta(itemprop='image' content='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_900/v1439325032/Screen_Shot_2015-08-11_at_4.29.37_PM_b7exmn.jpg')
     meta(property='og:title' content='Alec Ortega | Front-End Developer')
     meta(property='og:type' content='website')
     meta(property='og:url' content='http://alecortega.com')
-    meta(property='og:image' content='')
+    meta(property='og:image' content='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_900/v1439325032/Screen_Shot_2015-08-11_at_4.29.37_PM_b7exmn.jpg')
     meta(property='og:site_name' content='Alec Ortega | Front-End Developer')
-    meta(property='og:description' content='The personal website of Alec Ortega, a front-end developer with a passion for building experiences and corgis.')
+    meta(property='og:description' content='The personal website of Alec Ortega, a design-minded front-end developer with a passion for building engaging, pixel-perfect experiences.')
     meta(property='twitter:card' content='summary_large_image')
     meta(property='twitter:url' content='http://alecortega.com')
-    meta(property='twitter:image' content='')
+    meta(property='twitter:image' content='http://res.cloudinary.com/alecoortega/image/upload/c_scale,w_900/v1439325032/Screen_Shot_2015-08-11_at_4.29.37_PM_b7exmn.jpg')
     meta(property='twitter:site' content='@whynotdostuff')
     meta(property='twitter:creator' content='@whynotdostuff')
 
     // Place favicon.ico and apple-touch-icon.png in the root directory
 
     // build:css styles/vendor.css
+    link(rel='stylesheet' href='../bower_components/normalize.css/normalize.css')
     // bower:css
-    link(rel='stylesheet', href='/bower_components/normalize.css/normalize.css')
     // endbower
     // endbuild
 
@@ -62,23 +62,21 @@ html.no-js
 
     // build:js scripts/vendor.js
 
-    script(src='/bower_components/jquery/dist/jquery.js')
-    script(src='/bower_components/gsap/src/uncompressed/TweenMax.js')
-    script(src='/bower_components/gsap/src/uncompressed/TimelineMax.js')
-    script(src='/bower_components/jquery-autosize/dist/autosize.js')
-    script(src='/bower_components/jquery-smooth-scroll/jquery.smooth-scroll.js')
-    script(src='/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js')
-    script(src='/bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js')
+    script(src='/bower_components/jquery/dist/jquery.js' type="text/javascript")
+    script(src='/bower_components/gsap/src/minified/TweenMax.min.js' type="text/javascript")
+    script(src='/bower_components/jquery-autosize/dist/autosize.js' type="text/javascript")
+    script(src='/bower_components/jquery-smooth-scroll/jquery.smooth-scroll.js' type="text/javascript")
+    script(src='/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js' type="text/javascript")
+    script(src='/bower_components/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js' type="text/javascript")
+    script(src='/bower_components/dotdotdot/src/js/jquery.dotdotdot.js' type="text/javascript")
 
     // endbuild
 
     // build:js scripts/plugins.js
     script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/collapse.js')
     script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/transition.js')
-    script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js')
-    script(src='../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/carousel.js')
     // endbuild
 
     // build:js scripts/main.js
-    script(src='scripts/main.js')
+    script(src='scripts/main.js' type="text/javascript")
     // endbuild

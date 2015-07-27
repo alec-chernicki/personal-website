@@ -3,12 +3,13 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass-official": "~3.3.1",
-    "modernizr": "~2.8.1",
     "gsap": "~1.16.1",
     "jquery-autosize": "~3.0.6",
     "jquery-smooth-scroll": "~1.5.5",
     "scrollmagic": "~2.0.3",
-    "normalize.css": "~3.0.3"
+    "normalize.css": "~3.0.3",
+    "dotdotdot": "~1.7.4",
+    "autosize": "~3.0.8"
   },
   "overrides": {
     "gsap": {
