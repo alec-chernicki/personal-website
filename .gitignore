@@ -9,4 +9,5 @@ npm-debug.logging
 dist
 .csscomb.json
 app/fonts/
+.idea
 
