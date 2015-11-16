@@ -12,6 +12,7 @@
 }
 
 .navbar {
+  border-radius: 0;
   margin: 0;
 }
 
@@ -115,6 +116,10 @@ nav {
 
   .nav a {
     color: #FFF;
+
+    &:hover {
+      color: #B1C6CC;
+    }
   }
 
   // TODO: Again this is a repeat

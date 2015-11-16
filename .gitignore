@@ -1,13 +1,9 @@
+bower_components
 node_modules
 .tmp
 .sass-cache
-bower_components
-test/bower_components
-.awspublish-*
 npm-debug.logging
-.idea/workspace.xml
-dist
-.csscomb.json
+.DS_Store
+
 app/fonts/
-.idea
 

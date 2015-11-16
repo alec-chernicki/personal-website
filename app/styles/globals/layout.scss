@@ -35,10 +35,15 @@ p {
 a {
   text-decoration: none;
 
-  &:hover, &:visited, &:focus {
-    color: inherit;
+  &:hover, &:focus {
     text-decoration: none;
   }
+
+  &:focus {
+    color: inherit;
+  }
+
+
 }
 
 a, li {

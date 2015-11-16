@@ -129,7 +129,8 @@
   position: relative;
 }
 
-#browser-developer-trigger, #browser-designer-trigger {
+// TODO: Find more scalable solution than just breakpoints
+#browser-developer-trigger {
   height: 1100px;
 
   @include breakpoint($small-breakpoint) {
@@ -137,6 +138,32 @@
   }
   @include breakpoint($large-breakpoint) {
     height: 1000px;
+  }
+}
+
+#browser-designer-trigger {
+  height: 1100px;
+
+  @include breakpoint($small-breakpoint) {
+    height: 1100px;
+  }
+  @include breakpoint($large-breakpoint) {
+    height: 1050px;
+  }
+}
+
+.resume-trigger {
+  height: 700px;
+  margin: 0 auto 10px;
+
+  @include breakpoint($xsmall-breakpoint) {
+    height: 1050px;
+  }
+  @include breakpoint($small-breakpoint) {
+    height: 1150px;
+  }
+  @include breakpoint($medium-breakpoint) {
+    height: 1450px;
   }
 }
 
@@ -155,22 +182,6 @@
 
 #browser-designer-element, #resume-element {
   transform: translateY(-100%);
-}
-
-// TODO: Find more scalable solution
-.resume-trigger {
-  height: 700px;
-  margin: 0 auto 10px;
-
-  @include breakpoint($xsmall-breakpoint) {
-    height: 1050px;
-  }
-  @include breakpoint($small-breakpoint) {
-    height: 1150px;
-  }
-  @include breakpoint($medium-breakpoint) {
-    height: 1450px;
-  }
 }
 
 // Developer
@@ -307,7 +318,6 @@
 
 #resume {
   background: $background-light-grey;
-  border-bottom: 1px solid $border-color;
   border-top: 1px solid $border-color;
   overflow: hidden;
   padding: 60px 0 45px;
@@ -377,7 +387,7 @@
 
     & .resume-card-back {
       @include box-shadow;
-      background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1439313165/card-back_ydee7b.jpg');
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1447641289/card-back_q3r63e.png');
       transform: rotateY( 180deg );
     }
   }
@@ -486,9 +496,78 @@
   z-index: 3;
 }
 
+// Portfolio
+// ----------------------------------------------
+#portfolio {
+  border-bottom: 1px solid $border-color;
+  border-top: 1px solid $border-color;
+  clear: both;
+  text-align: center;
+
+  .portfolio-item {
+    border: 0 solid #FFF;
+    float: left;
+    height: 250px;
+    position: relative;
+    transition: $short-transition;
+    width: 100%;
+
+    @include breakpoint($small-breakpoint) {
+      width: 33.3333%;
+      width: calc(100% / 3);
+    }
+
+    &:hover {
+      border: 5px solid #FFF;
+    }
+
+    &.one {
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_450/v1447643950/Screen_Shot_2015-11-15_at_10.10.16_PM_uyoy4a.png') center;
+      background-size: cover;
+    }
+
+    &.two {
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_450/v1447645512/Screen_Shot_2015-11-15_at_10.44.34_PM_pzljmj.png') center;
+      background-size: cover;
+    }
+
+    &.three {
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_450/v1447645571/Screen_Shot_2015-11-15_at_10.45.45_PM_whnoul.png') center;
+      background-size: cover;
+    }
+
+    p {
+      bottom: 0;
+      color: #FFF;
+      font-size: 21px;
+      font-weight: $weight-regular;
+      height: 30px;
+      left: 0;
+      letter-spacing: 1px;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      top: 0;
+      z-index: 100;
+    }
+  }
+
+  .portfolio-overlay {
+    background: $background-dark-blue;
+    border: none;
+    height: 100%;
+    opacity: 0.45;
+    transition: $short-transition;
+    width: 100%;
+  }
+}
+
+
+
 // Contact Me
 // ----------------------------------------------
-.contact {
+#contact {
   padding: 60px 0;
 
   @include breakpoint($large-breakpoint) {

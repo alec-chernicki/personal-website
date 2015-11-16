@@ -63,7 +63,7 @@ $gradient-blue: #46b8cd, #276073 50%, #182E4A;
 // Transition Times
 // ----------------------------------------------------------------------
 
-$short-transition: all 0.15s ease-in-out;
+$short-transition: all 0.15s cubic-bezier(.17,.67,.83,.67);
 
 // Breakpoints
 // ----------------------------------------------------------------------

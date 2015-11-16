@@ -58,7 +58,7 @@ var getAboutSectionHeight = function() {
 };
 
 var getContactSectionHeight = function() {
-  return $('.contact').outerHeight(true);
+  return $('#contact').outerHeight(true);
 };
 
 // ScrollMagic - Navigation
@@ -96,7 +96,7 @@ new ScrollMagic.Scene({
 
 new ScrollMagic.Scene({
     duration: getContactSectionHeight,
-    triggerElement: '.contact'
+    triggerElement: '#contact'
   })
   .setClassToggle('.contact-link', 'highlight')
   .addTo(navigationController);
