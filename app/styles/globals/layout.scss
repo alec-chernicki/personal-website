@@ -74,7 +74,6 @@ p, div, input, textarea {
 
 h1 {
   font-size: 30px;
-  font-weight: $weight-regular;
   letter-spacing: 1.5px;
   line-height: 1.25em;
 
@@ -97,10 +96,13 @@ h2 {
 h3 {
   color: $text-dark;
   font-size: 21px;
-  font-weight: $weight-regular;
   letter-spacing: 1px;
   line-height: 40px;
   margin: 0 0 10px 0;
+}
+
+h1, h2, h3, h4 {
+  font-weight: $weight-regular;
 }
 
 form {
@@ -114,7 +116,16 @@ form {
     padding: 1px;
   }
 
+  input {
+    height: 29px;
+  }
+
   label {
     font-weight: $weight-regular;
+  }
+
+  textarea {
+    // Auto resize override
+    overflow: auto !important;
   }
 }
