@@ -3,6 +3,7 @@
 
 // Initialize commonly used variables as jQuery objects
 // ----------------------------------------------------------------------
+var $root = $('html, body');
 var $submitButton = $('.submit-button');
 var $submitIcon = $('.submit-button i');
 var $submitText = $('.submit-button span');
@@ -265,15 +266,38 @@ $(document).on('click', '.resume-button-download', function() {
 
 // Smooth Scrolling to all 'a' tags
 // ----------------------------------------------------------------------
-$('a').smoothScroll({
-  offset: -navHeight
+$('.about-link, .resume-link, .contact-link, .js-get-started').click(function() {
+  var href = $.attr(this, 'href');
+
+  $root.stop().animate({
+    scrollTop: $(href).offset().top - navHeight
+  }, 1500);
+
+  return false;
+});
+
+$root.bind('scroll mousedown DOMMouseScroll mousewheel keyup touchstart', function(e) {
+  if (e.which > 0 || e.type === 'mousedown' || e.type === 'mousewheel' || e.type === 'touchstart') {
+    $root.stop();
+  }
 });
 
 // Dynamic resize of textarea based on content
 // ----------------------------------------------------------------------
 autosize($('textarea'));
 
-// On docuement ready initialize independent elements
+// Navigation
+// ----------------------------------------------------------------------
+var $hamburger = $('.js-navbar-hamburger');
+
+function toggleMobileMenu () {
+  $hamburger.toggleClass('active');
+  $('.js-main-links').stop().fadeToggle(300, 'linear');
+};
+
+$('.js-navbar-hamburger, .js-main-links a').click(toggleMobileMenu);
+
+// On document ready initialize independent elements
 // ----------------------------------------------------------------------
 $(document).ready(function() {
   bindRecommendationPins();

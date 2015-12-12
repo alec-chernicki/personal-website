@@ -1,12 +1,16 @@
 extends layouts/default
 block content
-  .hero
-    .hero-arrow
-    nav.navbar.hidden-xs
-      .navbar-container
-        .navbar-header
-          a.navbar-brand.navbar-left ALEC ORTEGA
-        ul.nav.navbar-nav.navbar-right
+  #hero.hero
+    a.hero-arrow(href='#about')
+    //- Hero Navigation
+    nav.navbar-hero.hidden-xs
+      .navbar-container.clearfix
+        a.navbar-name
+          .logo-container
+            .gear-navigation-large.light
+            .gear-navigation-small.light
+          |ALEC ORTEGA
+        ul.navigation-links
           li
             a.about-link(href='#about') ABOUT
           li
@@ -15,45 +19,48 @@ block content
             a.contact-link(href='#contact') CONTACT
     .hero-container
       h1
-        |Designing for empathy,
+        |Developing for empathy,
         br
-        |Developing for ease.
+        |Engineering for ease.
       p I'm a design-minded front-end developer with a passion for building engaging, pixel-perfect experiences.
-      a.button(href='#about') GET TO KNOW ME
+      a.button.js-get-started(href='#about') GET TO KNOW ME
 
   .nav-trigger.clearfix
-    nav.nav-element.navbar
-      .navbar-container
-        .navbar-header
-          button.navbar-toggle.collapsed(data-toggle='collapse', type='button', data-target='#full-navigation')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='#hero') ALEC ORTEGA
-        #full-navigation.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a.about-link(href='#about') ABOUT
-            li
-              a.resume-link(href='#resume') RESUME
-            li
-              a.contact-link(href='#contact') CONTACT
-  #about
+    //- Main Navigation
+    nav.navbar-main
+      .navbar-container.clearfix
+        a.navbar-name(href='#hero')
+          .logo-container
+            .gear-navigation-large.dark
+            .gear-navigation-small.dark
+          |ALEC ORTEGA
+        a(title="Menu").navbar-hamburger.js-navbar-hamburger.hidden-md.hidden-lg
+          span.line.line-1
+          span.line.line-2
+          span.line.line-3
+
+        ul.navigation-links.js-main-links
+          li
+            a.about-link(href='#about') ABOUT
+          li
+            a.resume-link(href='#resume') RESUME
+          li
+            a.contact-link(href='#contact') CONTACT
+  #about.about
     .section-container.row
       .col-sm-4
         img.about-photo(src="http://res.cloudinary.com/alecoortega/image/upload/q_70/v1440879297/ProfilePicture_jp2gjl.jpg")
       .col-sm-8
         h3 It's great to meet you
         p
-          |I'm currently majoring in computer science at Suffolk University and developing for behavior change as a front-end engineer at&nbsp
+          |I'm currently majoring in computer science and developing for behavior change as a front-end engineer at&nbsp
           a(href='http://www.wespire.com/' target='blank') WeSpire.
           |&nbspI previously worked at the world's largest startup accelerator and competition,&nbsp
           a(href='http://masschallenge.org/' target='blank') MassChallenge
           |, leading design initiatives and aiding with technical operations. <br><br> Two years ago I became homeless and taught myself to code both as a medium to express my passion for building experiences, and as an opportunity to make life what I wanted it to be. Now  I lead mentorship and at&nbsp
           a(href='http://www.resilientcoders.org/' target='blank') Resilient Coders
           |, an organization that teaches kids from traditionally under-served communities and correctional facilities how to code as an opportunity to do the same. <br><br> My belief is that passion inspires passion, I'm always looking for opportunities and where I can learn from those that are just as motivated to share their knowledge as I am to learn.
-
-  #developer
+  #developer.developer
     .developer-background-container
       .gear-one.gear-dark
       .gear-two.gear-dark
@@ -89,7 +96,7 @@ block content
             i.devicon-git-plain
             span Git, GitHub
           h3.spacer Clean, Concise
-          p I’m a major proponent of code readability and organization. It's not just about whether a product functions properly or not. No one wants to be refactoring a mountain of technical debt before building a new feature. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
+          p I’m a major proponent of code readability and organization. It's about building something efficiently, not hastily. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
 
       .center-column.col-sm-6.hidden-xs
         #browser-developer-trigger
@@ -97,7 +104,7 @@ block content
 
       .col-sm-3.collapse-right
         h3.spacer-medium-down Knowledge is Power
-        p New and awesome techology are continually being introduced. Learning a new framework or library isn't just about staying on the cutting edge, it's about the new experience that you're able to build with it. Each concept is a building block and gaining expertise is all about going from Lincoln Logs to the Millenium Falcon Lego model.
+        p New and awesome techology are continually being introduced. Learning a new framework or library isn't just about staying on the cutting edge, it's about the new experience that you're able to build with it.
         a.button.developer-button-github(href='https://github.com/alecortega' target='_blank')
           i.fa.fa-github.fa-lg
           | &nbsp;VIEW GITHUB
@@ -119,19 +126,19 @@ block content
             i.devicon-python-plain
             span Python
 
-  #designer
+  #designer.designer
     .section-header-container
       h2 User Interface Engineer
-      p I'm a design-minded engineer passionate about implementing the experience of a design in it's best possible form.
+      p I'm a design-minded engineer passionate about implementing the experience of a design in its best possible form.
     .section-container.row
       .col-sm-3.column.collapse-left
         h3 Measure. Learn. Build.
-        p I strongly believe in data-driven decisions. Understanding how a user interacts with a product through analytics tools is essential. By narrowing down the areas with the most opportunity, features can be developed with an extremely high return on investment.
+        p Understanding how a user interacts with a product through analytics tools and making data-driven decisions is essential. Narrowing down areas with the most opportunity means developing features that really pack a punch.
         a.button.designer-button-behance(href='http://codepen.io/alecortega/' target='blank')
           i.fa.fa-codepen.fa-lg
           | &nbsp; VIEW CODEPEN
         h3 All Things Considered
-        p There's more that goes into design than just making it look pretty. Things like client constraints and use cases need to be taken into consideration. Anyone can make something look nice, it's about making the product feel natural and familiar to use.
+        p There's more that goes into an interface than just making it look nice. Things like client constraints and use cases need to be taken into consideration.
       .center-column.col-sm-6.hidden-xs
         #browser-designer-trigger
           img.browser#browser-designer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_80,w_1100/v1438045377/BrowserHiFi_bocbwq.jpg' alt='High Fidelity Browser Mockup')
@@ -155,14 +162,12 @@ block content
             i.fa.fa-line-chart
             span Mixpanel
 
-        h3.spacer Design for Empathy
-        p The technology used to product a product is easily forgotten, but the feeling you envoke in a user is what lasts. Designs should always be created with the user's perspective and the overall experience in mind. An empathetic experience is far more powerful than any colored call-to-action button.
-
-
-  #resume
+        h3.spacer Develop for Empathy
+        p The technology used to produce a product is easily forgotten, but the feeling you invoke in a user is what lasts. A performant, empathetic experience is far more powerful than any colored call-to-action button.
+  #resume.resume
     .section-header-container
       h2 Track Record
-      p I've done everything from sales and design, to engineering and teaching. Download my resume or get in touch below.
+      p I have experience in everything from sales and design, to engineering and teaching.
     .resume-column.left
       .recommendation-trigger.left.hidden-xs
         .recommendation.left
@@ -178,8 +183,8 @@ block content
       img.resume-paperclip-two.hidden-xs(src='http://res.cloudinary.com/alecoortega/image/upload/v1438044461/paperclip_m4khzg.svg' alt='paperclip')
       .resume-card-container.hidden-xs
         .resume-card.hidden-xs
-          figure.resume-card-front
-          figure.resume-card-back
+          img.resume-card-front(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1438044017/card-front_zay3o6.jpg')
+          img.resume-card-back(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1447641289/card-back_q3r63e.png')
     .resume-column.right
       img.moleskine.hidden-xs(src='http://res.cloudinary.com/alecoortega/image/upload/q_40/v1438041460/moleskin_u0d0bv.png' alt='Moleskine notebook')
       .recommendation-trigger.right.hidden-xs
@@ -202,8 +207,8 @@ block content
             | &nbsp; DOWNLOAD
         .envelope-wrapper
           img.envelope-top(src='http://res.cloudinary.com/alecoortega/image/upload/v1439316659/envelope-top_f51wlf.svg' alt='Bottom of Envelope')
-          img.envelope-bottom(src='http://res.cloudinary.com/alecoortega/image/upload/v1439316491/envelope-bottom_k0hwrb.svg' alt='Top of Envelope')
-  #portfolio.clearfix
+          img#envelope-bottom.envelope-bottom(src='http://res.cloudinary.com/alecoortega/image/upload/v1439316491/envelope-bottom_k0hwrb.svg' alt='Top of Envelope')
+  #portfolio.portfolio.clearfix
     a.portfolio-item.one(target='blank' href='https://pgreen.wespire.com/')
       p WeSpire Homepage
       .portfolio-overlay
@@ -213,7 +218,7 @@ block content
     a.portfolio-item.three(target='blank' href='https://twitterbattle-alecortega.herokuapp.com/')
       p Twitter Battle
       .portfolio-overlay
-  #contact
+  #contact.contact
     .section-container.row
       .contact-form-container.col-sm-7
         h3 Get in touch

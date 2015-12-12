@@ -43,7 +43,7 @@ app.get('/', function (req, res) {
  */
 app.get('/resume', function (req, res) {
   var file = path.join(__dirname + '/dist/images/resume.pdf');
-  res.download(file);
+  res.sendFile(file);
 });
 
 /**

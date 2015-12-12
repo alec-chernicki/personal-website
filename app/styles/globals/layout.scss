@@ -35,6 +35,8 @@ p {
 
 a {
   text-decoration: none;
+  position: relative;
+  transition: $short-transition;
 
   &:hover, &:focus {
     text-decoration: none;
