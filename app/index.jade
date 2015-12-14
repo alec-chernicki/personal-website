@@ -29,7 +29,7 @@ block content
     //- Main Navigation
     nav.navbar-main
       .navbar-container.clearfix
-        a.navbar-name(href='#hero')
+        a.navbar-name.js-brand-name(href='#hero')
           .logo-container
             .gear-navigation-large.dark
             .gear-navigation-small.dark
@@ -39,13 +39,20 @@ block content
           span.line.line-2
           span.line.line-3
 
-        ul.navigation-links.js-main-links
+        ul.navigation-links.hidden-xs.hidden-sm
           li
             a.about-link(href='#about') ABOUT
           li
             a.resume-link(href='#resume') RESUME
           li
             a.contact-link(href='#contact') CONTACT
+      ul.navigation-mobile.js-mobile-links
+        li
+          a.about-link(href='#about') ABOUT
+        li
+          a.resume-link(href='#resume') RESUME
+        li
+          a.contact-link(href='#contact') CONTACT
   #about.about
     .section-container.row
       .col-sm-4
@@ -138,7 +145,7 @@ block content
           i.fa.fa-codepen.fa-lg
           | &nbsp; VIEW CODEPEN
         h3 All Things Considered
-        p There's more that goes into an interface than just making it look nice. Things like client constraints and use cases need to be taken into consideration.
+        p There's more that goes into an interface than just making it look nice. Things like client constraints and use cases need to be taken into consideration. A product that's tailor-made is always more effective than any wordpress template.
       .center-column.col-sm-6.hidden-xs
         #browser-designer-trigger
           img.browser#browser-designer-element(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_80,w_1100/v1438045377/BrowserHiFi_bocbwq.jpg' alt='High Fidelity Browser Mockup')
@@ -161,13 +168,16 @@ block content
           li
             i.fa.fa-line-chart
             span Mixpanel
+          li
+            i.fa.fa-google
+            span Google Analytics
 
         h3.spacer Develop for Empathy
-        p The technology used to produce a product is easily forgotten, but the feeling you invoke in a user is what lasts. A performant, empathetic experience is far more powerful than any colored call-to-action button.
+        p The technology used to produce a product is easily forgotten, but the feeling you invoke in a user is what lasts. A performant, empathetic experience is far more powerful than any animation library or templating engine.
   #resume.resume
     .section-header-container
       h2 Track Record
-      p I have experience in everything from sales and design, to engineering and teaching.
+      p I help lead front-end development at companies, and mentor urban-youth from under-served communities in my spare time.
     .resume-column.left
       .recommendation-trigger.left.hidden-xs
         .recommendation.left

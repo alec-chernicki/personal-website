@@ -11,6 +11,7 @@ var $designerElement = $('#browser-designer-element');
 var $resumeElement = $('#resume-element');
 var $envelopeBottom = $('.envelope-bottom');
 var $envelopeTop = $('.envelope-top');
+var $hamburger = $('.js-navbar-hamburger');
 
 var navHeight = $('.nav-trigger').outerHeight();
 
@@ -214,6 +215,8 @@ $(window).on('resize',
     resumeScene.offset(getResumeOffset());
     designerScene.offset(getDesignerOffset());
     setEnvelopeBottomPosition();
+    $('.js-mobile-links').one().stop().fadeOut();
+    $hamburger.removeClass('active');
   }, 60)
 );
 
@@ -266,7 +269,7 @@ $(document).on('click', '.resume-button-download', function() {
 
 // Smooth Scrolling to all 'a' tags
 // ----------------------------------------------------------------------
-$('.about-link, .resume-link, .contact-link, .js-get-started').click(function() {
+$('.about-link, .resume-link, .contact-link, .js-get-started, .js-brand-name').click(function() {
   var href = $.attr(this, 'href');
 
   $root.stop().animate({
@@ -288,14 +291,14 @@ autosize($('textarea'));
 
 // Navigation
 // ----------------------------------------------------------------------
-var $hamburger = $('.js-navbar-hamburger');
-
 function toggleMobileMenu () {
-  $hamburger.toggleClass('active');
-  $('.js-main-links').stop().fadeToggle(300, 'linear');
+  if($(window).width() < 768) {
+    $hamburger.toggleClass('active');
+    $('.js-mobile-links').stop().fadeToggle(300, 'linear');
+  }
 };
 
-$('.js-navbar-hamburger, .js-main-links a').click(toggleMobileMenu);
+$('.js-navbar-hamburger, .js-mobile-links a').click(toggleMobileMenu);
 
 // On document ready initialize independent elements
 // ----------------------------------------------------------------------

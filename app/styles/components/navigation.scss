@@ -1,34 +1,30 @@
-.nav-trigger {
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: -100px;
-  transition: 0.4s;
-  z-index: 1000;
-}
-
-// Needed for transition after scrolling past "About"
-.nav-trigger-in {
-  top: 0;
-}
-
-// Main Navigation
 nav {
-  margin: 0;
   padding: 10px 0;
-  top: 0;
-  left: 0;
-  right: 0;
 
   @include breakpoint($small-breakpoint) {
     min-width: $min-width;
   }
 
+  &.navbar-hero {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 0;
+
+    a {
+      color: #FFF;
+
+      &:hover {
+        color: #B1C6CC;
+      }
+    }
+  }
+
   &.navbar-main {
-    border-bottom: 1px solid $border-color;
     background-color: #FFF;
-    transition: $short-transition;
+    border-bottom: 1px solid $border-color;
     box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    transition: $short-transition;
 
     .navbar-name {
       color: $background-dark-blue;
@@ -42,50 +38,66 @@ nav {
       }
     }
   }
+}
 
-  &.navbar-hero {
-    a {
-      color: #FFF;
+.navbar-container {
+  margin: 0 auto;
+  width: 100%;
 
-      &:hover {
-        color: #B1C6CC;
-      }
+  @include breakpoint($small-breakpoint) {
+    width: 90%;
+  }
+}
+
+.navbar-hamburger {
+  float: right;
+  height: 16px;
+  margin: 17px 25px;
+  width: 22px;
+
+  &.active {
+    .line-1 {
+      transform: translateY(-0.5px) translateX(0) rotate(45deg);
+    }
+    .line-2 {
+      opacity:0;
+    }
+    .line-3 {
+      transform: translateY(0.5px) translateX(0) rotate(-45deg);
+    }
+  }
+
+  .line {
+    background-color: $text-light;
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    margin: 0;
+    position: absolute;
+    transition: $short-transition;
+    width: 22px;
+
+    &.line-1 {
+      top: 0;
+      transform-origin: top left;
+    }
+
+    &.line-2 {
+      margin-top: -1px;
+      top: 50%;
+    }
+
+    &.line-3 {
+      bottom: 0;
+      transform-origin: bottom left;
     }
   }
 }
 
-
-
-.navigation-links {
+.navbar-links {
   float: right;
-  height: 100%;
-  width: 100%;
   height: 50px;
-
-  .navbar-main & {
-    display: none;
-    background-color: #FFF;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    padding: 30vh 0;
-    z-index: -1;
-
-    li {
-      display: block;
-      text-align: center;
-    }
-
-    a {
-      font-size: 20px;
-    }
-  }
-
-
-  li {
-    display: inline-block;
-    padding: 15px;
-  }
+  padding: 0 10px;
 
   a {
     font-size: 13px;
@@ -105,6 +117,11 @@ nav {
     }
   }
 
+  li {
+    display: inline-block;
+    padding: 10px 15px;
+  }
+
   .highlight {
     color: $background-dark-blue;
 
@@ -115,67 +132,35 @@ nav {
   }
 }
 
-.navbar-container {
-  margin: 0 auto;
-  width: 100%;
+.navbar-mobile {
+  @extend .navbar-links;
 
-  @include breakpoint($small-breakpoint) {
-    width: 90%;
+  background-color: #FFF;
+  display: none;
+  height: 100vh;
+  padding: 25vh 0;
+  position: fixed;
+  width: 100vw;
+  z-index: -1;
+
+  a {
+    font-size: 20px;
   }
-}
 
-.navbar-hamburger {
-  float: right;
-  height: 16px;
-  width: 22px;
-  margin: 17px 15px;
-
-  .line {
-    height: 2px;
-    width: 22px;
-    background-color: $text-light;
-    transition: $short-transition;
-    border-radius: 1px;
+  li {
     display: block;
-    margin: 0;
-    position: absolute;
-
-    &.line-1 {
-      top: 0;
-      transform-origin: top left;
-    }
-
-    &.line-2 {
-      top: 50%;
-      margin-top: -1px;
-    }
-
-    &.line-3 {
-      bottom: 0;
-      transform-origin: bottom left;
-    }
-  }
-
-  &.active {
-    .line-1 {
-      transform: translateY(-0.5px) translateX(0) rotate(45deg);
-    }
-    .line-2 {
-      opacity:0;
-    }
-    .line-3 {
-      transform: translateY(0.5px) translateX(0) rotate(-45deg);
-    }
+    padding: 25px 15px;
+    text-align: center;
   }
 }
 
 .navbar-name {
+  float: left;
   font-size: 20px;
   font-weight: $weight-important;
-  float: left;
   height: 50px;
-  line-height: 50px;
   letter-spacing: 1px;
+  line-height: 50px;
   margin-left: 15px;
   padding-left: 50px;
   -webkit-font-smoothing: antialiased;
@@ -185,12 +170,16 @@ nav {
   }
 }
 
-.navbar-hero {
-  position: absolute;
-  top: 30px;
+.nav-trigger {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: -100px;
+  transition: 0.4s;
+  z-index: 1000;
+}
 
-  // TODO: Again this is a repeat
-  .navbar-brand {
-    color: #FFF;
-  }
+// Needed for transition after scrolling past "About"
+.nav-trigger-in {
+  top: 0;
 }
