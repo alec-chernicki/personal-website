@@ -1,0 +1,76 @@
+// Developer
+// ----------------------------------------------
+.developer {
+  background: radial-gradient(circle farthest-corner at 100% 100%, $gradient-blue);
+  position: relative;
+
+  h3, p, li {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+
+  h3, i {
+    color: #FFF;
+  }
+
+  p, li {
+    color: #D7EFF3;
+  }
+
+  .developer-background-container {
+    background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451708096/dot_hpyopr.svg');
+    background-size: 3px;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .gear-dark {
+    opacity: 0.055;
+  }
+
+  .gear-one {
+    @include rotation-right;
+    bottom: -200px;
+    height: 500px;
+    right: -150px;
+    width: 500px;
+  }
+
+  .gear-two {
+    @include rotation-left;
+    bottom: 300px;
+    height: 250px;
+    right: -100px;
+    width: 250px;
+  }
+
+  .gear-three {
+    @include rotation-left;
+    height: 600px;
+    left: -300px;
+    opacity: 0.125;
+    top: 200px;
+    width: 600px;
+
+    @include breakpoint($small-breakpoint) {
+      top: 275px;
+    }
+  }
+
+  // TODO: Wtf is this
+  #gear-six {
+    @include rotation-right;
+    height: 500px;
+    opacity: 0.065;
+    right: -200px;
+    top: -100px;
+    width: 500px;
+  }
+
+  .section-header-container {
+    margin-bottom: 60px
+  }
+}

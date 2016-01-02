@@ -110,23 +110,6 @@ gulp.task('serve', ['views', 'styles', 'fonts'], function () {
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-// inject bower components
-gulp.task('wiredep', function () {
-  var wiredep = require('wiredep').stream;
-
-  gulp.src('app/styles/*.scss')
-    .pipe(wiredep({
-      ignorePath: /^(\.\.\/)+/
-    }))
-    .pipe(gulp.dest('app/styles'));
-
-  gulp.src('app/layouts/*.jade')
-    .pipe(wiredep({
-      exclude: ['bootstrap-sass-official'],
-      ignorePath: /^(\.\.\/)*\.\./
-    }))
-    .pipe(gulp.dest('app/layouts'));
-});
 
 gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}))

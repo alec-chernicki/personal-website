@@ -1,0 +1,89 @@
+// Portfolio
+// ----------------------------------------------
+.portfolio {
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin-top: 40px;
+
+  @include breakpoint($small-breakpoint) {
+    margin-top: 60px;
+  }
+
+  .portfolio-item {
+    cursor: pointer;
+    height: 250px;
+    position: relative;
+    width: 100%;
+
+    @include breakpoint($small-breakpoint) {
+      flex: 1 30%;
+    }
+
+    &:hover {
+      p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .portfolio-overlay {
+        opacity: 0.75;
+      }
+    }
+
+    &.one {
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451723762/wespire_xvepkg.png') center;
+      background-size: cover;
+    }
+
+    &.two {
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451723762/patchpanel_djlqec.png') center;
+      background-size: cover;
+    }
+
+    &.three {
+      background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451723762/twitterbattle_qufaho.png') top center;
+      background-size: cover;
+    }
+
+    p {
+      bottom: 0;
+      color: #FFF;
+      cursor: pointer;
+      font-size: 21px;
+      font-weight: $weight-regular;
+      height: 95px;
+      left: 0;
+      letter-spacing: 1px;
+      line-height: 40px;
+      margin: auto;
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      transform: translateY(35px);
+      transition: 0.3s;
+      top: 0;
+      z-index: 100;
+    }
+
+    span {
+      display: inline-block;
+      width: 100%;
+      max-width: 300px;
+      font-size: 15px;
+      font-weight: $weight-light;
+    }
+  }
+
+  .portfolio-overlay {
+    background: radial-gradient(circle farthest-corner at 100% 100%, #46b8cd, #276073 50%, #182E4A);
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0;
+    transition: 0.3s;
+    width: 100%;
+  }
+}

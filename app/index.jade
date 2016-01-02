@@ -10,7 +10,7 @@ block content
             .gear-navigation-large.light
             .gear-navigation-small.light
           |ALEC ORTEGA
-        ul.navigation-links
+        ul.navbar-links
           li
             a.about-link(href='#about') ABOUT
           li
@@ -39,14 +39,14 @@ block content
           span.line.line-2
           span.line.line-3
 
-        ul.navigation-links.hidden-xs.hidden-sm
+        ul.navbar-links.hidden-xs.hidden-sm
           li
             a.about-link(href='#about') ABOUT
           li
             a.resume-link(href='#resume') RESUME
           li
             a.contact-link(href='#contact') CONTACT
-      ul.navigation-mobile.js-mobile-links
+      ul.navbar-mobile.js-mobile-links
         li
           a.about-link(href='#about') ABOUT
         li
@@ -54,19 +54,22 @@ block content
         li
           a.contact-link(href='#contact') CONTACT
   #about.about
-    .section-container.row
-      .col-sm-4
-        img.about-photo(src="http://res.cloudinary.com/alecoortega/image/upload/q_70/v1440879297/ProfilePicture_jp2gjl.jpg")
-      .col-sm-8
+      .about-photo-container
+        .about-photo.one
+        .about-photo.two
+        .about-photo.three
+        .about-photo.four
+        .about-photo.five
+      .about-text
         h3 It's great to meet you
         p
-          |I'm currently majoring in computer science and developing for behavior change as a front-end engineer at&nbsp
+          |I'm currently majoring in computer science and developing for social impact as a front-end engineer at&nbsp
           a(href='http://www.wespire.com/' target='blank') WeSpire.
-          |&nbspI previously worked at the world's largest startup accelerator and competition,&nbsp
+          |&nbspI previously worked at the world's largest startup competition and accelerator,&nbsp
           a(href='http://masschallenge.org/' target='blank') MassChallenge
-          |, leading design initiatives and aiding with technical operations. <br><br> Two years ago I became homeless and taught myself to code both as a medium to express my passion for building experiences, and as an opportunity to make life what I wanted it to be. Now  I lead mentorship and at&nbsp
+          |, leading design initiatives and aiding with technical operations. <br><br> Two years ago I became homeless and taught myself to code both as a medium to express my passion for building experiences, and as an opportunity to make life what I wanted it to be. Now I help lead mentorship at&nbsp
           a(href='http://www.resilientcoders.org/' target='blank') Resilient Coders
-          |, an organization that teaches kids from traditionally under-served communities and correctional facilities how to code as an opportunity to do the same. <br><br> My belief is that passion inspires passion, I'm always looking for opportunities and where I can learn from those that are just as motivated to share their knowledge as I am to learn.
+          |, an organization that teaches young people from traditionally under-served communities how to code as an opportunity to do the same. <br><br> My belief is that passion inspires passion, I'm always looking for opportunities and where I can learn from those that are just as motivated to share their knowledge as I am to learn.
   #developer.developer
     .developer-background-container
       .gear-one.gear-dark
@@ -221,12 +224,18 @@ block content
   #portfolio.portfolio.clearfix
     a.portfolio-item.one(target='blank' href='https://pgreen.wespire.com/')
       p WeSpire Homepage
+        br
+        span The platform's main landing and login page
       .portfolio-overlay
     a.portfolio-item.two(target='blank' href='http://patchpanel.alecortega.com/')
       p Patch Panel
+        br
+        span Makes responsive grid + panel layouts possible
       .portfolio-overlay
     a.portfolio-item.three(target='blank' href='https://twitterbattle-alecortega.herokuapp.com/')
       p Twitter Battle
+        br
+        span Watch search terms compete in real-time
       .portfolio-overlay
   #contact.contact
     .section-container.row

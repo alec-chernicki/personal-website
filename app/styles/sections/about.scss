@@ -1,0 +1,69 @@
+// About Section
+// ----------------------------------------------
+.about {
+  background: #FFF;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+
+  @include breakpoint($small-breakpoint) {
+    flex-direction: row;
+  }
+
+  .about-photo-container {
+    cursor: pointer;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    @include breakpoint($small-breakpoint) {
+      height: auto;
+      width: 50%;
+    }
+
+    .about-photo {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+
+      &.one {
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721160/masschallenge_wn6hfj.png') center;
+        background-size: cover;
+      }
+
+      &.two {
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721432/hour_cvsvhs.jpg') right;
+        background-size: cover;
+      }
+
+      &.three {
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451724861/massawards_lwp7li.jpg') center;
+        background-size: cover;
+      }
+
+      &.four {
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451724943/resilienttalk_bx0cuy.jpg') center;
+        background-size: cover;
+      }
+      &.five {
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721069/five_lmd1oh.png') center;
+        background-size: cover;
+      }
+    }
+  }
+
+  .about-text {
+    border-left: 1px solid $border-color;
+    padding: 60px 25px;
+    width: 100%;
+
+    @include breakpoint($small-breakpoint) {
+      padding: 60px;
+      width: 50%;
+    }
+  }
+}

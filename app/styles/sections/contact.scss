@@ -1,0 +1,97 @@
+.contact {
+  background: #FFF;
+  padding: 60px 0;
+
+  @include breakpoint($large-breakpoint) {
+    padding: 60px 70px;
+  }
+
+  .contact-form-container {
+    h3 {
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    .button {
+      margin: 40px auto 0;
+
+      @include breakpoint($small-breakpoint) {
+        margin: 40px 0 auto 0;
+        width: 250px;
+      }
+    }
+
+    .float-label {
+      .control {
+        border-bottom: solid 1px $border-color;
+        padding-bottom: 5px;
+        padding-top: 28px;
+        position: relative;
+      }
+
+      input, textarea {
+        & + label {
+          color: #CCC;
+          display: block;
+          font-size: 13px;
+          left: 0;
+          visibility: hidden;
+          opacity: 0;
+          position: absolute;
+          top: 20px;
+          transition: top 0.7s ease, opacity 0.7s ease;
+        }
+
+        &:valid + label {
+          opacity: 1;
+          visibility: visible;
+          top: 6px;
+        }
+
+        &:focus + label {
+          color: $background-light-blue;
+          transition: $short-transition;
+        }
+      }
+    }
+  }
+
+  .contact-links-container {
+    margin-top: 40px;
+    text-align: center;
+
+    @include breakpoint($small-breakpoint) {
+      margin-top: 0;
+      text-align: left;
+    }
+
+    i {
+      color: $background-light-blue;
+      font-size: 32px;
+
+      @include breakpoint($small-breakpoint) {
+        font-size: 25px;
+      }
+
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 9px;
+
+      @include breakpoint($small-breakpoint) {
+        margin: 0 0 18px 0;
+        width: 100%;
+      }
+    }
+
+    span {
+      color: $text-light;
+      transition: $short-transition;
+
+      &:hover {
+        color: $background-light-blue;
+      }
+    }
+  }
+}

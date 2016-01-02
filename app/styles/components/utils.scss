@@ -1,0 +1,23 @@
+// Utility Classes
+// ----------------------------------------------
+
+.collapse-left {
+  @include breakpoint($small-breakpoint) {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0 !important;
+  }
+}
+
+.collapse-right {
+  @include breakpoint($small-breakpoint) {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0 !important;
+  }
+}
+
+.no-padding {
+  margin: 0;
+  padding: 0;
+}

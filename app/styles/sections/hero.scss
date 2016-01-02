@@ -1,0 +1,54 @@
+// Hero Section
+// ----------------------------------------------
+.hero {
+  @include size(100%, 100%);
+  background-color: $background-dark-blue;
+  background-image: url('http://res.cloudinary.com/alecoortega/image/upload/v1451708096/dot_hpyopr.svg'),
+    linear-gradient(140deg, rgba(24,46,74, 0.85), rgba(70,174,195, 0.65)),
+    url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1600/v1438708149/desk_y26zid.jpg');
+  background-position: center;
+  background-size: 3px, cover, cover;
+  color: #FFF;
+  display: table;
+  min-height: 500px;
+  position: relative;
+
+  h1 {
+    margin: 0 0 15px 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    color: #D7EFF3;
+    margin: 0 auto 20px;
+    max-width: 550px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    width: 85%;
+  }
+
+  .hero-arrow {
+    @include absolute-horizontal-center;
+    @include size(40px, 15px);
+    background: url('http://res.cloudinary.com/alecoortega/image/upload/v1433744075/down_arrow_phzt3h.svg') no-repeat;
+    bottom: 30px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  }
+
+  .hero-container {
+    margin: 0 auto;
+    padding: 0 15px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    @include breakpoint($small-breakpoint) {
+      height: 30%;
+    }
+
+    .button {
+      margin: 0 auto;
+      max-width: 225px;
+      width: 60%;
+    }
+  }
+}

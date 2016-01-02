@@ -1,0 +1,30 @@
+.footer {
+  background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451708096/dot_hpyopr.svg'),
+    linear-gradient(-40deg, $gradient-blue);
+  background-size: 3px, auto;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+
+  .gear-dark {
+    opacity: 0.07;
+  }
+
+  .gear-four {
+    @include rotation-right;
+    height: 600px;
+    margin-right: -570px;
+    right: 50%;
+    top: -300px;
+    width: 600px;
+  }
+
+  .gear-five {
+    @include rotation-left;
+    bottom: -500px;
+    height: 700px;
+    left: 50%;
+    margin-left: -680px;
+    width: 700px;
+  }
+}
