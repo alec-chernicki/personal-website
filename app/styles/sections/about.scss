@@ -12,6 +12,7 @@
   }
 
   .about-photo-container {
+    background: $text-dark;
     cursor: pointer;
     height: 300px;
     overflow: hidden;
@@ -31,12 +32,12 @@
       width: 100%;
 
       &.one {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721160/masschallenge_wn6hfj.png') center;
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451794501/masschallenge_k6biko.jpg') center;
         background-size: cover;
       }
 
       &.two {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721432/hour_cvsvhs.jpg') right;
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451793834/resilienthour_jgrnck.jpg') right;
         background-size: cover;
       }
 
@@ -46,11 +47,11 @@
       }
 
       &.four {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451724943/resilienttalk_bx0cuy.jpg') center;
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451795040/resilienttalk_tuxu3z.jpg') center;
         background-size: cover;
       }
       &.five {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721069/five_lmd1oh.png') center;
+        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721069/five_lmd1oh.jpg') center;
         background-size: cover;
       }
     }

@@ -269,7 +269,7 @@ jQuery(function($) {
 
   // Smooth Scrolling to all 'a' tags
   // ----------------------------------------------------------------------
-  $('.about-link, .resume-link, .contact-link, .js-get-started, .js-brand-name').click(function() {
+  $('.about-link, .resume-link, .contact-link, .js-get-started, .js-brand-name, .hero-arrow').click(function() {
     var href = $.attr(this, 'href');
 
     $root.stop().animate({
