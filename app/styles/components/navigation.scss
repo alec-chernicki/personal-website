@@ -132,16 +132,26 @@ nav {
   }
 }
 
-.navbar-mobile {
-  @extend .navbar-links;
-
+.navbar-mobile-backdrop {
   background-color: #FFF;
   display: none;
   height: 100vh;
-  padding: 25vh 0;
+  left: 0;
   position: fixed;
+  top: 0;
   width: 100vw;
   z-index: -1;
+}
+
+.navbar-mobile {
+  @extend .navbar-links;
+  bottom: 0;
+  height: 240px;
+  left:0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 50px;
 
   a {
     font-size: 20px;
