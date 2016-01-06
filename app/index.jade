@@ -1,7 +1,7 @@
 extends layouts/default
 block content
   #hero.hero
-    a.hero-arrow(href='#about')
+    a.hero-arrow(href='#about' title='About section')
     //- Hero Navigation
     nav.navbar-hero.hidden-xs
       .navbar-container.clearfix
@@ -23,7 +23,7 @@ block content
         br
         |Engineering for ease.
       p I'm a design-minded front-end developer with a passion for building engaging, pixel-perfect experiences.
-      a.button.js-get-started(href='#about') GET TO KNOW ME
+      a.button.js-get-started(href='#about' title='About section') GET TO KNOW ME
 
   .nav-trigger.clearfix
     //- Main Navigation
@@ -55,22 +55,22 @@ block content
           li
             a.contact-link(href='#contact') CONTACT
   #about.about
-      .about-photo-container
-        .about-photo.one
-        .about-photo.two
-        .about-photo.three
-        .about-photo.four
-        .about-photo.five
-      .about-text
-        h3 It's great to meet you
-        p
-          |I'm currently majoring in computer science and developing for social impact as a front-end engineer at&nbsp
-          a(href='http://www.wespire.com/' target='blank') WeSpire.
-          |&nbspI previously worked at the world's largest startup competition and accelerator,&nbsp
-          a(href='http://masschallenge.org/' target='blank') MassChallenge
-          |, leading design initiatives and aiding with technical operations. <br><br> Two years ago I became homeless and taught myself to code both as a medium to express my passion for building experiences, and as an opportunity to make life what I wanted it to be. Now I help lead mentorship at&nbsp
-          a(href='http://www.resilientcoders.org/' target='blank') Resilient Coders
-          |, an organization that teaches young people from traditionally under-served communities how to code as an opportunity to do the same. <br><br> My belief is that passion inspires passion, I'm always looking for opportunities and where I can learn from those that are just as motivated to share their knowledge as I am to learn.
+    .about-photo-container
+      .about-photo.one
+      .about-photo.two
+      .about-photo.three
+      .about-photo.four
+      .about-photo.five
+    .about-text
+      h3 It's great to meet you
+      p
+        |I'm currently majoring in computer science and developing for social impact as a front-end engineer at&nbsp;
+        a(href='http://www.wespire.com/' target='blank') WeSpire.
+        |&nbsp;I previously worked at the world's largest startup competition and accelerator,&nbsp;
+        a(href='http://masschallenge.org/' target='blank') MassChallenge
+        |, leading design initiatives and aiding with technical operations. <br><br> Two years ago I became homeless and taught myself to code both as a medium to express my passion for building experiences, and as an opportunity to make life what I wanted it to be. Now I help lead mentorship at&nbsp;
+        a(href='http://www.resilientcoders.org/' target='blank') Resilient Coders
+        |, an organization that teaches young people from traditionally under-served communities how to code as an opportunity to do the same. <br><br> My belief is that passion inspires passion, I'm always looking for opportunities and where I can learn from those that are just as motivated to share their knowledge as I am to learn.
   #developer.developer
     .developer-background-container
       .gear-one.gear-dark
@@ -86,28 +86,28 @@ block content
         h3 Frameworks & Tools
         ul
           li
-            i.devicon-nodejs-plain
+            span.icon.devicon-nodejs-plain
             span Node.js, Express
           li
-            i.devicon-bootstrap-plain
+            span.icon.devicon-bootstrap-plain
             span Bootstrap, Foundation
           li
-            i.devicon-jquery-plain
+            span.icon.devicon-jquery-plain
             span jQuery
           li
-            i.devicon-gulp-plain
+            span.icon.devicon-gulp-plain
             span Gulp, Grunt, Webpack
           li
-            i.devicon-react-original
+            span.icon.devicon-react-original
             span React
           li
-            i.devicon-rails-plain
+            span.icon.devicon-rails-plain
             span Ruby on Rails
           li
-            i.devicon-git-plain
+            span.icon.devicon-git-plain
             span Git, GitHub
-          h3.spacer Clean, Concise
-          p I’m a major proponent of code readability and organization. It's about building something efficiently, not hastily. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
+        h3.spacer Clean, Concise
+        p I’m a major proponent of code readability and organization. It's about building something efficiently, not hastily. Readable, modular code leads to easier maintainability and fewer bugs. Which in the end, is just as important as meeting a deadline.
 
       .center-column.col-sm-6.hidden-xs
         #browser-developer-trigger
@@ -117,24 +117,24 @@ block content
         h3.spacer-medium-down Knowledge is Power
         p New and awesome techology are continually being introduced. Learning a new framework or library isn't just about staying on the cutting edge, it's about the new experience that you're able to build with it.
         a.button.developer-button-github(href='https://github.com/alecortega' target='_blank')
-          i.fa.fa-github.fa-lg
+          span.icon.fa.fa-github.fa-lg
           | &nbsp;VIEW GITHUB
         h3 Languages
         ul
           li
-            i.devicon-html5-plain
+            span.icon.devicon-html5-plain
             span HTML5, Haml, Jade
           li
-            i.devicon-css3-plain
+            span.icon.devicon-css3-plain
             span CSS3, Sass, Scss
           li
-            i.devicon-javascript-plain
+            span.icon.devicon-javascript-plain
             span JavaScript, CoffeeScript
           li
-            i.devicon-ruby-plain
+            span.icon.devicon-ruby-plain
             span Ruby
           li
-            i.devicon-python-plain
+            span.icon.devicon-python-plain
             span Python
 
   #designer.designer
@@ -146,7 +146,7 @@ block content
         h3 Measure. Learn. Build.
         p Understanding how a user interacts with a product through analytics tools and making data-driven decisions is essential. Narrowing down areas with the most opportunity means developing features that really pack a punch.
         a.button.designer-button-behance(href='http://codepen.io/alecortega/' target='blank')
-          i.fa.fa-codepen.fa-lg
+          span.icon.fa.fa-codepen.fa-lg
           | &nbsp; VIEW CODEPEN
         h3 All Things Considered
         p There's more that goes into an interface than just making it look nice. Things like client constraints and use cases need to be taken into consideration. A product that's tailor-made is always more effective than any wordpress template.
@@ -158,22 +158,22 @@ block content
         h3.spacer-medium-down Software
         ul
           li
-            i.devicon-photoshop-plain
+            span.icon.devicon-photoshop-plain
             span Photoshop
           li
-            i.devicon-illustrator-plain
+            span.icon.devicon-illustrator-plain
             span Illustrator
           li
-            i.fa.fa-diamond
+            span.icon.fa.fa-diamond
             span Sketch 3
           li
-            i.fa.fa-bars
+            span.icon.fa.fa-bars
             span Framer.js
           li
-            i.fa.fa-line-chart
+            span.icon.fa.fa-line-chart
             span Mixpanel
           li
-            i.fa.fa-google
+            span.icon.fa.fa-google
             span Google Analytics
 
         h3.spacer Develop for Empathy
@@ -197,8 +197,8 @@ block content
       img.resume-paperclip-two.hidden-xs(src='http://res.cloudinary.com/alecoortega/image/upload/v1438044461/paperclip_m4khzg.svg' alt='paperclip')
       .resume-card-container.hidden-xs
         .resume-card.hidden-xs
-          img.resume-card-front(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1438044017/card-front_zay3o6.jpg')
-          img.resume-card-back(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1447641289/card-back_q3r63e.png')
+          img.resume-card-front(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1438044017/card-front_zay3o6.jpg' alt='Front of business card')
+          img.resume-card-back(src='http://res.cloudinary.com/alecoortega/image/upload/c_scale,h_600/v1447641289/card-back_q3r63e.png' alt='Back of business card')
     .resume-column.right
       img.moleskine.hidden-xs(src='http://res.cloudinary.com/alecoortega/image/upload/q_40/v1438041460/moleskin_u0d0bv.png' alt='Moleskine notebook')
       .recommendation-trigger.right.hidden-xs
@@ -217,7 +217,7 @@ block content
         .resume-download-wrapper
           h3 Need a copy?
           a.button.resume-button-linkedin(href='/resume')
-            i.fa.fa-download
+            span.icon.fa.fa-download
             | &nbsp; DOWNLOAD
         .envelope-wrapper
           img.envelope-top(src='http://res.cloudinary.com/alecoortega/image/upload/v1439316659/envelope-top_f51wlf.svg' alt='Bottom of Envelope')
@@ -243,18 +243,18 @@ block content
       .contact-form-container.col-sm-7
         h3 Get in touch
         p Now that you know a bit about me, let's make it mutual. Whether it be personal or professional, I'd love to hear from you. 
-        form#contact-form.float-label(role='form', method='POST', action='/')
+        form#contact-form(method='POST', action='/')
           .control.clearfix
-            input(label="Your Full Name" type="text" spellcheck="false" name="name", id='name', placeholder='Full Name', required)
             label.clearfix(for="name") Full Name
+            input(type="text" spellcheck="false" name="name", id='name', placeholder='Full Name', required)
           .control
-            input(label="Your Email" type="text" spellcheck="false" name="email", placeholder="Your Email", required)
             label(for="email") Your Email
+            input(type="text" spellcheck="false" name="email", id='email', placeholder="Your Email", required)
           .control
-            textarea(label="Your Message" type='text', name="message", placeholder='Your Message', rows='1',
+            textarea(type='text', label='Your Message', name="message", placeholder='Your Message', rows='1',
             required)
           button.button.submit-button(type="submit")
-            i.fa.fa-paper-plane
+            span.icon.fa.fa-paper-plane
             span &nbsp; SEND MESSAGE
 
       .contact-links-container.col-sm-4.col-sm-offset-1
@@ -262,27 +262,27 @@ block content
         ul
           li
             a(target= '_blank' href='https://github.com/alecortega')
-              i.fa.fa-github
+              span.icon.fa.fa-github
               span.hidden-xs GitHub
           li
             a(target= '_blank' href='http://codepen.io/alecortega/')
-              i.fa.fa-codepen
+              span.icon.fa.fa-codepen
               span.hidden-xs CodePen
           li
             a(target= '_blank' href='https://twitter.com/WhyNotDoStuff')
-              i.fa.fa-twitter
+              span.icon.fa.fa-twitter
               span.hidden-xs Twitter
           li
             a(target= '_blank' href='https://dribbble.com/alecortega')
-              i.fa.fa-dribbble
+              span.icon.fa.fa-dribbble
               span.hidden-xs Dribbble
           li
             a(target= '_blank' href='https://linkedin.com/in/alecortega/')
-              i.fa.fa-linkedin
+              span.icon.fa.fa-linkedin
               span.hidden-xs LinkedIn
           li
             a(target= '_blank' href='https://medium.com/@whynotdostuff')
-              i.fa.fa-medium
+              span.icon.fa.fa-medium
               span.hidden-xs Medium
 
   .footer

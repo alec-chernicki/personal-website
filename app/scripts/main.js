@@ -322,6 +322,32 @@ jQuery(function($) {
 
   $('.js-navbar-hamburger, .js-mobile-links a').click(toggleMobileMenu);
 
+  // Form floating label
+  // ----------------------------------------------------------------------
+  var showClass = 'show';
+  var onClass = 'on';
+
+  $('input').on({
+    checkLabel: function () {
+      var $label = $(this).prev('label');
+      if (this.value != '') {
+        $label.addClass(showClass);
+      }
+      else {
+        $label.removeClass(showClass);
+      }
+    },
+    input: function () {
+      $(this).trigger('checkLabel');
+    },
+    focus: function () {
+      $(this).prev('label').addClass(onClass);
+    },
+    blur: function () {
+      $(this).prev('label').removeClass(onClass)
+    }
+  }).trigger('checkLabel');
+
   // On document ready initialize independent elements
   // ----------------------------------------------------------------------
   $(document).ready(function() {
