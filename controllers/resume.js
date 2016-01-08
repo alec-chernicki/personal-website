@@ -1,4 +1,7 @@
+var path = require('path');
+
 exports.getResume = function (req, res) {
-  var file = path.join(__dirname + '/dist/images/resume.pdf');
-  res.sendFile(file);
+  var file = 'resources/resume.pdf';
+  res.setHeader('Content-type', 'application/pdf');
+  res.sendFile(file, {root: './'});
 }

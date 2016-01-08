@@ -1,4 +1,5 @@
-var path =             require('path');
+var nodemailer =       require('nodemailer');
+var mg =               require('nodemailer-mailgun-transport');
 
 exports.getHome = function (req, res) {
   res.sendFile('../public/index.html');

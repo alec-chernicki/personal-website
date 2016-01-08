@@ -4,8 +4,6 @@ var express =          require('express');
 var bodyParser =       require('body-parser');
 var compress =         require('compression');
 var expressValidator = require('express-validator');
-var nodemailer =       require('nodemailer');
-var mg =               require('nodemailer-mailgun-transport');
 var favicon =          require('serve-favicon');
 var path =             require('path');
 var connectAssets =    require('connect-assets');
@@ -26,7 +24,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 app.use(connectAssets({
-  paths: [path.join(__dirname, '/public/styles'), path.join(__dirname, '/public/scripts')]
+  paths: [
+    path.join(__dirname, '/public/stylesheets'),
+    path.join(__dirname, '/public/javascripts')
+  ]
 }));
 app.use(express.static('public'));
 

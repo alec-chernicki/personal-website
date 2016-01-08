@@ -1,6 +1,7 @@
 var $submitButton = $('.submit-button');
-var $submitIcon = $('.js-submit-icon');
-var $submitText = $('.js-submit-text');
+var $submitIcon =   $('.js-submit-icon');
+var $submitText =   $('.js-submit-text');
+var $contactForm =  $('#contact-form');
 
 var showClass = 'show';
 var onClass = 'on';
@@ -26,7 +27,7 @@ var submitForm = function () {
   $submitIcon.removeClass().addClass('fa fa-spin fa-cog');
   $submitText.text(' SENDING');
 
-  var postData = $(this).serializeArray();
+  var postData = $contactForm.serializeArray();
 
   $.ajax({
     url: '/',
@@ -69,7 +70,7 @@ var bindEvents = function () {
   }).trigger('checkLabel');
 
   // Minimal form validation
-  $('#contact-form').submit(function (e) {
+  $contactForm.submit(function (e) {
     e.preventDefault();
 
     var $formInputs = $(this).find('input, textarea');
