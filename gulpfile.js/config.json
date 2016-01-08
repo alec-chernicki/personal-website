@@ -1,0 +1,70 @@
+{
+  "root": {
+    "src": "./app",
+    "dest": "./public"
+  },
+
+  "tasks": {
+    "browserSync": {
+      "server": {
+        "port": 9000,
+        "baseDir": "public"
+      }
+    },
+
+    "static": {
+      "src": "static",
+      "dest": "./"
+    },
+
+    "js": {
+      "src": "javascripts",
+      "dest": "javascripts",
+      "extractSharedJs": true,
+      "entries": {
+        "app": ["./main.js"]
+      },
+      "extensions": ["js"]
+    },
+
+    "css": {
+      "src": "stylesheets",
+      "dest": "stylesheets",
+      "autoprefixer": {
+        "browsers": ["last 3 version"]
+      },
+      "sass": {
+        "indentedSyntax": true
+      },
+      "extensions": ["sass", "scss", "css"]
+    },
+
+    "html": {
+      "src": "layouts",
+      "dest": "./",
+      "htmlmin": {
+        "collapseWhitespace": true
+      },
+      "extensions": ["jade", "json"],
+      "excludeFolders": ["layouts", "shared", "macros", "data"]
+    },
+
+    "images": {
+      "src": "images",
+      "dest": "images",
+      "extensions": ["jpg", "png", "svg", "gif"]
+    },
+
+    "fonts": {
+      "src": "fonts",
+      "dest": "fonts",
+      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
+    },
+
+    "svgSprite": {
+      "src": "sprites",
+      "dest": "images",
+      "extensions": ["svg"]
+    }
+  }
+}

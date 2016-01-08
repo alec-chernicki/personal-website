@@ -1,0 +1,30 @@
+// Designer
+// ----------------------------------------------
+.designer {
+  background-color: #FFF;
+  box-shadow: 0 -50px 200px rgba(24,46,74,0.25);
+  position: relative;
+  z-index: 300;
+
+  h2, h3 {
+    color: #000;
+  }
+
+  p {
+    color: $text-light;
+    text-shadow: 0 1px 0 #FFF;
+  }
+
+  li .icon {
+    color: #66C23A;
+  }
+
+  .section-header-container {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: 60px;
+
+    @include breakpoint($small-breakpoint) {
+      margin-bottom: 0;
+    }
+  }
+}

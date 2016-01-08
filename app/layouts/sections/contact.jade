@@ -1,0 +1,45 @@
+#contact.contact
+  .section-container.row
+    .contact-form-container.col-sm-7
+      h3 Get in touch
+      p Now that you know a bit about me, let's make it mutual. Whether it be personal or professional, I'd love to hear from you. 
+      form#contact-form(method='POST', action='/')
+        .control.clearfix
+          label.clearfix(for="name") Full Name
+          input(type="text" spellcheck="false" name="name", id='name', placeholder='Full Name')
+        .control
+          label(for="email") Your Email
+          input(type="text" spellcheck="false" name="email", id='email', placeholder="Your Email")
+        .control
+          textarea(label='Your Message', name="message", id='message', placeholder='Your Message', rows='1')
+        button.button.submit-button(type="submit")
+          span.icon.fa.fa-paper-plane.js-submit-icon
+          span.js-submit-text &nbsp; SEND MESSAGE
+
+    .contact-links-container.col-sm-4.col-sm-offset-1
+      h3 Find me elsewhere
+      ul
+        li
+          a(target= '_blank' href='https://github.com/alecortega')
+            span.icon.fa.fa-github
+            span.hidden-xs GitHub
+        li
+          a(target= '_blank' href='http://codepen.io/alecortega/')
+            span.icon.fa.fa-codepen
+            span.hidden-xs CodePen
+        li
+          a(target= '_blank' href='https://twitter.com/WhyNotDoStuff')
+            span.icon.fa.fa-twitter
+            span.hidden-xs Twitter
+        li
+          a(target= '_blank' href='https://dribbble.com/alecortega')
+            span.icon.fa.fa-dribbble
+            span.hidden-xs Dribbble
+        li
+          a(target= '_blank' href='https://linkedin.com/in/alecortega/')
+            span.icon.fa.fa-linkedin
+            span.hidden-xs LinkedIn
+        li
+          a(target= '_blank' href='https://medium.com/@whynotdostuff')
+            span.icon.fa.fa-medium
+            span.hidden-xs Medium

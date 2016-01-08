@@ -1,0 +1,29 @@
+.nav-trigger.clearfix
+  //- Main Navigation
+  nav.navbar-main
+    .navbar-container.clearfix
+      a.navbar-name.js-brand-name(href='#hero')
+        .logo-container
+          .gear-navigation-large.dark
+          .gear-navigation-small.dark
+        |ALEC ORTEGA
+      a(title="Menu").navbar-hamburger.js-navbar-hamburger.hidden-md.hidden-lg
+        span.line.line-1
+        span.line.line-2
+        span.line.line-3
+
+      ul.navbar-links.hidden-xs.hidden-sm
+        li
+          a.about-link(href='#about') ABOUT
+        li
+          a.resume-link(href='#resume') RESUME
+        li
+          a.contact-link(href='#contact') CONTACT
+    .navbar-mobile-backdrop.js-mobile-links
+      ul.navbar-mobile
+        li
+          a.about-link(href='#about') ABOUT
+        li
+          a.resume-link(href='#resume') RESUME
+        li
+          a.contact-link(href='#contact') CONTACT

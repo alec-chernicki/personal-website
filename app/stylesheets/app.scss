@@ -1,0 +1,29 @@
+// Vendor
+// ----------------------------------------------------------------------
+@import 'vendor/devicon';
+@import 'vendor/bootstrap';
+@import 'vendor/font-awesome';
+
+// Globals
+// ----------------------------------------------------------------------
+@import 'globals/animations';
+@import 'globals/mixins';
+@import 'globals/variables';
+@import 'globals/layout';
+
+// Components
+// ----------------------------------------------------------------------
+@import 'components/containers';
+@import 'components/navigation';
+@import 'components/buttons';
+
+// Sections
+// ----------------------------------------------------------------------
+@import 'sections/hero';
+@import 'sections/about';
+@import 'sections/developer';
+@import 'sections/designer';
+@import 'sections/resume';
+@import 'sections/portfolio';
+@import 'sections/contact';
+@import 'sections/footer';

@@ -1,0 +1,79 @@
+// Fonts
+// ----------------------------------------------------------------------
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gothamlight-webfont.eot');
+  src: url('../fonts/gothamlight-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gothamlight-webfont.woff') format('woff'),
+  url('../fonts/gothamlight-webfont.ttf') format('truetype'),
+  url('../fonts/gothamlight-webfont.svg#open_sansitalic') format('svg');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gothambook-webfont.eot');
+  src: url('../fonts/gothambook-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gothambook-webfont.woff') format('woff'),
+  url('../fonts/gothambook-webfont.ttf') format('truetype'),
+  url('../fonts/gothambook-webfont.svg#open_sansitalic') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gothambold-webfont.eot');
+  src: url('../fonts/gothambold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gothambold-webfont.woff') format('woff'),
+  url('../fonts/gothambold-webfont.ttf') format('truetype'),
+  url('../fonts/gothambold-webfont.svg#open_sansitalic') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+$gotham: 'Gotham', sans-serif;
+
+
+// Font Weights
+// ----------------------------------------------------------------------
+$weight-light: 200;
+$weight-regular: 300;
+$primary-title-weight: 600;
+$weight-important: 700;
+
+$line-height: 29px;
+$paragraph-text: 15px;
+
+// Colors
+// ----------------------------------------------------------------------
+$text-dark: #25292D;
+$text-light: #6F7C82;
+$background-dark-blue: #182E4A;
+$background-light-grey: #F5F8FA;
+$background-light-blue: #46aec3;
+$border-color: #dfe6eb;
+$developer-text: #B0BAC3;
+$primary-green: #66C23A;
+
+$gradient-button-green: #6DCB2F 0%, #54AE1C 100%;
+$gradient-button-blue: #4ab8cd, #459fb4;
+$gradient-blue: #46b8cd, #276073 50%, #182E4A;
+
+// Transition Times
+// ----------------------------------------------------------------------
+
+$short-transition: all 0.15s cubic-bezier(.17,.67,.83,.67);
+
+// Breakpoints
+// ----------------------------------------------------------------------
+$xsmall-breakpoint: 450px;
+$small-breakpoint: 768px;
+$medium-breakpoint: 992px;
+$large-breakpoint: 1200px;
+
+// Breakpoints
+// ----------------------------------------------------------------------
+$min-width: 1100px;
+$max-width: 1600px;
