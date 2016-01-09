@@ -1,9 +1,9 @@
 // Callback functions so that the durations for animations are all responsive, YAY FUTUREZ!
 // ----------------------------------------------------------------------
-var navHeight = $('.nav-trigger').outerHeight();
+var navHeight =        $('.nav-trigger').outerHeight();
 var $designerElement = $('#browser-designer-element');
-var $resumeElement = $('#resume-element');
-var $resumeTrigger = $('.resume-trigger');
+var $resumeElement =   $('#resume-element');
+var $resumeTrigger =   $('.resume-trigger');
 
 module.exports = {
   getDeveloperDuration: function() {

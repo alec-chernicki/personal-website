@@ -7,7 +7,6 @@
   "tasks": {
     "browserSync": {
       "server": {
-        "port": 9000,
         "baseDir": "public"
       }
     },

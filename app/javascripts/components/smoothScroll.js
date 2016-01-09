@@ -1,6 +1,6 @@
 // Smooth Scrolling to all 'a' tags
 // ----------------------------------------------------------------------
-var $root = $('html, body');
+var $root =     $('html, body');
 var navHeight = $('.nav-trigger').outerHeight();
 
 var bindEvents = function () {

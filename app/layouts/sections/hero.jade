@@ -1,8 +1,14 @@
-#hero.hero
-  a.hero-arrow(href='#about' title='About section')
+section#hero.hero
+  header.hero-container
+    h1
+      |Developing for empathy,
+      br
+      |Engineering for ease.
+    p I'm a design-minded front-end developer with a passion for building engaging, pixel-perfect experiences.
+    a.button.js-get-started(href='#about' title='About section') GET TO KNOW ME
   //- Hero Navigation
   nav.navbar-hero.hidden-xs
-    .navbar-container.clearfix
+    .navbar-container
       a.navbar-name
         .logo-container
           .gear-navigation-large.light
@@ -15,10 +21,4 @@
           a.resume-link(href='#resume') RESUME
         li
           a.contact-link(href='#contact') CONTACT
-  .hero-container
-    h1
-      |Developing for empathy,
-      br
-      |Engineering for ease.
-    p I'm a design-minded front-end developer with a passion for building engaging, pixel-perfect experiences.
-    a.button.js-get-started(href='#about' title='About section') GET TO KNOW ME
+  a.hero-arrow(href='#about' title='About section')

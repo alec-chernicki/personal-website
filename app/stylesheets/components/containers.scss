@@ -86,6 +86,14 @@
     right: 0;
   }
 
+  blockquote {
+    color: $text-light;
+    clear: both;
+    height: 200px;
+    margin-left: 10px;
+    overflow: hidden;
+  }
+
   img {
     border: solid 1px $border-color;
     border-radius: 50%;
@@ -104,14 +112,6 @@
     color: $background-light-blue;
     font-size: 15px;
     margin: 0 0 5px 0;
-  }
-
-  .quote {
-    color: $text-light;
-    clear: both;
-    height: 200px;
-    margin-left: 10px;
-    overflow: hidden;
   }
 
   .readmore {

@@ -23,12 +23,6 @@ app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
-app.use(connectAssets({
-  paths: [
-    path.join(__dirname, '/public/stylesheets'),
-    path.join(__dirname, '/public/javascripts')
-  ]
-}));
 app.use(express.static('public'));
 
 /**

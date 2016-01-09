@@ -1,4 +1,4 @@
-#contact.contact
+section#contact.contact
   .section-container.row
     .contact-form-container.col-sm-7
       h3 Get in touch
@@ -11,7 +11,8 @@
           label(for="email") Your Email
           input(type="text" spellcheck="false" name="email", id='email', placeholder="Your Email")
         .control
-          textarea(label='Your Message', name="message", id='message', placeholder='Your Message', rows='1')
+          label.hidden(for='message') Your Message
+          textarea(name="message", id='message', placeholder='Your Message', rows='1')
         button.button.submit-button(type="submit")
           span.icon.fa.fa-paper-plane.js-submit-icon
           span.js-submit-text &nbsp; SEND MESSAGE

@@ -18,6 +18,12 @@ body {
   }
 }
 
+blockquote {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
 img, ul, li {
   display: block;
   list-style: none;
@@ -64,7 +70,7 @@ a, li {
   }
 }
 
-p, div, input, textarea {
+p, div, blockquote, input, textarea {
   font-size: $paragraph-text;
   font-weight: $weight-light;
   letter-spacing: 0.25px;

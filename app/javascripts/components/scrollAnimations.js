@@ -1,14 +1,12 @@
-import  ScrollMagic from 'scrollmagic';
+import ScrollMagic from 'scrollmagic';
 
-import callback from '../utils/durationCallbacks';
-import debounce from '../utils/debounce';
+import callback    from '../utils/durationCallbacks';
+import debounce    from '../utils/debounce';
 import onImageLoad from '../utils/onImageLoad';
 
-var navHeight = $('.nav-trigger').outerHeight();
-// var $designerElement = $('#browser-designer-element');
-// var $resumeElement = $('#resume-element');
+var navHeight =       $('.nav-trigger').outerHeight();
 var $envelopeBottom = $('.envelope-bottom');
-var $envelopeTop = $('.envelope-top');
+var $envelopeTop =    $('.envelope-top');
 
 var scenes = {};
 

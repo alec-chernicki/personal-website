@@ -9,7 +9,8 @@
   background-position: center;
   background-size: 3px, cover, cover;
   color: #FFF;
-  display: table;
+  display: flex;
+  flex-direction: column;
   min-height: 500px;
   position: relative;
 
@@ -35,15 +36,9 @@
   }
 
   .hero-container {
-    margin: 0 auto;
+    margin: auto;
     padding: 0 15px;
-    display: table-cell;
-    vertical-align: middle;
     text-align: center;
-
-    @include breakpoint($small-breakpoint) {
-      height: 30%;
-    }
 
     .button {
       margin: 0 auto;

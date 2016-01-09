@@ -1,8 +1,17 @@
 var nodemailer =       require('nodemailer');
-var mg =               require('nodemailer-mailgun-transport');
+var mailgun =               require('nodemailer-mailgun-transport');
+
+var auth = {
+    auth: {
+      api_key: process.env.MAILGUN_KEY,
+      domain: 'alecortega.com'
+    }
+  };
+
+var nodemailerMailgun = nodemailer.createTransport(mailgun(auth));
 
 exports.getHome = function (req, res) {
-  res.sendFile('../public/index.html');
+  res.sendFile('public/index.html', {root: './'});
 }
 
 exports.postHome = function(req, res) {
@@ -14,15 +23,6 @@ exports.postHome = function(req, res) {
   var errors = req.validationErrors();
 
   if (errors) console.log(errors);
-
-  var auth = {
-    auth: {
-      api_key: process.env.MAILGUN_KEY,
-      domain: 'alecortega.com'
-    }
-  };
-
-  var nodemailerMailgun = nodemailer.createTransport(mg(auth));
 
   var from = req.body.email;
   var name = req.body.name;
@@ -37,7 +37,11 @@ exports.postHome = function(req, res) {
 
   // send mail with defined transport object
   nodemailerMailgun.sendMail(mailOptions, function(error) {
-    if (error) return console.log(error);
+    if (error) {
+      console.log(error);
+      res.sendStatus(500);
+      return
+    }
     res.sendStatus(200);
   });
 }

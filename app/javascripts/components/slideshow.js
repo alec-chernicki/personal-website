@@ -1,7 +1,7 @@
 var fadeToNextPhoto = function() {
-  var $firstImage = $('.about-photo-container > div:first');
+  var $firstImage =  $('.about-photo-container > div:first');
   var $secondImage = $firstImage.next();
-  var fadeTime = 700;
+  var fadeTime = 750;
 
   $firstImage
     .stop()
@@ -13,12 +13,14 @@ var fadeToNextPhoto = function() {
 };
 
 function bindEvents () {
-  var aboutInterval = setInterval(fadeToNextPhoto,  5000);
+  var timeToNextSlide = 3000;
+
+  var aboutInterval = setInterval(fadeToNextPhoto,  timeToNextSlide);
 
   $(document).on('click', '.about-photo-container', function () {
     fadeToNextPhoto();
     clearInterval(aboutInterval);
-    aboutInterval = setInterval(fadeToNextPhoto,  5000);
+    aboutInterval = setInterval(fadeToNextPhoto,  timeToNextSlide);
   });
 }
 

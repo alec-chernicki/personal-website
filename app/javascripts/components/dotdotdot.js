@@ -2,7 +2,7 @@ import dotdotdot from 'dotdotdot';
 
 function init () {
   $(window).load(function() {
-    $('.quote').dotdotdot({
+    $('blockquote').dotdotdot({
       after: 'a.readmore',
       height: 210,
       watch: 'window'
