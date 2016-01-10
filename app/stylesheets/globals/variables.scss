@@ -1,7 +1,7 @@
 // Fonts
 // ----------------------------------------------------------------------
 @font-face {
-  font-family: 'Gotham';
+  font-family: 'G';
   src: url('../fonts/gothamlight-webfont.eot');
   src: url('../fonts/gothamlight-webfont.eot?#iefix') format('embedded-opentype'),
   url('../fonts/gothamlight-webfont.woff') format('woff'),
@@ -12,7 +12,7 @@
 }
 
 @font-face {
-  font-family: 'Gotham';
+  font-family: 'G';
   src: url('../fonts/gothambook-webfont.eot');
   src: url('../fonts/gothambook-webfont.eot?#iefix') format('embedded-opentype'),
   url('../fonts/gothambook-webfont.woff') format('woff'),
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: 'Gotham';
+  font-family: 'G';
   src: url('../fonts/gothambold-webfont.eot');
   src: url('../fonts/gothambold-webfont.eot?#iefix') format('embedded-opentype'),
   url('../fonts/gothambold-webfont.woff') format('woff'),
@@ -33,7 +33,7 @@
   font-style: normal;
 }
 
-$gotham: 'Gotham', sans-serif;
+$gotham: 'G', sans-serif;
 
 
 // Font Weights
@@ -63,7 +63,6 @@ $gradient-blue: #46b8cd, #276073 50%, #182E4A;
 
 // Transition Times
 // ----------------------------------------------------------------------
-
 $short-transition: all 0.15s cubic-bezier(.17,.67,.83,.67);
 
 // Breakpoints

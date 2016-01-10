@@ -128,6 +128,7 @@ var debouncedEvents = debounce(function () {
 
 var bindEvents = function () {
   $(window).on('resize', debouncedEvents);
+  $(window).on('load', setEnvelopeBottomPosition);
 };
 
 var init = function () {
@@ -135,8 +136,6 @@ var init = function () {
   createNavigationAnimation();
   createBrowserAnimation();
   createRecommendationAnimation();
-
-  setEnvelopeBottomPosition();
 };
 
 export default init;
