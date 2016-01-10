@@ -79,12 +79,18 @@ p, div, blockquote, input, textarea {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 20px;
   letter-spacing: 1.5px;
-  line-height: 1.25em;
+  line-height: 33px;
+
+  @include breakpoint($xsmall-breakpoint) {
+    font-size: 30px;
+    line-height: 45px;
+  }
 
   @include breakpoint($small-breakpoint) {
     font-size: 45px;
+    line-height: 55px;
   }
 }
 

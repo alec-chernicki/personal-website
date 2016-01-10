@@ -10,8 +10,8 @@ function toggleMobileMenu () {
 };
 
 var debouncedEvents = debounce(function () {
-  $('.js-mobile-links').one().stop().fadeOut();
   $hamburger.removeClass('active');
+  $('.js-mobile-links').stop().fadeOut();
 }, 60);
 
 function bindEvents () {
