@@ -42,7 +42,7 @@
       "src": "layouts",
       "dest": "./",
       "htmlmin": {
-        "collapseWhitespace": true
+        "empty": true
       },
       "extensions": ["jade", "json"],
       "excludeFolders": ["layouts", "shared", "macros", "data"]
