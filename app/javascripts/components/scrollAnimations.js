@@ -10,55 +10,50 @@ var $envelopeTop =    $('.envelope-top');
 
 var scenes = {};
 
-var createNavigationAnimation = function () {
-  var navigationController = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      offset: -(navHeight + 1),
-      pushFollowers: false,
-      reverse: true,
-      triggerHook: 0
-    }
-  });
+var controller = new ScrollMagic.Controller({
+  globalSceneOptions: {
+    pushFollowers: false,
+    reverse: true,
+    triggerHook: 'onLeave'
+  }
+});
 
+var createNavigationAnimation = function () {
   // Set navbar to appear above about section
   new ScrollMagic.Scene({
+      offset: -(navHeight + 1),
       triggerElement: '#about'
     })
     .setClassToggle('.nav-trigger', 'nav-trigger-in')
-    .addTo(navigationController);
+    .addTo(controller);
 
   // Make underline appear under each link upon scrolling to section
   new ScrollMagic.Scene({
+      offset: -(navHeight + 1),
       duration: callback.getAboutSectionHeight,
       triggerElement: '#about'
     })
     .setClassToggle('.about-link', 'highlight')
-    .addTo(navigationController);
+    .addTo(controller);
 
   new ScrollMagic.Scene({
+      offset: -(navHeight + 1),
       duration: callback.getResumeSectionHeight,
       triggerElement: '#resume'
     })
     .setClassToggle('.resume-link', 'highlight')
-    .addTo(navigationController);
+    .addTo(controller);
 
   new ScrollMagic.Scene({
+      offset: -(navHeight + 1),
       duration: callback.getContactSectionHeight,
       triggerElement: '#contact'
     })
     .setClassToggle('.contact-link', 'highlight')
-    .addTo(navigationController);
+    .addTo(controller);
 };
 
 var createBrowserAnimation = function () {
-  var pinController = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      pushFollowers: false,
-      reverse: true,
-      triggerHook: 'onLeave'
-    }
-  });
-
   onImageLoad('#browser-developer-element', function () {
     scenes.developer = new ScrollMagic.Scene({
       duration: callback.getDeveloperDuration,
@@ -66,7 +61,7 @@ var createBrowserAnimation = function () {
       triggerElement: '#browser-developer-trigger'
     })
     .setPin('#browser-developer-element')
-    .addTo(pinController);
+    .addTo(controller);
   });
 
   onImageLoad('#browser-designer-element', function() {
@@ -76,7 +71,7 @@ var createBrowserAnimation = function () {
         triggerElement: '#browser-designer-trigger'
       })
       .setPin('#browser-designer-element')
-      .addTo(pinController);
+      .addTo(controller);
   });
 
   onImageLoad('#resume-element', function() {
@@ -86,33 +81,26 @@ var createBrowserAnimation = function () {
         triggerElement: '.resume-trigger'
       })
       .setPin('#resume-element')
-      .addTo(pinController);
+      .addTo(controller);
   });
 }
 
 var createRecommendationAnimation = function() {
-  var recommendationController = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      duration: callback.getRecommendationDuration,
-      offset: -navHeight - 50,
-      pushFollowers: false,
-      reverse: true,
-      triggerHook: 'onLeave',
-      tweenChanges: false
-    }
-  });
-
   new ScrollMagic.Scene({
+      duration: callback.getRecommendationDuration,
       triggerElement: '.recommendation-trigger.left',
+      offset: -navHeight - 50
     })
     .setPin('.recommendation.left')
-    .addTo(recommendationController);
+    .addTo(controller);
 
   new ScrollMagic.Scene({
+      duration: callback.getRecommendationDuration,
       triggerElement: '.recommendation-trigger.right',
+      offset: -navHeight - 50
     })
     .setPin('.recommendation.right')
-    .addTo(recommendationController);
+    .addTo(controller);
 };
 
 // TODO: This is really gross but can't find a way to do it in pure CSS right now
