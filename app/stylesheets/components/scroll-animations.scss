@@ -1,0 +1,76 @@
+// Browser Animation
+// ----------------------------------------------
+#browser-developer-trigger, #browser-designer-trigger, .resume-trigger {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+// TODO: Find more scalable solution than just breakpoints
+#browser-developer-trigger {
+  height: 1100px;
+
+  @include breakpoint($small-breakpoint) {
+    height: 1050px;
+  }
+  @include breakpoint($large-breakpoint) {
+    height: 1000px;
+  }
+}
+
+#browser-designer-trigger {
+  height: 1100px;
+
+  @include breakpoint($small-breakpoint) {
+    height: 1100px;
+  }
+  @include breakpoint($large-breakpoint) {
+    height: 1050px;
+  }
+}
+
+.resume-trigger {
+  height: 700px;
+  margin: 0 auto 10px;
+
+  @include breakpoint($xsmall-breakpoint) {
+    height: 1050px;
+  }
+  @include breakpoint($small-breakpoint) {
+    height: 1150px;
+  }
+  @include breakpoint($medium-breakpoint) {
+    height: 1450px;
+  }
+}
+
+#browser-developer-element, #browser-designer-element, #resume-element {
+  @include box-shadow;
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+  width: 95%;
+  z-index: 2;
+}
+
+#browser-developer-element, #browser-designer-element {
+  border-radius: 7px;
+}
+
+#browser-designer-element, #resume-element {
+  transform: translate3d(0, -100%, 0);
+}
+
+/*
+ScrollMagic overrides, this is ugly but ScrollMagic automatically places a div with a display:rel attr.
+Div must be absolute in order for clip to work, this ensures that the resume-element will mimic
+overflow: hidden even though it's a fixed object
+*/
+
+.scrollmagic-pin-spacer {
+  clip: rect(auto, 1000px, auto, -1000px);
+  left: 0 !important;
+  position: absolute !important;
+  right: 0 !important;
+}
+
