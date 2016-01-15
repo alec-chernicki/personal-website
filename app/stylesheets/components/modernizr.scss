@@ -1,0 +1,36 @@
+.no-flexbox {
+  .hero-container {
+    bottom: 0;
+    height: 260px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .about {
+    height: 650px;
+    overflow: hidden;
+
+    .about-photo-container,
+    .about-text {
+      float: left;
+    }
+
+    .about-photo-container {
+      height: 100%;
+    }
+  }
+}
+
+.no-cssanimations {
+  .contact .contact-form-container form label {
+    opacity: 1;
+    top: 6px;
+  }
+
+  .resume .resume-card .resume-card-back {
+    display: none;
+  }
+}

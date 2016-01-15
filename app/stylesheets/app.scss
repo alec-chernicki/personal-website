@@ -28,3 +28,7 @@
 @import 'sections/portfolio';
 @import 'sections/contact';
 @import 'sections/footer';
+
+// IE Compatibility
+// ----------------------------------------------------------------------
+@import 'components/modernizr';

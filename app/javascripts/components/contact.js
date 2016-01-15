@@ -48,7 +48,7 @@ var submitForm = function () {
 
 var bindEvents = function () {
   // Float Labels
-  $('input').on({
+  $('input, textarea').on({
     checkLabel: function () {
       var $label = $(this).prev('label');
       if (this.value != '') {

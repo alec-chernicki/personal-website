@@ -45,7 +45,7 @@ app.get('/resume', resumeController.getResume);
  */
 app.use(function(err, req, res) {
   console.error(err.stack);
-  res.status(500).send('Something broke!');
+  res.sendStatus(500).send('Something broke!');
 });
 
 /**

@@ -1,6 +1,7 @@
 'use strict';
 
-// Load all components
+import modernizr            from './vendor/modernizr';
+
 import initContact          from './components/contact';
 import initDot              from './components/dotdotdot';
 import initSmoothScroll     from './components/smoothScroll';

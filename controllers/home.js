@@ -1,5 +1,5 @@
-var nodemailer =       require('nodemailer');
-var mailgun =               require('nodemailer-mailgun-transport');
+var nodemailer =   require('nodemailer');
+var mailgun =      require('nodemailer-mailgun-transport');
 
 var auth = {
     auth: {
@@ -24,13 +24,14 @@ exports.postHome = function(req, res) {
 
   if (errors) console.log(errors);
 
-  var from = req.body.email;
+  var sender = req.body.email;
   var name = req.body.name;
   var body = req.body.message;
 
   var mailOptions = {
     to: 'aleccortega@gmail.com',
-    from: from,
+    from: sender,
+    bcc: 'aleccortega@gmail.com',
     subject: 'Contact Form | Personal Website',
     html: name + '<br><br>' + body
   };

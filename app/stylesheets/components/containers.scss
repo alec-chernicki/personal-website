@@ -55,6 +55,16 @@
   }
 }
 
+.column {
+  @include breakpoint($small-breakpoint) {
+    margin-top: 75px;
+  }
+}
+
+.center-column {
+  padding: 0;
+}
+
 // Defines style for recommendation triggers and elements
 // ----------------------------------------------------------------------
 .recommendation-trigger {
