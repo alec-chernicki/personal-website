@@ -1,7 +1,8 @@
 var fadeToNextPhoto = function() {
   var $firstImage =  $('.about-photo-container > div:first');
   var $secondImage = $firstImage.next();
-  var fadeTime = 750;
+
+  var fadeTime = 800;
 
   $firstImage
     .stop()
@@ -13,7 +14,7 @@ var fadeToNextPhoto = function() {
 };
 
 function bindEvents () {
-  var timeToNextSlide = 3000;
+  var timeToNextSlide = 4000;
 
   var aboutInterval = setInterval(fadeToNextPhoto,  timeToNextSlide);
 

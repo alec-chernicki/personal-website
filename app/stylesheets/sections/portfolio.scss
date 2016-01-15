@@ -78,7 +78,9 @@
   }
 
   .portfolio-overlay {
-    background: radial-gradient(circle farthest-corner at 100% 100%, #46b8cd, #276073 50%, #182E4A);
+    background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451708096/dot_hpyopr.svg'),
+      radial-gradient(circle farthest-corner at 100% 100%, #46b8cd, #276073 50%, #182E4A);
+    background-size: 3px, auto;
     border: none;
     cursor: pointer;
     height: 100%;
