@@ -19,7 +19,7 @@ var paths = {
 
 var htmlTask = function() {
   return gulp.src(paths.src)
-    .pipe(render({ pretty: true }))
+    .pipe(render())
     .on('error', handleErrors)
     .pipe(gulpif(process.env.NODE_ENV == 'production', htmlmin(config.tasks.html.htmlmin)))
     .pipe(gulp.dest(paths.dest))
