@@ -3,9 +3,9 @@
 .hero {
   @include size(100%, 100%);
   background-color: $background-dark-blue;
-  background-image: url('http://res.cloudinary.com/alecoortega/image/upload/v1451708096/dot_hpyopr.svg'),
+  background-image: url('../images/dot.svg'),
     linear-gradient(140deg, rgba(24,46,74, 0.85), rgba(70,174,195, 0.65)),
-    url('http://res.cloudinary.com/alecoortega/image/upload/c_scale,q_30,w_1600/v1438708149/desk_y26zid.jpg');
+    url('../images/desk.jpg');
   background-position: center;
   background-size: 3px, cover, cover;
   color: #FFF;
@@ -30,7 +30,7 @@
   .hero-arrow {
     @include absolute-horizontal-center;
     @include size(40px, 15px);
-    background: url('http://res.cloudinary.com/alecoortega/image/upload/v1433744075/down_arrow_phzt3h.svg') no-repeat;
+    background: url('../images/down-arrow.svg') no-repeat;
     bottom: 30px;
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
   }

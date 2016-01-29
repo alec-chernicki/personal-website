@@ -33,17 +33,17 @@
     }
 
     &.one {
-      background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451723762/wespire_xvepkg.png') center;
+      background: url('../images/wespire.png') center;
       background-size: cover;
     }
 
     &.two {
-      background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451723762/patchpanel_djlqec.png') center;
+      background: url('../images/patchpanel.png') center;
       background-size: cover;
     }
 
     &.three {
-      background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451723762/twitterbattle_qufaho.png') top center;
+      background: url('../images/twitterbattle.png') top center;
       background-size: cover;
     }
 
@@ -78,7 +78,7 @@
   }
 
   .portfolio-overlay {
-    background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451708096/dot_hpyopr.svg'),
+    background: url('../images/dot.svg'),
       radial-gradient(circle farthest-corner at 100% 100%, #46b8cd, #276073 50%, #182E4A);
     background-size: 3px, auto;
     border: none;

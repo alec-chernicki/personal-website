@@ -35,21 +35,21 @@
       width: 100%;
 
       &.one {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451794501/masschallenge_k6biko.jpg') center;
+        background: url('../images/masschallenge.jpg') center;
         background-size: cover;
       }
 
       &.two {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451793834/resilienthour_jgrnck.jpg') right;
+        background: url('../images/resilienthour.jpg') right;
         background-size: cover;
       }
 
       &.three {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451724861/massawards_lwp7li.jpg') center;
+        background: url('../images/massawards.jpg') center;
         background-size: cover;
       }
       &.four {
-        background: url('http://res.cloudinary.com/alecoortega/image/upload/v1451721069/five_lmd1oh.jpg') center 30%;
+        background: url('../images/hourofcode.jpg') center 30%;
         background-size: cover;
       }
     }
