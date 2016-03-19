@@ -205,6 +205,7 @@ nav {
 
 .gear-navigation-large {
   animation: rotation-right 15s linear infinite;
+  background-size: cover;
   height: 27px;
   width: 27px;
   left: 0;
@@ -222,6 +223,7 @@ nav {
 
 .gear-navigation-small {
   animation: rotation-left 11.25s linear infinite;
+  background-size: cover;
   height: 20px;
   width: 20px;
   right: 0;
